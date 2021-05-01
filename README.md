@@ -8,3 +8,4 @@
 
 ## How to use
 Auto save when edit
+Preview using Ctrl+Shift+V
