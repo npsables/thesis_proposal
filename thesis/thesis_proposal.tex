@@ -1,66 +1,106 @@
 \documentclass[12pt,a4paper,oneside]{book} % twoside for draf
 
-%\usepackage{babel}
-\usepackage[utf8]{vietnam}
 %\usepackage{times}
-%\usepackage{graphicx}
-
-\usepackage{mathptmx}	% same Time New Roman
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[utf8x]{vietnam}
+\usepackage[english]{babel}
+\selectlanguage{english}
+\usepackage{mathptmx}	% same Time New Roma
 %\renewcommand{\rmdefault}{phv} % Arial
 %\renewcommand{\sfdefault}{phv} % Arial
+\usepackage{url}
+
+%link to part by click on contents region
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
 \usepackage{fancyhdr}
 \usepackage{algorithm2e}
+\usepackage{amsmath}
+\usepackage{array,tabularx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{cases}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{multirow}
 
 \usepackage{bkthesis}
 
-%\csdeptname{KHOA ĐIỆN ĐIỆN TỬ}
-%\crname{BÁO CÁO THỰC TẬP TỐT NGHIỆP}
-% \crname{BÁO CÁO TIỂU LUẬN}
-\title{}
-\cstuname{SVTH: Võ Thị Thuy}
+\usepackage{titlesec}
 
-\csCouncil{Khoa học máy tính}
-\csSupervise{PGS. TS. Phạm Hồng Luân}
-\csReviewer{TS. Pham Van Hai}
-\cttime{1/2016}
+%\titleformat{\chapter}[display]
+%  {\normalfont\bfseries}{}{0pt}{\Huge}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\newenvironment{conditions*}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \tabularx{\columnwidth}{>{$}l<{$} @{${}:{}$} >{\raggedright\arraybackslash}X}}
+  {\endtabularx\par\vspace{\belowdisplayskip}}
+
+\tikzstyle{blank} = [text badly centered, node distance = 2cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, 
+    text width=2em, text centered, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+
+\newcolumntype{b}{>{\hsize=1.0\hsize}X}
+
+\crname{THESIS PROPOSAL}
+\ctname{Name of THESIS}
+\cstuname{
+	Students: \\
+	\begin{tabular}{ l c }
+	    Nguyễn Nguyên Phương & 1712726\\
+		Nguyễn Đình Thắng & 1752048
+	\end{tabular}
+}
+
+
+\csCouncil{Computer Science}
+\csSupervise{Nguyễn An Khương}
+\csReviewer{No name}
+\cttime{12/2020}
 
 \thesislayout
 
 \begin{document}
-%-	Bìa cứng - màu xanh dương, chữ mạ vàng (xem mẫu đính kèm)
-%-	Trang tên (tờ lót): chất liệu giấy, nội dung giống như bìa LV
-%-	Ở gáy LV: in nhan đề LV (có thể in tóm tắt nếu nhan đề quá dài), size 15 – 17
-%-	Phiếu Nhiệm vụ LV, chấm điểm Hướng dẫn & Phản biện (đã ký): nhận từ GVHD & GVPB sau khi bảo vệ (theo lịch hẹn).
-%-	Lời cam đoan
-%-	Lời cảm ơn/ Lời ngỏ
-%-	Tóm tắt LV
-%-	Mục lục
-%-	Danh mục, bảng biểu, hình ảnh, ... (nếu có)
-%-	Nội dung LV
-%-	Danh mục TL tham khảo
-%-	Phụ lục (nếu có)
 
 \coverpage
 
 \frontmatter
 
-% add content here
-%-	Lời cam đoan
 \begin{declaration}
-	Tôi xinasd đoan...
+We hereby undertake that this is our own research project under the guidance of Dr. Nguyen. Research content and results are truthful and have never been published before. The data used for the analysis and comments are collected by us from many different sources and will be clearly stated in the references.
+
+In addition, we also use a number of reviews and figures of other authors and organizations. All have citations and origins.
+
+If we detect any fraud, we take full responsibility for the content of our graduate internship. Ho Chi Minh City University of Technology is not related to the copyright and copyright infringement caused by us in the implementation process.
+
 \end{declaration}
+~
 
-%-	Lời cảm ơn/ Lời ngỏ
 \begin{acknowledgments}
-	Tôi xin chân thành cảm ơn ...
-\end{acknowledgments}
 
-%-	Tóm tắt LV
+First and foremost, we would like to express our sincere gratitude to our advisor Dr. Nguyen for the support of our thesis proposal for his patience, enthusiasm, experience and knowledge. He shared his experience and knowledge which helps us in our research and how to provide a good thesis proposal.
+\end{acknowledgments}
+~
+
+%
 \begin{abstract}
-	Tóm tắt luận văn ...
-\end{abstract}	
-	
+Charts have been and always will be one of the most effective tools for demonstrating and sharing ideas among others. Besides text and images, drawing flow charts is the best way to give others a clearer path of the plan with the least amount of work. Nowadays, many meetings require a blackboard so everyone can express their thoughts on. This raised a problem with saving these drawings as a reference for future use since taking a picture of them will not solve the problem of re-editing these ideas and they need to be re-drawn to be suitable in professional documents. On the other hand, in order to digitalize the chart required to re-draw it using a computer or a special device like drawing boards and digital pens, which cost a lot and is not the most convenient tools to use.
+
+Therefore, it is necessary to find a new way to convert the current hand-drawing charts into digital ones effortless, simplify the sharing process between users and be able to export them into another form like picture files (png, jpg), document files (pdf) or common diagram editing files (drawio). The application must be able to run on popular platforms and accessible by everyone.
+\end{abstract}
+ 
 \tableofcontents
 %\listofsymbols
 \listoftables
@@ -70,22 +110,40 @@
 
 \mainmatter
 
-\fancyhead{}  % Clears all page headers and footers
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyfoot[LE, RO]{\thepage}
+\renewcommand{\headrulewidth}{0.0pt}
+}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+\fancyhf{}
+\fancyhead[LE,RO]{\leftmark}
+\fancyhead[RE,LO]{}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%\fancyhead{}  % Clears all page headers and footers
 %\rhead{\thepage}  % Sets the right side header to show the page number
 %\lhead{}  % Clears the left side page header
 %\fancyfoot[positions]{footer}
-\renewcommand{\footrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}
 
-\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+%\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
 
-\input{demo-Chapter1.tex}
-%\input{demo-Chapter2.tex}
-%\input{Chapter3.tex}
 
-%-	Danh mục TL tham khảo
-%-	Phụ lục (nếu có)
+\input{chapters/introduction}
+\input{chapters/survey}
+\input{chapters/Background}
+\input{chapters/Proposed_system}
+\input{chapters/System_Design}
+\input{chapters/Experiment}
+\input{chapters/Conclusion}
 
-\bibliographystyle{plain} % ieeetr
-\bibliography{refs} 
+\renewcommand{\bibname}{References}
+\bibliography{refs}
+\bibliographystyle{unsrt}
+
 
 \end{document}

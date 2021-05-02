@@ -1,0 +1,72 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Overview}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Project Goals}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Related works}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Recognition Application}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{Object detection methods}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.1}{Introduction}{section.2.2}% 7
+\BOOKMARK [2][-]{subsection.2.2.2}{Traditional detector}{section.2.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.3}{CNN-based Detector}{section.2.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.3.1}{CNN-based Two Stages Detection \(Regional Proposal based\)}{subsection.2.2.3}% 10
+\BOOKMARK [3][-]{subsubsection.2.2.3.2}{CNN-based One Stage Detection \(Regression/Classification based\)}{subsection.2.2.3}% 11
+\BOOKMARK [1][-]{section.2.3}{Diagram detection}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{Handwriting character recognition techniques for English alphabets}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.4.1}{Preprocessing}{section.2.4}% 14
+\BOOKMARK [2][-]{subsection.2.4.2}{Line segmentation}{section.2.4}% 15
+\BOOKMARK [2][-]{subsection.2.4.3}{Normalization}{section.2.4}% 16
+\BOOKMARK [2][-]{subsection.2.4.4}{Feature extraction}{section.2.4}% 17
+\BOOKMARK [2][-]{subsection.2.4.5}{Recognition}{section.2.4}% 18
+\BOOKMARK [0][-]{chapter.3}{Background}{}% 19
+\BOOKMARK [1][-]{section.3.1}{Preprocessing}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.1.1}{Grayscale image}{section.3.1}% 21
+\BOOKMARK [2][-]{subsection.3.1.2}{Histogram equalization}{section.3.1}% 22
+\BOOKMARK [2][-]{subsection.3.1.3}{Noise filtering}{section.3.1}% 23
+\BOOKMARK [2][-]{subsection.3.1.4}{Binarization}{section.3.1}% 24
+\BOOKMARK [1][-]{section.3.2}{Flowchart detection}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.2.1}{Faster R-CNN}{section.3.2}% 26
+\BOOKMARK [3][-]{subsubsection.3.2.1.1}{Backbone CNN}{subsection.3.2.1}% 27
+\BOOKMARK [3][-]{subsubsection.3.2.1.2}{Regional Proposal Network}{subsection.3.2.1}% 28
+\BOOKMARK [2][-]{subsection.3.2.2}{Feature Pyramid Network}{section.3.2}% 29
+\BOOKMARK [2][-]{subsection.3.2.3}{Region of Interest Align}{section.3.2}% 30
+\BOOKMARK [2][-]{subsection.3.2.4}{YOLO}{section.3.2}% 31
+\BOOKMARK [3][-]{subsubsection.3.2.4.1}{YOLO v1}{subsection.3.2.4}% 32
+\BOOKMARK [3][-]{subsubsection.3.2.4.2}{YOLO v4}{subsection.3.2.4}% 33
+\BOOKMARK [2][-]{subsection.3.2.5}{RefineDet}{section.3.2}% 34
+\BOOKMARK [0][-]{chapter.4}{Proposed system}{}% 35
+\BOOKMARK [1][-]{section.4.1}{Project scope and restrictions}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.2}{Application features}{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.2.1}{Sign up and Login}{section.4.2}% 38
+\BOOKMARK [2][-]{subsection.4.2.2}{Create diagram}{section.4.2}% 39
+\BOOKMARK [3][-]{subsubsection.4.2.2.1}{Convert to digital}{subsection.4.2.2}% 40
+\BOOKMARK [3][-]{subsubsection.4.2.2.2}{Create from blank}{subsection.4.2.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.3}{Adjust diagram}{section.4.2}% 42
+\BOOKMARK [2][-]{subsection.4.2.4}{Share and set permission}{section.4.2}% 43
+\BOOKMARK [1][-]{section.4.3}{Requirements}{chapter.4}% 44
+\BOOKMARK [2][-]{subsection.4.3.1}{Functional requirement}{section.4.3}% 45
+\BOOKMARK [2][-]{subsection.4.3.2}{Nonfunctional requirement}{section.4.3}% 46
+\BOOKMARK [2][-]{subsection.4.3.3}{Hardware requirement}{section.4.3}% 47
+\BOOKMARK [0][-]{chapter.5}{System design}{}% 48
+\BOOKMARK [1][-]{section.5.1}{System Architecture}{chapter.5}% 49
+\BOOKMARK [1][-]{section.5.2}{Framework}{chapter.5}% 50
+\BOOKMARK [2][-]{subsection.5.2.1}{Flutter}{section.5.2}% 51
+\BOOKMARK [2][-]{subsection.5.2.2}{Nodejs}{section.5.2}% 52
+\BOOKMARK [1][-]{section.5.3}{Database Design}{chapter.5}% 53
+\BOOKMARK [1][-]{section.5.4}{Diagram File Design}{chapter.5}% 54
+\BOOKMARK [1][-]{section.5.5}{Use case Design}{chapter.5}% 55
+\BOOKMARK [2][-]{subsection.5.5.1}{Use case diagram}{section.5.5}% 56
+\BOOKMARK [2][-]{subsection.5.5.2}{Use case detail}{section.5.5}% 57
+\BOOKMARK [0][-]{chapter.6}{Initial experiments}{}% 58
+\BOOKMARK [1][-]{section.6.1}{Preprocessing experiment}{chapter.6}% 59
+\BOOKMARK [2][-]{subsection.6.1.1}{Convert RGB image to grayscale image}{section.6.1}% 60
+\BOOKMARK [2][-]{subsection.6.1.2}{Histogram equalization}{section.6.1}% 61
+\BOOKMARK [2][-]{subsection.6.1.3}{Image smoothing}{section.6.1}% 62
+\BOOKMARK [2][-]{subsection.6.1.4}{Convert into binary image}{section.6.1}% 63
+\BOOKMARK [2][-]{subsection.6.1.5}{Speckle filter}{section.6.1}% 64
+\BOOKMARK [1][-]{section.6.2}{Web server communication}{chapter.6}% 65
+\BOOKMARK [1][-]{section.6.3}{Display diagram on device}{chapter.6}% 66
+\BOOKMARK [2][-]{subsection.6.3.1}{Interactive Viewer and Matrix4}{section.6.3}% 67
+\BOOKMARK [2][-]{subsection.6.3.2}{Result}{section.6.3}% 68
+\BOOKMARK [0][-]{chapter.7}{Conclusion and Future Work}{}% 69
+\BOOKMARK [1][-]{section.7.1}{conclusion}{chapter.7}% 70
+\BOOKMARK [1][-]{section.7.2}{Challenges}{chapter.7}% 71
+\BOOKMARK [1][-]{section.7.3}{Future work}{chapter.7}% 72

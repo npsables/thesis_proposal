@@ -1,6 +1,5 @@
 % this package is designed by: thanhhungqb@gmail.com
-% more infor mation and update: 
-%   https://github.com/thanhhungqb/thesis-template
+% more infor mation and update: https://github.com/HungTVo/thesis-template
 %
 % this package also use code from: 
 %	http://tex.stackexchange.com/questions/51483/how-to-write-abstract-and-acknowledgement-in-book-format
@@ -9,8 +8,10 @@
 \ProvidesPackage{bkthesis}
 
 \RequirePackage{graphicx}
-\RequirePackage{vietnam}
 \RequirePackage{geometry}
+\RequirePackage{layout}
+\usepackage{xcolor}
+\usepackage{titlesec}
 
 \usepackage{tikz}
 \usetikzlibrary{calc}
@@ -26,35 +27,31 @@
 	}
 }
 
-\newcommand{\@sdeptname}{KHOA KHOA HỌC \& KỸ THUẬT MÁY TÍNH}
+\newcommand{\@sdeptname}{COMPUTER SCIENCE AND ENGINEERING FACULTY}
 \newcommand{\csdeptname}[1]{\renewcommand{\@sdeptname}{#1}}
 
-\newcommand{\@tname}{TÊN ĐỀ TÀI LUẬN VĂN TỐT NGHIỆP}
+\newcommand{\@tname}{}
 \newcommand{\ctname}[1]{\renewcommand{\@tname}{#1}}
 
-\newcommand{\@stuname}{SVTH 1: Nguyễn Văn An (5...)\\SVTH 2: Phạm Bình Minh (...)}
+\newcommand{\@stuname}{}
 \newcommand{\cstuname}[1]{\renewcommand{\@stuname}{#1}}
 
-\newcommand{\@sCouncil}{Khoa học máy tính 1}
+\newcommand{\@sCouncil}{Computer Science}
 \newcommand{\csCouncil}[1]{\renewcommand{\@sCouncil}{#1}}
 
-\newcommand{\@sReviewer}{TS. A}
+\newcommand{\@sReviewer}{}
 \newcommand{\csReviewer}[1]{\renewcommand{\@sReviewer}{#1}}
 	
-\newcommand{\@sSupervise}{TS. Nguyễn Văn A}
+\newcommand{\@sSupervise}{}
 \newcommand{\csSupervise}[1]{\renewcommand{\@sSupervise}{#1}}
 
 \newcommand{\@ttime}{\today}
 \newcommand{\cttime}[1]{\renewcommand{\@ttime}{#1}}
 
-\newcommand{\@rname}{LUẬN VĂN TỐT NGHIỆP ĐẠI HỌC} % report name, luận văn, thực tập...
+\newcommand{\@rname}{} %
 \newcommand{\crname}[1]{\renewcommand{\@rname}{#1}}
 
-\newsavebox\thesmashminipage
-\newenvironment{smashminipage}
-  {\begin{lrbox}{\thesmashminipage}\begin{minipage}[t]{\textwidth}}
-  {\end{minipage}\end{lrbox}\smash{\usebox{\thesmashminipage}}\clearpage}
-  
+
 \def\coverpage{
 
 \pagestyle{empty}
@@ -62,7 +59,8 @@
 % \addtolength{\voffset}{-2.5cm}
 % \addtolength{\textwidth}{-2cm}
 
-\begin{smashminipage} %[b][25.5cm][t]{15cm}
+% \fbox{
+\begin{minipage}[b][25.5cm][t]{15cm}
 \begin{tikzpicture}[remember picture, overlay]
 %   \draw[line width = 4pt] ($(current page.north west) + (1in,-1in)$) rectangle ($(current page.south east) + (-1in,1in)$);
 \draw [line width=1pt]
@@ -77,34 +75,34 @@
 
 \begin{center}
 \begin{large}
-ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\\
-TRƯỜNG ĐẠI HỌC BÁCH KHOA\\
+VIETNAM NATIONAL UNIVERSITY - HO CHI MINH CITY\\
+HO CHI MINH UNIVERSITY OF TECHNOLOGY\\
 \@sdeptname
 \end{large} \\
 \textbf{--------------------  *  ---------------------}\\[2cm]
-\includegraphics[scale=0.4]{LogoBK.jpg}\\[1.5cm]
+\includegraphics[scale=0.4]{Images/LogoBK.jpg}\\[1.5cm]
     {\fontsize{15}{1}\selectfont \@rname }\\[2cm]
-    {\fontsize{20}{1}\selectfont \textbf{\parbox[c][3cm]{14cm}{\centering \@title}} }\\[3.2cm]
+    {\fontsize{20}{1}\selectfont \textbf{\parbox[c][3cm]{14cm}{\centering \@tname}} }\\[3.2cm]
 \end{center}
 
 {\fontsize{15}{1}\selectfont 
 \hspace{5cm}\parbox[t][4cm]{10cm}{
-	HỘI ĐỒNG: \@sCouncil \\[3pt]
-	GVHD: \parbox[t]{8cm}{\@sSupervise} \\[3pt]
-	GVPB: \@sReviewer
+	Committee: \@sCouncil \\[3pt]
+	Advisor: \parbox[t]{8cm}{\@sSupervise} \\[3pt]
+	Reviewer: \@sReviewer
 
 	\hspace{2.2cm}	---o0o---
 		
 	\parbox[t][1.5cm]{10cm}{\@stuname}
 }
 }
-\vspace{2.2cm}
+\vspace{2.5cm}
 \begin{center}
- {\fontsize{14}{1}\selectfont TP. HỒ CHÍ MINH, \@ttime }\\
+ {\fontsize{14}{1}\selectfont HO CHI MINH CITY, \@ttime }\\
 
 \end{center}
 
-\end{smashminipage}
+\end{minipage}
 }
 % }
 
@@ -113,22 +111,21 @@ TRƯỜNG ĐẠI HỌC BÁCH KHOA\\
 %% Remember to load babel before loading this package or define the command \abstractname!
 \makeatletter
 \newenvironment{abstract}{
-  \titlepage
-  \null\vfil
+  \titlepage \null
   \@beginparpenalty\@lowpenalty
   \begin{center}
-	\bfseries Tóm tắt nội dung
-	\@endparpenalty\@M
+	\bfseries Abstract
+	\@endparpenalty\@M~
   \end{center}}
  {\par\vfil\null\endtitlepage}
 \makeatother
 
 \makeatletter
 \newenvironment{acknowledgments}{
-	\titlepage \null\vfil
+	\titlepage \null
 	\small
 	\begin{center}
-	  {\bfseries Lời cảm ơn sdasdasdasd / Lời ngỏ\vspace{-.5em}\vspace{\z@}}
+	  {\bfseries Acknowledgments\vspace{-.5em}\vspace{\z@}}~
 	\end{center}
 	\quotation
   }{}
@@ -137,9 +134,10 @@ TRƯỜNG ĐẠI HỌC BÁCH KHOA\\
 % Declaration
 \makeatletter
 \newenvironment{declaration}{
+	\titlepage \null
 	\small
 	\begin{center}
-	  {\bfseries Lời cam đoan\vspace{-.5em}\vspace{\z@}}
+	  {\bfseries Declaration\vspace{-.5em}\vspace{\z@}}
 	\end{center}
 	\quotation
   }{}
@@ -147,3 +145,42 @@ TRƯỜNG ĐẠI HỌC BÁCH KHOA\\
 
 % \renewcommand\lstlistingname{Algorithm}
 % \renewcommand\lstlistlistingname{Algorithms}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+%\renewcommand{\section}{\@startsection
+%{section}%                   % the name
+%{1}%                         % the level
+%{0mm}%                       % the indent
+%{-\baselineskip}%            % the before skip
+%{0.3\baselineskip}%          % the after skip
+%{\fontsize{16pt}{16pt}\large\bfseries}} % the style
+%
+% Redefining the chapter heading styles
+%\titleformat{\chapter}[display]
+%  {\Huge}{\chaptertitlename \thechapter}{16pt}{\Huge}
+%\titleformat{\section}
+%  {\normalfont\sffamily\Large\bfseries\color{black}}
+%  {\thesection}{16pt}{}
+%  
+%\def\@makechapterhead#1{%
+%  \vspace*{0\p@}%
+%  {\parindent \z@ 
+%        \raggedright
+%        \reset@font\fontsize{18pt}{18pt}\bfseries
+%        {Chapter \thechapter{} \\~\\ #1 \\~\\}   % #1 is the chapter title
+%        \par\nobreak
+%    \vskip 0\p@
+%  }}
+%\def\@makeschapterhead#1{%
+%  \vspace*{0\p@}%
+%  {\parindent \z@ 
+%        \raggedright
+%        \reset@font\fontsize{18pt}{18pt}\bfseries
+%        {#1}%\qquad\hphantom{\thechapter{}}\  \quad #1}
+%        \par\nobreak
+%    \vskip 0\p@
+%  }}
+  
+

@@ -1,46 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: thesis_proposal.aux
-The style file: plain.bst
+The style file: unsrt.bst
 Database file #1: refs.bib
-You've used 1 entry,
-            2118 wiz_defined-function locations,
-            504 strings with 4226 characters,
-and the built_in function-call counts, 556 in all, are:
-= -- 50
-> -- 28
-< -- 1
-+ -- 11
-- -- 10
-* -- 40
-:= -- 87
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 8
+You've used 52 entries,
+            1791 wiz_defined-function locations,
+            674 strings with 10290 characters,
+and the built_in function-call counts, 12341 in all, are:
+= -- 1111
+> -- 603
+< -- 19
++ -- 220
+- -- 168
+* -- 556
+:= -- 1832
+add.period$ -- 150
+call.type$ -- 52
+change.case$ -- 52
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 23
-empty$ -- 42
-format.name$ -- 10
-if$ -- 122
+cite$ -- 52
+duplicate$ -- 726
+empty$ -- 1031
+format.name$ -- 168
+if$ -- 2936
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 2
-pop$ -- 11
+int.to.str$ -- 52
+missing$ -- 48
+newline$ -- 257
+num.names$ -- 49
+pop$ -- 178
 preamble$ -- 1
-purify$ -- 7
+purify$ -- 0
 quote$ -- 0
-skip$ -- 20
+skip$ -- 583
 stack$ -- 0
-substring$ -- 33
-swap$ -- 11
-text.length$ -- 1
+substring$ -- 468
+swap$ -- 348
+text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
+type$ -- 0
 warning$ -- 0
-while$ -- 4
-width$ -- 2
-write$ -- 13
+while$ -- 78
+width$ -- 54
+write$ -- 530
