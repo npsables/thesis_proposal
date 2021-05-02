@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.5.2)  2 MAY 2021 14:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.5.2)  2 MAY 2021 15:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -826,7 +826,7 @@ LaTeX Info: Redefining \nameref on input line 75.
 ABD: EveryShipout initializing macros
 LaTeX Font Info:    Font shape `T5/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T5/ptm/b/n' tried instead on input line 77.
-<Images/LogoBK.jpg, id=296, 207.77625pt x 208.78pt>
+<Images/LogoBK.jpg, id=155, 207.77625pt x 208.78pt>
 File: Images/LogoBK.jpg Graphic file (type jpg)
 <use Images/LogoBK.jpg>
 Package pdftex.def Info: Images/LogoBK.jpg  used on input line 77.
@@ -910,7 +910,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 ...4.2}Application features}{17}{section.4.2}
+l.38 ...numberline {5}Related works}{6}{chapter.5}
                                                    [1
 
 ])
@@ -939,364 +939,107 @@ Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is usel
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 124.
 
-(/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/introduction.tex
+(/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Introduction.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T5/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T5/ptm/b/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `T5/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T5/ptm/b/n' tried instead on input line 3.
+) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Background.tex
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 6.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.6 
-     [1
+l.1 \chapter
+            {Background} \label{background} [1
 
 
 ]
+Chapter 2.
+) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Methodologies_and_Approaches.tex
 
-LaTeX Warning: Reference `survey' on page 2 undefined on input line 9.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 1.
 
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Methodologies and Approaches} \label{chap:Methodologies_and_App... [2
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/survey.tex
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1 \chapter
-            {Related works} \label{chap:survey} [2]
-Chapter 2.
-LaTeX Font Info:    Font shape `T5/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T5/ptm/b/n' tried instead on input line 7.
-
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 14.
-
-[3
-
-]
-<Images/recognition/Object_Detection.png, id=528, 1201.48875pt x 397.485pt>
-File: Images/recognition/Object_Detection.png Graphic file (type png)
-<use Images/recognition/Object_Detection.png>
-Package pdftex.def Info: Images/recognition/Object_Detection.png  used on input line 22.
-(pdftex.def)             Requested size: 398.33858pt x 131.78302pt.
- [4 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/recognition/Object_Detection.png>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 32.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
- [5] [6]
-Overfull \hbox (4.54173pt too wide) in paragraph at lines 70--70
-|[]\T5/ptm/b/n/17.28 Handwriting char-ac-ter recog-ni-tion tech-niques for En-glish
- []
-
-[7] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
-File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-)) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Background.tex [8] [9]
+[3]
 Chapter 3.
+) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Goals.tex
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 24.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 1.
 
-[10
+[4
 
 ]
-<Images/recognition/Inception_v4.png, id=657, 1129.21875pt x 857.2025pt>
-File: Images/recognition/Inception_v4.png Graphic file (type png)
-<use Images/recognition/Inception_v4.png>
-Package pdftex.def Info: Images/recognition/Inception_v4.png  used on input line 36.
-(pdftex.def)             Requested size: 398.33858pt x 302.37975pt.
- [11] [12 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/recognition/Inception_v4.png>]
-<Images/recognition/FPN.png, id=671, 692.5875pt x 396.48125pt>
-File: Images/recognition/FPN.png Graphic file (type png)
-<use Images/recognition/FPN.png>
-Package pdftex.def Info: Images/recognition/FPN.png  used on input line 75.
-(pdftex.def)             Requested size: 398.33858pt x 228.04149pt.
-<Images/recognition/RoI_Align.png, id=672, 675.52374pt x 221.82875pt>
-File: Images/recognition/RoI_Align.png Graphic file (type png)
-<use Images/recognition/RoI_Align.png>
-Package pdftex.def Info: Images/recognition/RoI_Align.png  used on input line 93.
-(pdftex.def)             Requested size: 398.33858pt x 130.81012pt.
-<Images/recognition/YOLO.png, id=673, 2045.6425pt x 1316.92pt>
-File: Images/recognition/YOLO.png Graphic file (type png)
-<use Images/recognition/YOLO.png>
-Package pdftex.def Info: Images/recognition/YOLO.png  used on input line 101.
-(pdftex.def)             Requested size: 398.33858pt x 256.42662pt.
- [13 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/recognition/FPN.png>] [14 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/recognition/RoI_Align.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/recognition/YOLO.png>]
-
-LaTeX Warning: Reference `fig: YOLO_lost' on page 15 undefined on input line 115.
-
-<Images/recognition/YOLO_lost.png, id=686, 752.8125pt x 577.15625pt>
-File: Images/recognition/YOLO_lost.png Graphic file (type png)
-<use Images/recognition/YOLO_lost.png>
-Package pdftex.def Info: Images/recognition/YOLO_lost.png  used on input line 118.
-(pdftex.def)             Requested size: 398.33858pt x 305.39818pt.
-<Images/recognition/YOLO_v4.png, id=687, 662.475pt x 209.78375pt>
-File: Images/recognition/YOLO_v4.png Graphic file (type png)
-<use Images/recognition/YOLO_v4.png>
-Package pdftex.def Info: Images/recognition/YOLO_v4.png  used on input line 126.
-(pdftex.def)             Requested size: 398.33858pt x 126.14009pt.
-[15 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/recognition/YOLO_lost.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/recognition/YOLO_v4.png>]) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Proposed_system.tex [16]
 Chapter 4.
+) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Related_works.tex
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 25.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 1.
 
-[17
+[5
 
-] [18]) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/System_Design.tex [19]
+]
 Chapter 5.
-<Images/App/System_Design.png, id=711, 704.6325pt x 503.8825pt>
-File: Images/App/System_Design.png Graphic file (type png)
-<use Images/App/System_Design.png>
-Package pdftex.def Info: Images/App/System_Design.png  used on input line 5.
-(pdftex.def)             Requested size: 398.33858pt x 284.84792pt.
+) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Conclusion.tex
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 12.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 1.
 
-[20
+[6
 
- </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/System_Design.png>] [21]
-<Images/App/DB.png, id=725, 990.70125pt x 644.4075pt>
-File: Images/App/DB.png Graphic file (type png)
-<use Images/App/DB.png>
-Package pdftex.def Info: Images/App/DB.png  used on input line 37.
-(pdftex.def)             Requested size: 455.24408pt x 296.1164pt.
- [22 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/DB.png>]
-<Images/App/jsonFile.png, id=733, 335.00156pt x 436.63126pt>
-File: Images/App/jsonFile.png Graphic file (type png)
-<use Images/App/jsonFile.png>
-Package pdftex.def Info: Images/App/jsonFile.png  used on input line 48.
-(pdftex.def)             Requested size: 341.43306pt x 445.01154pt.
-<Images/App/Usecase.png, id=735, 654.445pt x 890.32625pt>
-File: Images/App/Usecase.png Graphic file (type png)
-<use Images/App/Usecase.png>
-Package pdftex.def Info: Images/App/Usecase.png  used on input line 61.
-(pdftex.def)             Requested size: 398.33858pt x 541.9163pt.
- [23 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/jsonFile.png>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 89.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 144.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 188.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 248.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 285.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 324.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 362.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 411.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 461.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 633.
-
-) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Experiment.tex [24 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/Usecase.png>] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
+]
 Chapter 6.
-<Images/Preprocessing/rawImage.png, id=858, 516.93124pt x 850.17625pt>
-File: Images/Preprocessing/rawImage.png Graphic file (type png)
-<use Images/Preprocessing/rawImage.png>
-Package pdftex.def Info: Images/Preprocessing/rawImage.png  used on input line 13.
-(pdftex.def)             Requested size: 142.26302pt x 184.93779pt.
-<Images/Preprocessing/grayscale.png, id=859, 514.92375pt x 852.18375pt>
-File: Images/Preprocessing/grayscale.png Graphic file (type png)
-<use Images/Preprocessing/grayscale.png>
-Package pdftex.def Info: Images/Preprocessing/grayscale.png  used on input line 19.
-(pdftex.def)             Requested size: 142.26053pt x 184.93236pt.
-
-Overfull \hbox (4.791pt too wide) in paragraph at lines 28--29
-[]  \T5/ptm/m/n/12 In this step, we use His-togram Equal-iza-tion tech-nique to im-prove con-trasts in the grayscale
- []
-
-<Images/Preprocessing/histoequal.png, id=866, 516.93124pt x 849.1725pt>
-File: Images/Preprocessing/histoequal.png Graphic file (type png)
-<use Images/Preprocessing/histoequal.png>
-Package pdftex.def Info: Images/Preprocessing/histoequal.png  used on input line 32.
-(pdftex.def)             Requested size: 142.26302pt x 184.93971pt.
-
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 35.
-
-[36
-
- </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/Preprocessing/rawImage.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/Preprocessing/grayscale.png>]
-<Images/Preprocessing/grayhisto.png, id=875, 643.40375pt x 503.8825pt>
-File: Images/Preprocessing/grayhisto.png Graphic file (type png)
-<use Images/Preprocessing/grayhisto.png>
-Package pdftex.def Info: Images/Preprocessing/grayhisto.png  used on input line 41.
-(pdftex.def)             Requested size: 142.26593pt x 199.16595pt.
-<Images/Preprocessing/equalhisto.png, id=876, 645.41125pt x 504.88625pt>
-File: Images/Preprocessing/equalhisto.png Graphic file (type png)
-<use Images/Preprocessing/equalhisto.png>
-Package pdftex.def Info: Images/Preprocessing/equalhisto.png  used on input line 47.
-(pdftex.def)             Requested size: 142.2568pt x 199.16978pt.
-<Images/Preprocessing/gaussian.png, id=886, 514.92375pt x 853.1875pt>
-File: Images/Preprocessing/gaussian.png Graphic file (type png)
-<use Images/Preprocessing/gaussian.png>
-Package pdftex.def Info: Images/Preprocessing/gaussian.png  used on input line 59.
-(pdftex.def)             Requested size: 142.26053pt x 199.17119pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[37 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/Preprocessing/histoequal.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/Preprocessing/grayhisto.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/Preprocessing/equalhisto.png>]
-<Images/Preprocessing/binaryimage.png, id=897, 515.9275pt x 851.18pt>
-File: Images/Preprocessing/binaryimage.png Graphic file (type png)
-<use Images/Preprocessing/binaryimage.png>
-Package pdftex.def Info: Images/Preprocessing/binaryimage.png  used on input line 68.
-(pdftex.def)             Requested size: 180.57733pt x 297.91745pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
-
- []
-
-<Images/Preprocessing/clearBI.png, id=900, 512.91624pt x 851.18pt>
-File: Images/Preprocessing/clearBI.png Graphic file (type png)
-<use Images/Preprocessing/clearBI.png>
-Package pdftex.def Info: Images/Preprocessing/clearBI.png  used on input line 81.
-(pdftex.def)             Requested size: 179.52338pt x 297.91745pt.
-[38 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/Preprocessing/gaussian.png>]
-<Images/App/ImageSendClient.png, id=912, 578.16pt x 169.38281pt>
-File: Images/App/ImageSendClient.png Graphic file (type png)
-<use Images/App/ImageSendClient.png>
-Package pdftex.def Info: Images/App/ImageSendClient.png  used on input line 97.
-(pdftex.def)             Requested size: 398.33858pt x 116.70108pt.
-<Images/App/ImageSendServer.png, id=913, 482.55281pt x 194.97844pt>
-File: Images/App/ImageSendServer.png Graphic file (type png)
-<use Images/App/ImageSendServer.png>
-Package pdftex.def Info: Images/App/ImageSendServer.png  used on input line 102.
-(pdftex.def)             Requested size: 398.33858pt x 160.95737pt.
- [39 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/Preprocessing/binaryimage.png>]
-
-LaTeX Warning: Text page 40 contains only floats.
-
-[40 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/Preprocessing/clearBI.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/ImageSendClient.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/ImageSendServer.png>]
-<Images/App/matrix4.png, id=937, 314.67563pt x 301.8778pt>
-File: Images/App/matrix4.png Graphic file (type png)
-<use Images/App/matrix4.png>
-Package pdftex.def Info: Images/App/matrix4.png  used on input line 125.
-(pdftex.def)             Requested size: 227.62204pt x 218.36522pt.
-<Images/App/fullspace.png, id=938, 1445.4pt x 2971.1pt>
-File: Images/App/fullspace.png Graphic file (type png)
-<use Images/App/fullspace.png>
-Package pdftex.def Info: Images/App/fullspace.png  used on input line 133.
-(pdftex.def)             Requested size: 142.26378pt x 292.41254pt.
-<Images/App/fullzoom.png, id=939, 1445.4pt x 2971.1pt>
-File: Images/App/fullzoom.png Graphic file (type png)
-<use Images/App/fullzoom.png>
-Package pdftex.def Info: Images/App/fullzoom.png  used on input line 140.
-(pdftex.def)             Requested size: 142.26378pt x 292.41254pt.
-<Images/App/xscale.png, id=940, 1445.4pt x 2971.1pt>
-File: Images/App/xscale.png Graphic file (type png)
-<use Images/App/xscale.png>
-Package pdftex.def Info: Images/App/xscale.png  used on input line 151.
-(pdftex.def)             Requested size: 142.26378pt x 292.41254pt.
-<Images/App/yscale.png, id=941, 1445.4pt x 2971.1pt>
-File: Images/App/yscale.png Graphic file (type png)
-<use Images/App/yscale.png>
-Package pdftex.def Info: Images/App/yscale.png  used on input line 158.
-(pdftex.def)             Requested size: 142.26378pt x 292.41254pt.
-<Images/App/zscale.png, id=942, 1445.4pt x 2971.1pt>
-File: Images/App/zscale.png Graphic file (type png)
-<use Images/App/zscale.png>
-Package pdftex.def Info: Images/App/zscale.png  used on input line 169.
-(pdftex.def)             Requested size: 142.26378pt x 292.41254pt.
-<Images/App/zoomzscale.png, id=943, 1445.4pt x 2971.1pt>
-File: Images/App/zoomzscale.png Graphic file (type png)
-<use Images/App/zoomzscale.png>
-Package pdftex.def Info: Images/App/zoomzscale.png  used on input line 176.
-(pdftex.def)             Requested size: 142.26378pt x 292.41254pt.
-<Images/App/xmove.png, id=944, 1445.4pt x 2971.1pt>
-File: Images/App/xmove.png Graphic file (type png)
-<use Images/App/xmove.png>
-Package pdftex.def Info: Images/App/xmove.png  used on input line 187.
-(pdftex.def)             Requested size: 142.26378pt x 292.41254pt.
-<Images/App/ymove.png, id=945, 1445.4pt x 2971.1pt>
-File: Images/App/ymove.png Graphic file (type png)
-<use Images/App/ymove.png>
-Package pdftex.def Info: Images/App/ymove.png  used on input line 194.
-(pdftex.def)             Requested size: 142.26378pt x 292.41254pt.
-<Images/App/AppDemo1.png, id=946, 1445.4pt x 2971.1pt>
-File: Images/App/AppDemo1.png Graphic file (type png)
-<use Images/App/AppDemo1.png>
-Package pdftex.def Info: Images/App/AppDemo1.png  used on input line 205.
-(pdftex.def)             Requested size: 113.81102pt x 233.93002pt.
-<Images/App/AppDemo2.png, id=947, 1445.4pt x 2971.1pt>
-File: Images/App/AppDemo2.png Graphic file (type png)
-<use Images/App/AppDemo2.png>
-Package pdftex.def Info: Images/App/AppDemo2.png  used on input line 211.
-(pdftex.def)             Requested size: 113.81102pt x 233.93002pt.
-) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Conclusion.tex [41 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/matrix4.png>] [42 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/fullspace.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/fullzoom.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/xscale.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/yscale.png>] [43 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/zscale.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/zoomzscale.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/xmove.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/ymove.png>] [44 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/AppDemo1.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/Images/App/AppDemo2.png>]
-Chapter 7.
 ) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/thesis_proposal.bbl
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 1.
 
-[45
+[7
 
 ]
 
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 96.
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-[46
+)
 
-] [47]) [48]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 149.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 148.
+
+[8
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
  (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/thesis_proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 149.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 149.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
 Package rerunfilecheck Info: File `thesis_proposal.out' has not changed.
-(rerunfilecheck)             Checksum: 27DCB92A9AB318A2E90B48BE90BC595F;5008.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 149.
+(rerunfilecheck)             Checksum: BEB530B5E19677DFBE52974D131D6FD2;2458.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
  ) 
 Here is how much of TeX's memory you used:
- 26080 strings out of 492982
- 481504 string characters out of 6134897
- 638547 words of memory out of 5000000
- 28819 multiletter control sequences out of 15000+600000
- 80180 words of font info for 124 fonts, out of 8000000 for 9000
+ 25247 strings out of 492982
+ 469370 string characters out of 6134897
+ 568582 words of memory out of 5000000
+ 28262 multiletter control sequences out of 15000+600000
+ 64660 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,77p,2640b,719s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/vntex/t5.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/urwvn/utmb8v.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/urwvn/utmr8v.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/urwvn/utmri8v.pfb>
-Output written on /home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/thesis_proposal.pdf (57 pages, 6046532 bytes).
+ 62i,12n,67p,1330b,719s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/vntex/t5.enc}</usr/share/texlive/texmf-dist/fonts/type1/vntex/urwvn/utmb8v.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/urwvn/utmr8v.pfb>
+Output written on /home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/thesis_proposal.pdf (17 pages, 671852 bytes).
 PDF statistics:
- 1095 PDF objects out of 1200 (max. 8388607)
- 943 compressed objects within 10 object streams
- 267 named destinations out of 1000 (max. 500000)
- 754 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 266 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 314 words of extra memory for PDF output out of 10000 (max. 10000000)
 

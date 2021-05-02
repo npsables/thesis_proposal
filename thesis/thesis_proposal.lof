@@ -2,33 +2,7 @@
 \babel@toc {english}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Object detection\relax }}{4}{figure.caption.4}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Inception v4 model\relax }}{12}{figure.caption.5}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Feature Pyramid Network\relax }}{13}{figure.caption.6}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Region of Interest Align\relax }}{14}{figure.caption.7}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces YOLO model\relax }}{14}{figure.caption.8}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Lost function of YOLO v1\relax }}{15}{figure.caption.9}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces YOLO v4\relax }}{15}{figure.caption.10}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces System Architecture Design\relax }}{20}{figure.caption.11}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Database Design\relax }}{22}{figure.caption.12}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces JSON file design\relax }}{23}{figure.caption.13}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Use case Design\relax }}{24}{figure.caption.14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Figure \ref {fig:rawImage} is the original handwriting flow chart; figure \ref {fig:grayscaleImage} is grayscale version of the figure \ref {fig:rawImage}\relax }}{36}{figure.caption.26}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Histogram equalized image converted from figure \ref {fig:grayscaleImage}\relax }}{37}{figure.caption.27}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Figure \ref {fig:origin_histogram} is the histogram of figure \ref {fig:grayscaleImage}; figure \ref {fig:Equalizedhistogram} \relax }}{37}{figure.caption.28}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Gaussian blur applies on \ref {fig:grayscaleImage}\relax }}{38}{figure.caption.29}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Binary image\relax }}{39}{figure.caption.30}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Filter speckles in binary image\relax }}{40}{figure.caption.31}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Client application sending image log\relax }}{40}{figure.caption.32}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Server log\relax }}{40}{figure.caption.32}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Example of matrix4\relax }}{41}{figure.caption.33}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Interactive space using identity matrix\relax }}{42}{figure.caption.34}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Scaling in X and Y\relax }}{42}{figure.caption.35}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Scaling in Z\relax }}{43}{figure.caption.36}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Moving the space\relax }}{43}{figure.caption.37}
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Diagram display result\relax }}{44}{figure.caption.38}
 \addvspace {10\p@ }
