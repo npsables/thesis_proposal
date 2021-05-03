@@ -1,138 +1,54 @@
-\documentclass[12pt,a4paper,oneside]{book} % twoside for draf
-
-%\usepackage{times}
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage[utf8x]{vietnam}
-\usepackage[english]{babel}
-\selectlanguage{english}
-\usepackage{mathptmx}	% same Time New Roma
-%\renewcommand{\rmdefault}{phv} % Arial
-%\renewcommand{\sfdefault}{phv} % Arial
-\usepackage{url}
-
-%link to part by click on contents region
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
-
-\usepackage{fancyhdr}
-\usepackage{algorithm2e}
-\usepackage{amsmath}
-\usepackage{array,tabularx}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{cases}
-\usepackage{tabularx}
-\usepackage{adjustbox}
-\usepackage{multirow}
-
-\usepackage{bkthesis}
-
-\usepackage{titlesec}
-
-%\titleformat{\chapter}[display]
-%  {\normalfont\bfseries}{}{0pt}{\Huge}
-
-\usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
-
-\newenvironment{conditions*}
-  {\par\vspace{\abovedisplayskip}\noindent
-   \tabularx{\columnwidth}{>{$}l<{$} @{${}:{}$} >{\raggedright\arraybackslash}X}}
-  {\endtabularx\par\vspace{\belowdisplayskip}}
-
-\tikzstyle{blank} = [text badly centered, node distance = 2cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, 
-    text width=2em, text centered, minimum height=2em]
-\tikzstyle{line} = [draw, -latex']
-
-\newcolumntype{b}{>{\hsize=1.0\hsize}X}
-
-\crname{THESIS PROPOSAL}
-\ctname{Name of THESIS}
-\cstuname{
-	Students: \\
-	\begin{tabular}{ l c }
-	    Nguyễn Nguyên Phương & 1712726\\
-		Nguyễn Đình Thắng & 1752048
-	\end{tabular}
-}
+% This is the report document file of the BKU report template.
+% Copyright (c) 2019/06/20 by Nguyen Van Hung <nvhung1401@gmail.com>.
 
 
-\csCouncil{Computer Science}
-\csSupervise{Nguyễn An Khương}
-\csReviewer{No name}
-\cttime{12/2020}
+\input{styles/format_and_defs.tex}
 
-\thesislayout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+	
+\pagenumbering{roman} 
 
-\coverpage
+%-Cover Page------------------------------------
+% \input{chapters/cover_page_binary.tex}
+\input{chapters/cover_page_color.tex}
 
-\frontmatter
+% %-Commitment------------------------------------
+\input{chapters/commitment.tex}
 
-\begin{declaration}
-We hereby undertake that this is our own research project under the guidance of Dr. Nguyen. Research content and results are truthful and have never been published before. The data used for the analysis and comments are collected by us from many different sources and will be clearly stated in the references.
+% -Preface---------------------------------------
+\pagenumbering{arabic}
+\input{chapters/preface.tex}
 
-In addition, we also use a number of reviews and figures of other authors and organizations. All have citations and origins.
+%-Table of contents-----------------------------
+\listofcontents
+\cleardoublepage
 
-If we detect any fraud, we take full responsibility for the content of our graduate internship. Ho Chi Minh City University of Technology is not related to the copyright and copyright infringement caused by us in the implementation process.
 
-\end{declaration}
-~
-
-\begin{acknowledgments}
-
-First and foremost, we would like to express our sincere gratitude to our advisor Dr. Nguyen for the support of our thesis proposal for his patience, enthusiasm, experience and knowledge. He shared his experience and knowledge which helps us in our research and how to provide a good thesis proposal.
-\end{acknowledgments}
-~
-
-%
-\begin{abstract}
-Charts have been and always will be one of the most effective tools for demonstrating and sharing ideas among others. Besides text and images, drawing flow charts is the best way to give others a clearer path of the plan with the least amount of work. Nowadays, many meetings require a blackboard so everyone can express their thoughts on. This raised a problem with saving these drawings as a reference for future use since taking a picture of them will not solve the problem of re-editing these ideas and they need to be re-drawn to be suitable in professional documents. On the other hand, in order to digitalize the chart required to re-draw it using a computer or a special device like drawing boards and digital pens, which cost a lot and is not the most convenient tools to use.
-
-Therefore, it is necessary to find a new way to convert the current hand-drawing charts into digital ones effortless, simplify the sharing process between users and be able to export them into another form like picture files (png, jpg), document files (pdf) or common diagram editing files (drawio). The application must be able to run on popular platforms and accessible by everyone.
-\end{abstract}
- 
-\tableofcontents
-%\listofsymbols
-\listoftables
+%-List of figures-------------------------------
+\phantomsection
+\addcontentsline{toc}{chapter}{List of figures}
 \listoffigures
-%\listofalgorithms
+\cleardoublepage
+
+%-List of tables-------------------------
+\phantomsection
+\addcontentsline{toc}{chapter}{List of tables}
+\listoftables
+\cleardoublepage
+
+%-List of abbreviations-------------------------
+\phantomsection
+\addcontentsline{toc}{chapter}{List of abbreviations}
+\printnomenclature[2cm]
+\cleardoublepage
 
 
-\mainmatter
-
-\fancypagestyle{plain}{%
-\fancyhf{}
-\fancyfoot[LE, RO]{\thepage}
-\renewcommand{\headrulewidth}{0.0pt}
-}
-
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
-\fancyhf{}
-\fancyhead[LE,RO]{\leftmark}
-\fancyhead[RE,LO]{}
-\fancyfoot[LE,RO]{\thepage}
-\renewcommand{\footrulewidth}{0.4pt}
-
-%\fancyhead{}  % Clears all page headers and footers
-%\rhead{\thepage}  % Sets the right side header to show the page number
-%\lhead{}  % Clears the left side page header
-%\fancyfoot[positions]{footer}
-%\renewcommand{\footrulewidth}{0.4pt}
-
-%\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
-
-
+% %-Chapters--------------------------------------
 \input{chapters/Introduction}
 \input{chapters/Background}
 \input{chapters/Methodologies_and_Approaches}
@@ -140,9 +56,18 @@ Therefore, it is necessary to find a new way to convert the current hand-drawing
 \input{chapters/Related_works}
 \input{chapters/Conclusion}
 
-\renewcommand{\bibname}{References}
-\bibliography{refs}
-\bibliographystyle{unsrt}
+%-Appendix--------------------------------------
+% \input{chapters/appendix.tex}
 
+%-References------------------------------------
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+\cleardoublepage
+
+%-Keywords--------------------------------------
+\phantomsection
+\addcontentsline{toc}{chapter}{List of keywords}
+\printindex
 
 \end{document}

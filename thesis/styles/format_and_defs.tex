@@ -1,0 +1,530 @@
+% This is the style file of the BKU report template.
+% Copyright (c) 2019/06/20 by Nguyen Van Hung <nvhung1401@gmail.com>.
+
+
+\documentclass[a4paper, 12pt, twoside, openright]{report}
+%-OPTIONS---------------------------------------
+% Font size (10pt, 11pt, 12pt)
+% Paper size and format (a4paper, letterpaper, etc.)
+% Draft mode (draft)
+% Multiple columns (onecolumn, twocolumn)
+% Formula-specific options (fleqn and leqno)
+% Landscape print mode (landscape)
+% Single- and double-sided documents (oneside, twoside)
+% Titlepage behavior (notitlepage, titlepage)
+% Chapter opening page (openright, openany)
+%-----------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load basic packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage[utf8]{vietnam}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows, calc, arrows.meta}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{pifont, chemarrow}
+\usepackage{scrextend}
+\usepackage{cprotect}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyvrb}
+\usepackage{upquote}
+\usepackage[labelfont=bf]{caption}
+\usepackage[labelfont=bf]{subcaption}
+\usepackage[
+	linesnumbered,
+	commentsnumbered,
+%	ruled,
+	boxed,
+	resetcount,
+	algochapter,
+%	noline
+]{algorithm2e}
+\usepackage[
+	breaklinks,
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,
+	citecolor=blue,
+	urlcolor=blue,
+	unicode
+]{hyperref}
+\newcommand\fullref[1]{
+	\noindent\textbf{\autoref{#1}. \nameref{#1}.}\hspace{5mm}
+}
+
+% end of load basic package
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load other packages and install template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %%% Rename--------------------------------------
+% \AtBeginDocument{
+% 	\renewcommand{\listfigurename}{Danh mục hình ảnh}
+% 	\renewcommand{\figurename}{Hình}
+% 	\renewcommand{\figureautorefname}{Hình}
+% 	\renewcommand{\listtablename}{Danh mục bảng biểu}
+% 	\renewcommand{\tablename}{Bảng}
+% 	\renewcommand{\tableautorefname}{Bảng}
+% 	\renewcommand{\equationautorefname}{Công~thức}
+% 	\renewcommand{\listalgorithmcfname}{Danh sách giải thuật}
+% 	\renewcommand{\algorithmcfname}{Mã}
+% 	\renewcommand{\algorithmautorefname}{Mã}
+% 	\renewcommand{\chapterautorefname}{Chương}
+% 	\renewcommand{\appendixautorefname}{Phụ~lục}
+% 	\renewcommand{\sectionautorefname}{Mục}
+% 	\renewcommand{\subsectionautorefname}{Mục}
+% 	\renewcommand{\subsubsectionautorefname}{Mục}
+% }
+
+%%% Page margins--------------------------------
+\makeatletter
+\if@twoside
+	\usepackage[top=2.5cm, bottom=2.5cm,left=3cm, right=2cm]{geometry}
+	\raggedbottom
+\else
+	\usepackage[top=2.5cm, bottom=2.5cm,left=3cm, right=2cm]{geometry}
+\fi
+\makeatother
+
+%%% Header and Footer---------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Header
+\fancyhead{}
+\setlength{\headheight}{30pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\makeatletter
+	\if@twoside
+		\fancyhead[OL]{\textit{\MakeUppercase\leftmark}}
+		\fancyhead[OR]{\thepage}
+		\fancyhead[EL]{\thepage}
+		\fancyhead[ER]{
+			\ifnum\value{chapter}=0
+				\textit{\MakeUppercase\leftmark}
+			\else
+				\textit{\MakeUppercase\chaptername\ \thechapter}
+			\fi
+		}
+	\else
+		\fancyhead[L]{
+			\ifnum\value{chapter}=0
+				\textit{\MakeUppercase\leftmark}
+			\else
+				\textit{\MakeUppercase\chaptername\ \thechapter\ \MakeUppercase\leftmark}
+			\fi
+		}
+		\fancyhead[R]{\thepage}
+	\fi
+\makeatother
+\renewcommand{\headrulewidth}{0pt}
+% Footer
+\fancyfoot{}
+
+%%% List of abbreviations-----------------------
+%\usepackage[refpage]{nomencl}
+\usepackage{nomencl}
+\renewcommand{\nomname}{List of abbreviations}
+\def\pagedeclaration#1{\dotfill\nobreakspace\hyperpage{#1}}
+\makeatletter
+\newcommand{\closenomencl}
+{%
+	\closeout\@nomenclaturefile%
+}
+\makeatother
+\newcommand{\writenomencl}[1]
+{%
+	\closenomencl%
+	\IfFileExists{#1.nlo}{%
+		\write18
+		{%
+			makeindex -s nomencl.ist -o #1.nls -t #1.nlg #1.nlo%
+		}% 
+	}{\typeout{Nothing there}}%
+}
+\AtEndDocument{\writenomencl{\jobname}}
+\makenomenclature
+\renewcommand{\nompreamble}{
+	% \textit{List of abbreviations used in this thesis.}
+%	\begin{multicols}{2}
+}
+\renewcommand{\nompostamble}{
+%	\end{multicols}
+}
+
+%%% Mini TOC------------------------------------
+\usepackage{minitoc}
+\mtcindent=10pt
+\mtcsettitle{minitoc}{}
+\mtcsetrules{minitoc}{off}
+\mtcsetfeature{minitoc}{after}{\vspace{-30pt}}
+\mtcsetfeature{minitoc}{before}{\vspace{-30pt}}
+\setcounter{minitocdepth}{1}
+\let\oldminitoc\minitoc
+\renewcommand{\minitoc}{
+	\vfill
+	{\large\bfseries Contents}
+	\noindent\rule{\textwidth}{0.4pt}
+	\adjustmtc
+	\oldminitoc
+	\noindent\rule{\textwidth}{0.4pt}
+	\newpage
+}
+
+%%% TOC-----------------------------------------
+\usepackage[nottoc, notlot, notlof]{tocbibind}
+\usepackage{tocloft, calc}
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{3}
+% Format TOC title
+\renewcommand{\cfttoctitlefont}{
+	\vspace{-2cm}
+	\hfill\Huge\scshape
+}
+\renewcommand{\cftaftertoctitle}{
+	\vspace{3mm}
+	\hrule
+	\vspace{-5mm}
+}
+% Format LOF title
+\renewcommand{\cftloftitlefont}{
+	\vspace{-2cm}
+	\hfill\Huge\scshape
+}
+\renewcommand{\cftafterloftitle}{
+	\vspace{3mm}
+	\hrule
+	\vspace{-5mm}
+}
+% Format LOT title
+\renewcommand{\cftlottitlefont}{
+	\vspace{-2cm}
+	\hfill\Huge\scshape
+}
+\renewcommand{\cftafterlottitle}{
+	\vspace{3mm}
+	\hrule
+	\vspace{-5mm}
+}
+% and uppercase chapter title-------------------
+\renewcommand{\cftchappresnum}{Chapter }
+\AtBeginDocument{\addtolength\cftchapnumwidth{\widthof{\bfseries Chapter }}}
+\makeatletter
+	\def\@chapter[#1]#2{
+		\ifnum \c@secnumdepth >\m@ne
+			\refstepcounter{chapter}%
+			\typeout{\@chapapp\space\thechapter.}%
+			\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}\texorpdfstring{\MakeUppercase{#1}}{#1}}%
+		\else
+			\addcontentsline{toc}{chapter}{\texorpdfstring{\MakeUppercase{#1}}{#1}}%
+		\fi
+		\chaptermark{#1}%
+		\addtocontents{lof}{\protect\addvspace{15\p@}}%
+		\addtocontents{lot}{\protect\addvspace{15\p@}}%
+		\if@twocolumn
+			\@topnewpage[\@makechapterhead{#2}]%
+		\else
+			\@makechapterhead{#2}%
+			\@afterheading
+		\fi
+	}
+	\g@addto@macro\appendix
+	{
+		\addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{Appendix}}
+		\renewcommand{\chaptername}{APPENDIX}
+	}
+\makeatother
+\newcommand{\listofcontents} {
+	\dominitoc
+	\tableofcontents
+	\mtcaddchapter  
+	\mtcaddchapter
+	\adjustmtc
+	\adjustmtc
+}
+
+%%% List of algorithms--------------------------
+\let\oldlistofalgorithms\listofalgorithms
+\renewcommand{\listofalgorithms}
+{
+	\begingroup
+	\let\clearpage\relax
+	\oldlistofalgorithms
+	\endgroup
+}
+
+%%% Chapter page--------------------------------
+%\newcommand\capfirstword[1]{\capfirstwordhelper#1\relax}
+%\def\capfirstwordhelper#1#2\relax{\MakeUppercase{#1}\MakeLowercase{#2}}
+\makeatletter
+	\def\@makechapterhead#1{%
+		{
+			\hfill
+			\fontfamily{put}\fontseries{b}\fontsize{95pt}{0pt}\selectfont\thechapter\par
+			\vspace{5mm}
+		}
+		{
+			\hfill
+			\Huge\scshape#1\par
+			\vspace{-10mm}
+			\noindent\rule{\textwidth}{0.4pt}\par
+		}
+	}
+	\def\@makeschapterhead#1{%
+		{
+			\hfill
+			\Huge\scshape#1\par
+			\vspace{-10mm}
+			\noindent\rule{\textwidth}{0.4pt}\par
+		}
+	}
+	\let\ps@plain\ps@empty
+\makeatother
+
+%%% Empty page----------------------------------
+\newcommand\newemptypage{
+	\newpage
+	\null
+	\thispagestyle{empty}
+	\newpage
+}
+
+%%% More extra space for new paragraph----------
+\setlength{\parskip}{10pt}
+\setlength{\parindent}{0cm}
+
+%%% Example environment-------------------------
+\newcounter{example}[chapter]
+\newcommand{\exampleautorefname}{Example}
+\newcommand{\examplename}{Example}
+\let\oldtheexample\theexample
+\renewcommand{\theexample}{\thechapter.\oldtheexample.}
+\newenvironment{example}[1][]
+{
+	\refstepcounter{example}\par\medskip
+	\textbf{\examplename~\theexample #1}
+	\rmfamily
+}
+{
+	\medskip
+}
+
+%%% List of footnotes---------------------------
+% \newlistof[page]{footnotes}{fnt}{List of footnotes}
+% %\cftpagenumbersoff{footnotes}
+% \let\oldfootnote\footnote
+% \renewcommand\footnote[1]
+% {
+% 	%\refstepcounter{footnotes}
+% 	\oldfootnote{#1}
+% 	\addcontentsline{fnt}{footnotes}
+% 	{
+% 		\protect
+% 		\numberline{$^{\thefootnote}$}
+% 		\hspace{-20pt} #1
+% 	}
+% }
+% \makeatletter
+% \@newctr{footnote}[page]
+% \makeatother
+% \renewcommand{\thefootnote}{\roman{footnote}}
+% \deffootnote{3em}{0em}{\thefootnotemark\hspace{3mm}}
+
+%%% Figure environment--------------------------
+\let\oldfigure\figure
+\let\endoldfigure\endfigure
+\renewenvironment{figure}[1][]
+{
+	\ifx\\#1\\
+		\oldfigure
+	\else
+		\oldfigure[#1]
+	\fi
+	\let\oldsubref\subref
+	\renewcommand\subref[1]{\textbf{(\oldsubref{##1})}}
+	\newcommand\sourcefig[1]{(Nguồn: ##1)}
+}
+{
+	\endoldfigure
+}
+
+%%% Code environment----------------------------
+\usepackage{listings}
+\definecolor{commentcolor}{RGB}{168, 86, 0}
+\definecolor{keywordcolor}{RGB}{118, 6, 135}
+\definecolor{stringcolor}{RGB}{168, 24, 31}
+\definecolor{functioncolor}{RGB}{0, 0, 255}
+\lstset
+{
+	language=Python,                            % language programming
+	basicstyle=\ttfamily,                       % style for basic
+	keywordstyle=\color{keywordcolor}, 			% style for keywords
+	identifierstyle=\color{black},              % style for identifier
+	stringstyle=\color{stringcolor},            % style for string
+	commentstyle=\color{commentcolor},          % style for comment
+	morekeywords={as},							% add more keywords
+	emph={UNet, self},                          % first list of another word
+	emphstyle=\color{functioncolor},           	% style for first list of another word
+%	emph=[2]{3.5, sss},                         % second list of another word
+%	emphstyle=[2]\color{red},               	% style for second list of
+	tabsize=2,                                  % width of tab
+%	showtabs=true,                              % enable character tab
+%	tab=\rightarrowfill,                        % character tab
+%	showspaces=true,                            % enable character spaces in all code
+	showstringspaces=false,                     % enable character spaces in string
+	breaklines=true,                            % enable breaklines mode
+%	escapechar=\#,                              % character to back to LaTeX mode
+	numbers=left,                               % lines numbering on left
+	numberstyle=\normalsize,                    % stype for lines number
+%	firstnumber=100,                            % first number counting for lines number
+	stepnumber=1,                               % step lines numbering
+	numbersep=10pt,                             % space between lines number and code
+%	frame=leftline,                             % insert line for lines numbering
+	frame=single,                               % insert box with single line
+	framerule=1pt,                              % thickness of line of box
+	xleftmargin=20pt,                           % left margin
+%	xrightmargin=1cm,                           % right margin
+%	backgroundcolor=\color{backgroundcolor},    % white background
+	captionpos=b,                               % position of caption
+}
+
+%%% Gantt chart---------------------------------
+\usepackage{pgfgantt}
+\newcommand\Dganttbar[4]{%
+	\ganttbar{#1}{#3}{#4}\ganttbar[inline,bar label font=\footnotesize]{#2}{#3}{#4}
+}
+
+%%% Hide section, subsection, subsubsection in TOC
+%%% but numbered in actual heading--------------
+\newcommand{\hidesection}[2][]
+{
+	\phantomsection
+	\ifx\\#1\\
+		\section*{\refstepcounter{section}\thesection\quad #2}
+	\else
+		\section*{\refstepcounter{section}\label{#1}\thesection\quad #2}
+	\fi
+}
+\newcommand{\hidesubsection}[2][]
+{
+	\phantomsection
+	\ifx\\#1\\
+		\subsection*{\refstepcounter{subsection}\thesubsection\quad #2}
+	\else
+		\subsection*{\refstepcounter{subsection}\label{#1}\thesubsection\quad #2}
+	\fi
+}
+\newcommand{\hidesubsubsection}[2][]
+{
+	\phantomsection
+	\ifx\\#1\\
+		\subsubsection*{\refstepcounter{subsubsection}\thesubsubsection\quad #2}
+	\else
+		\subsubsection*{\refstepcounter{subsubsection}\label{#1}\thesubsubsection\quad #2}
+	\fi
+}
+
+%%% Signature environment-----------------------
+\newenvironment{signature}[1]
+{	
+	\ifnum #1 = 1
+		\def\spacewidth{.5\linewidth}
+		\def\pagewidth{.5\linewidth}
+		\def\nextelement{\par}
+	\else
+		\ifnum #1 = 2
+			\def\spacewidth{0pt}
+			\def\pagewidth{.5\linewidth}
+			\def\nextelement{}
+		\else
+			\ifnum #1 = 3
+				\def\spacewidth{0pt}
+				\def\pagewidth{.333\linewidth}
+				\def\nextelement{}
+			\fi
+		\fi
+	\fi
+	\newcommand{\addrdate}[4][]
+	{
+		\noindent\hspace{\spacewidth}
+		\begin{minipage}{\pagewidth}
+			\centering
+			\ifx\\##1\\
+				\textit{##2/##3/##4}
+			\else
+				\textit{##1, ##2/##3/##4}
+			\fi
+		\end{minipage}
+		\nextelement
+	}
+	\newcommand{\position}[1]
+	{
+		\noindent\hspace{\spacewidth}
+		\begin{minipage}{\pagewidth}
+			\centering
+			\textbf{\MakeUppercase{##1}}\\
+			\textit{\footnotesize(Signature)}
+		\end{minipage}
+		\nextelement
+	}
+	\newcommand{\signfig}[2]
+	{
+		\noindent\hspace{\spacewidth}
+		\begin{minipage}{\pagewidth}
+			\centering \includegraphics[width = ##1]{##2}
+		\end{minipage}
+		\nextelement
+	}
+	\newcommand{\name}[1]
+	{
+		\noindent\hspace{\spacewidth}
+		\begin{minipage}{\pagewidth}
+			\centering ##1
+		\end{minipage}
+		\nextelement
+	}
+	\vspace{10mm}
+}{}
+
+%%% Reference-----------------------------------
+\usepackage
+[
+	backend=biber,
+	style=ieee, 
+	sorting=none
+]{biblatex}
+\addbibresource{references/refs.bib}
+\AtBeginBibliography{\vspace*{10pt}}
+\setlength\bibitemsep{15pt}
+
+%%% Keyword-------------------------------------
+\usepackage{imakeidx}
+\makeindex
+[
+	%columns=3, 
+	title=List of keywords, 
+	options=-s styles/indexstyle.ist
+]
+% \indexprologue{\textit{List of keywords mentioned in this thesis in alphabetic order.}}
+\newcommand\indexpage[1]{\hyperpage{#1}\normalsize}
+\let\oldindex\index
+\renewcommand\index[1]{\oldindex{#1|indexpage}}
+
+%%% Paragraph-------------------------------------
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+% end of load other packages and install template

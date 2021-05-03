@@ -1,37 +1,22 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Overview}{chapter.1}% 2
-\BOOKMARK [2][-]{subsection.1.1.1}{Problem statements}{section.1.1}% 3
-\BOOKMARK [3][-]{subsubsection.1.1.1.1}{HDWallet architect}{subsection.1.1.1}% 4
-\BOOKMARK [3][-]{subsubsection.1.1.1.2}{Protocols}{subsection.1.1.1}% 5
-\BOOKMARK [3][-]{subsubsection.1.1.1.3}{Algorithm}{subsection.1.1.1}% 6
-\BOOKMARK [2][-]{subsection.1.1.2}{Explain why this thesis is chosen}{section.1.1}% 7
-\BOOKMARK [1][-]{section.1.2}{Objectives}{chapter.1}% 8
-\BOOKMARK [2][-]{subsection.1.2.1}{Aims}{section.1.2}% 9
-\BOOKMARK [2][-]{subsection.1.2.2}{Practical benefits/application}{section.1.2}% 10
-\BOOKMARK [1][-]{section.1.3}{Scope of the study}{chapter.1}% 11
-\BOOKMARK [1][-]{section.1.4}{Tentative structure of the study}{chapter.1}% 12
-\BOOKMARK [1][-]{section.1.5}{Tentative schedule}{chapter.1}% 13
-\BOOKMARK [0][-]{chapter.2}{Background}{}% 14
-\BOOKMARK [1][-]{section.2.1}{Blockchain}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.2}{HDWallet}{chapter.2}% 16
-\BOOKMARK [2][-]{subsection.2.2.1}{Category}{section.2.2}% 17
-\BOOKMARK [2][-]{subsection.2.2.2}{Coins}{section.2.2}% 18
-\BOOKMARK [2][-]{subsection.2.2.3}{Wallet structure}{section.2.2}% 19
-\BOOKMARK [1][-]{section.2.3}{Cryptography}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.3.1}{Cryptographic hash}{section.2.3}% 21
-\BOOKMARK [2][-]{subsection.2.3.2}{Diffie-Hellman algorithm}{section.2.3}% 22
-\BOOKMARK [2][-]{subsection.2.3.3}{RSA}{section.2.3}% 23
-\BOOKMARK [2][-]{subsection.2.3.4}{ECC}{section.2.3}% 24
-\BOOKMARK [3][-]{subsubsection.2.3.4.1}{Blockchain: secp256k1}{subsection.2.3.4}% 25
-\BOOKMARK [3][-]{subsubsection.2.3.4.2}{Discrete logarithm problem}{subsection.2.3.4}% 26
-\BOOKMARK [2][-]{subsection.2.3.5}{Twisted-Edward curve and Ed25519}{section.2.3}% 27
-\BOOKMARK [2][-]{subsection.2.3.6}{Key derivation function}{section.2.3}% 28
-\BOOKMARK [0][-]{chapter.3}{Methodologies and Approaches}{}% 29
-\BOOKMARK [1][-]{section.3.1}{Challenges}{chapter.3}% 30
-\BOOKMARK [2][-]{subsection.3.1.1}{HDWallet architecture for Ed25519}{section.3.1}% 31
-\BOOKMARK [2][-]{subsection.3.1.2}{Key managements}{section.3.1}% 32
-\BOOKMARK [2][-]{subsection.3.1.3}{Attacks on HDWallet}{section.3.1}% 33
-\BOOKMARK [1][-]{section.3.2}{Approaches}{chapter.3}% 34
-\BOOKMARK [0][-]{chapter.4}{Goals}{}% 35
-\BOOKMARK [0][-]{chapter.5}{Related works}{}% 36
-\BOOKMARK [0][-]{chapter.6}{Conclusion and Future Work}{}% 37
+\BOOKMARK [0][-]{chapter*.1}{\376\377\000P\000r\000e\000f\000a\000c\000e}{}% 1
+\BOOKMARK [0][-]{section*.2}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000f\000i\000g\000u\000r\000e\000s}{}% 2
+\BOOKMARK [0][-]{section*.3}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000t\000a\000b\000l\000e\000s}{}% 3
+\BOOKMARK [0][-]{section*.4}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000a\000b\000b\000r\000e\000v\000i\000a\000t\000i\000o\000n\000s}{}% 4
+\BOOKMARK [0][-]{chapter.1}{\376\377\000I\000n\000t\000r\000o\000d\000u\000c\000t\000i\000o\000n}{}% 5
+\BOOKMARK [1][-]{section.1.1}{\376\377\000O\000v\000e\000r\000v\000i\000e\000w}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{\376\377\000O\000b\000j\000e\000c\000t\000i\000v\000e\000s}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{\376\377\000S\000c\000o\000p\000e\000\040\000o\000f\000\040\000t\000h\000e\000\040\000s\000t\000u\000d\000y}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.4}{\376\377\000T\000e\000n\000t\000a\000t\000i\000v\000e\000\040\000s\000t\000r\000u\000c\000t\000u\000r\000e\000\040\000o\000f\000\040\000t\000h\000e\000\040\000s\000t\000u\000d\000y}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.5}{\376\377\000T\000e\000n\000t\000a\000t\000i\000v\000e\000\040\000s\000c\000h\000e\000d\000u\000l\000e}{chapter.1}% 10
+\BOOKMARK [0][-]{chapter.2}{\376\377\000B\000a\000c\000k\000g\000r\000o\000u\000n\000d}{}% 11
+\BOOKMARK [1][-]{section.2.1}{\376\377\000B\000l\000o\000c\000k\000c\000h\000a\000i\000n\000\040\000T\000e\000c\000h\000n\000o\000l\000o\000g\000y}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.2}{\376\377\000H\000D\000W\000a\000l\000l\000e\000t}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.3}{\376\377\000C\000r\000y\000p\000t\000o\000g\000r\000a\000p\000h\000y}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{\376\377\000M\000e\000t\000h\000o\000d\000o\000l\000o\000g\000i\000e\000s\000\040\000a\000n\000d\000\040\000A\000p\000p\000r\000o\000a\000c\000h\000e\000s}{}% 15
+\BOOKMARK [1][-]{section.3.1}{\376\377\000C\000h\000a\000l\000l\000e\000n\000g\000e\000s}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{\376\377\000A\000p\000p\000r\000o\000a\000c\000h\000e\000s}{chapter.3}% 17
+\BOOKMARK [0][-]{chapter.4}{\376\377\000G\000o\000a\000l\000s}{}% 18
+\BOOKMARK [0][-]{chapter.5}{\376\377\000R\000e\000l\000a\000t\000e\000d\000\040\000w\000o\000r\000k\000s}{}% 19
+\BOOKMARK [0][-]{chapter.6}{\376\377\000C\000o\000n\000c\000l\000u\000s\000i\000o\000n\000\040\000a\000n\000d\000\040\000F\000u\000t\000u\000r\000e\000\040\000W\000o\000r\000k}{}% 20
+\BOOKMARK [0][-]{section*.5}{\376\377\000B\000i\000b\000l\000i\000o\000g\000r\000a\000p\000h\000y}{}% 21
+\BOOKMARK [0][-]{section*.6}{\376\377\000L\000i\000s\000t\000\040\000o\000f\000\040\000k\000e\000y\000w\000o\000r\000d\000s}{}% 22
