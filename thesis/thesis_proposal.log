@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.5.2)  4 MAY 2021 09:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.5.2)  4 MAY 2021 14:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1518,17 +1518,23 @@ Chapter 2.
 ]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Methodologies_and_Approaches.tex [12] [13] [14
+ [12]) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Methodologies_and_Approaches.tex [13] [14
 
 
 ]
@@ -1605,14 +1611,14 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
  ) 
 Here is how much of TeX's memory you used:
  37335 strings out of 492982
- 680850 string characters out of 6134897
+ 680855 string characters out of 6134897
  1141788 words of memory out of 5000000
  40003 multiletter control sequences out of 15000+600000
  20214 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,71p,1287b,794s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb>
-Output written on /home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/thesis_proposal.pdf (27 pages, 150331 bytes).
+Output written on /home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/thesis_proposal.pdf (27 pages, 152093 bytes).
 PDF statistics:
  324 PDF objects out of 1000 (max. 8388607)
  281 compressed objects within 3 object streams

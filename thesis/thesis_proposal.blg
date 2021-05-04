@@ -1,9 +1,9 @@
 [0] Config.pm:302> INFO - This is Biber 2.9
 [0] Config.pm:305> INFO - Logfile is 'thesis_proposal.blg'
-[26] biber:313> INFO - === T3 Thg 5  4, 2021, 03:16:34
-[47] Biber.pm:371> INFO - Reading 'thesis_proposal.bcf'
-[101] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
-[106] Utils.pm:169> WARN - The file 'thesis_proposal.bcf' does not contain any citations!
-[112] bbl.pm:617> INFO - Writing 'thesis_proposal.bbl' with encoding 'ascii'
-[112] bbl.pm:720> INFO - Output to thesis_proposal.bbl
-[112] Biber.pm:110> INFO - WARNINGS: 1
+[37] biber:313> INFO - === T3 Thg 5  4, 2021, 09:57:16
+[57] Biber.pm:371> INFO - Reading 'thesis_proposal.bcf'
+[110] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
+[115] Utils.pm:169> WARN - The file 'thesis_proposal.bcf' does not contain any citations!
+[122] bbl.pm:617> INFO - Writing 'thesis_proposal.bbl' with encoding 'ascii'
+[122] bbl.pm:720> INFO - Output to thesis_proposal.bbl
+[122] Biber.pm:110> INFO - WARNINGS: 1
