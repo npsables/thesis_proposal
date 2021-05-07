@@ -44,52 +44,52 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.1}History and Definition}{12}{subsection.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.2}Bitcoin blockchain architecture}{13}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.2}Blockchain Categorization and Generations}{13}{subsection.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}HD Wallet}{14}{section.2.2}
+\contentsline {subsection}{\numberline {2.1.3}Bitcoin blockchain}{14}{subsection.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}Category}{14}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.2}HD Wallet}{18}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Coins}{14}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Category}{18}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Wallet structure}{14}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.2}Coins}{18}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Cryptography}{14}{section.2.3}
+\contentsline {subsection}{\numberline {2.2.3}Wallet structure}{18}{subsection.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Cryptographic hash}{14}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.3}Cryptography}{18}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.2}Diffie-Hellman algorithm}{14}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.1}Cryptographic hash}{18}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}RSA}{14}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.2}Asymmetric-key cryptography}{18}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.4}ECC}{14}{subsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.2.1}Diffie-Hellman algorithm}{18}{subsubsection.2.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.4.1}Blockchain: secp256k1}{14}{subsubsection.2.3.4.1}
+\contentsline {subsubsection}{\numberline {2.3.2.2}RSA Cryptography}{18}{subsubsection.2.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.4.2}Discrete logarithm problem}{14}{subsubsection.2.3.4.2}
+\contentsline {subsubsection}{\numberline {2.3.2.3}EC Cryptography}{18}{subsubsection.2.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.5}Twisted-Edward curve and Ed25519}{14}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.3}Twisted-Edward curve and Ed25519}{18}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.6}Key derivation function}{14}{subsection.2.3.6}
+\contentsline {subsection}{\numberline {2.3.4}Key derivation function}{18}{subsection.2.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}\MakeUppercase {Methodologies and Approaches}}{15}{chapter.3}
+\contentsline {chapter}{\numberline {3}\MakeUppercase {Methodologies and Approaches}}{19}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Challenges}{15}{section.3.1}
+\contentsline {section}{\numberline {3.1}Challenges}{19}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}HDWallet architecture for Ed25519}{15}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.1}HDWallet architecture for Ed25519}{19}{subsection.3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.2}Key managements}{15}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.2}Key managements}{19}{subsection.3.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.3}Attacks on HDWallet}{15}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.3}Attacks on HDWallet}{19}{subsection.3.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Approaches}{15}{section.3.2}
+\contentsline {section}{\numberline {3.2}Approaches}{19}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}\MakeUppercase {Goals}}{17}{chapter.4}
+\contentsline {chapter}{\numberline {4}\MakeUppercase {Goals}}{21}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}\MakeUppercase {Related works}}{19}{chapter.5}
+\contentsline {chapter}{\numberline {5}\MakeUppercase {Related works}}{23}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}\MakeUppercase {Conclusion and Future Work}}{21}{chapter.6}
+\contentsline {chapter}{\numberline {6}\MakeUppercase {Conclusion and Future Work}}{25}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{21}{section*.6}
+\contentsline {chapter}{Bibliography}{25}{section*.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{List of keywords}{23}{section*.7}
+\contentsline {chapter}{List of keywords}{27}{section*.12}

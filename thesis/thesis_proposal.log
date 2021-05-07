@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.5.2)  4 MAY 2021 21:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.5.2)  7 MAY 2021 16:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1516,46 +1516,89 @@ Chapter 2.
 
 
 ]
-<images/Widely_Witnessed_Values.jpg, id=213, 1136.245pt x 1204.5pt>
+<images/Widely_Witnessed_Values.jpg, id=223, 1136.245pt x 1204.5pt>
 File: images/Widely_Witnessed_Values.jpg Graphic file (type jpg)
 <use images/Widely_Witnessed_Values.jpg>
 Package pdftex.def Info: images/Widely_Witnessed_Values.jpg  used on input line 23.
 (pdftex.def)             Requested size: 159.33821pt x 168.90454pt.
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ã in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ã in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ã in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ã in font cmr12!
  [12 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/images/Widely_Witnessed_Values.jpg>]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ã in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ã in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Methodologies_and_Approaches.tex [13] [14]
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 60.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [13] [14]
+<images/example_of_sha-256.png, id=244, 1006.76125pt x 211.79124pt>
+File: images/example_of_sha-256.png Graphic file (type png)
+<use images/example_of_sha-256.png>
+Package pdftex.def Info: images/example_of_sha-256.png  used on input line 122.
+(pdftex.def)             Requested size: 455.24411pt x 95.7673pt.
+<images/asymmetric_cryptography.png, id=249, 501.875pt x 520.94624pt>
+File: images/asymmetric_cryptography.png Graphic file (type png)
+<use images/asymmetric_cryptography.png>
+Package pdftex.def Info: images/asymmetric_cryptography.png  used on input line 140.
+(pdftex.def)             Requested size: 182.09486pt x 189.01901pt.
+<images/transaction.png, id=250, 577.357pt x 199.947pt>
+File: images/transaction.png Graphic file (type png)
+<use images/transaction.png>
+Package pdftex.def Info: images/transaction.png  used on input line 153.
+(pdftex.def)             Requested size: 318.66948pt x 110.3617pt.
+ [15 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/images/example_of_sha-256.png> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/images/asymmetric_cryptography.png>]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [16 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/images/transaction.png>]
+<images/block_component.jpg, id=266, 533.995pt x 445.665pt>
+File: images/block_component.jpg Graphic file (type jpg)
+<use images/block_component.jpg>
+Package pdftex.def Info: images/block_component.jpg  used on input line 186.
+(pdftex.def)             Requested size: 273.14923pt x 227.97296pt.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+<images/chain_of_block.png, id=267, 1260.71pt x 389.455pt>
+File: images/chain_of_block.png Graphic file (type png)
+<use images/chain_of_block.png>
+Package pdftex.def Info: images/chain_of_block.png  used on input line 198.
+(pdftex.def)             Requested size: 455.24411pt x 140.63155pt.
+ [17 </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/images/block_component.jpg> </home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/images/chain_of_block.png>]) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Methodologies_and_Approaches.tex [18]
 Chapter 3.
-) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Goals.tex [15
+) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Goals.tex [19
 
 
-] [16
+] [20
 
 
 ]
 Chapter 4.
-) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Related_works.tex [17] [18
+) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Related_works.tex [21] [22
 
 
 ]
 Chapter 5.
-) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Conclusion.tex [19] [20
+) (/home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/chapters/Conclusion.tex [23] [24
 
 
 ]
@@ -1564,7 +1607,7 @@ Chapter 6.
 
 LaTeX Warning: Empty bibliography on input line 65.
 
-[21] [22
+[25] [26
 
 
 ]
@@ -1593,7 +1636,7 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the thesis_proposal.log file.
 
-[23
+[27
 
 
 runsystem(makeindex -s nomencl.ist -o thesis_proposal.nls -t thesis_proposal.nlg thesis_proposal.nlo)...executed safely (allowed).
@@ -1605,7 +1648,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
 Package rerunfilecheck Info: File `thesis_proposal.out' has not changed.
-(rerunfilecheck)             Checksum: 0F3ED6D46A612CC5803B9A58D3D8B744;2782.
+(rerunfilecheck)             Checksum: 9EF26252858DB359C8CA2FB209035CD2;2784.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1616,18 +1659,18 @@ Package logreq Info: Writing requests to 'thesis_proposal.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
  ) 
 Here is how much of TeX's memory you used:
- 37357 strings out of 492982
- 681250 string characters out of 6134897
+ 37429 strings out of 492982
+ 683267 string characters out of 6134897
  1141788 words of memory out of 5000000
- 40021 multiletter control sequences out of 15000+600000
- 20214 words of font info for 64 fonts, out of 8000000 for 9000
+ 40074 multiletter control sequences out of 15000+600000
+ 20551 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,77p,1287b,794s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb>
-Output written on /home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/thesis_proposal.pdf (27 pages, 409071 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on /home/arturob/Documents/uni/thesis/thesis_git/thesis_proposal/thesis/thesis_proposal.pdf (31 pages, 584387 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
- 199 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 382 PDF objects out of 1000 (max. 8388607)
+ 323 compressed objects within 4 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 224 words of extra memory for PDF output out of 10000 (max. 10000000)
 
