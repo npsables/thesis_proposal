@@ -16,3 +16,9 @@
 *.run.xml
 *.gz
 *.bib
+*.ind
+*.ilg
+*.lot
+*.bcf
+
+
