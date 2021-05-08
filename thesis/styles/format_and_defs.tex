@@ -20,7 +20,9 @@
 % Load basic packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \usepackage[utf8]{vietnam}
+% \usepackage[utf8x]{inputenc}
+\usepackage[utf8]{vietnam} % The default since 2018
+\DeclareUnicodeCharacter{200B}{{\hskip 0pt}}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{automata, arrows, calc, arrows.meta}
@@ -41,6 +43,7 @@
 \usepackage{upquote}
 \usepackage[labelfont=bf]{caption}
 \usepackage[labelfont=bf]{subcaption}
+
 \usepackage[
 	linesnumbered,
 	commentsnumbered,
