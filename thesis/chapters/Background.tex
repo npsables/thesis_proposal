@@ -28,8 +28,8 @@ Base on this theory, the longest-running blockchain, started in 1995, also by Ha
 But the word "blockchain" or "block" and "chain" wasn't use back then. 
 Only it become known in Satoshi Nakamoto's Bitcoin paper in the term of "chain" of "blocks".
 Later people combined the one-word "blockchain" in mainstream media publications such as Fortune, Forbes, and the Huffington Post as the technology gained greater interest and use. 
-The comunity use that word for Nakamoto's invention.
-Bound to emergence of Bitcoin and cryptocurrency, a concise description of blockchain technology is provided by NIST:
+The community use that word for Nakamoto's invention.
+Bound to the emergence of Bitcoin and cryptocurrency, a concise description of blockchain technology is provided by NIST:
 
 \begin{quote} 
 	Blockchains are distributed digital ledgers of cryptographically signed transactions that are grouped into blocks. Each block is cryptographically linked to the previous one (making it tamper evident) after validation and undergoing a consensus decision. As new blocks are added, older blocks become more difficult to modify (creating tamper resistance). New blocks are replicated across copies of the ledger within the network, and any conflicts are resolved automatically using established rules.
@@ -52,18 +52,20 @@ The most widely recognized cryptocurrency system is Bitcoin.
 
 We believe the "magic" that brings the above concept of digital currencies to reality, besides blockchain technology, is Nakamoto's proof-of-work consensus model.
 
-\subsection{Blockchain Categorization and Generations}
+\subsection{Blockchain Characteristics and Generations}
 
-Blockchain systems can be:
+Blockchain network can be:
 \begin{itemize}
-	\item \emph{Permissioned blockchain}, where users publishing blocks must be authorized by some authority (be it centralized or decentralized). 
+	\item \emph{Permissioned network}, where users publishing blocks must be authorized by some authority (be it centralized or decentralized). 
 	Users of blockchain have to trust that entity or user who published blocks. 
 	Permissioned blockchain networks may thus allow anyone to read the blockchain or they may restrict read access to authorized individuals. This maybe used by organizations that need more control over their blockchain.
 	Some permissioned blockchain networks support the ability to selectively reveal transaction information based on a blockchain network users identity or credentials. 
 	Some of famous permissioned blockchain applications are Ripple, which enables interbank transactions, or Sovrin, which is managed by financial institutions and is seeking to build a global decentralized identity system.
 	
-	\item \emph{Permissionless blockchain}, where service providers are not fixed and, in principle, anyone can start operating the service. For example, Bitcoin and the early versions of Ethereum.
+	\item \emph{Permissionless network}, where service providers are not fixed and, in principle, anyone can start operating the service. 
+	For example, Bitcoin and the early versions of Ethereum.
 	
+	\item \emph{Centralized network}, where the ledger is managed as a centralised service by one legal	entity. For example, the Guardtime system.
 \end{itemize}
 
 % The blockchain is usually stored and managed in the form of a distributed ledger,
@@ -90,7 +92,7 @@ Based on the intended audience, three generations of blockchains can be distingu
 
 \end{itemize}
 
-We are now developing blockchain 2.0 but our thesis just focus on cryptocurrency aspect.
+We are now developing blockchain 2.0 but our thesis just focuses on the cryptocurrency aspect.
 
 
 \subsection{Bitcoin blockchain}
@@ -145,7 +147,8 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
 	\emph{Transactions} - Transactions represent transfers of the cryptocurrencies between wallets in the system. 
 	A transaction contains input and output. The inputs are usually a list of the digital assets to be transferred.
 	Outputs are	the accounts that will be the recipients of the digital assets along with how much digital asset they will receive.   
-	All values of in and out cannot be tampered.
+	The  output  of  a  transaction  is categorized  by  either  unspent  transaction  output  (UTXO)  or spent  transaction  output  (STXO)
+	All values of in and out cannot be tampered with.
 
 	\begin{figure}[h!]
 		\centering
@@ -175,8 +178,8 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
 	Transactions, after sent to the network (by wallets, web applications, etc.), will be, if accepted, added to a block that is published by a chosen node. 
 	Bitcoin blocks include block header and block data.
 	Figure~\ref{fig:block_component} show basic component of a block.
-	Block header contains version, previous block header’s hash value (prevBlockHash), a hash representation of the block data (usual Merkle tree* hash), a timestamp, size of the block (bits), a \emph{nonce}.
-	The \emph{nonce} value is manipulated by the publishing node to solve the hash puzzle (see Section~\ref{subsec:game_theory})
+	Block header contains Height, previous block header’s hash value (prevBlockHash), a hash representation of the block data (usual Merkle tree* hash), a timestamp, size of the block (bits), a \emph{nonce}, etc.
+	The \emph{nonce} value is manipulated by the publishing node to solve the hash puzzle (see Game of theory \ref{item:game_theory})
 	Block data contains a list of transactions and ledger events. Some include other data.
 	\pagebreak
 
@@ -199,38 +202,41 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
 		\label{fig:chain_of_block}
 	\end{figure}
 
-
 \end{quote}
 
 \item Game of theory and Incentives
-\label{subsec:game_theory}
+\label{item:game_theory}
 
-\begin{quote} 
-	\emph{Hashes} - 
-	Cryptographic hash functions (CHF) are used for hashing the content of a block, validating the integrity of data, reduce the size of the message or keys, generating a Bitcoin address. We will show detail at Section~\ref{sec:crypto_hash}.
-	Hashing is a method of calculating a relatively unique fixed-size output (called a message digest, or just digest) for an input of nearly any size (e.g., a file, some text, or an image).
-	Even one single bit change of input will result in a completely different output digest. 
+	Arthur C. Clarke once wrote, “Any sufficiently advanced technology is indistinguishable from magic”.
+	Clarke’s statement is a perfect representation for the emerging of Bitcoin. 
+	Bitcoin blockchain is considered to be a masterpiece of combination of mordern technologies, economics, mathematics, philosophy, and game theory.
+	What make it so special is applying game of theory to solve the The Byzantine General’s Problem.
+	
+	Game theory is based on the assumption that all participants are rational actors and are trying to maximize their gains from the game.
+	In the situation of Bitcoin, the problem is how to ensure that all the actors of a decentralized network behave correctly. 
+	This is known as The Byzantine General’s Problem.
+	How to ensure that all generals will follow the plan? Even if they are located in different places and do not trust each other?
+	This was believed to be the biggest problem of P2P network, impossible to achieve before Satoshi Nakamoto.
 
+	To make Bitcoin work, Nakamoto invented a model called Proof of Work Consensus Model. 
+	In simple words, the proof-of-work involves incrementing the \emph{nonce} in the block that when hashed with SHA-256, the hash begins with a number of zero bits (number of zero bits called the difficulty). 
+	User publishes the next block by being the first to solve this puzzle, such users are miners in Bitcoin.
+	Finding a block with a specified difficulty is called mining. When successfully mined a new block, the miner gets some Bitcoin as a reward, this is called \emph{Incentive}. 
+	The \emph{Incentive} help encourage nodes to stay honest.
+	The accepted chain among the system is the longest chain, which has the greatest proof-of-work effort invested in it.
+	If a majority of honest nodes control the power, the honest chain will grow the fastest and outpace any competing chains.
+	Proof-of-work aims to protect the integrity of the ledger by making it hard to modify "old" entries, as changing a block would also require changing all subsequent (later) blocks.
 
-\end{quote}
-\item Communication Network
-
-\begin{quote} 
-	\emph{Hashes} - 
-	Cryptographic hash functions (CHF) are used for hashing the content of a block, validating the integrity of data, reduce the size of the message or keys, generating a Bitcoin address. We will show detail at Section~\ref{sec:crypto_hash}.
-	Hashing is a method of calculating a relatively unique fixed-size output (called a message digest, or just digest) for an input of nearly any size (e.g., a file, some text, or an image).
-	Even one single bit change of input will result in a completely different output digest. 
-
-\end{quote}
-
+\item Communication Network	
+	\begin{quote} 
+		Bitcoin blockchain network is peer-to-peer. 
+	\end{quote}
 \end{itemize}
 
 
 
 \section{HD Wallet}
 \label{sec:hd_wallet}
-
-
 
 \subsection{Category}
 
