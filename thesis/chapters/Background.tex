@@ -225,11 +225,21 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
 	The \emph{Incentive} help encourage nodes to stay honest.
 	The accepted chain among the system is the longest chain, which has the greatest proof-of-work effort invested in it.
 	If a majority of honest nodes control the power, the honest chain will grow the fastest and outpace any competing chains.
-	Proof-of-work aims to protect the integrity of the ledger by making it hard to modify "old" entries, as changing a block would also require changing all subsequent (later) blocks.
+	Proof-of-work aims to protect the integrity of the ledger by making it hard to modify transactions in "old" entries, as changing a block would also require changing all subsequent (later) blocks.
 
 \item Communication Network	
 	\begin{quote} 
-		Bitcoin blockchain network is peer-to-peer. 
+		Bitcoin blockchain network is peer-to-peer relying on consensus PoW model, where peers (or nodes) are equal right in terms of authority. 
+		New nodes can join at any time. The connection establishes over TCP, generally on port 8333, an ad-hoc network with random topology. 
+		The system is designed to eliminate third party in certifying transactions in term of trust and reliability.
+		This drives step from a centralized to a decentralized solution.
+		Also, as the nature of decentralized network, it will work even if a single point of network failure.
+		A problem of Cryptocurrency is double spending attacks. A malicous user can spend his asset on multiple transactions.
+		For distributed network to accomplish this, all transactions have to be publicly broadcast through the network. 
+		The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received through consensus agreement.
+		How ever if an attacker is able to control at least 51\% of the has power of the network, they can commit double transaction and verify it.
+		This attack is feasible now since more than 60\% of mining power are located in China.
+		
 	\end{quote}
 \end{itemize}
 
