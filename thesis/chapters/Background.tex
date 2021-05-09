@@ -245,14 +245,34 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
 
 
 
-\section{HD Wallet}
+\section{HDWallet}
 \label{sec:hd_wallet}
+
+\subsection{Blockchain wallet}
+A blockchain wallet, sometimes referred as a cryptocurrency wallet, is a program that allows you to “store”, send and receive digital currencies. Since cryptocurrency doesn’t exist in any physical form, your wallet doesn’t hold any of your coins actually. Instead, it tracks the transactions you made, which is stored in blockchain, and then infers your balance. Thereby, blockchain is an essential component of a blockchain wallet.
+
+Instead of holding physical coins, a wallet has a public key and a private key. Public key is a long sequence of letters and numbers that forms the wallet address. With this, people can send money to the wallet. It's similar to a bank account number in that it can only be used to send money to an account. Private key is used to access the funds stored in the wallet. With this, people can control the funds tied to that wallet's address. It's a lot like your PIN number in that you should keep it 100\% secret and secure. However, it's worth noting that not all wallets give you sole ownership of your private key, which essentially means that you don't have full control over your coins. As well as storing your public and private keys, crypto wallets interface with the blockchains of various currencies so that you can check your balance and send and receive funds.
 
 \subsection{Category}
 
-\subsection{Coins}
+Now that you know what is, let’s take a closer look at the five different types of wallets available, each with its own advantages and disadvantages in terms of security, ease of use, convenience and a range of other factors. The most common type of wallet out there, desktop wallets are downloaded and installed on your computer. Easy to set up and maintain, most are available for Windows, Linux and Mac, although some may be limited to a particular operating system. Many cryptocurrencies offer a desktop wallet specifically designed for their coin.
 
-\subsection{Wallet structure}
+Desktop wallets provide a relatively high level of security since they’re only accessible from the machine on which they’re installed. The biggest disadvantage is that they also rely on you to keep your computer secure and free of malware, so antivirus and anti-malware software, a strong firewall and a common-sense approach to security are required to keep your coins safe. Most desktop wallets will provide you with a long string of words upon installation. These words are known as your recovery seed or sentence and map with your private key, so it’s important to store them somewhere safe in case your computer dies or you need to format the operating system and re-install your desktop wallet. Some popular desktop wallets: Electrum, Exodus, Copay.
+
+Mobile wallets are fairly similar to desktop wallets, with the obvious difference being that they run as an app on your smartphone. Mobile wallets feature many of the same advantages and disadvantages as desktop wallets, with your private key stored on your device.
+Smartphone wallets are often easier to use compared to their desktop counterparts and include the ability to scan other wallet addresses for faster transactions. They also make it simpler to access your coins on the go and use cryptocurrency as part of everyday life. You will need to be extra careful about losing your smartphone, though, because there’s a risk that anyone who has access to your device might also have access to your funds. Choosing an app that allows you to back up your wallet with a 12- or 24-word passphrase is a good idea. Popular mobile wallets: Jaxx, Coinomi, Edge.
+
+Online wallets (most often provided by exchanges but sometimes offered by third parties) are connected to the Internet and are generally the easiest to set up and use. Most only require an email address and a password to create an account, and web wallets are usually designed to provide a simple and straightforward user experience. The biggest advantages to online wallets are that they can’t be lost and that they’re accessible from any computer with an Internet connection. However, being online is unfortunately also their biggest disadvantage. Because some platforms maintain the wallets of thousands of users, they can become hot targets for hackers. It’s also important to check whether the wallet you choose lets you retain complete control of your private keys or whether they’re owned by the wallet provider. Popular web wallets: blockchain.info, MyEtherWallet, Coinbase.
+
+Hardware wallets add another layer of security by keeping your private key on a USB stick or specially designed piece of hardware. They allow the user to plug the USB stick into any computer, log in, transact and unplug – so while transactions are carried out online, your private key is stored offline and protected against the risk of hacking. As a result, hardware wallets are widely considered to offer the most secure storage option. The biggest disadvantage of hardware wallets is that they’ll cost you. Prices vary depending on the model you choose, but they generally cost upwards of \$150. You also need to keep the device safe, but if you do lose your hardware wallet, the device itself is PIN-protected and there are usually other protective measures in place to help you recover your funds. Popular hardware wallets: Ledger Nano X, Ledger Nano S, TREZOR, KeepKey.
+
+Paper wallets take the concept of entirely offline keys used for hardware wallets to the next logical step: simply print out your public and private keys and use that piece of paper as your wallet. As secure as they are, paper wallets are also complex and quite confusing for beginners. They’re typically only used by advanced users who want a high level of security. To transfer money to a paper wallet, you use a software wallet (any of the above mentioned) to send money to the public key printed on the sheet of paper. Most often, this is printed as a QR code for easy scanning. To transfer money from the paper wallet to someone else, you would first need to transfer money to a software wallet (by manually entering the private key into the software), and then transfer money from the software wallet to the recipient as usual. Popular paper wallets: Bitaddress.org, WalletGenerator.net.
+
+As you’re researching and comparing a range of wallets, you’ll probably come across the terms “hot wallet” and “cold wallet”, or perhaps the concept of “cold storage”. So, what does temperature have to do with crypto storage?
+A wallet is hot when it's connected to the Internet. Nothing on the Internet is 100\% secure, so funds kept in a hot wallet are always at a slight risk of theft or loss from software bugs or hackers. A wallet is cold when it's safely offline and can't be deliberately or accidentally compromised over the Internet.
+
+\subsection{HDWallet}
+
 
 \section{Cryptography}
 
@@ -269,8 +289,8 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
 
 \subsubsection{RSA Cryptography}
 
-\subsubsection{EC Cryptography}
+\subsubsection{ECC - Elliptic Curve Cryptography}
 
 \subsection{Twisted-Edward curve and Ed25519}
 
-\subsection{Key derivation function}
+\subsection{Child key derivation function}
