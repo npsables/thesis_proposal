@@ -243,8 +243,6 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
 	\end{quote}
 \end{itemize}
 
-
-
 \section{HDWallet}
 \label{sec:hd_wallet}
 
@@ -273,14 +271,50 @@ A wallet is hot when it's connected to the Internet. Nothing on the Internet is 
 
 \subsection{HDWallet}
 
-
 \section{Cryptography}
+In this section, we present Cryptographic algorithms that used to build the wallet.
 
-\subsection{Cryptographic hash}
+\subsection{Cryptographic hash function}
 \label{sec:crypto_hash}
+\subsubsection{Definition}
+Cryptography hash function is a one-way hash function that operates on a pre-image of arbitrary size (often called "message") then returns a fixed-length hash value (or "message digest"). 
+An one-way hash function meaning that it easy to compute the hash value from an input but infeasible to find the input given the hash value.
+The fomular is:
 
-\subsection{Digital Signatures}
-\label{sec:digital_signatures}
+\begin{align*}
+	h  &= H(M) \\ \intertext{ Where h is hash value, M is pre-image and H is cryptographic hash function.}
+\end{align*}
+Arcording to NIST, a cryptographic hash mush satisfied following three properties:
+
+\begin{enumerate}	
+	\item Collision resistance: It is computationally infeasible to find two inputs that have the same hash value. 
+	The most efficient method to find must be brute-forcing of random inputs.
+	\emph{The birthday "paradox"} places an upper bound on collision resistance.
+	That is, the complexity (or collision-resistance strength) of seeking two different input \emph{M} and \emph{M'} matched two hash \emph{H(x)} = \emph{H(x’)} equal to \emph{L/2} bit-operations for a \emph{L-bit} hash function. 
+	For example, SHA-512 produces a collision resistance of 256 bits.
+
+	\item Pre-image resistance: Given a hash value \emph{h}, it is computationally infeasible to find an M that \emph{H(M)=h}. 
+	Preimage resistance strength is equal to the amount of work to brute-force \emph{L-bit} of operations for a \emph{L-bit} hash function. 
+	For example, SHA-512 provides a preimage resistance of 512 bits.
+	
+	\item Second pre-image resistance: Finding a second input that has the same hash value as any other specified input would be computationally infeasible.
+	Second preimage resistance is calculated by the number of operations equal to  \emph{L} bits for a \emph{L-bit} hash function. 
+	For example, SHA-512 produces a (full-length) hash value of 512 bits.
+	However, in some cases of the hash functions, the second preimage resistance also depends on the length of the message resulting from the hash function.
+
+\end{enumerate}
+
+\subsubsection{Choosing Approved Algorithms}
+NIST approved following algorithms: 
+\begin{itemize}	
+	\item SHA-1 [FIPS 180-4]
+
+	\item SHA-2 family: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, and SHA-512/256. [FIPS 180-4]
+	
+	\item SHA-3 family (on KECCAK [keccak] as a result of the “SHA-3” Cryptographic Hash Algorithm Competition):  SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128 and SHAKE256. 
+\end{itemize}
+Due to the fact that SHA-1 already has a collision [SHA-1 first collision], we won't choose SHA-1 for usage in our thesis. 
+Considering the blockchain system we working on, the hash algorithm will be choose in the future.
 
 \subsection{Asymmetric-key cryptography}
 \label{sec:asymmetric_cryptography}
