@@ -7,5 +7,5 @@
 
 
 ## How to use
-Auto save when edit
-Preview using Ctrl+Shift+V
++ Auto save when edit
++ Preview using Ctrl+Shift+V
