@@ -1,6 +1,10 @@
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
 \chapter{Background}
 \label{chap:background}
-	\textit{In this chapter, we introduce the foundation knowledge of the thesis, including the history and definition of Blockchain Technology, Cryptocurrency, 
+\textit{In this chapter, we introduce the foundation knowledge of the thesis, including the history and definition of Blockchain Technology, Cryptocurrency,
 	Hierarchical Deterministic Wallet (HDWallet) and Cryptography}
 \minitoc
 
@@ -9,13 +13,13 @@
 \subsection{History and Definition}
 
 Blockchains are immutable digital ledger systems implemented in a distributed fashion (i.e., without a central repository) and usually without a central authority.
-The definition of blockchain was introduced to the world by a person (or a group of people) under the name Satoshi Nakamoto on October 31, 2008. 
+The definition of blockchain was introduced to the world by a person (or a group of people) under the name Satoshi Nakamoto on October 31, 2008.
 It was applied to enable the emergence of a "purely peer-to-peer (no financial institution or third party) electronic cash" named Bitcoin where transactions take place in a distributed system.
-In fact, Satoshi did not invent blockchain, and Bitcoin blockchain is not the first chain that ever created. 
-Back in 1991, cryptographers Stuart Haber and Scott Stornetta published a whitepaper "How to Time-Stamp a Digital Document" in the Journal of Cryptography. 
-Their goal is to digital time-stamping of documents so that it is infeasible for a user either to back-date or to a forward-date digital document, even with the collusion of a time-stamping service. 
+In fact, Satoshi did not invent blockchain, and Bitcoin blockchain is not the first chain that ever created.
+Back in 1991, cryptographers Stuart Haber and Scott Stornetta published a whitepaper "How to Time-Stamp a Digital Document" in the Journal of Cryptography.
+Their goal is to digital time-stamping of documents so that it is infeasible for a user either to back-date or to a forward-date digital document, even with the collusion of a time-stamping service.
 The technology is called a blockchain because the distributed electronic ledger stores items of data in time-stamped digital groups called blocks. Each block includes an alphanumeric code called a "hash" summing up its data. The hash of each completed block also appears in the next one in the chain, which means that to alter one block you would have to alter all the ones connected to it. These cryptographic dominos function together to protect against tampering or fraud.
-Base on this theory, the longest-running blockchain, started in 1995, also by Haber and Stornetta, publishes the weekly summary hash value every week in the New York Times (\autoref{fig:first_blockchain}) and still running strong today. 
+Base on this theory, the longest-running blockchain, started in 1995, also by Haber and Stornetta, publishes the weekly summary hash value every week in the New York Times (\autoref{fig:first_blockchain}) and still running strong today.
 
 \begin{figure}[h!]
 	\centering
@@ -25,29 +29,29 @@ Base on this theory, the longest-running blockchain, started in 1995, also by Ha
 \end{figure}
 
 % The math behind blockchain and its complex system architecture make it challenging to understand. 
-But the word "blockchain" or "block" and "chain" wasn't use back then. 
+But the word "blockchain" or "block" and "chain" wasn't use back then.
 Only when it was known in Satoshi Nakamoto's Bitcoin paper does the term of "chain" of "blocks" become a representaion for this technology.
-Later people combined the one-word "blockchain" in mainstream media publications such as Fortune, Forbes, and the Huffington Post as the technology gained greater interest and use. 
+Later people combined the one-word "blockchain" in mainstream media publications such as Fortune, Forbes, and the Huffington Post as the technology gained greater interest and use.
 The community use that word for Nakamoto's invention.
 Bound to the emergence of Bitcoin and cryptocurrency, a concise description of blockchain technology is provided by NIST:
 
-\begin{quote} 
+\begin{quote}
 	Blockchains are distributed digital ledgers of cryptographically signed transactions that are grouped into blocks. Each block is cryptographically linked to the previous one (making it tamper evident) after validation and undergoing a consensus decision. As new blocks are added, older blocks become more difficult to modify (creating tamper resistance). New blocks are replicated across copies of the ledger within the network, and any conflicts are resolved automatically using established rules.
 \end{quote}
 
-Blockchain technology comes handy in a wide range of areas - both ​financial and non-financial​. 
-Non-Financial application opportunities are endless. 
-We can envision putting proof of the existence of all legal documents, health records, and loyalty payments in the music industry, notary, private securities and marriage licenses in the blockchain. 
+Blockchain technology comes handy in a wide range of areas - both ​financial and non-financial​.
+Non-Financial application opportunities are endless.
+We can envision putting proof of the existence of all legal documents, health records, and loyalty payments in the music industry, notary, private securities and marriage licenses in the blockchain.
 By storing the fingerprint of the digital asset instead of storing the digital asset itself, the anonymity or privacy objective can be achieved.
 For the sake of our thesis, we will mainly focus on the original and surely the most popular application of blockchains - Cryptocurrency.
 
-Cryptocurrencies are digital currencies that use blockchain technology to\autoref{fig:first_blockchain}) and still running strong today. 
-record and secure every transaction. 
-A cryptocurrency can be used as a digital form of cash that can be used to buy goods and services. 
-It can be bought using one of several digital wallets or trading platforms, then digitally transferred upon purchase of an item, with the blockchain recording the transaction and the new owner. 
+Cryptocurrencies are digital currencies that use blockchain technology to\autoref{fig:first_blockchain}) and still running strong today.
+record and secure every transaction.
+A cryptocurrency can be used as a digital form of cash that can be used to buy goods and services.
+It can be bought using one of several digital wallets or trading platforms, then digitally transferred upon purchase of an item, with the blockchain recording the transaction and the new owner.
 The appeal of cryptocurrencies is that everything is recorded in a public ledger and secured using cryptography, making an irrefutable, timestamped, and secure record of every payment.
-The ledger displays user account balances and inter-user payments in a “currency” defined by the ledger itself and not necessarily in one of the traditional currencies. 
-Nevertheless, cryptocurrency may be traded on the stock exchange and exchanged for traditional money, which makes it hard to distinguish between traditional currency and cryptocurrency and as official vs. non-official currency. 
+The ledger displays user account balances and inter-user payments in a “currency” defined by the ledger itself and not necessarily in one of the traditional currencies.
+Nevertheless, cryptocurrency may be traded on the stock exchange and exchanged for traditional money, which makes it hard to distinguish between traditional currency and cryptocurrency and as official vs. non-official currency.
 The most widely recognized cryptocurrency system is Bitcoin.
 
 We believe the "magic" that brings the above concept of digital currencies to reality, besides blockchain technology, is Nakamoto's proof-of-work consensus model.
@@ -56,15 +60,15 @@ We believe the "magic" that brings the above concept of digital currencies to re
 
 Blockchain network can be:
 \begin{itemize}
-	\item \emph{Permissioned network}, where users publishing blocks must be authorized by some authority (be it centralized or decentralized). 
-	Users of blockchain have to trust that entity or user who published blocks. 
-	Permissioned blockchain networks may thus allow anyone to read the blockchain or they may restrict read access to authorized individuals. This maybe used by organizations that need more control over their blockchain.
-	Some permissioned blockchain networks support the ability to selectively reveal transaction information based on a blockchain network users identity or credentials. 
-	Some of famous permissioned blockchain applications are Ripple, which enables interbank transactions, or Sovrin, which is managed by financial institutions and is seeking to build a global decentralized identity system.
-	
-	\item \emph{Permissionless network}, where service providers are not fixed and, in principle, anyone can start operating the service. 
-	For example, Bitcoin and the early versions of Ethereum.
-	
+	\item \emph{Permissioned network}, where users publishing blocks must be authorized by some authority (be it centralized or decentralized).
+	      Users of blockchain have to trust that entity or user who published blocks.
+	      Permissioned blockchain networks may thus allow anyone to read the blockchain or they may restrict read access to authorized individuals. This maybe used by organizations that need more control over their blockchain.
+	      Some permissioned blockchain networks support the ability to selectively reveal transaction information based on a blockchain network users identity or credentials.
+	      Some of famous permissioned blockchain applications are Ripple, which enables interbank transactions, or Sovrin, which is managed by financial institutions and is seeking to build a global decentralized identity system.
+
+	\item \emph{Permissionless network}, where service providers are not fixed and, in principle, anyone can start operating the service.
+	      For example, Bitcoin and the early versions of Ethereum.
+
 	\item \emph{Centralized network}, where the ledger is managed as a centralised service by one legal	entity. For example, the Guardtime system.
 \end{itemize}
 
@@ -86,9 +90,9 @@ Blockchain network can be:
 Based on the intended audience, three generations of blockchains can be distinguished (Zhao et al., 2016):
 \begin{itemize}
 
-\item Blockchain 1.0 which includes applications enabling digital cryptocurrency transactions
-\item Blockchain 2.0 which includes smart contracts and a set of applications extending beyond cryptocurrency transactions
-\item Blockchain 3.0 which includes applications in areas beyond the previous two versions, such as government, health, science and IoT.
+	\item Blockchain 1.0 which includes applications enabling digital cryptocurrency transactions
+	\item Blockchain 2.0 which includes smart contracts and a set of applications extending beyond cryptocurrency transactions
+	\item Blockchain 3.0 which includes applications in areas beyond the previous two versions, such as government, health, science and IoT.
 
 \end{itemize}
 
@@ -97,150 +101,150 @@ We are now developing blockchain 2.0 but our thesis just focuses on the cryptocu
 
 \subsection{Bitcoin blockchain}
 Bitcoin is the first application of blockchain and the most famous digital currency ever.
-As mentioned above, Bitcoin was invented with the publication of a document entitled "Bitcoin: A peer-to-peer electronic cash system" in 2008 by Satoshi Nakamoto, mentioned as a purely P2P version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. 
-The currency began to use in 2009 when its implementation was released as open-source software. 
-The Bitcoin blockchain is considered to be a world-changing technology because in the first time in human history its solved the biggest problem of distributed system: The Byzantine General's Problem. 
+As mentioned above, Bitcoin was invented with the publication of a document entitled "Bitcoin: A peer-to-peer electronic cash system" in 2008 by Satoshi Nakamoto, mentioned as a purely P2P version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution.
+The currency began to use in 2009 when its implementation was released as open-source software.
+The Bitcoin blockchain is considered to be a world-changing technology because in the first time in human history its solved the biggest problem of distributed system: The Byzantine General's Problem.
 We will talk about this in the Bitcoin game of theory and incentives section.
 
 Bitcoin application is one of the permissionless blockchain.
-It utilize well-known computer science mechanisms (linked lists, distributed networking) as well as cryptographic primitives (hashing, digital signatures, public/private keys) mixed with financial concepts (ledgers, games of theory) in high level. 
+It utilize well-known computer science mechanisms (linked lists, distributed networking) as well as cryptographic primitives (hashing, digital signatures, public/private keys) mixed with financial concepts (ledgers, games of theory) in high level.
 Base on the problems Bitcoin has solved, we examine by dividing it into 3 components:
 
 \begin{itemize}
-\item Secure and Prevent tempering the data
+	\item Secure and Prevent tempering the data
 
-\begin{quote} 
-	\emph{Hashes} - 
-	Cryptographic hash functions (CHF) are used for hashing the content of a block, validating the integrity of data, reduce the size of the message or keys, generating a Bitcoin address. We will show detail at Section~\ref{sec:crypto_hash}.
-	Hashing is a method of calculating a relatively unique fixed-size output (called a message digest, or just digest) for an input of nearly any size (e.g., a file, some text, or an image).
-	Even one single bit change of input will result in a completely different output digest. 
-	In Bitcoin and most blockchain technologies, SHA-256 (Secure Hash Algorithm with output size of 256 bits) appear the most. Many computer support hardware level for this algorithm.
-	NIST specified this algorithm for SHA-256 in Federal Information Processing Standard (FIPS) 180-4 as it passed every properties of a cryptographic hashing.
-	\autoref{fig:example_of_sha-256} is an example of SHA-256.
+	      \begin{quote}
+		      \emph{Hashes} -
+		      Cryptographic hash functions (CHF) are used for hashing the content of a block, validating the integrity of data, reduce the size of the message or keys, generating a Bitcoin address. We will show detail at Section~\ref{sec:crypto_hash}.
+		      Hashing is a method of calculating a relatively unique fixed-size output (called a message digest, or just digest) for an input of nearly any size (e.g., a file, some text, or an image).
+		      Even one single bit change of input will result in a completely different output digest.
+		      In Bitcoin and most blockchain technologies, SHA-256 (Secure Hash Algorithm with output size of 256 bits) appear the most. Many computer support hardware level for this algorithm.
+		      NIST specified this algorithm for SHA-256 in Federal Information Processing Standard (FIPS) 180-4 as it passed every properties of a cryptographic hashing.
+		      \autoref{fig:example_of_sha-256} is an example of SHA-256.
 
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[width=1\textwidth]{images/example_of_sha-256.png}
-			\caption[Example input and output of SHA-256 Digest Value]{Example I/O of SHA-256 Digest Value}
-			\label{fig:example_of_sha-256}
-		\end{figure}
+		      \begin{figure}[h!]
+			      \centering
+			      \includegraphics[width=1\textwidth]{images/example_of_sha-256.png}
+			      \caption[Example input and output of SHA-256 Digest Value]{Example I/O of SHA-256 Digest Value}
+			      \label{fig:example_of_sha-256}
+		      \end{figure}
 
-	\bigbreak
-	
-	\emph{Public/Private Key} -	
-	Asymmetric-key cryptography (or public-key cryptography) uses a pair of keys: a public key and a private key that are mathematically related. It could be infeasible to generate one key from the other.
-	The private key is kept secret while the public key can be to everyone, both keys are hold inside user's Wallet, which we present in Section~\ref{sec:hd_wallet}.
-	One can encrypt with a private key and then decrypt with the public key. 
-	Alternately, one can encrypt with a public key and then decrypt with a private key.
-	Bitcoin uses asymmetric-key cryptography to digitally sign transactions, verify signatures or in some cases, exchange the key.
-	Asymmetric-key cryptography is discussed in Section~\ref{sec:asymmetric_cryptography}.
-	Figure~\ref{fig:asymmetric_cryptography} briefly show message exchange usage of the asymmetric protocol.
-	
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/asymmetric_cryptography.png}
-		\caption[An example of concept of Asymmetric-key cryptography]{Sending private message using Asymmetric-key cryptography}
-		\label{fig:asymmetric_cryptography}
-	\end{figure}
-	\bigbreak
+		      \bigbreak
 
-	\emph{Transactions} - Transactions represent transfers of the cryptocurrencies between wallets in the system. 
-	A transaction contains input and output. The inputs are usually a list of the digital assets to be transferred.
-	Outputs are	the accounts that will be the recipients of the digital assets along with how much digital asset they will receive.   
-	The  output  of  a  transaction  is categorized  by  either  unspent  transaction  output  (UTXO)  or spent  transaction  output  (STXO)
-	All values of in and out cannot be tampered with.
+		      \emph{Public/Private Key} -
+		      Asymmetric-key cryptography (or public-key cryptography) uses a pair of keys: a public key and a private key that are mathematically related. It could be infeasible to generate one key from the other.
+		      The private key is kept secret while the public key can be to everyone, both keys are hold inside user's Wallet, which we present in Section~\ref{sec:hd_wallet}.
+		      One can encrypt with a private key and then decrypt with the public key.
+		      Alternately, one can encrypt with a public key and then decrypt with a private key.
+		      Bitcoin uses asymmetric-key cryptography to digitally sign transactions, verify signatures or in some cases, exchange the key.
+		      Asymmetric-key cryptography is discussed in Section~\ref{sec:asymmetric_cryptography}.
+		      Figure~\ref{fig:asymmetric_cryptography} briefly show message exchange usage of the asymmetric protocol.
 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=0.7\textwidth]{images/transaction.png}
-		\caption[An example of bitcoin transaction]{An example of bitcoin transaction}
-		\label{fig:transaction}
-	\end{figure}
-	\bigbreak
+		      \begin{figure}[h!]
+			      \centering
+			      \includegraphics[width=0.4\textwidth]{images/asymmetric_cryptography.png}
+			      \caption[An example of concept of Asymmetric-key cryptography]{Sending private message using Asymmetric-key cryptography}
+			      \label{fig:asymmetric_cryptography}
+		      \end{figure}
+		      \bigbreak
 
-	All transactions are broadcast to the network and usually begin to be confirmed within 10-20 minutes, through a process called \emph{mining}.
-	Transactions are typically digitally signed by the sender’s associated private key and can be verified using the associated public key.
+		      \emph{Transactions} - Transactions represent transfers of the cryptocurrencies between wallets in the system.
+		      A transaction contains input and output. The inputs are usually a list of the digital assets to be transferred.
+		      Outputs are	the accounts that will be the recipients of the digital assets along with how much digital asset they will receive.
+		      The  output  of  a  transaction  is categorized  by  either  unspent  transaction  output  (UTXO)  or spent  transaction  output  (STXO)
+		      All values of in and out cannot be tampered with.
 
-	\bigbreak
+		      \begin{figure}[h!]
+			      \centering
+			      \includegraphics[width=0.7\textwidth]{images/transaction.png}
+			      \caption[An example of bitcoin transaction]{An example of bitcoin transaction}
+			      \label{fig:transaction}
+		      \end{figure}
+		      \bigbreak
 
-	\emph{Ledgers} - 
-	A ledger is a collection of cryptographic transactions. 
-	Bitcoin ledgers are distributed, the blockchain holds all accepted transactions within its ledgers. Every user can maintain their own copy of the ledger.
-	Whenever new full nodes join the blockchain network, they reach out to discover other full nodes and request a full copy of the blockchain network’s ledger, making loss or destruction of the ledger difficult.
-	\bigbreak
-	
-	The network utilizes cryptographic mechanisms such as digital signatures and cryptographic hash functions to provide tamper-evident and tamper-resistant ledgers.
-	Due to the public distributed network, the Bitcoin blockchain is harder to attack. There is nothing to steal because everything is distributed. If one individual node got taken down, the network will still be running. 
-	If targeting the blockchain itself, the attackers will face resistance from the honest nodes present in the system. 
-	\bigbreak
+		      All transactions are broadcast to the network and usually begin to be confirmed within 10-20 minutes, through a process called \emph{mining}.
+		      Transactions are typically digitally signed by the sender’s associated private key and can be verified using the associated public key.
 
-	\emph{Blocks} -	
-	Transactions, after sent to the network (by wallets, web applications, etc.), will be, if accepted, added to a block that is published by a chosen node. 
-	Bitcoin blocks include block header and block data.
-	Figure~\ref{fig:block_component} show basic component of a block.
-	Block header contains Height, previous block header’s hash value (prevBlockHash), a hash representation of the block data (usual Merkle tree* hash), a timestamp, size of the block (bits), a \emph{nonce}, etc.
-	The \emph{nonce} value is manipulated by the publishing node to solve the hash puzzle (see Game of theory \ref{item:game_theory})
-	Block data contains a list of transactions and ledger events. Some include other data.
-	\pagebreak
+		      \bigbreak
 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=0.6\textwidth]{images/block_component.jpg}
-		\caption[Components of Bitcoin block]{Components of Bitcoin block}
-		\label{fig:block_component}
-	\end{figure}
+		      \emph{Ledgers} -
+		      A ledger is a collection of cryptographic transactions.
+		      Bitcoin ledgers are distributed, the blockchain holds all accepted transactions within its ledgers. Every user can maintain their own copy of the ledger.
+		      Whenever new full nodes join the blockchain network, they reach out to discover other full nodes and request a full copy of the blockchain network’s ledger, making loss or destruction of the ledger difficult.
+		      \bigbreak
 
-	\emph{Chain of Blocks} - 
-	Blocks are chained together through each block containing the hash digest of the previous block’s header, thus forming the blockchain.
-	If one of the previous blocks were changed, it would result in a different hash.
-	This makes it possible to easily detect and reject altered blocks
+		      The network utilizes cryptographic mechanisms such as digital signatures and cryptographic hash functions to provide tamper-evident and tamper-resistant ledgers.
+		      Due to the public distributed network, the Bitcoin blockchain is harder to attack. There is nothing to steal because everything is distributed. If one individual node got taken down, the network will still be running.
+		      If targeting the blockchain itself, the attackers will face resistance from the honest nodes present in the system.
+		      \bigbreak
 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=1\textwidth]{images/chain_of_block.png}
-		\caption[Components of Bitcoin block]{Components of Bitcoin block}
-		\label{fig:chain_of_block}
-	\end{figure}
+		      \emph{Blocks} -
+		      Transactions, after sent to the network (by wallets, web applications, etc.), will be, if accepted, added to a block that is published by a chosen node.
+		      Bitcoin blocks include block header and block data.
+		      Figure~\ref{fig:block_component} show basic component of a block.
+		      Block header contains Height, previous block header’s hash value (prevBlockHash), a hash representation of the block data (usual Merkle tree* hash), a timestamp, size of the block (bits), a \emph{nonce}, etc.
+		      The \emph{nonce} value is manipulated by the publishing node to solve the hash puzzle (see Game of theory \ref{item:game_theory})
+		      Block data contains a list of transactions and ledger events. Some include other data.
+		      \pagebreak
 
-\end{quote}
+		      \begin{figure}[h!]
+			      \centering
+			      \includegraphics[width=0.6\textwidth]{images/block_component.jpg}
+			      \caption[Components of Bitcoin block]{Components of Bitcoin block}
+			      \label{fig:block_component}
+		      \end{figure}
 
-\item Game of theory and Incentives
-\label{item:game_theory}
+		      \emph{Chain of Blocks} -
+		      Blocks are chained together through each block containing the hash digest of the previous block’s header, thus forming the blockchain.
+		      If one of the previous blocks were changed, it would result in a different hash.
+		      This makes it possible to easily detect and reject altered blocks
 
-	Arthur C. Clarke once wrote, “Any sufficiently advanced technology is indistinguishable from magic”.
-	Clarke’s statement is a perfect representation for the emerging of Bitcoin. 
-	Bitcoin blockchain is considered to be a masterpiece of combination of mordern technologies, economics, mathematics, philosophy, and game theory.
-	What make it so special is applying game of theory to solve the The Byzantine General’s Problem.
-	
-	Game theory is based on the assumption that all participants are rational actors and are trying to maximize their gains from the game.
-	In the situation of Bitcoin, the problem is how to ensure that all the actors of a decentralized network behave correctly. 
-	This is known as The Byzantine General’s Problem.
-	How to ensure that all generals will follow the plan? Even if they are located in different places and do not trust each other?
-	This was believed to be the biggest problem of P2P network, impossible to achieve before Satoshi Nakamoto.
+		      \begin{figure}[h!]
+			      \centering
+			      \includegraphics[width=1\textwidth]{images/chain_of_block.png}
+			      \caption[Components of Bitcoin block]{Components of Bitcoin block}
+			      \label{fig:chain_of_block}
+		      \end{figure}
 
-	To make Bitcoin work, Nakamoto invented a model called Proof of Work Consensus Model. 
-	In simple words, the proof-of-work involves incrementing the \emph{nonce} in the block that when hashed with SHA-256, the hash begins with a number of zero bits (number of zero bits called the difficulty). 
-	User publishes the next block by being the first to solve this puzzle, such users are miners in Bitcoin.
-	Finding a block with a specified difficulty is called mining. When successfully mined a new block, the miner gets some Bitcoin as a reward, this is called \emph{Incentive}. 
-	The \emph{Incentive} help encourage nodes to stay honest.
-	The accepted chain among the system is the longest chain, which has the greatest proof-of-work effort invested in it.
-	If a majority of honest nodes control the power, the honest chain will grow the fastest and outpace any competing chains.
-	Proof-of-work aims to protect the integrity of the ledger by making it hard to modify transactions in "old" entries, as changing a block would also require changing all subsequent (later) blocks.
+	      \end{quote}
 
-\item Communication Network	
-	\begin{quote} 
-		Bitcoin blockchain network is peer-to-peer relying on consensus PoW model, where peers (or nodes) are equal right in terms of authority. 
-		New nodes can join at any time. The connection establishes over TCP, generally on port 8333, an ad-hoc network with random topology. 
-		The system is designed to eliminate third party in certifying transactions in term of trust and reliability.
-		This drives step from a centralized to a decentralized solution.
-		Also, as the nature of decentralized network, it will work even if a single point of network failure.
-		A problem of Cryptocurrency is double spending attacks. A malicous user can spend his asset on multiple transactions.
-		For distributed network to accomplish this, all transactions have to be publicly broadcast through the network. 
-		The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received through consensus agreement.
-		How ever if an attacker is able to control at least 51\% of the has power of the network, they can commit double transaction and verify it.
-		This attack is feasible now since more than 60\% of mining power are located in China.
-		
-	\end{quote}
+	\item Game of theory and Incentives
+	      \label{item:game_theory}
+
+	      Arthur C. Clarke once wrote, “Any sufficiently advanced technology is indistinguishable from magic”.
+	      Clarke’s statement is a perfect representation for the emerging of Bitcoin.
+	      Bitcoin blockchain is considered to be a masterpiece of combination of mordern technologies, economics, mathematics, philosophy, and game theory.
+	      What make it so special is applying game of theory to solve the The Byzantine General’s Problem.
+
+	      Game theory is based on the assumption that all participants are rational actors and are trying to maximize their gains from the game.
+	      In the situation of Bitcoin, the problem is how to ensure that all the actors of a decentralized network behave correctly.
+	      This is known as The Byzantine General’s Problem.
+	      How to ensure that all generals will follow the plan? Even if they are located in different places and do not trust each other?
+	      This was believed to be the biggest problem of P2P network, impossible to achieve before Satoshi Nakamoto.
+
+	      To make Bitcoin work, Nakamoto invented a model called Proof of Work Consensus Model.
+	      In simple words, the proof-of-work involves incrementing the \emph{nonce} in the block that when hashed with SHA-256, the hash begins with a number of zero bits (number of zero bits called the difficulty).
+	      User publishes the next block by being the first to solve this puzzle, such users are miners in Bitcoin.
+	      Finding a block with a specified difficulty is called mining. When successfully mined a new block, the miner gets some Bitcoin as a reward, this is called \emph{Incentive}.
+	      The \emph{Incentive} help encourage nodes to stay honest.
+	      The accepted chain among the system is the longest chain, which has the greatest proof-of-work effort invested in it.
+	      If a majority of honest nodes control the power, the honest chain will grow the fastest and outpace any competing chains.
+	      Proof-of-work aims to protect the integrity of the ledger by making it hard to modify transactions in "old" entries, as changing a block would also require changing all subsequent (later) blocks.
+
+	\item Communication Network
+	      \begin{quote}
+		      Bitcoin blockchain network is peer-to-peer relying on consensus PoW model, where peers (or nodes) are equal right in terms of authority.
+		      New nodes can join at any time. The connection establishes over TCP, generally on port 8333, an ad-hoc network with random topology.
+		      The system is designed to eliminate third party in certifying transactions in term of trust and reliability.
+		      This drives step from a centralized to a decentralized solution.
+		      Also, as the nature of decentralized network, it will work even if a single point of network failure.
+		      A problem of Cryptocurrency is double spending attacks. A malicous user can spend his asset on multiple transactions.
+		      For distributed network to accomplish this, all transactions have to be publicly broadcast through the network.
+		      The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received through consensus agreement.
+		      How ever if an attacker is able to control at least 51\% of the has power of the network, they can commit double transaction and verify it.
+		      This attack is feasible now since more than 60\% of mining power are located in China.
+
+	      \end{quote}
 \end{itemize}
 
 \section{HDWallet}
@@ -277,54 +281,111 @@ In this section, we present Cryptographic algorithms that used to build the wall
 \subsection{Cryptographic hash function}
 \label{sec:crypto_hash}
 \subsubsection{Definition}
-Cryptography hash function is a one-way hash function that operates on a pre-image of arbitrary size (often called "message") then returns a fixed-length hash value (or "message digest"). 
+Cryptography hash function is a one-way hash function that operates on a pre-image of arbitrary size (often called "message") then returns a fixed-length hash value (or "message digest").
 An one-way hash function meaning that it easy to compute the hash value from an input but infeasible to find the input given the hash value.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/hash_function.png}
+	\caption[Components of Bitcoin block]{Components of Bitcoin block}
+	\label{fig:hash_function}
+\end{figure}
+
 The fomular is:
-
 \begin{align*}
-	h  &= H(M) \\ \intertext{ Where h is hash value, M is pre-image and H is cryptographic hash function.}
+	h & = H(M) \\ \intertext{ Where h is hash value, M is pre-image and H is cryptographic hash function.}
 \end{align*}
+
+
 Arcording to NIST, a cryptographic hash mush satisfied following three properties:
+\begin{enumerate}
+	\item Collision resistance: It is computationally infeasible to find two inputs that have the same hash value.
+	      The most efficient method to find must be brute-forcing of random inputs.
+	      \emph{The birthday "paradox"} places an upper bound on collision resistance.
+	      That is, the complexity (or collision-resistance strength) of seeking two different input \emph{M} and \emph{M'} matched two hash \emph{H(x)} = \emph{H(x’)} equal to \emph{L/2} bit-operations for a \emph{L-bit} hash function.
+	      For example, SHA-512 produces a collision resistance of 256 bits.
 
-\begin{enumerate}	
-	\item Collision resistance: It is computationally infeasible to find two inputs that have the same hash value. 
-	The most efficient method to find must be brute-forcing of random inputs.
-	\emph{The birthday "paradox"} places an upper bound on collision resistance.
-	That is, the complexity (or collision-resistance strength) of seeking two different input \emph{M} and \emph{M'} matched two hash \emph{H(x)} = \emph{H(x’)} equal to \emph{L/2} bit-operations for a \emph{L-bit} hash function. 
-	For example, SHA-512 produces a collision resistance of 256 bits.
+	\item Pre-image resistance: Given a hash value \emph{h}, it is computationally infeasible to find an M that \emph{H(M)=h}.
+	      Preimage resistance strength is equal to the amount of work to brute-force \emph{L-bit} of operations for a \emph{L-bit} hash function.
+	      For example, SHA-512 provides a preimage resistance of 512 bits.
 
-	\item Pre-image resistance: Given a hash value \emph{h}, it is computationally infeasible to find an M that \emph{H(M)=h}. 
-	Preimage resistance strength is equal to the amount of work to brute-force \emph{L-bit} of operations for a \emph{L-bit} hash function. 
-	For example, SHA-512 provides a preimage resistance of 512 bits.
-	
 	\item Second pre-image resistance: Finding a second input that has the same hash value as any other specified input would be computationally infeasible.
-	Second preimage resistance is calculated by the number of operations equal to  \emph{L} bits for a \emph{L-bit} hash function. 
-	For example, SHA-512 produces a (full-length) hash value of 512 bits.
-	However, in some cases of the hash functions, the second preimage resistance also depends on the length of the message resulting from the hash function.
+	      Second preimage resistance is calculated by the number of operations equal to  \emph{L} bits for a \emph{L-bit} hash function.
+	      For example, SHA-512 produces a (full-length) hash value of 512 bits.
+	      However, in some cases of the hash functions, the second preimage resistance also depends on the length of the message resulting from the hash function.
 
 \end{enumerate}
 
-\subsubsection{Choosing Approved Algorithms}
-NIST approved following algorithms: 
-\begin{itemize}	
+\subsubsection{Choosing Approved Hashs}
+NIST approved following algorithms:
+\begin{itemize}
 	\item SHA-1 [FIPS 180-4]
 
 	\item SHA-2 family: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, and SHA-512/256. [FIPS 180-4]
-	
-	\item SHA-3 family (on KECCAK [keccak] as a result of the “SHA-3” Cryptographic Hash Algorithm Competition):  SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128 and SHAKE256. 
+
+	\item SHA-3 family (on KECCAK [keccak] as a result of the “SHA-3” Cryptographic Hash Algorithm Competition):  SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128 and SHAKE256.
 \end{itemize}
-Due to the fact that SHA-1 already has a collision [SHA-1 first collision], we won't choose SHA-1 for usage in our thesis. 
+Due to the fact that SHA-1 already has a collision [SHA-1 first collision], we won't choose SHA-1 for usage in our thesis.
 Considering the blockchain system we working on, the hash algorithm will be choose in the future.
 
 \subsection{Asymmetric-key cryptography}
 \label{sec:asymmetric_cryptography}
+Asymmetric-key cryptography, or Public-key cryptography required a related pair of keys: a public key and a private key to form a cryptographic system.
+The public key is known by anyone while the private key is kept secret. Our thesis apply assymmetric-key cryptography in authentication, confidentiality and exchange \emph{\hyperref[sec: Symmetric_keys]{symmetric key}}.
+In this chapter, we will introduce various algorithms of public-key cryptography and chooing the best one for final project.
+	
+\subsubsection{Asymmetric encryption}
+To perform asymetric encryption/decryption, each users have to generate a public-private key pair.
+Data can be encrypted with the public key and decrypted with the private key. 
 
-\subsubsection{Diffie-Hellman algorithm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/asymmetric_encrypt.png}
+	\caption[Model of asymmetric encryption and decryption]{Model of asymmetric encryption and decryption}
+	\label{fig:asymmetric_encrypt}
+\end{figure}
+
+\subsubsection{Diffie-Hellman algorithm - A key agreement protocol}
+
+
+\subsubsection{DSA - Digital Signature Algorithm}
+Data, in our case, transaction sent through the blockchain network requires some digital signing mechanisms to prove authenticity of the sender.
+The Digital Signature Algorithm provides methods of generating a digital signature and verifying validity of the signature.
+Everytime we create a transaction, we digitally signing a transaction (for example says "I'm sending 1 SOL to this guy address) then sent to other nodes on the network. 
+They can check that your signature matches the message. If it doesn’t, they’ll just reject it.
+A digital signature is like a 'fingerprint' or a written signature of the owner in electronic world. 
+It also provides integrity of transactions (i.e detect if the transaction was tampered after it was signed) and non-repudiation.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/digital_signature.png}
+	\caption[Digital signature process]{Digital signature process}
+	\label{fig:digital_signature}
+\end{figure}
+
+The Digital Signature Algorithm was proposed in August 1991 by NIST and released in Digital Signature Standard [FIPS 186–1 in 1998], but no longer approved in lastest Digital Signature Standard Document [NIST.FIPS.186-5.Draft]. 
+Thus, we won't dive deep into the DSA but only the process scheme of electronically signing and verifying a signature since all Cryptographic signature algorithms will follow this standard. 
+In this section, we have the idea of how digital signature works.
 
 \subsubsection{RSA Cryptography}
 
 \subsubsection{ECC - Elliptic Curve Cryptography}
+Proposed by Neil Koblitz and Victor Miller in 1985, \emph{Elliptic Curve Cryptography} is a more powerful alternative approach to \emph{RSA}. \emph{ECC} offers a faster, less computational energy in crypto-progress, higher security and shorter key pairs. 
+An elliptic curve is a two-space graph defined by the square roots of a cubic equation. In cryptography, it takes a form defined as follows
+\begin{equation} 
+	\emph{E} = \{{O}\cup{(x,y)\in \mathbb{F}_{q}^2 \,|\, y2 = x3 + ax + b}\}
+\end{equation}
+
+where (a,b) $\in\mathbb{F}_{q}^2$ and O is the point at infinity which is considered to be the neutral elementof the curve.
+This is referred to as the Weierstrass equation for an elliptic curve. 
+Denoted by E($\mathbb{F}_{q}^2$) the elliptic curve over the finite field $\mathbb{F}_{q}^2$. 
 
 \subsection{Twisted-Edward curve and Ed25519}
 
 \subsection{Child key derivation function}
+
+\subsection{Symmetric-key cryptography}
+\label{sec: Symmetric_keys}
+
+\subsubsection{TLS 1.2}
+
+
