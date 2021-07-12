@@ -398,6 +398,49 @@ In this section, we have the idea of how digital signature works.
 
 \subsubsection{RSA Cryptography}
 
+RSA is the oldest public-key cryptosystem. The acronym RSA comes from the surnames of Ron Rivest, Adi Shamir and Leonard Adleman, who publicly described the algorithm in 1977. The RSA algorithm requires selecting two large prime numbers to generate a pair of public key and private key. The primes and the private key are kept secret, while the multiplication of two primes and the public key are visible. This way, the messages can be encrypted by anyone but can only be decrypted by the owner of the corresponding private key.
+
+The RSA algorithm involves four steps: key generation, key distribution, encryption and decryption. To generate a pair of valid keys:
+
+\begin{enumerate}
+  \item Choose two distinct primes number $p$ and $q$.
+  \item Compute $n = p \times q$ and $\phi(n) = (p - 1)(q - 1)$, where $\phi$ is called Euler's totient function
+  \item Choose an integer $e$ such that $1 < e < \phi(n)$ and $e$ must be coprime with $\phi(n)$ and $n$
+  \item Determine an integer $d$ satisfied the equation $d \equiv e^{-1}\ (\textrm{mod}\ \phi(n))$; where $d$ is the modular multiplicative inverse of $e$ modulo $\phi(n)$, means that $de \equiv 1\ (\textrm{mod}\ \phi(n))$.
+\end{enumerate}
+
+The public key consists of the modulus $n$ and the exponent $e$. The private key is the exponent $d$, which must be kept secret, the same goes to $p$ and $q$ since they can be used to calculate $d$. In fact, $p$ and $q$ can be discarded after $d$ has been computed. To distribute the public key, the user simply sends it via a reliable, but not necessarily secret, route. For the encryption/decryption scheme, suppose that Bob wants to send Alice a message $m$, and Bob has already got Alice public key. Bob encrypts the message using the equation:
+
+\begin{equation}
+  m^e\ \equiv\ c\ (\textrm{mod}\ n)
+\end{equation}
+
+The cipher text $c$ is the result of the encrypted message. Bob then transmits $c$ to Alice. When Alice got $c$, she can decrypt the cipher text as follow:
+
+\begin{equation}
+  c^d\ \equiv\ (m^e)^d\ \equiv\ m^{ed}\ \equiv\ m^1\ \equiv m\ (\textrm{mod}\ n)
+\end{equation}
+
+Notice that thorough the action, we only use Alice' keys. Alice's public key acts as an address of where to send the message to, and her private acts as a key to her mailbox, only she can open and read what the message is. RSA also comes with a digital signature scheme, which is reversely included only Bob' keys: Bob will use his private key to sign the message, and the signature can be verify by Alice using the public key of Bob. Suppose that Alice wants to know if the message is exactly come from Bob and Bob wants to clarify that. Bob first hashes the message using a hash function, denoted $h = H(m)$. Then he signs the message using his private key:
+
+\begin{equation}
+  h^d\ \equiv\ s\ (\textrm{mod}\ n)
+\end{equation}
+
+Attached the signature $s$ to the message, Bob sends them to Alice (of course, after encrypted as described above). To verify a signature $s'$ is Bob signature $s$, Alice verifies $s$ by comparing $h'$ and $h$ where $h'$ is retrieved from:
+
+\begin{equation}
+  (s')^e\ \equiv\ ((h')^d)^e\ \equiv\ (h')^{de}\ \equiv\ h'\ (\textrm{mod}\ n)
+\end{equation}
+
+If $h' = h$ then $s' = s$, the signature is valid and Bob is the sender of the message. This scheme works because of exponentiation rules:
+
+\begin{equation}
+  (h^d)^e\ \equiv\ h^{de}\ \equiv\ h^{ed}\ \equiv\ (h^e)^d \equiv\ h \ (\textrm{mod}\ n)
+\end{equation}
+
+The security of RSA algorithm depends on the integer factorization problems, where we can easily multiply two distinct primes, but it's hard to retrieve two primes from the multiplication. This is called one-way function (or trapdoor function), the backbone of the asymmetric cryptography. Because the encryption key is public, we need to ensure that neither the public key nor the encryption reveals anything about the private key and the decryption. It's easy and fast to encrypt, but it's hard and infeasible to decrypt without knowing the private key. By relying on the integer factorization, RSA is simple and effective for a long time until the computing power becomes so strong nowadays and even parallelism. That where the weakness of RSA comes in: the complexity of RSA doesn't grow exponential when increasing the number. It causes the size of keys are becoming larger if we want to be more secure. The larger the number is, the slower the decryption runs. Therefore; ECC has gradually gain more attention in terms of secure and cost-efficient.
+
 \subsubsection{ECC - Elliptic Curve Cryptography}
 \begin{figure}[ht!]
   \centering
@@ -412,9 +455,7 @@ An elliptic curve is a two-space graph defined by the square roots of a cubic eq
   \emph{E} = \{{O}\cup{(x,y)\in \mathbb{F}_{p}^2 \,|\, y^2 = x^3 + ax + b, \, 4a^3 + 27b^2 \neq 0}\}
 \end{equation}
 
-where (\emph{a,b}) $\in\mathbb{F}_{p}^2$ and O is the point at infinity which is considered to be the neutral elementof the curve.
-The condition $4a^3 + 27b^2 \neq 0$ make the curve not singular since it will be isomorphic to multiplicative group, which enables to solve DLP faster [Singular curve attack].
-Singular curves may have a cusp or multiple roots (\autoref{fig:singularities}).
+where (\emph{a,b}) $\in\mathbb{F}_{p}^2$ and O is the point at infinity which is considered to be the neutral element of the curve. The condition $4a^3 + 27b^2 \neq 0$ make the curve not singular since it will be isomorphic to multiplicative group, which enables to solve DLP faster [Singular curve attack]. Singular curves may have a cusp or multiple roots (\autoref{fig:singularities}).
 
 \begin{figure}[ht!]
   \centering
