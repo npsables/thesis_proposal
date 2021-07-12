@@ -299,7 +299,7 @@ The fomular is:
 \end{align*}
 
 
-Arcording to NIST, a cryptographic hash mush satisfied following three properties:
+According to NIST, a cryptographic hash mush satisfied following three properties:
 \begin{enumerate}
   \item Collision resistance: It is computationally infeasible to find two inputs that have the same hash value.
         The most efficient method to find must be brute-forcing of random inputs.
@@ -433,7 +433,7 @@ Attached the signature $s$ to the message, Bob sends them to Alice (of course, a
   (s')^e\ \equiv\ ((h')^d)^e\ \equiv\ (h')^{de}\ \equiv\ h'\ (\textrm{mod}\ n)
 \end{equation}
 
-If $h' = h$ then $s' = s$, the signature is valid and Bob is the sender of the message. This scheme works because of exponentiation rules:
+If $h' = h$ then $s' = s$, the signature is valid and Bob is the sender of the message. This scheme works because of $de \equiv 1\ (\textrm{mod}\ \phi(n))$ and exponentiation rules:
 
 \begin{equation}
   (h^d)^e\ \equiv\ h^{de}\ \equiv\ h^{ed}\ \equiv\ (h^e)^d \equiv\ h \ (\textrm{mod}\ n)
