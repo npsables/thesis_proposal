@@ -66,13 +66,13 @@ Our aim is to create a CKD function for Ed25519, by which enhance the security a
 \subsection{Practical benefits}
 
 % Transaction speed: Sign and verify
-By shifting from Secp256k1 to Ed25519, the wallet will be safer and the blockchain is also securer. As stated above, the security standards for ECC have been raised, proposed Ed25519 for digital signatures. Ed25519 is a fast and secure digital signature algorithm based on performance-optimized elliptic curves (curve Curve25519). Ed25519 is expected to quadruple performance versus Secp256k1 based on our preliminary benchmarking (\href{https://ripple.com/insights/curves-with-a-twist/}{Ripple}).
+By shifting to Ed25519, the wallet will be safer and the blockchain is also securer. As stated above, the security standards for ECC have been raised, proposed Ed25519 for digital signatures. Ed25519 is a fast and secure digital signature algorithm based on performance-optimized elliptic curves (curve Curve25519). Ed25519 is expected to quadruple performance versus Secp256k1 based on our preliminary benchmarking (\href{https://ripple.com/insights/curves-with-a-twist/}{Ripple}).
 
 % Light-weight wallet
-We can't create a child key based on the master keys with RSA algorithm, because RSA relies on integer factorization. If we create a subgroup based on the master keys' integer, RSA can be broken by the Chinese Remainder Theorem. While in ECC, another subgroup can be generated without breaking the algorithms, and with the twisted curve, we have a larger key domain with the same key size. 
+ECC can generate a subgroup with the same properties and doesn't reveal anything about its parent. In that way, ECC allows to safely generate a child key from the same master key, while if we keep using the same key in RSA it can be broken by the Chinese Remainder Theorem. Therefore; we only store the master key instead of storing a lot of keys for each account, reducing the size of the wallet.
 
 % Secure and availability
-Better security and faster computing speed.
+% Better security and faster computing speed.
 
 \section{Rationale of the study}
 

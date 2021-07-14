@@ -1,82 +1,11 @@
 \chapter{Methodologies and Approaches} \label{chap:Methodologies_and_Approaches}
 
-\section{Challenges}
+There are already a HD wallet for Secp256k1. Fortunately, it's open source and the explanation is clear. We can study how to generate a child key on Secp256k1, then try to apply or adjust the CKD function on Ed25519. The reason why is that both Secp256k1 and Curve25519 (the curve 'used' in Ed25519) share the same form, Montgomery. The differences are:
 
-\subsection{HD wallet architecture for Ed25519}
+\begin{itemize}
+    \item The curves are defined over distinct fields
+    \item Curve25519 is birationally equivalent to Ed25519, not the main curve
+    \item Ed25519 is a twisted Edwards curve, while Secp256k1 and Curve25519 are \\ Montgomery curve
+\end{itemize}
 
-\subsection{Key managements}
-
-\section{Approaches}
-
-
-% \begin{itemize}
-%     \item The topic focuses on building mobile apps on Android platform using Flutter and the main programming language is Dart and doesn't support other mobile platforms like iOS, Windows Phone.
-%     \item User can only convert hand drawn diagram to digital version if internet connection is available.
-%     \item The web server can serve 100 clients at the same time.
-%     \item The system only supports converting and editing of small charts (in an A4 page, medium size text) and does not support importing files from other platforms.
-%     \item The system only create and editing flowchart.
-%     \item The system only supports storing chart files in .json format and exporting to images (png, jpg), text (pdf) and .drawio files.
-%     \item The flowchart contains maximum 20 symbols not including arrows
-%     \item The system do not allow to take picture with the wrong direction.
-%     \item The flowchart must not have three or more arrows intersect at one point. It also must not have two arrows having the same edge.
-%     \item The flowchart must be drawn with ball pen on a fresh white paper.
-%     \item Arrow in flowchart must have an arrowhead. 
-%     \item There must not be isolated text/symbol. Furthermore, strikethrough text is restricted.
-% \end{itemize}
-
-% \section{Application features}
-
-% The application runs on mobile devices so that users can easily convert a graph on the fly as long as they are connected to the internet. It also requires storage access and camera access permission in order to use the scanning function and temporarily saving it in the phone.
-
-% \subsection{Sign up and Login}
-% When users open the app for the first time, they will be offered to create an account to continue. To simplify the sign-up process, it only requires the user's email and password. Other information can be updated later on. In addition, users can also use their Google account to sign in without creating their own account for this app. In case users had already forgotten the password, they can retrieve it by providing their account email and the system will send an email to verify and include further information for changing the password.
-
-% \subsection{Create diagram}
-% After successfully login in, users can create a new diagram using one of these methods:
-% \begin{itemize}
-%     \item Directly Scanning: The application activates the device's camera so user can point at the drawing and take a picture of it.
-%     \item Import from image: User selects an image from device's gallery.
-%     \item Create blank: User can create a blank diagram and add elements then.
-% \end{itemize}
-
-% \subsubsection{Convert to digital}
-% If user chooses the first two options then after taking/choosing the picture he/she can re-take or re-adjust the picture (rotate, flip, or crop) before finishing this step. After that, the result will be displayed and provide some extra options: save, modify, and delete. Save option will require inputting the diagram name and choose the saving location. The diagram can be saved online on the web server or offline on the phone. Each user can only save a limited number of diagrams online, if a user is running out of saving slot then the only option is to store them locally. The main difference between saving online and offline is only the diagrams on the web server can be shared and have a detailed change history. Modify option is used if user is not satisfied with the result of the auto-detection algorithm and want to change it. This option will send them to the modify page where they can edit it before saving. Note that if user leaves this page without saving it, the diagram will be lost. Delete option shows a confirmation message and offers a retry.
-
-% \subsubsection{Create from blank}
-% If ``Create blank'' is chosen then a name for new diagram is required, then user will be sent to modify page where already has a default diagram created.
-
-% \subsection{Adjust diagram}
-% All the created diagrams will be displayed on the main screen of the app, user can select one of them to modify, delete, rename, view history change, export, and share. Only diagrams that are stored online have the share option and view history change option.
-
-% On the modify page, user can change elements' position, create new ones, or delete them. All elements supported will be listed later. All the attribute that user can change within an element is size, title, color, and type of element. All of the changes will be stored so that the user is able to undo or redo the action. Auto-saving is not supported, user needs to save manually. If user exits the app without saving, all of the progress will be lost.
-% "Change history" function requires to store a version of the old diagram every time a new one is saved into the web server. If the diagram is shared within a group, all of the information about the user who makes changes is also stored.
-
-% \subsection{Share and set permission}
-% Users can also share the diagram with others. However, only the owner can share their product. All of the shared diagrams will be in another tab on the home screen. To share a diagram, user needs to input the receiver's email and set their permission to "Read-only" or "Can edit". The Owner can also revoke the share permission by deleting the other user from the share list.
-
-% \section{Requirements}
-% \subsection{Functional requirement}
-% \begin{itemize}
-%     \item {System is able to detect the flow-chart diagram from a hand-drawing draft.}
-%     \begin{itemize}
-%         \item {System is able to detect the node type and its title.}
-%         \item {System is able to detect the relationship between the diagram’s symbols and check for incorrect relationship.}
-%         \item {System is able to detect the relationship between the diagram’s symbols and check for incorrect relationship.}
-%         \item {English is the main supported language.}
-%     \end{itemize}
-%     \item {System is able to re-create the diagram into digital version to display in the mobile application, and allow user to modify.}
-%     \item {The input can be directly taken from the camera of the device or uploaded from the storage.}
-%     \item {(Optional) System has the ability to convert the diagram to some popular diagram file format so that user can import it from tools like drawio, lucidchart, …}
-% \end{itemize}
-
-% \subsection{Nonfunctional requirement}
-% \begin{itemize}
-%     \item {System is written with Dart (with framework Flutter), C++.}
-%     \item {System is able to detect diagram within 8 seconds.}
-% \end{itemize}
-
-% \subsection{Hardware requirement}
-% \begin{itemize}
-%     \item {Mobile application require device must be installed with android OS version 7.0 or above }
-%     \item {Recommend requirement for web server:}
-% \end{itemize}
+With that being said, some works on Ed25519 has been done. However; none of them are official. Even NIST is still proposing Ed25519 on draft. That means we have to proove the correctness of the math behind CKD function. This is the most challenging problem. Our plan now is learn about modern cryptography, especially elliptic curve, twisted curve and twisted Edward curve; then we analyze the CKD function of Secp256k1; finally, applied what we have studied to work out the CKD function for Ed25519 with the proof of correctness and implement it into a wallet.
