@@ -63,33 +63,33 @@ In order to keep the user's application lightweight, we need to find out a deter
 % CKD: Master public key -> child public key
 Our aim is to create a CKD function for Ed25519, by which enhance the security and key management of a HD wallet. Another reason why we choose Ed25519 is that curve Secp256k1, used in bitcoin blockchain, is no longer a safe curve. Curve Ed25519 has very good properties in terms of implementation security and speed of digital signatures, as well as solid, well-tested libraries like NaCl for encryption and signatures. It's used in more and more elliptic curve crypto implementations these days and looks like it might become a standard for both digital signatures and public-key encryption. NIST (reference here) already has a draft for proposing updates to its standards on digital signatures and elliptic curve cryptography, adopting Ed25519.
 
-% \subsection{Practical benefits}
+\subsection{Practical benefits}
 
 % Transaction speed: Sign and verify
+By shifting to Ed25519, the wallet will be safer and the blockchain is also securer. As stated above, the security standards for ECC have been raised, proposed Ed25519 for digital signatures. Ed25519 is a fast and secure digital signature algorithm based on performance-optimized elliptic curves (curve Curve25519). Ed25519 is expected to quadruple performance versus Secp256k1 based on our preliminary benchmarking (\href{https://ripple.com/insights/curves-with-a-twist/}{Ripple}).
 
 % Light-weight wallet
+ECC can generate a subgroup with the same properties and doesn't reveal anything about its parent. In that way, ECC allows to safely generate a child key from the same master key, while if we keep using the same key in RSA it can be broken by the Chinese Remainder Theorem. Therefore; we only store the master key instead of storing a lot of keys for each account, reducing the size of the wallet.
 
 % Secure and availability
+% Better security and faster computing speed.
 
 \section{Rationale of the study}
 
-Our main focus is the blockchain technology and HD wallet on blockchain. This thesis will work on the breakthrough of the blockchain and how cryptography enhance the security of the blockchain network. For starter, blockchain solves the consensus problem (Byzantine General Problem) of the distributed system, allow the network to tolerate the number malicious nodes up to nearly half of the nodes. With the help of asymmetric cryptography, blockchain further more improve the BFT to $n \geq f + 2$ (almost all of the nodes are malicious). Then we will focus on developing the HDWallet for Ed25519, specifically designing a CKD for Ed25519 and integrating it into the wallet.
+Our main focus is the blockchain technology and HD wallet on blockchain. This thesis will work on the breakthrough of the blockchain and how cryptography enhance the security of the blockchain network. For starter, blockchain solves the consensus problem (Byzantine General Problem) of the distributed system, allow the network to tolerate the number malicious nodes up to nearly half of the nodes. With the help of asymmetric cryptography, blockchain further more improve the BFT to $n \geq f + 2$ (almost all of the nodes are malicious). Then we will focus on developing the HD wallet for Ed25519, specifically designing a CKD for Ed25519 and integrating it into the wallet.
 
 \section{Tentative structure of the study}
 
-The thesis contains 6 chapters. The contents are below:
+is thesis contains 6 chapters. The contents are below:
 
-1/ Introduce DeFi and its architecture
-
-2/ Background knowledge about blockchain technology, HD wallet and cryptography
-
-3/ The challenges we are facing and our approach to generate a CKD
-
-4/ The goals that we want to achieve
-
-5/ Some related works on improving the security of the system
-
-6/ Conclusion and future work
+\begin{enumerate}
+  \item Introduce DeFi and its architecture
+  \item Background knowledge about blockchain technology, HD wallet and cryptography
+  \item The challenges we are facing and our approach to generate a CKD
+  \item The goals that we want to achieve
+  \item Some related works on improving the security of the system
+  \item Conclusion and future work
+\end{enumerate}
 
 \section{Tentative schedule}
 
@@ -99,10 +99,10 @@ To make sure we understand DeFi from both technical view and financial view (in 
 
 \textbf{Stage 2:} Study and research about blockchain and blockchain wallet
 
-\textbf{Stage 3:} Analyze the CKD of HDWallet on Secp256k1 and its approach
+\textbf{Stage 3:} Analyze the CKD of HD wallet on Secp256k1 and its approach
 
-\textbf{Stage 4:} Propose a CKD for HDWallet on Ed25519
+\textbf{Stage 4:} Propose a CKD for HD wallet on Ed25519
 
-\textbf{Stage 5:} Implement the HDWallet on Ed25519
+\textbf{Stage 5:} Implement the HD wallet on Ed25519
 
 In the proposed thesis stage, we operate stage 1, 2, 3 of the thesis. In the thesis stage, we operate the remain stage.
