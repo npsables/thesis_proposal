@@ -321,11 +321,11 @@ According to NIST, a cryptographic hash mush satisfied following three propertie
 \subsubsection{Choosing Approved Hashs}
 NIST approved following algorithms:
 \begin{itemize}
-  \item SHA-1 [FIPS 180-4]
+  \item SHA-1 \cite{DBLP:journals/cryptologia/Dang13}
 
-  \item SHA-2 family: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, and SHA-512/256. [FIPS 180-4]
+  \item SHA-2 family: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, and SHA-512/256. \cite{DBLP:journals/cryptologia/Dang13}
 
-  \item SHA-3 family (on KECCAK [keccak] as a result of the “SHA-3” Cryptographic Hash Algorithm Competition):  SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128 and SHAKE256.
+  \item SHA-3 family (on KECCAK \cite{DBLP:journals/iacr/BertoniDPA15} as a result of the “SHA-3” Cryptographic Hash Algorithm Competition):  SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128 and SHAKE256.
 \end{itemize}
 Due to the fact that SHA-1 already has a collision [SHA-1 first collision], we won't choose SHA-1 for usage in our thesis.
 Considering the blockchain system we working on, the hash algorithm will be choose in the future.
