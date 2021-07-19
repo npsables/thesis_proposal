@@ -14,10 +14,10 @@
 \subsection{History and Definition}
 
 Blockchains are immutable digital ledger systems implemented in a distributed fashion (i.e., without a central repository) and usually without a central authority.
-The definition of blockchain was introduced to the world by a person (or a group of people) under the name Satoshi Nakamoto on October 31, 2008.
+The definition of blockchain was introduced to the world by a person (or a group of people) under the name Satoshi Nakamoto on October 31, 2008 \cite{Bitcoin:Bitcoin}.
 It was applied to enable the emergence of a "purely peer-to-peer (no financial institution or third party) electronic cash" named Bitcoin where transactions take place in a distributed system.
 In fact, Satoshi did not invent blockchain, and Bitcoin blockchain is not the first chain that ever created.
-Back in 1991, cryptographers Stuart Haber and Scott Stornetta published a whitepaper "How to Time-Stamp a Digital Document" in the Journal of Cryptography.
+Back in 1991, cryptographers Stuart Haber and Scott Stornetta published a whitepaper "How to Time-Stamp a Digital Document" in the Journal of Cryptography \cite{DBLP:journals/joc/HaberS91}.
 Their goal is to digital time-stamping of documents so that it is infeasible for a user either to back-date or to a forward-date digital document, even with the collusion of a time-stamping service.
 The technology is called a blockchain because the distributed electronic ledger stores items of data in time-stamped digital groups called blocks. Each block includes an alphanumeric code called a "hash" summing up its data. The hash of each completed block also appears in the next one in the chain, which means that to alter one block you would have to alter all the ones connected to it. These cryptographic dominos function together to protect against tampering or fraud.
 Base on this theory, the longest-running blockchain, started in 1995, also by Haber and Stornetta, publishes the weekly summary hash value every week in the New York Times (\autoref{fig:first_blockchain}) and still running strong today.
@@ -32,7 +32,7 @@ Base on this theory, the longest-running blockchain, started in 1995, also by Ha
 % The math behind blockchain and its complex system architecture make it challenging to understand. 
 But the word "blockchain" or "block" and "chain" wasn't use back then.
 Only when it was known in Satoshi Nakamoto's Bitcoin paper does the term of "chain" of "blocks" become a representaion for this technology.
-Later people combined the one-word "blockchain" in mainstream media publications such as Fortune, Forbes, and the Huffington Post as the technology gained greater interest and use.
+Later people combined the one-word "blockchain" in mainstream media publications such as Fortune, Forbes, and the Huffington Post as the technology gained greater interest and use \cite{blockchain:meaning}.
 The community use that word for Nakamoto's invention.
 Bound to the emergence of Bitcoin and cryptocurrency, a concise description of blockchain technology is provided by NIST:
 
@@ -46,8 +46,7 @@ We can envision putting proof of the existence of all legal documents, health re
 By storing the fingerprint of the digital asset instead of storing the digital asset itself, the anonymity or privacy objective can be achieved.
 For the sake of our thesis, we will mainly focus on the original and surely the most popular application of blockchains - Cryptocurrency.
 
-Cryptocurrencies are digital currencies that use blockchain technology to\autoref{fig:first_blockchain}) and still running strong today.
-record and secure every transaction.
+Cryptocurrencies are digital currencies that use blockchain technology to made reality and still running strong today (\autoref{fig:first_blockchain}).
 A cryptocurrency can be used as a digital form of cash that can be used to buy goods and services.
 It can be bought using one of several digital wallets or trading platforms, then digitally transferred upon purchase of an item, with the blockchain recording the transaction and the new owner.
 The appeal of cryptocurrencies is that everything is recorded in a public ledger and secured using cryptography, making an irrefutable, timestamped, and secure record of every payment.
@@ -55,7 +54,7 @@ The ledger displays user account balances and inter-user payments in a “curren
 Nevertheless, cryptocurrency may be traded on the stock exchange and exchanged for traditional money, which makes it hard to distinguish between traditional currency and cryptocurrency and as official vs. non-official currency.
 The most widely recognized cryptocurrency system is Bitcoin.
 
-We believe the "magic" that brings the above concept of digital currencies to reality, besides blockchain technology, is Nakamoto's proof-of-work consensus model.
+We believe the "magic" that brings the above concept of digital currencies to reality, besides blockchain technology, is Nakamoto's proof-of-work consensus model.  
 
 \subsection{Blockchain Characteristics and Generations}
 
@@ -104,7 +103,7 @@ We are now developing blockchain 2.0 but our thesis just focuses on the cryptocu
 Bitcoin is the first application of blockchain and the most famous digital currency ever.
 As mentioned above, Bitcoin was invented with the publication of a document entitled "Bitcoin: A peer-to-peer electronic cash system" in 2008 by Satoshi Nakamoto, mentioned as a purely P2P version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution.
 The currency began to use in 2009 when its implementation was released as open-source software.
-The Bitcoin blockchain is considered to be a world-changing technology because in the first time in human history its solved the biggest problem of distributed system: The Byzantine General's Problem.
+The Bitcoin blockchain is considered to be a world-changing technology because in the first time in human history its solved the biggest problem of distributed system: The Byzantine General's Problem \cite{DBLP:journals/toplas/LamportSP82}.
 We will talk about this in the Bitcoin game of theory and incentives section.
 
 Bitcoin application is one of the permissionless blockchain.
@@ -215,11 +214,11 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
         Arthur C. Clarke once wrote, “Any sufficiently advanced technology is indistinguishable from magic”.
         Clarke’s statement is a perfect representation for the emerging of Bitcoin.
         Bitcoin blockchain is considered to be a masterpiece of combination of mordern technologies, economics, mathematics, philosophy, and game theory.
-        What make it so special is applying game of theory to solve the The Byzantine General’s Problem.
+        What make it so special is applying game of theory to solve the The Byzantine General’s Problem \cite{DBLP:journals/toplas/LamportSP82}.
 
         Game theory is based on the assumption that all participants are rational actors and are trying to maximize their gains from the game.
         In the situation of Bitcoin, the problem is how to ensure that all the actors of a decentralized network behave correctly.
-        This is known as The Byzantine General’s Problem.
+        This is known as The Byzantine General’s Problem \cite{DBLP:journals/toplas/LamportSP82}.
         How to ensure that all generals will follow the plan? Even if they are located in different places and do not trust each other?
         This was believed to be the biggest problem of P2P network, impossible to achieve before Satoshi Nakamoto.
 
@@ -327,7 +326,7 @@ NIST approved following algorithms:
 
   \item SHA-3 family (on KECCAK \cite{DBLP:journals/iacr/BertoniDPA15} as a result of the “SHA-3” Cryptographic Hash Algorithm Competition):  SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128 and SHAKE256.
 \end{itemize}
-Due to the fact that SHA-1 already has a collision [SHA-1 first collision], we won't choose SHA-1 for usage in our thesis.
+Due to the fact that SHA-1 already has a collision \cite{SHA-1:Collision}, we won't choose SHA-1 for usage in our thesis.
 Considering the blockchain system we working on, the hash algorithm will be choose in the future.
 
 \bigskip
