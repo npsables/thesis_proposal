@@ -3,30 +3,31 @@
 \minitoc
 
 \section{Technology used}
-{\textit {\textbf{Programing language}}}
+{\textit {\textbf{Programing language and libraries}}}
 \begin{itemize}
-\item \emph{ReactJS}[ref react] for User Interface components. 
-\item \emph{Node.js}[ref node] for Server components. 
-\item \emph{Python}[ref Python] for automation testing.
+\item \emph{ReactJS} [ref react] for User Interface components. 
+\item \emph{Node.js} [ref node] for Server components.
+\item \emph{hdkey} and \emph{bip-0032} for studying hierarchical deterministic wallet on Secp256k1
+\item \emph{TweetNaCl.js} a crypto library of TweetNaCl in JavaScript
+\item \emph{Python} [ref Python] for automation testing.
 \end{itemize}
 
 {\textit {\textbf{Blockchain}}}
 \begin{itemize}
-    \item \emph{Solana}[ref Solana] DevNet and TestNet. 
+    \item \emph{Solana} [ref Solana] TestNet and, if we can make it in time, DevNet
 \end{itemize}
 
 \section{System design}
 {\textit {\textbf{Wallet type}}}
 \begin{itemize}
-    \item We decided to build a \emph{Hybrid Wallet}. 
-    The private key will be hold by only the user, save on user hardware (phone or computer).
-    User have full control of their tokens or coins but they have to manage it on their own.
-    Outside of the application, user must keep their private key safe.
+    \item We decided to build a \emph{Hybrid Wallet}. The private key will be hold by only the user, safely saved in the user hardware (phone or computer). The user has full control of their tokens or coins but they have to manage it on their own through the software. Outside of the application, user must keep their private key safe.
+    \item From the financial aspect, the wallet is a non-custody wallet. It doesn't store any user information in comparison to a traditional bank's account (KYC). Since a blockchain wallet interacts with a decentralize system, where everything is transparent, it should not use anything related to a user's personal information.
+    \item The wallet will
 \end{itemize}
 
 {\textit {\textbf{Signature Schema}}}
 \begin{itemize}
-    \item EDDSA (Curve Ed25519) and key generation.
+    \item EdDSA (curve Ed25519) and a proposed CKD function on Ed25519 (our work) for child key generation.
 \end{itemize}
 
 {\textit {\textbf{Main function of the wallet}}}
