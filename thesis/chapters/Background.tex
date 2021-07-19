@@ -36,8 +36,8 @@ Later people combined the one-word "blockchain" in mainstream media publications
 The community use that word for Nakamoto's invention.
 Bound to the emergence of Bitcoin and cryptocurrency, a concise description of blockchain technology is provided by NIST:
 
-\begin{quote}
-  Blockchains are distributed digital ledgers of cryptographically signed transactions that are grouped into blocks. Each block is cryptographically linked to the previous one (making it tamper evident) after validation and undergoing a consensus decision. As new blocks are added, older blocks become more difficult to modify (creating tamper resistance). New blocks are replicated across copies of the ledger within the network, and any conflicts are resolved automatically using established rules.
+\begin{quote} 
+  Blockchains are distributed digital ledgers of cryptographically signed transactions that are grouped into blocks. Each block is cryptographically linked to the previous one (making it tamper evident) after validation and undergoing a consensus decision. As new blocks are added, older blocks become more difficult to modify (creating tamper resistance). New blocks are replicated across copies of the ledger within the network, and any conflicts are resolved automatically using established rules \cite{BlkchainOverview}.
 \end{quote}
 
 Blockchain technology comes handy in a wide range of areas - both ​financial and non-financial​.
@@ -54,7 +54,7 @@ The ledger displays user account balances and inter-user payments in a “curren
 Nevertheless, cryptocurrency may be traded on the stock exchange and exchanged for traditional money, which makes it hard to distinguish between traditional currency and cryptocurrency and as official vs. non-official currency.
 The most widely recognized cryptocurrency system is Bitcoin.
 
-We believe the "magic" that brings the above concept of digital currencies to reality, besides blockchain technology, is Nakamoto's proof-of-work consensus model.  
+We believe the "magic" that brings the above concept of digital currencies to reality, beside blockchain technology, is Nakamoto's proof-of-work consensus model.  
 
 \subsection{Blockchain Characteristics and Generations}
 
@@ -64,12 +64,12 @@ Blockchain network can be:
         Users of blockchain have to trust that entity or user who published blocks.
         Permissioned blockchain networks may thus allow anyone to read the blockchain or they may restrict read access to authorized individuals. This maybe used by organizations that need more control over their blockchain.
         Some permissioned blockchain networks support the ability to selectively reveal transaction information based on a blockchain network users identity or credentials.
-        Some of famous permissioned blockchain applications are Ripple, which enables interbank transactions, or Sovrin, which is managed by financial institutions and is seeking to build a global decentralized identity system.
+        Some of famous permissioned blockchain applications are \href{https://ripple.com/}{Ripple}, which enables interbank transactions, or \href{https://sovrin.org/}{Sovrin}, which is managed by financial institutions and is seeking to build a global decentralized identity system.
 
   \item \emph{Permissionless network}, where service providers are not fixed and, in principle, anyone can start operating the service.
-        For example, Bitcoin and the early versions of Ethereum.
+        For example, Bitcoin and the early versions of \href{https://ethereumclassic.org/}{Ethereum}.
 
-  \item \emph{Centralized network}, where the ledger is managed as a centralised service by one legal	entity. For example, the Guardtime system.
+  \item \emph{Centralized network}, where the ledger is managed as a centralised service by one legal	entity. For example, the \href{https://guardtime.com/}{Guardtime} system.
 \end{itemize}
 
 % The blockchain is usually stored and managed in the form of a distributed ledger,
@@ -87,7 +87,7 @@ Blockchain network can be:
 % Most permissionless blockchain systems include an independent cryptocurrency. 
 % The reason for that is that in the absence of an inter-operator contract, there are usually no other incentives to guarantee voluntary management of the Blockchain
 
-Based on the intended audience, three generations of blockchains can be distinguished (Zhao et al., 2016):
+Based on the intended audience, three generations of blockchains can be distinguished:
 \begin{itemize}
 
   \item Blockchain 1.0 which includes applications enabling digital cryptocurrency transactions
@@ -101,7 +101,7 @@ We are now developing blockchain 2.0 but our thesis just focuses on the cryptocu
 
 \subsection{Bitcoin blockchain}
 Bitcoin is the first application of blockchain and the most famous digital currency ever.
-As mentioned above, Bitcoin was invented with the publication of a document entitled "Bitcoin: A peer-to-peer electronic cash system" in 2008 by Satoshi Nakamoto, mentioned as a purely P2P version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution.
+As mentioned above, Bitcoin was invented with the publication of a document entitled "Bitcoin: A peer-to-peer electronic cash system" in 2008 by Satoshi Nakamoto \cite{Bitcoin}, mentioned as a purely P2P version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution.
 The currency began to use in 2009 when its implementation was released as open-source software.
 The Bitcoin blockchain is considered to be a world-changing technology because in the first time in human history its solved the biggest problem of distributed system: The Byzantine General's Problem \cite{DBLP:journals/toplas/LamportSP82}.
 We will talk about this in the Bitcoin game of theory and incentives section.
@@ -111,7 +111,7 @@ It utilize well-known computer science mechanisms (linked lists, distributed net
 Base on the problems Bitcoin has solved, we examine by dividing it into 3 components:
 
 \begin{itemize}
-  \item Secure and Prevent tempering the data
+  \item Secure and prevent tempering the data
 
         \begin{quote}
           \emph{Hashes} -
@@ -119,7 +119,7 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
           Hashing is a method of calculating a relatively unique fixed-size output (called a message digest, or just digest) for an input of nearly any size (e.g., a file, some text, or an image).
           Even one single bit change of input will result in a completely different output digest.
           In Bitcoin and most blockchain technologies, SHA-256 (Secure Hash Algorithm with output size of 256 bits) appear the most. Many computer support hardware level for this algorithm.
-          NIST specified this algorithm for SHA-256 in Federal Information Processing Standard (FIPS) 180-4 as it passed every properties of a cryptographic hashing.
+          NIST specified this algorithm for SHA-256 in Federal Information Processing Standard (FIPS) 180-4 \cite{DBLP:journals/cryptologia/Dang13} as it passed every properties of a cryptographic hashing.
           \autoref{fig:example_of_sha-256} is an example of SHA-256.
 
           \begin{figure}[ht!]
@@ -225,8 +225,8 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
         To make Bitcoin work, Nakamoto invented a model called Proof of Work Consensus Model.
         In simple words, the proof-of-work involves incrementing the \emph{nonce} in the block that when hashed with SHA-256, the hash begins with a number of zero bits (number of zero bits called the difficulty).
         User publishes the next block by being the first to solve this puzzle, such users are miners in Bitcoin.
-        Finding a block with a specified difficulty is called mining. When successfully mined a new block, the miner gets some Bitcoin as a reward, this is called \emph{Incentive}.
-        The \emph{Incentive} help encourage nodes to stay honest.
+        Finding a block with a specified difficulty is called mining. When successfully mined a new block, the miner gets some Bitcoin as a reward, this is called \emph{incentive}.
+        The \emph{incentive} help encourage nodes to stay honest.
         The accepted chain among the system is the longest chain, which has the greatest proof-of-work effort invested in it.
         If a majority of honest nodes control the power, the honest chain will grow the fastest and outpace any competing chains.
         Proof-of-work aims to protect the integrity of the ledger by making it hard to modify transactions in "old" entries, as changing a block would also require changing all subsequent (later) blocks.
@@ -238,7 +238,7 @@ Base on the problems Bitcoin has solved, we examine by dividing it into 3 compon
           The system is designed to eliminate third party in certifying transactions in term of trust and reliability.
           This drives step from a centralized to a decentralized solution.
           Also, as the nature of decentralized network, it will work even if a single point of network failure.
-          A problem of Cryptocurrency is double spending attacks. A malicous user can spend his asset on multiple transactions.
+          A problem of cryptocurrency is double spending attacks. A malicous user can spend his asset on multiple transactions.
           For distributed network to accomplish this, all transactions have to be publicly broadcast through the network.
           The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received through consensus agreement.
           How ever if an attacker is able to control at least 51\% of the has power of the network, they can commit double transaction and verify it.
@@ -391,7 +391,7 @@ It also provides integrity of transactions (i.e detect if the transaction was ta
   \label{fig:digital_signature}
 \end{figure}
 
-The Digital Signature Algorithm was proposed in August 1991 by NIST and released in Digital Signature Standard [FIPS 186–1 in 1998], but no longer approved in the latest Digital Signature Standard Document [NIST.FIPS.186-5.Draft].
+The Digital Signature Algorithm was proposed in August 1991 by NIST and released in Digital Signature Standard \cite{DSS1998}, but no longer approved in the latest Digital Signature Standard Document \cite{DSS2019}.
 Thus, we won't dive deep into the DSA but only the process scheme of electronically signing and verifying a signature since all Cryptographic signature algorithms will follow this standard.
 In this section, we have the idea of how digital signature works.
 
@@ -469,7 +469,8 @@ Denoted by E($\mathbb{F}_{p}^2$) the elliptic curve over the finite field $\math
 Because elliptic curve over $\mathbb{F}_{p}^2$ still construct a abelian group [Ref proof], for general purposes, we won't mention the standard line equation for $\mathbb{F}_{p}$ (mod p in the end of the equation).
 
 
-  {\textit {\textbf{The Group Law}}}
+{\textit {\textbf{The Group Law}}}
+
 Examine adding point on curve (\autoref{fig:ec_example}), we can see the process work as follow:
 \begin{figure}[ht!]
   \centering
@@ -528,7 +529,7 @@ The order of cyclic group is the smallest number \emph{n} such that $nP = O$ (O 
 \emph{Lagrange's theorem} states that the order of a subgroup is a divisor of the order of the parent group.
 In our case, \emph{n} is a divisor of \emph{N}, where \emph{N} is number of points of a elliptic curve.
 If \emph{N} is a prime then $n = N$.
-For cryptographic application, \emph{n} has to be a prime otherwise the cyclic group will be vulnerable to the attacks using \emph{Chinese Remainder Theorem}[Ref Chinese Remainder and its attacks].
+For cryptographic application, \emph{n} has to be a prime otherwise the cyclic group will be vulnerable to the attacks using \href{https://crypto.stanford.edu/pbc/notes/numbertheory/crt.html}{Chinese Remainder Theorem}.
 \autoref{fig:cyclic_ec} shows an example of a cyclic group of 5 elements with the base point $P = (3,6)$.
 We also have $5P = O$.
 
@@ -576,7 +577,7 @@ Domain parameter is already set up and include:
   \item Curve $E$
   \item Base point G
   \item Order n of subgroup generated by G (n must be large prime)
-  \item Recommended Hash function (HASH())[NIST FIPS 180]
+  \item Recommended Hash function (HASH) \cite{SHS2015}
         \begin{quote}
           Security level of chosen hash function is big problem in ECDSA, NIST did approved some of the hash algorithm we mentioned in Section~\ref{sec:crypto_hash}.
           For example, if hash function has weak second-image resistance, attackers who sniffing between can modify the transaction and the signature will remain the same.
@@ -599,8 +600,8 @@ To sign a transaction $m$, Alice will do:
 The process above is called ECDSA Signature Generation.
 Weak random k is also vulnerable to some kind of attacks.
 Cryptographic random algorithm play a extremely important row in cryptosystems like Crypto Wallet and SSL/TLS.
-For example, failure in number generation cause thefts to steal user private keys in August 2013 [Ref 2013].
-In the same year, Edward Snowden published information about backdoor that NSA put into communication system to spoofing messages.
+For example, failure in number generation cause thefts to steal user private keys.
+In 2013, Edward Snowden published information about random-generator-base backdoor that NSA put into communication system to spoofing messages (\href{https://www.bbc.com/news/technology-24048343}{NSA backdoor}).
 
 Now Bob has to verify Alice's signature. ECDSA Signature Verification contains following step:
 \begin{enumerate}
