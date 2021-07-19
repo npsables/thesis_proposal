@@ -1,6 +1,38 @@
 \chapter{System implementation} \label{chap:System_implementation}
+\textit{In this chapter, we talk about what technology to use and the chosen system solution for our wallet. Since security play a majority part of our thesis, we will examine every technologies that used in our final thesis report.}
 \minitoc
 
 \section{Technology used}
+{\textit {\textbf{Programing language}}}
+\begin{itemize}
+\item \emph{ReactJS}[ref react] for User Interface components. 
+\item \emph{Node.js}[ref node] for Server components. 
+\item \emph{Python}[ref Python] for automation testing.
+\end{itemize}
+
+{\textit {\textbf{Blockchain}}}
+\begin{itemize}
+    \item \emph{Solana}[ref Solana] DevNet and TestNet. 
+\end{itemize}
 
 \section{System design}
+{\textit {\textbf{Wallet type}}}
+\begin{itemize}
+    \item We decided to build a \emph{Hybrid Wallet}. 
+    The private key will be hold by only the user, save on user hardware (phone or computer).
+    User have full control of their tokens or coins but they have to manage it on their own.
+    Outside of the application, user must keep their private key safe.
+\end{itemize}
+
+{\textit {\textbf{Signature Schema}}}
+\begin{itemize}
+    \item EDDSA (Curve Ed25519) and key generation.
+\end{itemize}
+
+{\textit {\textbf{Main function of the wallet}}}
+\begin{itemize}
+    \item Key generation.
+    \item Key management.
+    \item Asset management.
+    \item Transfer management.
+\end{itemize}
