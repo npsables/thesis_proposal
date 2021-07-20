@@ -2,8 +2,8 @@
 \minitoc
 
 
-\section{Challenge}
-There are already a HD wallet for Secp256k1. Fortunately, it's open source and the explanation is clear. We can study how to generate a child key on Secp256k1, then try to apply or adjust the CKD function on Ed25519. The reason why is that both Secp256k1 and Curve25519 (the curve 'used' in Ed25519) share the same form, Montgomery. The differences are:
+\section{Challenges}
+There are already a HD wallet for Secp256k1 \cite{github/bip0032}. Fortunately, it's open source and the explanation is clear. We can study how to generate a child key on Secp256k1, then try to apply or adjust the CKD function on Ed25519. The reason why is that both Secp256k1 and Curve25519 (the curve 'used' in Ed25519) share the same form, Montgomery. The differences are:
 
 \begin{itemize}
     \item The curves are defined over distinct fields
@@ -11,7 +11,7 @@ There are already a HD wallet for Secp256k1. Fortunately, it's open source and t
     \item Ed25519 is a twisted Edwards curve, while Secp256k1 and Curve25519 are \\ Montgomery curve
 \end{itemize}
 
-With that being said, some works on Ed25519 has been done. However; none of them are official. Even NIST is still proposing Ed25519 on draft. That means we have to prove the correctness of the math behind CKD function. This is the most challenging problem. Our plan now is learn about modern cryptography, especially elliptic curve, twisted curve and twisted Edward curve; then we analyze the CKD function of Secp256k1; finally, applied what we have studied to work out the CKD function for Ed25519 with the proof of correctness and implement it into a wallet.
+Besides, their signature's algorithms are not the same. Secp256k1 uses ECDSA algorithm and Ed25519 uses Schnorr signature algorithm. Schnorr signature is simpler and more linear than ECDSA because in Schnorr there is no division involved in the calculation\cite*{schnorr}. It enables multiple signers in a multi-signature transaction to combine their public keys into an aggregated key that represents the group; a property that has been called key aggregation. Hence, Ed25519 can provide faster speed in signing and verifying. As good as it seems, we have to adapt the key generation in order to satisfy the signature requirements, which means now our CKD function has to meet one more metric.
 
 \section{Proposed solutions}
-correctness of the math behind CKD function. This is the most challenging problem. Our plan now is learn about modern cryptography, especially elliptic curve, twisted curve and twisted Edward curve; then we analyze the CKD function of Secp256k1; finally, applied what we have studied to work out the CKD function for Ed25519 with the proof of correctness and implement it into a wallet.
+With that being said, some works on Ed25519 has been done. In SLIP0010\cite{github/slip0010}, they can generate a child private key from the master private key, but haven't found out a way to derive a child public key from the master one for Ed25519. There are many more way to derive a child key, but none of them are official, even NIST is still proposing Ed25519 on draft\cite{DSS2019}. That means we have to prove the correctness of the math behind CKD function. This is the most challenging problem. For now, our plan is learn about modern cryptography, especially elliptic curve, twisted curve and twisted Edward curve; then we analyze the CKD function of Secp256k1; finally, applied what we have studied to work out the CKD function for Ed25519 with the proof of correctness and implement it into a wallet.
