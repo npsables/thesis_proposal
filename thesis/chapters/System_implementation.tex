@@ -18,10 +18,11 @@
 \end{itemize}
 
 \section{System design}
-{\textit {\textbf{Wallet type}}}
+{\textit {\textbf{Wallet category}}}
 \begin{itemize}
-    \item We decided to build a \emph{Hybrid Wallet}. The private key will be hold by only the user, safely saved in the user hardware (phone or computer). The user has full control of their tokens or coins but they have to manage it on their own through the software. Outside of the application, user must keep their private key safe.
-    \item From the financial aspect, the wallet is a non-custody wallet. It doesn't store any user information in comparison to a traditional bank's account (KYC). Since a blockchain wallet interacts with a decentralize system, where everything is transparent, it should not use anything related to a user's personal information.
+    \item We decided to build a \emph{Hybrid Wallet}. The private key will be hold only by the user, safely saved in the user isolated hardware (phone or computer). The user has full control of their cryptocurrencies but they have to manage it on their own through the software. Outside of the application, user must keep their private key and the mnemonic passphrase safe.
+    \item From the financial aspect, the wallet is a non-custody one. It doesn't store any user information in comparison to a traditional bank's account (required KYC). Since a blockchain wallet interacts with a decentralize system, where everything is transparent, it should not use anything related to a user's personal information.
+    \item Obviously, the wallet is hierarchically deterministic. Rather than knowing the exact address of the wallet (for receiving) or knowing the exact private key of that (for signing), the users just keep a pair of master private-public key and derive a child key accordingly to the key tree.
 \end{itemize}
 
 {\textit {\textbf{Signature Schema}}}
