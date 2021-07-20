@@ -27,7 +27,7 @@ In modern cryptocurrency systems, a user's "wallet" or account address, has a pu
 %% A sample of DeFi
 \begin{figure}[h]
   \centering
-  \includegraphics[width=.60\textwidth]{images/ethereum_building_blocks.png}
+  \includegraphics[width=.70\textwidth]{images/ethereum_building_blocks.png}
   \caption[Ethereum building blocks]{Ethereum building blocks}
   \label{fig:ethereum_building_blocks}
 \end{figure}
@@ -62,7 +62,7 @@ In order to keep the user's application lightweight, we need to find out a deter
 % \subsection{Aims}
 
 % CKD: Master public key -> child public key
-Our aim is to create a CKD function for Ed25519, by which enhance the security and key management of a HD wallet. Another reason why we choose Ed25519 is that curve Secp256k1, used in bitcoin blockchain, is no longer a safe curve (\href{http://safecurves.cr.yp.to/disc.html}{SafeCurves}). Curve Ed25519 has some really good properties in terms of implementation security and speed of digital signatures (\href{https://cryptobook.nakov.com/digital-signatures/eddsa-and-ed25519}{CryptoBook}), as well as solid, well-tested libraries like NaCl for encryption and signatures. It's used in more and more elliptic curve crypto implementations these days and looks like it might become a standard for both digital signatures and public-key encryption. NIST (reference here) already has a draft for proposing updates to its standards on digital signatures and elliptic curve cryptography, adopting Ed25519.
+Our aim is to create a CKD function for Ed25519, by which enhance the security and key management of a HD wallet. Another reason why we choose Ed25519 is that curve Secp256k1, used in bitcoin blockchain, is no longer a safe curve (\href{http://safecurves.cr.yp.to/disc.html}{SafeCurves}). Curve Ed25519 has some really good properties in terms of implementation security and speed of digital signatures (\href{https://cryptobook.nakov.com/digital-signatures/eddsa-and-ed25519}{CryptoBook}), as well as solid, well-tested libraries like NaCl for encryption and signatures. It's used in more and more elliptic curve crypto implementations these days and looks like it might become a standard for both digital signatures and public-key encryption. NIST \cite{DSS2019} already has a draft for proposing updates to its standards on digital signatures and elliptic curve cryptography, adopting Ed25519.
 
 \subsection{Practical benefits}
 
@@ -81,20 +81,21 @@ Our main focus is the blockchain technology and HD wallet on blockchain. This th
 
 \section{Tentative structure of the study}
 
-is thesis contains 6 chapters. The contents are below:
+The thesis contains of 7 chapters. The contents are below:
 
 \begin{enumerate}
   \item Introduce DeFi and its architecture
   \item Background knowledge about blockchain technology, HD wallet and cryptography
-  \item The challenges we are facing and our approach to generate a CKD
-  \item The goals that we want to achieve
-  \item Some related works on improving the security of the system
-  \item Conclusion and future work
+  \item Related work, products amd technologies
+  \item System design
+  \item System implementation
+  \item Testing and evaluation
+  \item Conclusion and discussion
 \end{enumerate}
 
 \section{Tentative schedule}
 
-To make sure we understand DeFi from both technical view and financial view (in a certain amount), we divided our thesis into 5 main stages:
+To make sure we understand DeFi (blockchain application) and modern cryptography, we divided our thesis into 5 main stages:
 
 \textbf{Stage 1:} Study and research about the background of cryptography
 
@@ -106,4 +107,4 @@ To make sure we understand DeFi from both technical view and financial view (in 
 
 \textbf{Stage 5:} Implement the HD wallet on Ed25519
 
-In the proposed thesis stage, we operate stage 1, 2, 3 of the thesis. In the thesis stage, we operate the remain stage.
+In the thesis proposal stage, we operated stage 1, 2, 3 of the thesis. In the thesis stage, we will operate the remain stage.
