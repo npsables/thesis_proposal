@@ -441,6 +441,10 @@ If $h' = h$ then $s' = s$, the signature is valid and Bob is the sender of the m
 The security of RSA algorithm depends on the integer factorization problems, where we can easily multiply two distinct primes, but it's hard to retrieve two primes from the multiplication. This is called one-way function (or trapdoor function), the backbone of the asymmetric cryptography. Because the encryption key is public, we need to ensure that neither the public key nor the encryption reveals anything about the private key and the decryption. It's easy and fast to encrypt, but it's hard and infeasible to decrypt without knowing the private key. By relying on the integer factorization, RSA is simple and effective for a long time until the computing power becomes so strong nowadays and even parallelism. That where the weakness of RSA comes in: the complexity of RSA doesn't grow exponential when increasing the number. It causes the size of keys are becoming larger if we want to be more secure. The larger the number is, the slower the decryption runs. Therefore; ECC has gradually gain more attention in terms of secure and cost-efficient.
 
 \subsubsection{ECC - Elliptic Curve Cryptography}
+\begin{definition} (Abelian Group) 
+  A group G with the binary operation (.) is said to be {\bf abelian} if it satisfies the commutative condition $( \forall  \, a,b \, \in G,  \, a . b  \, =  \, b . a )$.
+\end{definition}
+
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=1\textwidth]{images/example_curve.png}
@@ -450,6 +454,7 @@ The security of RSA algorithm depends on the integer factorization problems, whe
 
 Proposed by Neil Koblitz and Victor Miller in 1985, \emph{Elliptic Curve Cryptography} is a more powerful alternative approach to \emph{RSA}. \emph{ECC} offers a faster, less computational energy in crypto-progress, higher security and shorter key pairs.
 An elliptic curve is a two-space graph defined by the square roots of a cubic equation. In cryptography, it takes a form defined as follows
+
 \begin{equation}
   \emph{E} = \{{O}\cup{(x,y)\in \mathbb{F}_{p}^2 \,|\, y^2 = x^3 + ax + b, \, 4a^3 + 27b^2 \neq 0}\}
 \end{equation}
@@ -466,7 +471,7 @@ where (\emph{a,b}) $\in\mathbb{F}_{p}^2$ and O is the point at infinity which is
 This is referred to as the Weierstrass equation for an elliptic curve.
 \autoref{fig:ec_example} show some examples of elliptic curve shaping different forms depend on a and b.
 Denoted by E($\mathbb{F}_{p}^2$) the elliptic curve over the finite field $\mathbb{F}_{p}^2$.
-Because elliptic curve over $\mathbb{F}_{p}^2$ still construct a abelian group [Ref proof], for general purposes, we won't mention the standard line equation for $\mathbb{F}_{p}$ (mod p in the end of the equation).
+Because elliptic curve over $\mathbb{F}_{p}^2$ still construct a abelian group, for general purposes, we won't mention the standard line equation for $\mathbb{F}_{p}$ (mod p in the end of the equation).
 
 
 {\textit {\textbf{The Group Law}}}
@@ -506,7 +511,7 @@ Every point P on E($\mathbb{F}_{p}^2$) exists a non-negative integer \emph{k} su
 We mentioned curve over finite fields $\mathbb{F}_{p}$. So it must have finite number of points.
 The {\bf order} of a group is the number of points belong to that group.
 In practice, we need to know the minimum size of a elliptic curve to prevent certain brute-force attack.
-Applying Hasse's algorithm [Ref hasse], order of the curve bound to a range:\medskip
+Applying Hasse's algorithm \cite{hasse}, order of the curve bound to a range:\medskip
 \begin{align*}
   p + 1 - 2\sqrt{p} \leq order(E) \leq p + 1 + 2\sqrt{p}
 \end{align*}
@@ -543,7 +548,7 @@ We also have $5P = O$.
   \end{align*}
 \end{definition}
 
-This problem is "discrete" because it involves cyclic groups, it is "logarithm" since it's analogous to ordinary logarithms [Ref AC link].
+This problem is "discrete" because it involves cyclic groups, it is "logarithm" since it's analogous to ordinary logarithms \cite{dlp}.
 In our cryptosystems, the integer \emph{d} will be chosen as the private key while \emph{T = (x,y)} is an element of curve E with generator be the public key.
 The Discrete Logarithm problem here is how "hard" to find \emph{d} given $P$ and $T$.
 There beliefs that no such polynomial time algorithm could solve this problem.
@@ -571,7 +576,7 @@ Latest handshake protocol TLS 1.3 (which supports all Fintech wallet (MoMo, Zalo
 \bigskip
 {\textit {\textbf{Elliptic Curve Digital Signature Algorithm}}}
 
-Assuming Alice want to send some coins to Bob. First of all they have to agree on a \emph{safe curve} [Ref NIST safe curves].
+Assuming Alice want to send some coins to Bob. First of all they have to agree on a \emph{safe curve} \cite{nist_safe_curve}.
 Domain parameter is already set up and include:
 \begin{itemize}
   \item Curve $E$
