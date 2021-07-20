@@ -179,7 +179,7 @@
 \mtcsetrules{minitoc}{off}
 \mtcsetfeature{minitoc}{after}{\vspace{-30pt}}
 \mtcsetfeature{minitoc}{before}{\vspace{-30pt}}
-\setcounter{minitocdepth}{1}
+\setcounter{minitocdepth}{2}
 \let\oldminitoc\minitoc
 \renewcommand{\minitoc}{
   \vfill
@@ -257,8 +257,6 @@
 \newcommand{\listofcontents} {
   \dominitoc
   \tableofcontents
-  \mtcaddchapter
-  \mtcaddchapter
   \adjustmtc
   \adjustmtc
 }
