@@ -3,7 +3,6 @@
 ## Online edit
 
 - Visit [Overleaf](https://www.overleaf.com/read/sdpnjrwzfhcy) for view only
-- Visit [Overleaf](https://www.overleaf.com/7727572413cxtbnttpywbm) for editing
 - Or you can email me at thang.nguyen.shinguru@hcmut.edu.vn
 
 ## Offline/Local edit
