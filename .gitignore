@@ -15,7 +15,6 @@
 *.nls
 *.run.xml
 *.gz
-*.bib
 *.ind
 *.ilg
 *.lot

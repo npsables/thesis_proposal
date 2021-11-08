@@ -1,0 +1,40 @@
+\chapter{Proposed architecture} \label{chap:System_implementation}
+\textit{In this chapter, we talk about what technology to use and the chosen system solution for our wallet. Since security play a majority part of our thesis, we will examine every technologies that used in our final thesis report.}
+\minitoc
+
+
+\section{Technology used}
+{\textit {\textbf{Programing language and libraries}}}
+\begin{itemize}
+\item \href{https://reactjs.org/}{ReactJS} for User Interface components. 
+\item \href{https://nodejs.org/en/}{Node.js} for Server components.
+\item \emph{HDKey} and \emph{BIP-0032} for studying hierarchical deterministic wallet on Secp256k1
+\item \emph{TweetNaCl.js} a crypto library of TweetNaCl in JavaScript
+\item \href{https://www.python.org/}{Python} for automation testing.
+\end{itemize}
+
+{\textit {\textbf{Blockchain}}}
+\begin{itemize}
+    \item \href{https://solana.com/}{Solana} TestNet and, if we can make it in time, DevNet
+\end{itemize}
+
+\section{Proposed system design}
+{\textit {\textbf{Wallet category}}}
+\begin{itemize}
+    \item We decided to build a \emph{Hybrid Wallet}. The private key will be hold only by the user, safely saved in the user isolated hardware (phone or computer). The user has full control of their cryptocurrencies but they have to manage it on their own through the software. Outside of the application, user must keep their private key and the mnemonic passphrase safe.
+    \item From the financial aspect, the wallet is a non-custody one. It doesn't store any user information in comparison to a traditional bank's account (required KYC). Since a blockchain wallet interacts with a decentralize system, where everything is transparent, it should not use anything related to a user's personal information.
+    \item Obviously, the wallet is hierarchically deterministic. Rather than knowing the exact address of the wallet (for receiving) or knowing the exact private key of that (for signing), the users just keep a pair of master private-public key and derive a child key accordingly to the key tree.
+\end{itemize}
+
+{\textit {\textbf{Signature Schema}}}
+\begin{itemize}
+    \item EdDSA (curve Ed25519) with the proposed CKD function on Ed25519 (our work) for child key generation.
+\end{itemize}
+
+{\textit {\textbf{Main function of the wallet}}}
+\begin{itemize}
+    \item Key generation.
+    \item Key management.
+    \item Asset management.
+    \item Transfer management.
+\end{itemize}
