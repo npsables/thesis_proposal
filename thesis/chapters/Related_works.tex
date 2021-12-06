@@ -1,8 +1,8 @@
 \chapter{Protocols and Related Works}
 \label{chap: Related works}
 
-\textit{This chapter describes the attempts on Cryptography protocols behind the existing HD wallets as 
-well as the attempt of adapting these mechanisms to curve ed25519. We analyze the famous wallet that the community are using.}
+\textit{This chapter describes the attempts on Cryptography protocols behind the existing HD wallets as
+    well as the attempt of adapting these mechanisms to curve ed25519. We analyze the famous wallet that the community are using.}
 
 \minitoc
 
@@ -13,9 +13,9 @@ The word “Hierarchical Deterministic” in crypto wallet were first introduced
 
 \subsubsection{BIP32}
 
-The most significant motivation of BIP32 is how one can calculate the public key of another without revealing the private keys or the sender has to generate it from private keys. Elliptic curve mathematics permits these kinds of schemes. For example, a webshop business lets its web server generate fresh addresses (public key hashes) for each order or for each customer, without giving the webserver access to the corresponding private keys (which are required for spending the received funds). 
+The most significant motivation of BIP32 is how one can calculate the public key of another without revealing the private keys or the sender has to generate it from private keys. Elliptic curve mathematics permits these kinds of schemes. For example, a webshop business lets its web server generate fresh addresses (public key hashes) for each order or for each customer, without giving the webserver access to the corresponding private keys (which are required for spending the received funds).
 
-BIP32 also makes wallets more recoverable since users only have to maintain the root seed and a list of wallet indexes. In the example of a webshop, the web owner doesn’t have to keep all the private keys safe, and this becomes more redundant if the owner has an increase in a business requiring more wallets. Instead, he only has to create the seed one and save the indexes each time he makes a wallet. The next part will cover the indexes of children’ wallets and how we can recover the entire wallet structure using the initial seed and list of indexes. 
+BIP32 also makes wallets more recoverable since users only have to maintain the root seed and a list of wallet indexes. In the example of a webshop, the web owner doesn’t have to keep all the private keys safe, and this becomes more redundant if the owner has an increase in a business requiring more wallets. Instead, he only has to create the seed one and save the indexes each time he makes a wallet. The next part will cover the indexes of children’ wallets and how we can recover the entire wallet structure using the initial seed and list of indexes.
 
 \bigskip
 {\textbf{Derivation}}
@@ -23,17 +23,17 @@ BIP32 also makes wallets more recoverable since users only have to maintain the 
 BIP 32 key derivation is a mechanism used to generate a specific ECDSA key pair within a tree of indexes. Given a parent extended key and an array of indexes, we will be able to deterministically regenerate keys at that specified index in the tree. Starting from a master seed to the creation of one master extended key, we can create a tree with infinite depth. Each node can also have a maximum of 4,294,967,296 child nodes (2³²/32-bit unsigned integer) resulting in an incredible ability to generate a limitless number of keys. \autoref{fig:bip32} is an example of a BIP32 key tree with depth 3.
 
 \begin{figure}[ht!]
-  \centering
-  \includegraphics[width=1\textwidth]{images/bip32.png}
-  \caption[Example of BIP32 key tree with depth 3]{Example of BIP32 key tree with depth 3}
-  \label{fig:bip32}
+    \centering
+    \includegraphics[width=1\textwidth]{images/bip32.png}
+    \caption[Example of BIP32 key tree with depth 3]{Example of BIP32 key tree with depth 3}
+    \label{fig:bip32}
 \end{figure}
 
 
 \bigskip
 {\textbf{Extended keys}}
 
-An extended key is defined as follow: 
+An extended key is defined as follow:
 
 \begin{adjustwidth}{2cm}{}
     An extended key consists of a private or public key and chain code. An extended key can create children, generating its own branch in the tree structure. Sharing an extended key gives access to the entire branch.
@@ -54,11 +54,11 @@ Driven by advances in both classical and quantum computing technologies, in May 
 
 Child key on the BIP32 key tree can only be derived from an extended key. From a security perspective, this is an excellent idea on how we can protect the child keys if the attackers get a hold of a stolen parent key. Because the extended key is collectively made up of a combination of key and chain code, attackers won’t have a better way to derive the children keys other than brute-forcing 32 bytes of extended entropy.
 
-There are two types of extended keys. An extended private key is the combination of a private key and chain code and can be used to derive child private keys (and from them, child public keys) (see \autoref{fig:extended_key}). An extended public key is a public key and chain code, which can be used to create child public keys (public only). 
+There are two types of extended keys. An extended private key is the combination of a private key and chain code and can be used to derive child private keys (and from them, child public keys) (see \autoref{fig:extended_key}). An extended public key is a public key and chain code, which can be used to create child public keys (public only).
 
 The index of the child key is a 32-bit integer, meaning that each extended key has $2^{32}$ child keys. This index number is divided into two ranges to easily determine between keys derived through the normal derivation function versus keys derived from hardened derivation. Index numbers between 0 and $2^{31}$–1 (0x0 to 0x7FFFFFFF) are used for normal derivation and the index numbers between $2^{31}$ and $2^{32}$–1 (0x80000000 to 0xFFFFFFFF) are used only for hardened derivation. Therefore, the normal child will have an index of less than $2^{31}$, whereas the hardened child index equals or is above  $2^{31}$.
 
-We couldn’t find any reason behind why the author of BIP32 designed the parent extended keys to have $2^{32}$ total child keys each. Poulami Das et al. \cite{DBLP:conf/ccs/0003EFL021} investigated BIP32 with security analysis and experimented with a similar key derivation schema (BIP32-m) with only $2^{20}$ child keys, pointing out $2^{32}$ child keys won’t create any vulnerability on the system.
+We couldn’t find any reason behind why the author of BIP32 designed the parent extended keys to have $2^{32}$ total child keys each. Poulami Das et al.\cite{DBLP:conf/ccs/0003EFL021} investigated BIP32 with security analysis and experimented with a similar key derivation schema (BIP32-m) with only $2^{20}$ child keys, pointing out $2^{32}$ child keys won’t create any vulnerability on the system.
 
 In the next part, we will represent an extended private key as (k, c), with k the normal private key, and c the chain code. An extended public key is represented as (K, c), with K = point(k) and c the chain code. The index is denoted to \textit{i}; to ease, $i_H$ is the index of a hardened key representing a number of i+$2^{31}$.
 
@@ -68,11 +68,11 @@ In the next part, we will represent an extended private key as (k, c), with k th
 In the rest of this thesis, we will assume the public key cryptography used in Blockchain, namely elliptic curve cryptography using the field and curve parameters. Variables below are either:
 
 \begin{itemize}
-  \item Integers modulo the order of the curve (referred to as n).
+    \item Integers modulo the order of the curve (referred to as n).
 
-  \item Coordinates of points on the curve.
+    \item Coordinates of points on the curve.
 
-  \item Byte sequences.
+    \item Byte sequences.
 \end{itemize}
 
 The addition (+) of two coordinate pairs is defined as the application of the EC group operation. Concatenation ($\parallel$) is the operation of appending one-byte sequence onto another.
@@ -81,9 +81,9 @@ As standard conversion functions, we assume:
 
 \begin{itemize}
     \item $point(p)$: returns the coordinate pair resulting from EC point multiplication (repeated application of the EC group operation) of base point with the integer p.
-  
+
     \item $ser_{32}(i)$: serialize a 32-bit unsigned integer $i$ as a 4-byte sequence, most significant byte first.
-  
+
     \item $ser_{256}(p)$: serializes the integer $p$ as a 32-byte sequence, most significant byte first.
     \item $ser_P(P)$: serializes the coordinate pair $P = (x,y)$ as a byte sequence using the compressed form: $(0x02$ or $0x03) \parallel ser256(x)$, where the header byte depends on the parity of the omitted $y$ coordinate. 0x02 if $y$ is positive and 0x03 if $y$ is negative.
     \item $parse_{256}(p)$: interprets a 32-byte sequence as a 256-bit number, most significant byte first.
@@ -95,42 +95,272 @@ As standard conversion functions, we assume:
 
 Master extended key is the first key to be generated from the root seed. A master key also possesses a size of $2^{512}$ where 256 first bits is the master private key and the last 256 bits is the chain code. From the master private key, we can calculate the master public key.
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/masterbip32.png}
+    \caption[Master Extended Key generation Process]{Master Extended Key generation Process}
+    \label{fig:master_bip32}
+\end{figure}
+
 Pseudo-code of generation function is as below:
 
 \begin{itemize}
     \item Generate a seed byte sequence S of a chosen length (between 128 and 512 bits; 256 bits is advised) from a (pseudo) random number generator (PRNG).
-    
-    \begin{quote}
-        The PRNG, as mentioned in Section \ref{chap:background}, is recommended to produce a root seed. However, BIP39 \cite{github/bip0039} invented a method to create a seed from mnemonic code or mnemonic sentence entropy. We will discuss BIP39 in Section \ref{SLIP10} . Ideally, the creation of BIP39 helps users to maintain their wallets more efficiently since secure random sentences (12 to 24 words) are more comfortable than protecting a random byte sequence.
-    \end{quote}
-    
+
+          \begin{quote}
+              The PRNG, as mentioned in Section \ref{chap:background}, is recommended to produce a root seed. However, BIP39 \cite{github/bip0039} invented a method to create a seed from mnemonic code or mnemonic sentence entropy. We will discuss BIP39 in Section \ref{SLIP10} . Ideally, the creation of BIP39 helps users to maintain their wallets more efficiently since secure random sentences (12 to 24 words) are more comfortable than protecting a random byte sequence.
+          \end{quote}
+
     \item Calculate I = HMAC-SHA512(Key = "Bitcoin seed", Data = S)
-    
-        
-    \begin{quote}
-        The HMAC function returns 512 bits of data (which is totally unpredictable) from a key and data component. BIP32 added the key "Bitcoin seed" to the function, although it could be arbitrary when deriving the master node from the seed. This is considered necessary to ensure proper domain separation between different elliptic curves or different types of key hierarchy generation schemas.    
-    \end{quote}
+
+
+          \begin{quote}
+              The HMAC function returns 512 bits of data (which is totally unpredictable) from a key and data component. BIP32 added the key "Bitcoin seed" to the function, although it could be arbitrary when deriving the master node from the seed. This is considered necessary to ensure proper domain separation between different elliptic curves or different types of key hierarchy generation schemas.
+          \end{quote}
 
     \item Split I into two 32-byte sequences, $I_L$ and $I_R$.
-        
-    \begin{quote}
-        The result of the HMAC function with the size 512 bits (64 bytes) will be split into 32 bits left  $I_L$ and 32 bits right $I_R$.
-    \end{quote}
+
+          \begin{quote}
+              The result of the HMAC function with the size 512 bits (64 bytes) will be split into 32 bits left  $I_L$ and 32 bits right $I_R$.
+          \end{quote}
     \item Use $parse_{256}$($I_L$) as the master secret key, and $I_R$ as master chain code.
 
-    \begin{quote}
-        Return 32 bits left $I_L$ as the secret key and 32 bits right $I_R$ as the extended chain code.
-    \end{quote}
+          \begin{quote}
+              Return 32 bits left $I_L$ as the secret key and 32 bits right $I_R$ as the extended chain code.
+          \end{quote}
 
 \end{itemize}
-In case $I_L$ is 0 or  n (private key  order n), the master key is invalid. 
+In case $I_L$ is 0 or  n (private key  order n), the master key is invalid.
+
+\bigskip
+\begin{adjustwidth}{1cm}{}
+    \textbf{Discussing the function HMAC-SHA512}
+    \begin{quote}
+
+        The HMAC-SHA512 is specified in \cite{Nystrom2005}. It is used in all key derivation functions of the BIP32 schema.
+        This raises the question: isn't it just SHA512 with the input as Key $\parallel$ data is enough to generate an unexpected output of the root seed? We believe the answer is to avoid the
+        flaws that can be caused by simple concatenation, for example length extention attacks. In cryptography and computer security, a length extension attack is a type of attack where an attacker can use Hash(message1) and the length of message1 to calculate Hash(message1 ‖ message2) for an attacker-controlled message2, without needing to know the content of message1.
+        Also it provide a better integrity of information for the secret keys.
+    \end{quote}
+
+\end{adjustwidth}
+
+\bigskip
+{\textbf{Child key derivation (CKD) functions}}
+
+There are 3 methods for deriving child keys:
+\begin{enumerate}
+    \item Private parent key $\rightarrow$ normal private child key
+    \item Public parent key $\rightarrow$ normal public child key
+    \item Private parent key $\rightarrow$ hardened private child key
+\end{enumerate}
+And Public parent key $\rightarrow$ private child key is not possible. Derived child extended keys (and parent keys) are independent of each other. In other words, you wouldn’t know that two public keys in an extended tree are connected in any way.
+
+\bigskip
+\begin{adjustwidth}{0.5cm}{}
+
+    {\textbf{Normal extended child private key derivation function}}
+    \label{norm1}
+    The function CKDpriv((kpar, cpar), i) $\rightarrow$ (ki, ci) computes a normal child extended private key from the parent extended key.
+    The \autoref{fig:1} describes the process.
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/normal_extended_private_gen.png}
+        \caption[Normal Extended Private Key generation process]{Normal Extended Private Key generation process}
+        \label{fig:1}
+    \end{figure}
+
+    Pseudo-code:
+    \begin{itemize}
+        \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
+              \begin{itemize}
+                  \item If so (hardened child): return false
+
+                  \item If not (normal child):
+                        \begin{quote}
+
+                            Let I = HMAC-SHA512(Key = cpar, Data = serP(point(kpar)) $\parallel$ ser32(i)).
+                            Key input cpar is the chain code of the extended parent key. Data input serP(point(kpar)) $\parallel$ ser32(i) contains 2 parts that are concatenated together. The point(kpar) is the result of working out the coordinate pair of the public key from kpar, as shown in Figure 4, the public parent is a part of the Data. The function serP will return the compressed representation of point(kpar) with the size of 33 bytes \cite{secp256k1}. And the value ser32(i) is just the representation of the normal index—two of these elements concatenated together to form the data of HMAC-SHA512 function.
+                        \end{quote}
+
+              \end{itemize}
+              \bigskip
+
+        \item Split I into two 32-byte sequences, IL and IR.
+              \bigskip
+
+        \item The returned child key ki is parse256(IL) + kpar (mod n).
+
+              \begin{quote}
+                  The child ki is an increment of the private parent key kpar with the amount of parse256(IL). We take the module of the new private key by the order of the curve (n) to keep the new private key belonging to the valid range of numbers for the secp256k1 curve. As mentioned previously, a very useful characteristic of BIP32 wallets is the ability to derive public child keys from public parent keys, without having the private keys. This returned key plays an important part in that ability.
+              \end{quote}
+              \bigskip
+
+        \item The returned chain code ci is IR.
+              \bigskip
+
+        \item In case parse256(IL) $\geq$ n or ki = 0, the resulting key is invalid, and one should proceed with the next value for i. (Note: this has probability lower than 1 in $2^{127}$.)
+
+    \end{itemize}
+
+    To summarize, we make use of the data contained inside the parent extended private key: the private key, the chain code, and the index of the desired child. Putting it through the HMAC function will generate some unique random bytes. We use these new random bytes to construct the following private key from the old one.
+
+    \bigskip
+    {\textbf{Normal extended child private key derivation function}}
+    \label{norm2}
+
+    The function CKDpub((Kpar, cpar), i) $\rightarrow$ (Ki, ci) computes a child extended public key from the parent extended key. It is only defined for non-hardened child keys. 
+    The \autoref{fig:2} describes the process.
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/normal_pub_gen.png}
+        \caption[Normal Extended Public Key generation process]{Normal Extended Public Key generation process}
+        \label{fig:2}
+    \end{figure}
+
+    Pseudo-code:
+    \begin{itemize}
+        \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
+              \begin{itemize}
+                  \item If so (hardened child): return false
+
+                  \item If not (normal child):
+                        \begin{quote}
+
+                            let I = HMAC-SHA512(Key = cpar, Data = serP(Kpar) $\parallel$ ser32(i)).
+                            The function serP(Kpar) returns the compressed representation of the parent public key with the size of 33 bytes. And the value ser32(i) is just the representation of the normal index.
+                        \end{quote}
+              \end{itemize}
+              \bigskip
+
+        \item Split I into two 32-byte sequences, IL and IR.
+              \bigskip
+
+        \item The returned child key Ki is point(parse256(IL)) + Kpar.
+
+              \begin{quote}
+                The split left half IL will be converted into a point on curve secp256k1 by function point(). Then point(parse256(IL)) + Kpar is the point addition on curve secp256k1 and returns the child public key. 
+            \end{quote}
+              \bigskip
+
+        \item In case parse256(IL) $\geq$ n or Ki is the point at infinity, the resulting key is invalid, and one should proceed with the next value for i.
+
+    \end{itemize}
+
+    In summary, public key derivation only allows normal child derivation. 
+    Putting the same key and Data through the HMAC function as we did in normal private, we can produce the child public key from the left 32 bytes via elliptic curve point addition. 
+    The schema normal key derivation make the motivation of BIP32 come true. We will explain the relation between normal keys derivation. 
+    It is very convenient to derive a branch of public keys from an extended parent key, but it comes with a potential key leakage. 
+    We will discuss the potential risk of normal child key derivation schema compared to its value in the very last of this Section and analyze if it is suitable for our thesis.
+
+
+\bigskip
+{\textbf{Hardened extended child private key derivation function}}
+
+The function CKDpriv((kpar, cpar), i) → (ki, ci) computes a child extended private key from the parent extended key. 
+The \autoref{fig:3} describes the process.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/masterbip32.png}
-    \caption[Master Extended Key generation Process]{Master Extended Key generation Process}
-    \label{fig:master_bip32}
+    \includegraphics[width=0.8\textwidth]{images/hard_private_gen.png}
+    \caption[Hardened Extended Private Key generation process]{Hardened Extended Private Key generation process}
+    \label{fig:3}
 \end{figure}
+
+Pseudo-code:
+
+\begin{itemize}
+    \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
+          \begin{itemize}
+              \item If so (hardened child):  
+              \begin{quote}
+
+              let I = HMAC-SHA512(Key = cpar, Data = 0x00 $\parallel$ ser256(kpar) $\parallel$ ser32(i)). (Note: The 0x00 pads the private key to make it 33 bytes long.)
+
+              The difference in hardened key derivation is that we don't recover the public key from the parent extended key. Instead, we padded 0 to the left of kpar to make it 33 bytes long. Adding the leading zeros will not change the value. However, it is needed, so the number takes up the entire 33 bytes. (Since the compressed representation of a public key is 33 bytes).
+            \end{quote}
+
+
+              \item If not (normal child): return false
+                  
+          \end{itemize}
+          \bigskip
+
+    \item Split I into two 32-byte sequences, IL and IR.
+        \bigskip
+
+    \item The returned child key ki is parse256(IL) + kpar (mod n).
+    \bigskip
+
+    \item The returned chain code ci is IR.
+    \bigskip
+
+    \item In case parse256(IL) $\geq$ n or ki = 0, the resulting key is invalid, and one should proceed with the next value for i. (Note: this has probability lower than 1 in $2^{127}$.)
+
+\end{itemize}
+
+The hardened derivation is therefore used to create a "gap" in the tree above the level where extended public keys are used. Therefore, The hardened key derivation schema is needed to preserve security in HD Wallet.
+\end{adjustwidth}
+
+\bigskip
+{\textbf{The relation between normal keys derivation}}
+
+From here to the rest of BIP32 section, we assume a scenario where:
+
+\begin{quote}
+    Alice is a shop owner, and she wants to create an HD wallet. Each wallet can receive and transfer coins for different purposes. She decided to use a wallet with the normal key derivation schema to transfer money between her wallet and others without any private key access whatsoever.
+
+    Bob wants to transfer 1 Bitcoin to Alice. He generates an address from Alice's master public key and chain code using normal child key derivation schema with an index i. Bob sends 1 Bitcoin to that address with the message containing the index i.
+    
+    Alice now can generate the normal child private key from the master secret key with an index i and possess a child wallet with an index i.
+
+\end{quote}
+
+What Bob just did is derive a public key from the master extended public key that corresponds to the Alice private key derived from Alice’s master extended private key, without knowing her extended private key. This scenario comes to reality thanks to the point addition law of the elliptic curve. 
+
+Denote child private key is kchild, child public key is Kchild. From normal extended child private key derivation function, we have:
+
+\begin{itemize}
+    \item I = HMAC-SHA512(Key = cpar, Data = serP(point(kpar)) $\parallel$ ser32(i))
+    \item Child private key kchild = parse(I[:32]) +  kpar (mod n).
+\end{itemize}
+
+and normal extended child public key derivation function, we have:
+\begin{itemize}
+    \item I = HMAC-SHA512(Key = cpar, Data = serP(Kpar) $\parallel$ ser32(i)).
+    \item Child public key Kchild = point(parse256(I[:32])) + Kpar.
+\end{itemize}
+
+For both child extended keys, we are inserting the \textit{identical inputs} to the HMAC function. The Key is the parent chain code. The Data is the parent public key. Through the HMAC function, we generate the same data as a result. Using the left 32 bytes of this result, we calculate: 
+\begin{itemize}
+    \item Increase the parent private key kpar an amount of the same 32 bytes (which is a number) to get the kchild.
+
+    \item Apply point addition on the parent public key Kpar by the same 32 bytes to create the child public key Kchild.
+\end{itemize}
+
+On account of the mechanism elliptic curve mathematics works, the derived child private key will correspond to the derived child public key:4
+
+\begin{equation}
+    (kpar + I[:32]) . G  =  kchild . G =  Kchild.
+\end{equation}
+
+\bigskip
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\textwidth]{images/relation_bip32.png}
+    \caption[Relation in BIP32 normal derivation protocol]{Relation in BIP32 normal derivation protocol}
+    \label{fig:4}
+\end{figure}
+
+\autoref{fig:4} presents the relation of normal derived child keys with their parent keys. 
+
+
+
+
+
+
 
 \subsubsection{SLIP10}
 \label{SLIP10}
