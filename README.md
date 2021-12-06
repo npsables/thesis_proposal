@@ -19,5 +19,5 @@
 
 ## About us
 
-- This is a thesis proposal for Developing a hierarchical deterministic wallet on Ed25519
+- This is a thesis proposal for Developing a hierarchical deterministic wallet on ed25519
 - Academic year: K17 (2017 - 2022)

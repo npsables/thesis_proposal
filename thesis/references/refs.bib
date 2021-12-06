@@ -1,7 +1,48 @@
 %-------------------------------------------------
 %	Chapter 1
 %-------------------------------------------------
+@incollection{Bernstein2006,
+  doi = {10.1007/11745853_14},
+  url = {https://doi.org/10.1007/11745853_14},
+  year = {2006},
+  publisher = {Springer Berlin Heidelberg},
+  pages = {207--228},
+  author = {Daniel J. Bernstein},
+  title = {Curve25519: New Diffie-Hellman Speed Records},
+  booktitle = {Public Key Cryptography - {PKC} 2006}
+}
 
+@incollection{Bernstein2011,
+  doi = {10.1007/978-3-642-23951-9_9},
+  url = {https://doi.org/10.1007/978-3-642-23951-9_9},
+  year = {2011},
+  publisher = {Springer Berlin Heidelberg},
+  pages = {124--142},
+  author = {Daniel J. Bernstein and Niels Duif and Tanja Lange and Peter Schwabe and Bo-Yin Yang},
+  title = {High-Speed High-Security Signatures},
+  booktitle = {Cryptographic Hardware and Embedded Systems {\textendash} {CHES} 2011}
+}
+
+@inproceedings{Schmidt2009,
+  doi = {10.1109/fdtc.2009.38},
+  url = {https://doi.org/10.1109/fdtc.2009.38},
+  year = {2009},
+  month = sep,
+  publisher = {{IEEE}},
+  author = {J\"{o}rn-Marc Schmidt and Marcel Medwed},
+  title = {A Fault Attack on {ECDSA}},
+  booktitle = {2009 Workshop on Fault Diagnosis and Tolerance in Cryptography ({FDTC})}
+}
+
+@techreport{Josefsson2017,
+  doi = {10.17487/rfc8032},
+  url = {https://doi.org/10.17487/rfc8032},
+  year = {2017},
+  month = jan,
+  publisher = {{RFC} Editor},
+  author = {S. Josefsson and I. Liusvaara},
+  title = {Edwards-Curve Digital Signature Algorithm ({EdDSA})}
+}
 %-------------------------------------------------
 %	Chapter 2
 %-------------------------------------------------
@@ -173,6 +214,13 @@ institution = {U.S. Department of Commerce},
   url    = {https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki}
 }
 
+@article{github/bip0039,
+  author = {{Marek Palatinus, Pavol Rusnak, Aaron Voisine and Sean Bowe}},
+  title  = {Mnemonic code for generating deterministic keys},
+  year   = {2013},
+  url    = {https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki}
+}
+
 @article{github/slip0010,
   author = {{Jochen Hoenicke and Pavol Rusnak}},
   title  = {Universal private key derivation from master private key},
@@ -181,14 +229,29 @@ institution = {U.S. Department of Commerce},
   timestamp = {April 26, 2016},
 }
 
-@inproceedings{hasse,
-author = {Liew, Khang Jie and Kamarulhaili, Hailiza},
-year = {2011},
-month = {11},
+
+@article{secp256k1,
+author = {Daniel R. L. Brown},
+year = {2010},
+month = {10},
 pages = {},
-title = {Hasse's Theorem and the Statistical Properties of Points on Elliptic Curves Modulo Prime, p}
+title = {Recommended Elliptic Curve Domain Parameters},
+timestamp = {January 27, 2021},
+version = {2.0},
+url    = {https://www.secg.org/sec2-v2.pdf},
+
 }
 
+@inproceedings{Khovratovich2017,
+  doi = {10.1109/eurospw.2017.47},
+  url = {https://doi.org/10.1109/eurospw.2017.47},
+  year = {2017},
+  month = apr,
+  publisher = {{IEEE}},
+  author = {Dmitry Khovratovich and Jason Law},
+  title = {{BIP}32-ed25519: Hierarchical Deterministic Keys over a Non-linear Keyspace},
+  booktitle = {2017 {IEEE} European Symposium on Security and Privacy Workshops ({EuroS}{\&}{PW})}
+}
 
 @inproceedings{nist_safe_curve,
 author = {Lily Chen and Dustin Moody and Andrew Regenscheid},
@@ -196,6 +259,49 @@ year = {2019},
 month = {10},
 pages = {},
 title = {Recommendations for Discrete Logarithm-Based Cryptography}
+}
+
+@techreport{Barker2019,
+  doi = {10.6028/nist.sp.800-131ar2},
+  url = {https://doi.org/10.6028/nist.sp.800-131ar2},
+  year = {2019},
+  month = mar,
+  publisher = {National Institute of Standards and Technology},
+  author = {Elaine Barker and Allen Roginsky},
+  title = {Transitioning the use of cryptographic algorithms and key lengths}
+}
+
+@techreport{Barker2020,
+  doi = {10.6028/nist.sp.800-57pt1r5},
+  url = {https://doi.org/10.6028/nist.sp.800-57pt1r5},
+  year = {2020},
+  month = may,
+  publisher = {National Institute of Standards and Technology},
+  author = {Elaine Barker},
+  title = {Recommendation for key management:}
+}
+
+@inproceedings{DBLP:conf/ccs/0003EFL021,
+  author    = {Poulami Das and
+               Andreas Erwig and
+               Sebastian Faust and
+               Julian Loss and
+               Siavash Riahi},
+  editor    = {Yongdae Kim and
+               Jong Kim and
+               Giovanni Vigna and
+               Elaine Shi},
+  title     = {The Exact Security of {BIP32} Wallets},
+  booktitle = {{CCS} '21: 2021 {ACM} {SIGSAC} Conference on Computer and Communications
+               Security, Virtual Event, Republic of Korea, November 15 - 19, 2021},
+  pages     = {1020--1042},
+  publisher = {{ACM}},
+  year      = {2021},
+  url       = {https://doi.org/10.1145/3460120.3484807},
+  doi       = {10.1145/3460120.3484807},
+  timestamp = {Tue, 16 Nov 2021 13:43:43 +0100},
+  biburl    = {https://dblp.org/rec/conf/ccs/0003EFL021.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
 %-------------------------------------------------
