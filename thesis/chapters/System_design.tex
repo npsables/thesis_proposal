@@ -4,7 +4,7 @@
 
 \minitoc
 
-\section{Library for Hierarchical Wallet}
+\section{The Library}
 Our work does not only share an identical problem with the problem statement. We realize that we could do better. With the support of SatoshiLabs proposal number 44 (BIP44), we can create wallets that hold multiple native tokens of different blockchains. We decided our HD wallet will support the blockchain using ed25519 as well as secp259k1 (two famous curves of the blockchain community). They are Bitcoin, Ethereum, and Solana. As we researched, there are almost no non-custodial hot wallets that support different kinds of coin holders. Even the existing libraries limit their support to a specific blockchain.
 
 Also, we believe anyone should have access to any of the non-custodial wallets so they can be bug-free. Hence, we came up with an open-source library for the other developers. They can use it, contribute to it (merge more blockchains, etc.) and audit our works. Furthermore, we will use this library as a core functionality that supports the cryptography mechanism in our web wallet.
@@ -82,7 +82,7 @@ The goal of our documentation is an overview and usage exploration of our librar
 
 
 
-\section{Web Wallet}
+\section{The Hierarchical Deterministic Web Wallet}
 We decided to create a web wallet for our thesis so we don’t have to deal with version control and different kinds of operating systems (Android, iOS, etc.). Everybody can access our website with their browsers.
 
 Our web wallet is a non-custodial hot wallet where users can sign in, generate accounts in different blockchains, and send and receive native tokens (see \autoref{fig:webwallet}). They have absolute controls over private keys for every blockchain address, and the wallet provider has no access to them. We will use the localhost environment as a server for the wallet provider.
@@ -256,7 +256,7 @@ The security tests will be examined with specific aims and different tools. We w
 
 \subsection{Use Cases}
 
-\subsection{Use Case diagram}
+\subsubsection{Use Case diagram}
 
 \begin{figure}[ht!]
     \centering
@@ -266,7 +266,7 @@ The security tests will be examined with specific aims and different tools. We w
 \end{figure}
 
 \newpage
-\subsection{Use case table}
+\subsubsection{Use case table}
 
 \bigskip
 {\textbf{Use case detail}}
