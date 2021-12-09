@@ -1,40 +1,278 @@
-\chapter{System implementation} \label{chap:System_implementation}
-\textit{In this chapter, we talk about what technology to use and the chosen system solution for our wallet. Since security play a majority part of our thesis, we will examine every technologies that used in our final thesis report.}
+\chapter{Implementation} \label{chap:System_implementation}
+\textit{This chapter describes the implementation of the systems we designed and discusses the applied technology.}
+
 \minitoc
 
+\section{The Library}
+\bigskip
+{\textbf{Typescript}}
+TypeScript is a strict superset of javascript, designed as a strongly typed programming language by Microsoft. A strongly typed language is more secure because it requires explicit declarations to convert or compare between types in order to convert between languages. This allows for the avoidance of errors and memory exploitations such as the CWE-704 Incorrect Type Conversion or Cast \cite{cwe}. At the same time, it checks types at compile time to find any potential type errors before they are propagated into the program.
 
-\section{Technology used}
-{\textit {\textbf{Programing language and libraries}}}
+TypeScript uses a transpiler, a source-to-source compiler that takes TypeScript source and converts it into JavaScript. The TypeScript code ends up running as JavaScript. In conclusion, TypeScript does provide a set of constraints regarding typing, which enforces a higher level of security.
+
+\bigskip
+{\textbf{Tweetnacl-js}}
+
+TweetNaCl-js is a translation of TweetNaCl to JavaScript, which is as close as possible to the original C implementation. It provides public key and secret key authenticated encryption, scalar multiplication, digital signatures, hashing, random bytes generation, and constant-time comparison. Tweetnacl was written by many cryptography experts.
+
+Bernstein et al. \cite{Bernstein2012} focuses on the security analysis of the NaCl cryptographic library.
+More specifically, the security impact of NaCl's design features, such as no data flow
+from secrets to load addresses, no data flow from secrets to branch conditions; no padding oracles; centralizing randomness; avoiding unnecessary randomness; extremely high speed; and cryptographic primitives chosen conservatively in light of the cryptanalytic literature, were evaluated. Hence, these features result in a high-security cryptographic and bug-free library.
+
+\subsection{Library core}
+Our library expands on the implementation of the secp256k1 curve and their blockchain transaction problem. For the sake of our thesis, we will only present the core function of the ed25519 blockchain since others will follow the same schemas and rules (just different dependencies).
+
+\bigskip
+{\textbf{Structure}}
+
+Applying our design with Typescripts, we have the library model as \autoref{fig:type_lib}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/lib_typescript.png}
+    \caption[Typescript library structure]{Typescript library structure}
+    \label{fig:type_lib}
+\end{figure}
+
+We design our work for developers who only use it for one specific blockchain or implement multiple of them. We also acknowledge that every blockchain has different features (especially in transactions). For example, Bitcoin uses the UTXO model (individual coins) for wallet assets, while Solana uses the Account/Balance model. This led to different implementations in transaction functions. Aiming for upgradeability, readability, and ease of use, we organized as follow:
+
+
 \begin{itemize}
-\item \href{https://reactjs.org/}{ReactJS} for User Interface components. 
-\item \href{https://nodejs.org/en/}{Node.js} for Server components.
-\item \emph{HDKey} and \emph{BIP-0032} for studying hierarchical deterministic wallet on Secp256k1
-\item \emph{TweetNaCl.js} a crypto library of TweetNaCl in JavaScript
-\item \href{https://www.python.org/}{Python} for automation testing.
+    \item We create a \textit{COMPONENTS} JSON object (see \autoref{fig:comp}) with constant information of every supported blockchain in \autoref{fig:ubl}. This \textit{COMPONENTS} belongs to file \textit{/src/constant.ts} (.ts is the standard for Typescript file). We made use of the JSON architecture for legibility. Users can see right away what function a blockchain has and how to access them through a few lines of code. Unlike  Tomi Jaga's wallet \cite{tomi}, they use an OOP structure which is very hard to read. Also, it would become more redundant when we created more blockchain dictionaries and added more features for each of every blockchain. Meanwhile, in our JSON object, developers can add more lines with different indexes and add the new function to their blockchain file (solana.ts, etc.).
+          \begin{figure}[ht!]
+              \centering
+              \includegraphics[width=0.5\textwidth]{images/components.png}
+              \caption[COMPONENTS JSON example]{COMPONENTS JSON example}
+              \label{fig:comp}
+          \end{figure}
+    \item For the users who want to implement the functions generally, we create \textit{/src/accounts.ts} for this purpose. It includes the function to access these values and supports every element of the key derivation process. We present it in the library API part (see Section \ref{typeapi}).
 \end{itemize}
 
-{\textit {\textbf{Blockchain}}}
+\subsection{Important dependencies}
+
+To handle curve ed25519 arithmetic, we use the tweetnacl-js library as mentioned. The library uses Asymmetric Cryptography in NaCl that applied Bernstein's Curve25519 elliptic-curve Diffie-Hellman key exchange and will use the Ed25519 elliptic-curve signature scheme from Bernstein, Duif, Lange, Schwabe, and Yang as presented in Section \ref{cryptography}. One thing is different; they didn’t use the principle as we have shown for scalar multiplication with the ed25519 curve. They decided not to implement the conversion of points on ed25519 to Montgomery form and back. Instead, they perform a new ladder with a completely new addition and double points in one add function. The pseudo-code describes as in \autoref{fig:implement_sign_lib}:
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/signnaclpart.png}
+    \caption[Different implementation in Montgomery Ladder]{Different implementation in Montgomery Ladder}
+    \label{fig:implement_sign_lib}
+\end{figure}
+
+\subsection{Library API}
+\label{typeapi}
+The main API are listed as:
 \begin{itemize}
-    \item \href{https://solana.com/}{Solana} TestNet and, if we can make it in time, DevNet
+    \item \textbf{hdcore.account.createMnemonic()}
+          \begin{quote}
+              Return a mnemonic code with 12 or 24 words.
+          \end{quote}
+
+    \item \textbf{hdcore.account.createSeed()}
+          \begin{quote}
+              Return a master seed with 512 bits.
+          \end{quote}
+
+    \item \textbf{hdcore.account.createMasterAccount()}
+          \begin{quote}
+              Return a master private key and public key.
+          \end{quote}
+
+    \item \textbf{hdcore.account.getPath()}
+          \begin{quote}
+              Return BIP44 path (note that we only test with depth = 7). We also provided getFullPath function for who want to create longer path.
+          \end{quote}
+
+    \item \textbf{hdcore.account.createChildAccount()}
+          \begin{quote}
+              Return child account with specific given path.
+          \end{quote}
+
+    \item \textbf{hdcore.account.getTransaction()}
+          \begin{quote}
+              Return a mnemonic code with 12 or 24 words.
+          \end{quote}
+
+    \item \textbf{transaction.airdrop\_one()}
+          \begin{quote}
+              Request airdrop on testnet/devnet.
+          \end{quote}
+
+    \item \textbf{transaction.get\_balance()}
+          \begin{quote}
+              Request get balance of an account (for account-based blockchain).
+          \end{quote}
+
+    \item \textbf{transaction.send()}
+          \begin{quote}
+              Broadcast transaction to the networks.
+          \end{quote}
 \end{itemize}
 
-\section{Proposed system design}
-{\textit {\textbf{Wallet category}}}
-\begin{itemize}
-    \item We decided to build a \emph{Hybrid Wallet}. The private key will be hold only by the user, safely saved in the user isolated hardware (phone or computer). The user has full control of their cryptocurrencies but they have to manage it on their own through the software. Outside of the application, user must keep their private key and the mnemonic passphrase safe.
-    \item From the financial aspect, the wallet is a non-custody one. It doesn't store any user information in comparison to a traditional bank's account (required KYC). Since a blockchain wallet interacts with a decentralize system, where everything is transparent, it should not use anything related to a user's personal information.
-    \item Obviously, the wallet is hierarchically deterministic. Rather than knowing the exact address of the wallet (for receiving) or knowing the exact private key of that (for signing), the users just keep a pair of master private-public key and derive a child key accordingly to the key tree.
-\end{itemize}
+A few more function supports every detail to make the wallet work appropriately (for example, address validation, public key validation, transaction building, etc...).
 
-{\textit {\textbf{Signature Schema}}}
-\begin{itemize}
-    \item EdDSA (curve ed25519) with the proposed CKD function on ed25519 (our work) for child key generation.
-\end{itemize}
 
-{\textit {\textbf{Main function of the wallet}}}
-\begin{itemize}
-    \item Key generation.
-    \item Key management.
-    \item Asset management.
-    \item Transfer management.
-\end{itemize}
+\subsection{Documentation}
+Our documentation can be found at \textit{npm} {\href{https://www.npmjs.com/package/hdcore-ts}{here}}.
+
+
+\section{The Hierarchical Deterministic Web Wallet}
+
+We give an overview of our system technology and flow in Section \ref{echo}, presenting the details of Address service and the web wallet in sections \ref{address} and \ref{webui} as Address service and the Web Wallet, respectively.
+
+\subsection{Ecosystem}
+\label{echo}
+
+We implement our design as in \autoref{fig:eco}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\textwidth]{images/ecosystem.png}
+    \caption[Overview of entire system]{Overview of entire system}
+    \label{fig:eco}
+\end{figure}
+
+The user can access our web wallet through their web browser from any platform. Features and detail of every page will be presented in Section \ref{webui}. After creating the wallet, the master secret seed will be saved in their local storage with the index paths  (for convenience). The master seed should be encrypted with the user’s password for safety since there are attacks aimed at browser sensitive information. We will discuss all potential attacks in Chapter \ref{chap:testing}.
+
+
+Every time the user derives a new child, the wallet will access the local storage to get (decrypt) the secret seed then generate the expected keys. The exact process happens when the user needs to transfer assets. The secret seed will be accessed to get the private key for the digital signature generation.
+
+
+\subsection{Address service}
+
+\label{address}
+\subsubsection{Important Technologies}
+
+The address service provides API for public wallet management and searching (in transaction). We apply Flask framework and MongoDB for our module. The system contains the total of four API.
+
+\bigskip
+{\textbf{Flask}}
+
+Flask \cite{grinberg2018flask} is a micro web framework written in python. It is classified as a microframework because it does not require particular tools or libraries. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide standard functions. However, Flask supports extensions that can add application features as if they were implemented in Flask itself. Extensions exist for object-relational mappers, form validation, upload handling, various open authentication technologies, and several standard framework-related tools. We also use Flask since python is more comfortable dealing with JSON content-type requests.
+
+
+\bigskip
+{\textbf{MongoDB}}
+
+MongoDB \cite{mongo} is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas, so it is suitable for our database design.
+
+\bigskip
+\subsubsection{API Provider}
+
+For reference only, the base URL of the system is http://localhost:8080.
+
+{\textbf{Get address}}
+
+Request for the list of receiver address (who also use our HD wallet) on a specific blockchain. The response contains information of purpose of those wallet and the addresses.
+
+Request:
+
+\begin{framed}
+    POST http://localhost:8080/getaddress
+\end{framed}
+
+\begin{tabular}{| m{3cm} | m{9cm} | m{2.7cm} |}
+    \hline
+    Field & Description & Format                                            \\ \hline
+    address & The SHA512 hash of the master address of receiver wallet. & Text   \\ \hline
+    chain   & The ID of the blockchain (see in BIP44 \cite{bip44}) & text    \\ \hline
+\end{tabular}
+\captionof{table}{\label{Tab:IMP-1} Get address request components.}
+
+Example request:
+
+\begin{framed}
+\hspace*{13mm}    curl - - request POST \\
+\hspace*{13mm}        - - url http://localhost:8080/getaddress \\
+\hspace*{13mm}        - - header 'Content-Type: application/json' \\
+\hspace*{13mm}        - - data '\{ \\
+\hspace*{20mm}                "address": "test", \\
+\hspace*{20mm}                "chain": "501" \\
+\hspace*{20mm}            \}' \\
+\end{framed}
+
+
+Example response:
+
+\begin{framed}
+    \hspace*{13mm}        \{ \\
+    \hspace*{13mm}          "list\_address": \{ \\
+    \hspace*{18mm}        "default": "childaddress", \\
+    \hspace*{18mm}        "business": "childaddress1"    \\
+    \hspace*{18mm}        \}, \\
+    \hspace*{13mm}                "message": "Succeed",    \\
+    \hspace*{13mm}                "status": "Succeed",    \\
+    \hspace*{13mm}             "statusCode": 200    \\
+    \hspace*{13mm}                 \}    \\
+
+\end{framed}
+    
+\bigskip
+{\textbf{Create default Wallet}}
+\bigskip
+
+Request to publish the address to the server. The web will automatically call this service when a wallet is created (the one default child’s index is 2021). The response contains confirmation of the request.
+
+Request:
+
+\begin{framed}
+    POST http://localhost:8080/createdefault
+\end{framed}
+
+\begin{tabular}{| m{3cm} | m{9cm} | m{2.7cm} |}
+    \hline
+    Field & Description & Format                                            \\ \hline
+    \_id & The value of the SHA512(master address) of the HD wallet. This is also the \_id field of MongoDB document schema.  & Text   \\ \hline
+    address   & The dictionary of default generated addresses & Text    \\ \hline
+\end{tabular}
+\captionof{table}{\label{Tab:IMP-2} Create default Wallet request components.}
+
+Example request:
+
+\begin{framed}
+\hspace*{13mm}    curl - - request POST \\
+\hspace*{13mm}        - - url http://localhost:8080/createdefault \\
+\hspace*{13mm}        - - header 'Content-Type: application/json' \\
+\hspace*{13mm}        - - data '\{ \\
+\hspace*{20mm}                "\_id": "tess1231",\\
+\hspace*{27mm}                "address": \{ \\
+\hspace*{35mm}                "1": \{ \\
+\hspace*{40mm}                "default": "wallet1" \{ \\
+\hspace*{40mm}                \}, \\
+\hspace*{35mm}                "60": \{ \\
+\hspace*{40mm}                "default": "wallet2" \\
+\hspace*{40mm}                \}, \\
+\hspace*{35mm}                "501": \{ \\
+\hspace*{40mm}                "default": "wallet3" \\
+\hspace*{40mm}                \} \\
+\hspace*{27mm}              \} \\
+\hspace*{20mm}            \}' \\
+\end{framed}
+
+
+Example response:
+
+\begin{framed}
+    \hspace*{13mm}        \{ \\
+    \hspace*{13mm}                "message": "Succeed",    \\
+    \hspace*{13mm}                "status": "Succeed",    \\
+    \hspace*{13mm}             "statusCode": 200    \\
+    \hspace*{13mm}                 \}    \\
+\end{framed}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Web Wallet Service}
+\label{webui}
