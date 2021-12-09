@@ -177,34 +177,34 @@ Request:
     address & The SHA512 hash of the master address of receiver wallet. & Text   \\ \hline
     chain   & The ID of the blockchain (see in BIP44 \cite{bip44}) & text    \\ \hline
 \end{tabular}
-\captionof{table}{\label{Tab:IMP-1} Get address request components.}
+% \captionof{table}{\label{Tab:IMP-1} Get address request components.}
 \bigskip
 
 Example request:
 
 \begin{framed}
-\hspace*{13mm}    curl - - request POST \\
-\hspace*{13mm}        - - url http://localhost:8080/getaddress \\
-\hspace*{13mm}        - - header 'Content-Type: application/json' \\
-\hspace*{13mm}        - - data '\{ \\
-\hspace*{20mm}                "address": "test", \\
-\hspace*{20mm}                "chain": "501" \\
-\hspace*{20mm}            \}' \\
+\hspace*{13mm}    curl - - request POST \par
+\hspace*{13mm}        - - url http://localhost:8080/getaddress \par
+\hspace*{13mm}        - - header 'Content-Type: application/json' \par
+\hspace*{13mm}        - - data '\{ \par
+\hspace*{20mm}                "address": "test", \par
+\hspace*{20mm}                "chain": "501" \par
+\hspace*{20mm}            \}' \par
 \end{framed}
 
 
 Example response:
 
 \begin{framed}
-    \hspace*{13mm}        \{ \\
-    \hspace*{13mm}          "list\_address": \{ \\
-    \hspace*{18mm}        "default": "childaddress", \\
-    \hspace*{18mm}        "business": "childaddress1"    \\
-    \hspace*{18mm}        \}, \\
-    \hspace*{13mm}                "message": "Succeed",    \\
-    \hspace*{13mm}                "status": "Succeed",    \\
-    \hspace*{13mm}             "statusCode": 200    \\
-    \hspace*{13mm}                 \}    \\
+    \hspace*{13mm}        \{\par
+    \hspace*{13mm}          "list\_address": \{ \par
+    \hspace*{18mm}        "default": "childaddress", \par
+    \hspace*{18mm}        "business": "childaddress1"    \par
+    \hspace*{18mm}        \},\par
+    \hspace*{13mm}                "message": "Succeed",   \par
+    \hspace*{13mm}                "status": "Succeed",  \par
+    \hspace*{13mm}             "statusCode": 200   \par
+    \hspace*{13mm}                 \}    \par
 
 \end{framed}
     
@@ -226,39 +226,39 @@ Request:
     \_id & The value of the SHA512(master address) of the HD wallet. This is also the \_id field of MongoDB document schema.  & Text   \\ \hline
     address   & The dictionary of default generated addresses & Text    \\ \hline
 \end{tabular}
-\captionof{table}{\label{Tab:IMP-2} Create default Wallet request components.}
+% \captionof{table}{\label{Tab:IMP-2} Create default Wallet request components.}
 \bigskip
 
 Example request:
 
 \begin{framed}
-\hspace*{13mm}    curl - - request POST \\
-\hspace*{13mm}        - - url http://localhost:8080/createdefault \\
-\hspace*{13mm}        - - header 'Content-Type: application/json' \\
-\hspace*{13mm}        - - data '\{ \\
-\hspace*{20mm}                "\_id": "tess1231",\\
-\hspace*{27mm}                "address": \{ \\
-\hspace*{35mm}                "1": \{ \\
-\hspace*{40mm}                "default": "wallet1" \{ \\
-\hspace*{40mm}                \}, \\
-\hspace*{35mm}                "60": \{ \\
-\hspace*{40mm}                "default": "wallet2" \\
-\hspace*{40mm}                \}, \\
-\hspace*{35mm}                "501": \{ \\
-\hspace*{40mm}                "default": "wallet3" \\
-\hspace*{40mm}                \} \\
-\hspace*{27mm}              \} \\
-\hspace*{20mm}            \}' \\
+\hspace*{13mm}    curl - - request POST \par
+\hspace*{13mm}        - - url http://localhost:8080/createdefault \par
+\hspace*{13mm}        - - header 'Content-Type: application/json' \par
+\hspace*{13mm}        - - data '\{ \par
+\hspace*{20mm}                "\_id": "tess1231",\par
+\hspace*{27mm}                "address": \{ \par
+\hspace*{35mm}                "1": \{ \par
+\hspace*{40mm}                "default": "wallet1" \{ \par
+\hspace*{40mm}                \}, \par
+\hspace*{35mm}                "60": \{ \par
+\hspace*{40mm}                "default": "wallet2" \par
+\hspace*{40mm}                \}, \par
+\hspace*{35mm}                "501": \{ \par
+\hspace*{40mm}                "default": "wallet3" \par
+\hspace*{40mm}                \} \par
+\hspace*{27mm}              \} \par
+\hspace*{20mm}            \}' \par
 \end{framed}
 
 Example response:
 
 \begin{framed}
-    \hspace*{13mm}        \{ \\
-    \hspace*{13mm}                "message": "Succeed",    \\
-    \hspace*{13mm}                "status": "Succeed",    \\
-    \hspace*{13mm}             "statusCode": 200    \\
-    \hspace*{13mm}                 \}    \\
+    \hspace*{13mm}        \{ \par
+    \hspace*{13mm}                "message": "Succeed",    \par
+    \hspace*{13mm}                "status": "Succeed",    \par
+    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                 \}    \par
 \end{framed}
 
 
@@ -282,31 +282,31 @@ Request:
     purpose   & The purpose of this child wallet & Text    \\ \hline
     child\_address   & The address of the child wallet & Text    \\ \hline
 \end{tabular}
-\captionof{table}{\label{Tab:IMP-3} Push child address to database.}
+% \captionof{table}{\label{Tab:IMP-3} Push child address to database.}
 \bigskip
 
 Example request:
 
 \begin{framed}
-\hspace*{13mm}    curl - - request POST \\
-\hspace*{13mm}        - - url http://localhost:8080/pushaddress \\
-\hspace*{13mm}        - - header 'Content-Type: application/json' \\
-\hspace*{13mm}        - - data '\{ \\
-\hspace*{27mm}                "address": "test",  \\
-\hspace*{40mm}                "chain": "60", \\
-\hspace*{40mm}                "purpose": "business1", \\
-\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \\
-\hspace*{27mm}              \} \\
+\hspace*{13mm}    curl - - request POST \par
+\hspace*{13mm}        - - url http://localhost:8080/pushaddress \par
+\hspace*{13mm}        - - header 'Content-Type: application/json' \par
+\hspace*{13mm}        - - data '\{ \par
+\hspace*{27mm}                "address": "test",  \par
+\hspace*{40mm}                "chain": "60", \par
+\hspace*{40mm}                "purpose": "business1", \par
+\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \par
+\hspace*{27mm}              \} \par
 \end{framed}
 
 Example response:
 
 \begin{framed}
-    \hspace*{13mm}        \{ \\
-    \hspace*{13mm}                "message": "Succeed",    \\
-    \hspace*{13mm}                "status": "Succeed",    \\
-    \hspace*{13mm}             "statusCode": 200    \\
-    \hspace*{13mm}                 \}    \\
+    \hspace*{13mm}        \{ \par
+    \hspace*{13mm}                "message": "Succeed",    \par
+    \hspace*{13mm}                "status": "Succeed",    \par
+    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                 \}    \par
 \end{framed}
 
 
@@ -330,31 +330,31 @@ Request:
     purpose   & The purpose of this child wallet & Text    \\ \hline
     child\_address   & The address of the child wallet & Text    \\ \hline
 \end{tabular}
-\captionof{table}{\label{Tab:IMP-4} Push child address to database.}
+% \captionof{table}{\label{Tab:IMP-4} Push child address to database.}
 \bigskip
 
 Example request:
 
 \begin{framed}
-\hspace*{13mm}    curl - - request POST \\
-\hspace*{13mm}        - - url http://localhost:8080/deleteaddress \\
-\hspace*{13mm}        - - header 'Content-Type: application/json' \\
-\hspace*{13mm}        - - data '\{ \\
-\hspace*{27mm}                "address": "test",  \\
-\hspace*{40mm}                "chain": "60", \\
-\hspace*{40mm}                "purpose": "business1", \\
-\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \\
-\hspace*{27mm}              \} \\
+\hspace*{13mm}    curl - - request POST \par
+\hspace*{13mm}        - - url http://localhost:8080/deleteaddress \par
+\hspace*{13mm}        - - header 'Content-Type: application/json' \par
+\hspace*{13mm}        - - data '\{ \par
+\hspace*{27mm}                "address": "test",  \par
+\hspace*{40mm}                "chain": "60", \par
+\hspace*{40mm}                "purpose": "business1", \par
+\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \par
+\hspace*{27mm}              \} \par
 \end{framed}
 
 Example response:
 
 \begin{framed}
-    \hspace*{13mm}        \{ \\
-    \hspace*{13mm}                "message": "Succeed",    \\
-    \hspace*{13mm}                "status": "Succeed",    \\
-    \hspace*{13mm}             "statusCode": 200    \\
-    \hspace*{13mm}                 \}    \\
+    \hspace*{13mm}        \{ \par
+    \hspace*{13mm}                "message": "Succeed",    \par
+    \hspace*{13mm}                "status": "Succeed",    \par
+    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                 \}    \par
 \end{framed}
 
 There are potential attacks on this kind of server since we haven’t provided any authentication at all. We discuss these attacks in the evaluation Section (see Chaper \ref{fig:testcase}).
