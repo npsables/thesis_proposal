@@ -169,10 +169,10 @@ The BIP32-ED25519 and normal key derivation of BIP32 have serious security flaws
 
 
 
-\section{System Architecture}
+\subsection{System Architecture}
 \label{system_architect}
 
-\subsection{User and Web Service}
+\subsubsection{User and Web Service}
 
 In practice, our system requires a server to host the RESTful web service to handle the requests from users. Users can access our wallet interface through their browser by entering the domain of our hosting service.
 
@@ -189,7 +189,7 @@ The server-side contains the request handler and service handler. The request ha
 
 The client-side (user browser) accesses the wallet through a GET request to the server. All users' critical information will be saved at their local storage, like master private keys or passwords and they should be encrypted.
 
-\subsection{User and Blockchain}
+\subsubsection{User and Blockchain}
 
 If the users want to make a transaction they will connect directly to the blockchain networks. Before building a transaction, users will decrypt the private key from their local storage. The private key will be used to sign the transaction. The transaction will be broadcast directly to decentralized networks without going through the server.
 
@@ -202,7 +202,7 @@ The protocols described as \autoref{fig:ubl}:
     \label{fig:ubl}
 \end{figure}
 
-\subsection{User and Address Service}
+\subsubsection{User and Address Service}
 
 We created another server to handle “Address service”. Note that we can combine this server with the Web Service Server above. But they served different purposes, and we don’t want our system to be synthetic. Furthermore, this separated architecture will be easier to update and test.
 
@@ -237,7 +237,7 @@ The database is designed just like the JSON object, but holds more values (see \
 \end{figure}
 
 
-\section{Information Privacy and Security concern}
+\subsection{Information Privacy and Security concern}
 
 Our browser-based crypto wallets give users complete control of their keys and therefore their funds. We guarantee the reliability of the website and the system behind it. The web provider will not hold any sensitive information or require any of the user's identification. On the other hand, the user needs to protect their secret and the hardware (or other place) where they keep them. In extreme cases, for example, the attacker takes over the user's computer (anything they access the wallet with), we can't do anything about it.
 
@@ -254,7 +254,7 @@ To design a web application with a priority on system security, we decided to ta
 The security tests will be examined with specific aims and different tools. We will try to cover all security threats in our system or at least protect our wallet from common security holes that can directly harm the end users.
 
 
-\section{Use Cases}
+\subsection{Use Cases}
 
 \subsection{Use Case diagram}
 

@@ -1,6 +1,137 @@
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
 
 \chapter{Testing}
 \label{chap:testing}
 
+\textit{This chapter presents the results of unit testing and our discussion on security perspectives. Section \ref{testlib} describes our works on the open-source library, and Section \ref{testhd} evaluates the non-custodial HD wallet.}
 
+\minitoc
+
+\section{The Library}
+\label{testlib}
+\subsection{Testcases}
+
+We run a total of 10 test cases to make sure every API functions normally according to its definition (presenting tests with Solana and ed25519 keys). 
+
+\bigskip
+{\textbf{Test table}}
+\bigskip
+
+\begin{tabular}{| m{2cm} | m{6cm} | m{2cm} | m{2cm} | m{2cm} |}
+    \hline
+    ID & Description & Expected Result & Actual Result & Pass/Fail                                            \\ \hline
+    \_id & The value of the SHA512(master address) of the HD wallet. This is also the \_id field of MongoDB document schema.  & Text   \\ \hline
+    chain   & The ID of the blockchain & Text    \\ \hline
+    purpose   & The purpose of this child wallet & Text    \\ \hline
+    child\_address   & The address of the child wallet & Text    \\ \hline
+\end{tabular}
+\captionof{table}{\label{Tab:SOL-01} Library testcases}
+
+\bigskip
+{\textbf{Test with mocha (Javascript testing framework)}}
+
+\bigskip
+\autoref{fig:testmocha} presents the results of mocha framework testing for our library.
+\bigskip
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1\textwidth]{images/test_mocha.png}
+    \caption[Testcase rerults with mocha]{Testcase rerults with mocha}
+    \label{fig:testmocha}
+\end{figure}
+
+We tested the HD key tree generation with mocha. The transaction between wallets is a bit hard to confirm the result, so we use Jupyter Notebook instead.
+
+\bigskip
+{\textbf{Test with mocha (Javascript testing framework)}}
+\bigskip
+
+We import Nodejs kernel to notebook environment and start a session. The grey part is a cell to input code. Below every cell is result of code compilation.
+
+\begin{itemize}
+    \item Test airdrop (see \autoref{fig:testairdrop}).
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=1\textwidth]{images/testairdrop.png}
+        \caption[Testcase rerults with mocha]{Testcase rerults with mocha}
+        \label{fig:testairdrop}
+    \end{figure}
+    \item Checking the address balance (see \autoref{fig:testbalance}).
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=1\textwidth]{images/testgetbalance.png}
+        \caption[Test balance]{Test balance}
+        \label{fig:testbalance}
+    \end{figure}
+    \item Sending 0.05 SOL to another address (see \autoref{fig:testtransaction}).
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=1\textwidth]{images/testtransaction.png}
+        \caption[Test transaction]{Test transaction}
+        \label{fig:testtransaction}
+    \end{figure}
+    \item Checking the return transaction hash on Solana Explorer (see \autoref{fig:testexpl1} and \autoref{fig:testexpl2}).Solana Explorer is a website to look up transactions and accounts on the various Solana clusters. In Figure. We can see we transfered 0.05 SOL as the instruction in the notebook Figures.
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=1\textwidth]{images/testexplore1.png}
+        \caption[Test transaction]{Test transaction}
+        \label{fig:testexpl1}
+    \end{figure}
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=1\textwidth]{images/testexplorer2.png}
+        \caption[Test transaction]{Test transaction}
+        \label{fig:testexpl2}
+    \end{figure}
+
+\end{itemize}
+
+\subsection{Security Discussion}
+
+We acknowledge that cryptography is a tool to achieve security. Still, if we get anything wrong in the cryptography implementation, that will not deliver the protection it was meant to offer, and it will become ineffective. We focused on researching the security flaws as the warning in the proposed paper to avoid implementing bad crypto.
+\bigskip
+
+Digital signature generation libraries like tweetnacl and secp256k1 (for Solana and Ethererum keys) are completely free of timing side-channels since they provide constant time and constant memory access. We look into their publication and implementation to observe their approach compared to the original paper.
+\bigskip
+
+We use the hardened key derivation schema of the BIP32 and SLIP10 to avoid the key recovery attack on public key derivation because our wallet is a hot wallet type. We examine the potential vulnerabilities of the BIP32-ED25519 paper for ed25519 curves and take the researcher's recommendation seriously. To compensate for the inconvenience of hardened key schema, we created a system alongside our library to provide a comfortable assets exchange.
+\bigskip
+
+We also make sure the requests and connection of the wallet to the blockchain will not leak any important information about the created wallet. Overall, our library applied a provable cryptography library and followed the safest schema in the industrial community, and improvised the efficiency by current technology.
+
+\section{The Hierarchical Deterministic Web Wallet}
+\label{testhd}
+\subsection{Testcases}
+\subsection{Security Discussion}
+
+We think that no system is perfectly safe from security threats. At least, we can prevent common attacks from happening. Observing mentioned OWASP’s securities risk, we present as follows:
+
+\begin{itemize}
+    \item \textbf{Broken Access Control}.
+    \begin{quote}
+        The Address service is highly vulnerable to this attack since we design it with no authentication at all. Access control enforces policy such that users cannot act outside of their intended permissions. No authentication lead to an attacker can poison other address databases. For example, they can push their addresses into each other documents in MongoDB and impersonate their child addresses. However, we consider this vulnerability is deemed to be easy to solve. In this thesis, we created a demo product. In practice, we could avoid this attack for our service with any server we deployed on with a regular authentication token for each user.
+    \end{quote}
+    \item \textbf{Cryptographic Failures}.
+    \begin{quote}
+        Our web wallet security depends on heavy cryptography. We created a library that takes parts as a core of our fundamental cryptography to prevent this vulnerability. The provable security of our library is discussed in Section \ref{testlib}.
+    \end{quote}
+    \item \textbf{Injection}.
+    \begin{quote}
+        We prevent injection attacks by carefully checking the user’s input and rejecting them if they belong to scripts group.
+    \end{quote}
+    \item \textbf{Insecure Design}.
+    \begin{quote}
+        Secure design is a culture and methodology that constantly evaluates threats and ensures that code is robustly designed and tested to prevent known attack methods. We designed a system that leaks no sensitive information of the user. We also researched well-concerned attack vectors on our system and the library and prevented it in our implementation.    \end{quote}
+    \item \textbf{Vulnerable and Outdated Components}.
+    \begin{quote}
+        Library and frameworks we used are up-to-date and well researched. We removed all unnecessary features, components, and samples. There are no redundant or risks contained in the library that we applied.
+    \end{quote}
+\end{itemize}
+In conclusion, we covered famous attacks on standard web applications and ran test cases for the software to behave appropriately. There are some potential attacks on the client-side that we (the service provider) cant handle. Where users access some malicious software, log in their mnemonic seeds to the wrong website, etc.
 

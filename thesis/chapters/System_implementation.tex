@@ -6,6 +6,7 @@
 \section{The Library}
 \bigskip
 {\textbf{Typescript}}
+
 TypeScript is a strict superset of javascript, designed as a strongly typed programming language by Microsoft. A strongly typed language is more secure because it requires explicit declarations to convert or compare between types in order to convert between languages. This allows for the avoidance of errors and memory exploitations such as the CWE-704 Incorrect Type Conversion or Cast \cite{cwe}. At the same time, it checks types at compile time to find any potential type errors before they are propagated into the program.
 
 TypeScript uses a transpiler, a source-to-source compiler that takes TypeScript source and converts it into JavaScript. The TypeScript code ends up running as JavaScript. In conclusion, TypeScript does provide a set of constraints regarding typing, which enforces a higher level of security.
@@ -170,13 +171,14 @@ Request:
     POST http://localhost:8080/getaddress
 \end{framed}
 
-\begin{tabular}{| m{3cm} | m{9cm} | m{2.7cm} |}
+\begin{tabular}{| m{3cm} | m{9cm} | m{2.6cm} |}
     \hline
     Field & Description & Format                                            \\ \hline
     address & The SHA512 hash of the master address of receiver wallet. & Text   \\ \hline
     chain   & The ID of the blockchain (see in BIP44 \cite{bip44}) & text    \\ \hline
 \end{tabular}
 \captionof{table}{\label{Tab:IMP-1} Get address request components.}
+\bigskip
 
 Example request:
 
@@ -218,13 +220,14 @@ Request:
     POST http://localhost:8080/createdefault
 \end{framed}
 
-\begin{tabular}{| m{3cm} | m{9cm} | m{2.7cm} |}
+\begin{tabular}{| m{3cm} | m{9cm} | m{2.6cm} |}
     \hline
     Field & Description & Format                                            \\ \hline
     \_id & The value of the SHA512(master address) of the HD wallet. This is also the \_id field of MongoDB document schema.  & Text   \\ \hline
     address   & The dictionary of default generated addresses & Text    \\ \hline
 \end{tabular}
 \captionof{table}{\label{Tab:IMP-2} Create default Wallet request components.}
+\bigskip
 
 Example request:
 
@@ -248,6 +251,53 @@ Example request:
 \hspace*{20mm}            \}' \\
 \end{framed}
 
+Example response:
+
+\begin{framed}
+    \hspace*{13mm}        \{ \\
+    \hspace*{13mm}                "message": "Succeed",    \\
+    \hspace*{13mm}                "status": "Succeed",    \\
+    \hspace*{13mm}             "statusCode": 200    \\
+    \hspace*{13mm}                 \}    \\
+\end{framed}
+
+
+\bigskip
+{\textbf{Push child address}}
+\bigskip
+
+Request to append a child adderss to existed address list on the server. The response contains confirmation of the request.
+
+Request:
+
+\begin{framed}
+    POST http://localhost:8080/pushaddress
+\end{framed}
+
+\begin{tabular}{| m{3cm} | m{9cm} | m{2.6cm} |}
+    \hline
+    Field & Description & Format                                            \\ \hline
+    \_id & The value of the SHA512(master address) of the HD wallet. This is also the \_id field of MongoDB document schema.  & Text   \\ \hline
+    chain   & The ID of the blockchain & Text    \\ \hline
+    purpose   & The purpose of this child wallet & Text    \\ \hline
+    child\_address   & The address of the child wallet & Text    \\ \hline
+\end{tabular}
+\captionof{table}{\label{Tab:IMP-3} Push child address to database.}
+\bigskip
+
+Example request:
+
+\begin{framed}
+\hspace*{13mm}    curl - - request POST \\
+\hspace*{13mm}        - - url http://localhost:8080/pushaddress \\
+\hspace*{13mm}        - - header 'Content-Type: application/json' \\
+\hspace*{13mm}        - - data '\{ \\
+\hspace*{27mm}                "address": "test",  \\
+\hspace*{40mm}                "chain": "60", \\
+\hspace*{40mm}                "purpose": "business1", \\
+\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \\
+\hspace*{27mm}              \} \\
+\end{framed}
 
 Example response:
 
@@ -260,19 +310,68 @@ Example response:
 \end{framed}
 
 
+\bigskip
+{\textbf{Pull child address }}
+\bigskip
 
+Request to delete a child adderss that existed on the server. The response contains confirmation of the request.
 
+Request:
 
+\begin{framed}
+    POST http://localhost:8080/deleteaddress
+\end{framed}
 
+\begin{tabular}{| m{3cm} | m{9cm} | m{2.6cm} |}
+    \hline
+    Field & Description & Format                                            \\ \hline
+    \_id & The value of the SHA512(master address) of the HD wallet. This is also the \_id field of MongoDB document schema.  & Text   \\ \hline
+    chain   & The ID of the blockchain & Text    \\ \hline
+    purpose   & The purpose of this child wallet & Text    \\ \hline
+    child\_address   & The address of the child wallet & Text    \\ \hline
+\end{tabular}
+\captionof{table}{\label{Tab:IMP-4} Push child address to database.}
+\bigskip
 
+Example request:
 
+\begin{framed}
+\hspace*{13mm}    curl - - request POST \\
+\hspace*{13mm}        - - url http://localhost:8080/deleteaddress \\
+\hspace*{13mm}        - - header 'Content-Type: application/json' \\
+\hspace*{13mm}        - - data '\{ \\
+\hspace*{27mm}                "address": "test",  \\
+\hspace*{40mm}                "chain": "60", \\
+\hspace*{40mm}                "purpose": "business1", \\
+\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \\
+\hspace*{27mm}              \} \\
+\end{framed}
 
+Example response:
 
+\begin{framed}
+    \hspace*{13mm}        \{ \\
+    \hspace*{13mm}                "message": "Succeed",    \\
+    \hspace*{13mm}                "status": "Succeed",    \\
+    \hspace*{13mm}             "statusCode": 200    \\
+    \hspace*{13mm}                 \}    \\
+\end{framed}
 
-
-
-
-
+There are potential attacks on this kind of server since we haven’t provided any authentication at all. We discuss these attacks in the evaluation Section (see Chaper \ref{fig:testcase}).
 
 \subsection{Web Wallet Service}
 \label{webui}
+
+\bigskip
+{\textbf{React-js}}
+\bigskip
+
+React was invented by a software engineer at Facebook named Jordan Walke, was first introduced in 2011. Walke finalized the prototype and created React in 2012, soon combined it into Facebook in the same year. In 2013 React became open-source and later became available in Ruby on Rails and Python Applications. This is followed by the release of React Native, an extension of React for mobile development on Android and iOS, in 2015. Since then, React consistently pushed out many releases throughout the years, enhancing and submitting new features for users. React is a versatile tool that can be operated on both desktop and mobile platforms with many different features. One of them is the ability to produce interactively rather than simple static pages that can update and rerender data after each input from the user, thus permitting for a seamless UI without refreshing the whole page every time a component is changed. The reason for this is that React’s structure is based on components that allow for the design of complex UIs due to the component logic being written in JavaScript.
+
+\bigskip
+{\textbf{Node.js}}
+\bigskip
+
+Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a "JavaScript everywhere" paradigm, unifying web-application development around a single programming language, rather than different languages for server-side and client-side scripts. 
+
+
