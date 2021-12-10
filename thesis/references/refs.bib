@@ -1,13 +1,54 @@
 %-------------------------------------------------
 %	Chapter 1
 %-------------------------------------------------
+@incollection{Bernstein2006,
+  doi = {10.1007/11745853_14},
+  url = {https://doi.org/10.1007/11745853_14},
+  year = {2006},
+  publisher = {Springer Berlin Heidelberg},
+  pages = {207--228},
+  author = {{Daniel J. Bernstein}},
+  title = {Curve25519: New Diffie-Hellman Speed Records},
+  booktitle = {Public Key Cryptography - {PKC} 2006}
+}
 
+@incollection{Bernstein2011,
+  doi = {10.1007/978-3-642-23951-9_9},
+  url = {https://doi.org/10.1007/978-3-642-23951-9_9},
+  year = {2011},
+  publisher = {Springer Berlin Heidelberg},
+  pages = {124--142},
+  author = {{Daniel J. Bernstein and Niels Duif and Tanja Lange and Peter Schwabe and Bo-Yin Yang}},
+  title = {High-Speed High-Security Signatures},
+  booktitle = {Cryptographic Hardware and Embedded Systems {\textendash} {CHES} 2011}
+}
+
+@inproceedings{Schmidt2009,
+  doi = {10.1109/fdtc.2009.38},
+  url = {https://doi.org/10.1109/fdtc.2009.38},
+  year = {2009},
+  month = sep,
+  publisher = {{IEEE}},
+  author = {{J\"{o}rn-Marc Schmidt and Marcel Medwed}},
+  title = {A Fault Attack on {ECDSA}},
+  booktitle = {2009 Workshop on Fault Diagnosis and Tolerance in Cryptography ({FDTC})}
+}
+
+@techreport{Josefsson2017,
+  doi = {10.17487/rfc8032},
+  url = {https://doi.org/10.17487/rfc8032},
+  year = {2017},
+  month = jan,
+  publisher = {{RFC} Editor},
+  author = {{S. Josefsson and I. Liusvaara}},
+  title = {Edwards-Curve Digital Signature Algorithm ({EdDSA})}
+}
 %-------------------------------------------------
 %	Chapter 2
 %-------------------------------------------------
 
 @techreport{DBLP:journals/cryptologia/Dang13,
-  author    = {Quynh Dang},
+  author    = {{Quynh Dang}},
   title     = {Changes in Federal Information Processing Standard {(FIPS)} 180-4,
                Secure Hash Standard},
   journal   = {Cryptologia},
@@ -23,10 +64,10 @@
 
 
 @article{DBLP:journals/iacr/BertoniDPA15,
-  author    = {Guido Bertoni and
+  author    = {{Guido Bertoni and
                Joan Daemen and
                Micha{\"{e}}l Peeters and
-               Gilles Van Assche},
+               Gilles Van Assche}},
   title     = {Keccak},
   journal   = {{IACR} Cryptol. ePrint Arch.},
   volume    = {2015},
@@ -39,13 +80,13 @@
 }
 
 @inproceedings{SHA-1:Collision,
-  author    = {Marc Stevens and
+  author    = {{Marc Stevens and
                 Elie Bursztein and
                 Pierre Karpman and
                 Ange Albertini and
                 Yarik Markov and 
                 Alex Petit Bianco and
-                Clement Baisse},
+                Clement Baisse}},
   title     = {Announcing the first SHA1 collision },
   year      = {2017},
   timestamp = {Thu, 23 February 2017},
@@ -56,7 +97,7 @@
 
 
 @inproceedings{Bitcoin:Bitcoin,
-  author    = {Satoshi Nakamoto},
+  author    = {{Satoshi Nakamoto}},
   title     = {Bitcoin: A Peer-to-Peer Electronic Cash System},
   year      = {2008},
   url       = {https://bitcoin.org/bitcoin.pdf},
@@ -66,8 +107,8 @@
 
 
 @article{DBLP:journals/joc/HaberS91,
-  author    = {Stuart Haber and
-               W. Scott Stornetta},
+  author    = {{Stuart Haber and
+               W. Scott Stornetta}},
   title     = {How to Time-Stamp a Digital Document},
   journal   = {J. Cryptol.},
   volume    = {3},
@@ -91,9 +132,9 @@
 
 
 @article{DBLP:journals/toplas/LamportSP82,
-  author    = {Leslie Lamport and
+  author    = {{Leslie Lamport and
                Robert E. Shostak and
-               Marshall C. Pease},
+               Marshall C. Pease}},
   title     = {The Byzantine Generals Problem},
   journal   = {{ACM} Trans. Program. Lang. Syst.},
   volume    = {4},
@@ -151,9 +192,9 @@ institution = {U.S. Department of Commerce},
 
 
 @article{dlp,
-  author    = {Ali Maianguwa Shuaibu and
+  author    = {{Ali Maianguwa Shuaibu and
               Sunday Babuba and
-              James Andrawus},
+              James Andrawus}},
   title     = {A Survey of Discrete Logarithm Algorithms in Finite Fields},
   journal   = {Dutse Journal of Pure and Applied Sciences (DUJOPAS)},
   volume    = {5},
@@ -173,6 +214,13 @@ institution = {U.S. Department of Commerce},
   url    = {https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki}
 }
 
+@article{github/bip0039,
+  author = {{Marek Palatinus, Pavol Rusnak, Aaron Voisine and Sean Bowe}},
+  title  = {Mnemonic code for generating deterministic keys},
+  year   = {2013},
+  url    = {https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki}
+}
+
 @article{github/slip0010,
   author = {{Jochen Hoenicke and Pavol Rusnak}},
   title  = {Universal private key derivation from master private key},
@@ -181,30 +229,369 @@ institution = {U.S. Department of Commerce},
   timestamp = {April 26, 2016},
 }
 
-@inproceedings{hasse,
-author = {Liew, Khang Jie and Kamarulhaili, Hailiza},
-year = {2011},
-month = {11},
+@article{secp256k1,
+author = {{Daniel R. L. Brown}},
+year = {2010},
+month = {10},
 pages = {},
-title = {Hasse's Theorem and the Statistical Properties of Points on Elliptic Curves Modulo Prime, p}
+title = {Recommended Elliptic Curve Domain Parameters},
+timestamp = {January 27, 2021},
+version = {2.0},
+url    = {https://www.secg.org/sec2-v2.pdf},
 }
 
+@inproceedings{Khovratovich2017,
+  doi = {10.1109/eurospw.2017.47},
+  url = {https://doi.org/10.1109/eurospw.2017.47},
+  year = {2017},
+  month = apr,
+  publisher = {{IEEE}},
+  author = {{Dmitry Khovratovich and Jason Law}},
+  title = {{BIP}32-ed25519: Hierarchical Deterministic Keys over a Non-linear Keyspace},
+  booktitle = {2017 {IEEE} European Symposium on Security and Privacy Workshops ({EuroS}{\&}{PW})}
+}
 
 @inproceedings{nist_safe_curve,
-author = {Lily Chen and Dustin Moody and Andrew Regenscheid},
+author = {{Lily Chen and Dustin Moody and Andrew Regenscheid}},
 year = {2019},
 month = {10},
 pages = {},
 title = {Recommendations for Discrete Logarithm-Based Cryptography}
 }
 
+@techreport{Barker2019,
+  doi = {10.6028/nist.sp.800-131ar2},
+  url = {https://doi.org/10.6028/nist.sp.800-131ar2},
+  year = {2019},
+  month = mar,
+  publisher = {National Institute of Standards and Technology},
+  author = {{Elaine Barker and Allen Roginsky}},
+  title = {Transitioning the use of cryptographic algorithms and key lengths}
+}
+
+@techreport{Barker2020,
+  doi = {10.6028/nist.sp.800-57pt1r5},
+  url = {https://doi.org/10.6028/nist.sp.800-57pt1r5},
+  year = {2020},
+  month = may,
+  publisher = {National Institute of Standards and Technology},
+  author = {{Elaine Barker}},
+  title = {Recommendation for key management:}
+}
+
+@inproceedings{DBLP:conf/ccs/0003EFL021,
+  author    = {{Poulami Das and
+               Andreas Erwig and
+               Sebastian Faust and
+               Julian Loss and
+               Siavash Riahi}},
+  editor    = {Yongdae Kim and
+               Jong Kim and
+               Giovanni Vigna and
+               Elaine Shi},
+  title     = {The Exact Security of {BIP32} Wallets},
+  booktitle = {{CCS} '21: 2021 {ACM} {SIGSAC} Conference on Computer and Communications
+               Security, Virtual Event, Republic of Korea, November 15 - 19, 2021},
+  pages     = {1020--1042},
+  publisher = {{ACM}},
+  year      = {2021},
+  url       = {https://doi.org/10.1145/3460120.3484807},
+  doi       = {10.1145/3460120.3484807},
+  timestamp = {Tue, 16 Nov 2021 13:43:43 +0100},
+  biburl    = {https://dblp.org/rec/conf/ccs/0003EFL021.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@techreport{Nystrom2005,
+  doi = {10.17487/rfc4231},
+  url = {https://doi.org/10.17487/rfc4231},
+  year = {2005},
+  month = dec,
+  publisher = {{RFC} Editor},
+  author = {{M. Nystrom}},
+  title = {Identifiers and Test Vectors for {HMAC}-{SHA}-224,  {HMAC}-{SHA}-256,  {HMAC}-{SHA}-384,  and {HMAC}-{SHA}-512}
+}
+
+@inproceedings{DBLP:conf/fc/GutoskiS15,
+  author    = {{Gus Gutoski and
+               Douglas Stebila}},
+  editor    = {Rainer B{\"{o}}hme and
+               Tatsuaki Okamoto},
+  title     = {Hierarchical Deterministic Bitcoin Wallets that Tolerate Key Leakage},
+  booktitle = {Financial Cryptography and Data Security - 19th International Conference,
+               {FC} 2015, San Juan, Puerto Rico, January 26-30, 2015, Revised Selected
+               Papers},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {8975},
+  pages     = {497--504},
+  publisher = {Springer},
+  year      = {2015},
+  url       = {https://doi.org/10.1007/978-3-662-47854-7\_31},
+  doi       = {10.1007/978-3-662-47854-7\_31},
+  timestamp = {Tue, 14 May 2019 10:00:38 +0200},
+  biburl    = {https://dblp.org/rec/conf/fc/GutoskiS15.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@misc{Vitalik,
+ author = {{Vitalik Buterin}},
+ title = {Deterministic Wallets, Their Advantages and their Understated Flaws},
+ url = {https://bitcoinmagazine.com/technical/deterministic-wallets-advantages-flaw-1385450276},
+ lastchecked = {14.09.2021},
+ originalyear = {26.11.2013}
+}
+
+
+@article{DBLP:journals/iacr/BernsteinL17,
+  author    = {{Daniel J. Bernstein and
+               Tanja Lange}},
+  title     = {Montgomery curves and the Montgomery ladder},
+  journal   = {{IACR} Cryptol. ePrint Arch.},
+  pages     = {293},
+  year      = {2017},
+  url       = {http://eprint.iacr.org/2017/293},
+  timestamp = {Mon, 11 May 2020 15:57:57 +0200},
+  biburl    = {https://dblp.org/rec/journals/iacr/BernsteinL17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/rfc/rfc2785,
+  author    = {{Robert J. Zuccherato}},
+  title     = {Methods for Avoiding the "Small-Subgroup" Attacks on the Diffie-Hellman
+               Key Agreement Method for {S/MIME}},
+  journal   = {{RFC}},
+  volume    = {2785},
+  pages     = {1--11},
+  year      = {2000},
+  url       = {https://doi.org/10.17487/RFC2785},
+  doi       = {10.17487/RFC2785},
+  timestamp = {Tue, 14 May 2019 10:04:10 +0200},
+  biburl    = {https://dblp.org/rec/journals/rfc/rfc2785.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@misc{Riccardo,
+ author = {{Riccardo Spagni}},
+ title = {Disclosure of a Major Bug in CryptoNote Based Currencies},
+ url = {https://web.getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html},
+ lastchecked = {14.09.2021},
+ originalyear = {17.05.2017}
+}
+
+@misc{enwiki:1057850165,
+author = {{Wikipedia contributors}},
+title = {Diffie-Hellman key exchange},
+url = {https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange},
+lastchecked = {14.09.2021},
+}
+
+@misc{mail:000860,
+author = {{Gregory Maxwell}},
+title = {Ed25519 "clamping" and its effect on hierarchical key derivation},
+url = {https://moderncrypto.org/mail-archive/curves/2017/000860.html},
+lastchecked = {14.09.2021},
+originalyear = {06.03.2017}
+}
+
+@misc{Bernstein:2014,
+author = {{D. J. Bernstein}},
+title = {Does the Curve25519 Montgomery ladder always work?},
+url = {https://mailarchive.ietf.org/arch/msg/cfrg/pt2bt3fGQbNF8qdEcorp-rJSJrc/},
+lastchecked = {14.09.2021},
+originalyear = {31.08.2014}
+}
+
+@article{DBLP:journals/iacr/BrumleyT11,
+  author    = {{Billy Bob Brumley and
+               Nicola Tuveri}},
+  title     = {Remote Timing Attacks are Still Practical},
+  journal   = {{IACR} Cryptol. ePrint Arch.},
+  pages     = {232},
+  year      = {2011},
+  url       = {http://eprint.iacr.org/2011/232},
+  timestamp = {Mon, 11 May 2020 15:58:53 +0200},
+  biburl    = {https://dblp.org/rec/journals/iacr/BrumleyT11.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@article{DBLP:journals/rfc/rfc8032,
+  author    = {{Simon Josefsson and
+               Ilari Liusvaara}},
+  title     = {Edwards-Curve Digital Signature Algorithm (EdDSA)},
+  journal   = {{RFC}},
+  volume    = {8032},
+  pages     = {1--60},
+  year      = {2017},
+  url       = {https://doi.org/10.17487/RFC8032},
+  doi       = {10.17487/RFC8032},
+  timestamp = {Tue, 14 May 2019 10:02:29 +0200},
+  biburl    = {https://dblp.org/rec/journals/rfc/rfc8032.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@misc{Jeff,
+author = {{Jeff Burdges}},
+title = {Key recovery attack on BIP32-ED25519},
+url = {https://forum.w3f.community/t/key-recovery-attack-on-bip32-ed25519/44},
+lastchecked = {14.09.2021}
+}
+
+@misc{Jeff1,
+author = {{Jeff Burdges}},
+title = {Issue on ed25519 dalek},
+url = {https://github.com/dalek-cryptography/ed25519-dalek/issues/137},
+lastchecked = {14.09.2021}
+}
+
+@article{torspec,
+  author    = {{David Goulet, George Kadianakis, Nick Mathewson}},
+  title     = {Next-Generation Hidden Services in Tor},
+  year      = {2013},
+  month      = nov,
+  url       = {https://gitweb.torproject.org/torspec.git/tree/proposals/224-rend-spec-ng.txt#n2135},
+}
+
+@misc{bip44,
+author = {{Pavol Rusnak, Marek Palatinus}},
+title = {Registered coin types for BIP-0044},
+url = {https://github.com/satoshilabs/slips/blob/master/slip-0044.md},
+lastchecked = {14.09.2021},
+originalyear = {09.07.2014}
+}
+
+@misc{christsim,
+author = {christsim (github)},
+title = {Key Derivation for ed25519},
+url = {https://www.npmjs.com/package/hd-key-ed25519},
+lastchecked = {14.09.2021},
+}
+
+@misc{alepop,
+author = {alepop (github)},
+title = {Key Derivation for ed25519 (ed25519 HD Key)},
+url = {https://github.com/alepop/ed25519-hd-key},
+lastchecked = {14.09.2021},
+}
+
+@misc{vinc,
+author = {{ Vincent Bernardoff }},
+title = {Ocaml implements for ed25519},
+url = {https://github.com/vbmithr/ocaml-bip32-ed25519},
+lastchecked = {14.09.2021},
+}
+
+
+@misc{Shude,
+author ={ {Shude Li}},
+title = {Golang implements for BIP32-Ed25519},
+url = {https://github.com/islishude/bip32},
+lastchecked = {14.09.2021},
+}
+
+@misc{LedgerHQ,
+author = {{LedgerHQ, Trusted hardware for blockchain applications}},
+title = {HDEd25519},
+url = {https://github.com/LedgerHQ/orakolo/blob/0b2d5e669ec61df9a824df9fa1a363060116b490/src/python/orakolo/HDEd25519.py},
+lastchecked = {14.09.2021},
+}
+
+@misc{IOTA,
+author = {{IOTA Ledger}},
+title = {ED25519 signature scheme},
+url = {https://github.com/iotaledger/protocol-rfcs/blob/ee07797acb5940b7dbb5c3411b184ccdc6afdbb1/text/0000-ed25519-signature-scheme/0000-ed25519-signature-scheme.md},
+lastchecked = {14.09.2021},
+}
+
+@misc{sollet,
+author = {{ Project Serum }},
+title = {SPL Token Wallet},
+url = {https://github.com/project-serum/spl-token-wallet},
+lastchecked = {14.09.2021},
+}
+
+@misc{oasis,
+author = {{  Oasis Protocol Foundation }},
+title = {ADR 0008: Standard Account Key Generation},
+url = {https://github.com/oasisprotocol/oasis-core/blob/master/docs/adr/0008-standard-account-key-generation.md#difficulties-in-adapting-bip-0032-to-edwards25519-curve},
+lastchecked = {14.09.2021},
+}
+
+
+@misc{mitm,
+author = {{ Wikipedia contributors}},
+title = {Man-in-the-middle attack},
+url = {https://en.wikipedia.org/wiki/Man-in-the-middle_attack},
+lastchecked = {14.09.2021},
+}
+
+@misc{shor,
+author = {{ Wikipedia contributors}},
+title = {Shor's algorithm},
+url = {https://en.wikipedia.org/wiki/Shor%27s_algorithm},
+lastchecked = {14.09.2021},
+}
+
+@misc{ifps,
+author = {{ Protocol Labs}},
+title = {IPFS powers the Distributed Web},
+url = {https://ipfs.io/},
+lastchecked = {14.09.2021},
+}
+
+
+
 %-------------------------------------------------
 %	Chapter 5
 %-------------------------------------------------
 
+
+@misc{cwe,
+ author = {{CWE Team}},
+ title = {Incorrect Type Conversion or Cast},
+ url = {https://cwe.mitre.org/data/definitions/704.html},
+ lastchecked = {14.09.2021},
+ originalyear = {09.09.2008}
+}
+
+@incollection{Bernstein2012,
+  doi = {10.1007/978-3-642-33481-8_9},
+  url = {https://doi.org/10.1007/978-3-642-33481-8_9},
+  year = {2012},
+  publisher = {Springer Berlin Heidelberg},
+  pages = {159--176},
+  author = {{Daniel J. Bernstein and Tanja Lange and Peter Schwabe}},
+  title = {The Security Impact of a New Cryptographic Library},
+  booktitle = {Progress in Cryptology {\textendash} {LATINCRYPT} 2012}
+}
+
+@misc{tomi,
+author = {{ Tomi Jaga}},
+title = {Thenewboston HD Wallet},
+url = {https://github.com/tomijaga/tnb-hd-wallet},
+lastchecked = {14.09.2021},
+}
+
+@book{grinberg2018flask,
+  title={Flask},
+  author={{Armin Ronacher}},
+  year={2010},
+  url= {https://github.com/pallets/flask},
+  } 
+
+@misc{mongo,
+author = {{	MongoDB Inc.}},
+title = {MongoDB},
+url = {https://www.mongodb.com/},
+lastchecked = {14.09.2021},
+}
+
+
 @inproceedings{DBLP:Deterministic,
-  author    = {Hossein Rezaeighaleh and
-               Cliff C. Zou},
+  author    = {{Hossein Rezaeighaleh and
+               Cliff C. Zou}},
   title     = {Deterministic Sub-Wallet for Cryptocurrencies},
   booktitle = {{IEEE} International Conference on Blockchain, Blockchain 2019, Atlanta,
                GA, USA, July 14-17, 2019},
@@ -220,7 +607,7 @@ title = {Recommendations for Discrete Logarithm-Based Cryptography}
 
 
 @inproceedings{mapping,
-  author    = {Joel John and Lawrence Lundy-Bryan},
+  author    = {{Joel John and Lawrence Lundy-Bryan}},
   title     = {Mapping Decentralized Finance (DeFi)},
   year      = {2019},
   url       = {https://outlierventures.io/wp-content/uploads/2019/06/Mapping-Decentralised-Finance-DeFi-report.pdf},
@@ -229,9 +616,9 @@ title = {Recommendations for Discrete Logarithm-Based Cryptography}
 
 
 @inproceedings{DBLP:towards_blockchain,
-  author    = {Zexu Wang and
+  author    = {{Zexu Wang and
                Bin Wen and
-               Ziqiang Luo},
+               Ziqiang Luo}},
   editor    = {Zibin Zheng and
                Hong{-}Ning Dai and
                Xiaodong Fu and

@@ -2,7 +2,7 @@
 % Copyright (c) 2019/06/20 by Nguyen Van Hung <nvhung1401@gmail.com>.
 
 
-\documentclass[a4paper, 13pt, twoside, openright]{report}
+\documentclass[a4paper, 12pt, twoside, openright]{report}
 %-OPTIONS---------------------------------------
 % Paper size and format (a4paper, letterpaper, etc.)
 % Font size (10pt, 11pt, 12pt)
@@ -33,9 +33,11 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{multirow}
+\usepackage{framed}
 \usepackage{longtable}
 \usepackage{pifont, chemarrow}
 \usepackage{scrextend}
+\usepackage{changepage}
 \usepackage{cprotect}
 \usepackage{setspace}
 \usepackage{titlesec}
@@ -179,7 +181,7 @@
 \mtcsetrules{minitoc}{off}
 \mtcsetfeature{minitoc}{after}{\vspace{-30pt}}
 \mtcsetfeature{minitoc}{before}{\vspace{-30pt}}
-\setcounter{minitocdepth}{2}
+\setcounter{minitocdepth}{3}
 \let\oldminitoc\minitoc
 \renewcommand{\minitoc}{
   \vfill
@@ -194,7 +196,7 @@
 %%% TOC-----------------------------------------
 \usepackage[nottoc, notlot, notlof]{tocbibind}
 \usepackage{tocloft, calc}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 % Format TOC title
 \renewcommand{\cfttoctitlefont}{
@@ -259,6 +261,8 @@
   \tableofcontents
   \adjustmtc
   \adjustmtc
+  \adjustmtc
+  
 }
 
 %%% List of algorithms--------------------------
@@ -298,6 +302,7 @@
 }
 \let\ps@plain\ps@empty
 \makeatother
+
 
 %%% Empty page----------------------------------
 \newcommand\newemptypage{

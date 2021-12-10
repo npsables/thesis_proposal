@@ -1,16 +1,31 @@
 \chapter{Conclusion and discussion} \label{chap:conclusion}
+\textit{In the final chapter, we want to summarize the results for the the thesis, as well drawbacks.
+Finally, we want to present space of improvements for the thesis.}
 \minitoc
 
-% \section{Conclusion}
+\section{Results}
 
-% In this stage, we have learnt about blockchain, modern cryptography and DeFi. Also, we study some necessary knowledge about number theory to understand the math behind cryptography algorithms. The whole DeFi ecosystem is massive and still developing, while blockchain is not commonly used yet apart from cryptocurrencies. The need for cryptography is crucial since it distinguishes blockchain from other distributed database and secures the user wallet.
+Finishing the thesis, we have more opportunities to learn and earn more knowledge in the field of blockchain technology and its decentralized network application, as well as the security field, especially in the cryptography mechanism. We also study how to create and secure a web application. We have succeeded in building the open-source library, which provides functions for developers and us to implement in multiple blockchains, alongside the non-custodial and hierarchical deterministic web application, which supports every ability of BIP32 while maintaining its avoidance of key leakage.
 
 
-% \section{Thesis plan}
+The “hdcore” library has already met the requirements of key generations, child key derivation, signature generation, transaction creation and broadcasting, with other validation. The background and related work part of this thesis explored a deep understanding of derivation schema and cryptography with the wallet security threat, therefore laying a good foundation for creating the library.
 
-% In the next stage, we will carry out the following tasks:
-% \begin{itemize}
-%   \item Analyze the CKD function of Secp256k1, proposed in BIP-0032 (\href{https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki}{Github})
-%   \item Create a CKD function for Ed25519 and prove its correctness
-%   \item Implement the proposed CKD function into a wallet
-% \end{itemize}
+
+Also, the web wallet we created passed the criteria of industrial standards. Users can have absolute control over their assets without trusted third parties. They can create multiple amounts of child wallets with given purposes. The wallet also supports new features like the limited expose of addresses to other wallet users.
+
+
+We learned a lot while working on this thesis over the course of 9 months. We also learned how to self-learn, collaborate, contribute to the community and encourage one another throughout adversity. What we have accomplished as a result of this thesis is far superior to anything we could have anticipated. The objective of the thesis was achieved and able to determine the efficiency of the security technologies that are applied by our wallet. At the end of the study, the thesis can be used as a reference to contributing to later research on the constantly-developing HD wallet.
+
+\section{Limitations}
+
+For the library, it only supports three out of a thousand existing blockchains. This will require a lot of time and contribution from the developers and us. The library is still heavy on dependencies where lots of them can be rewritten in more efficient ways. Due to time limitations and the massive amount of background knowledge, in the implementation process, we couldn't research all of exists mechanism. So we take on recommendations from NIST and the community to develop our project without creating it independently.
+
+
+The web wallet we created is still simple and doesn't reach the level of industrial production with hundreds of people behind it. Our works in this thesis didn't provide a way to authorize and limit the user's access. The microservices architect we use can give availability but is very hard to maintain and update. The client-server model is also lost compared to the decentralization of the blockchain network. There is still plenty of room for development in our wallets.
+
+\section{Future works}
+
+The library implementation can be expanded in multiple ways. We can separate the blockchain using the same curve for the user account and provide a general key derivation for specific kinds. The transaction base and account base blockchain can be determined as well. This way, the library can be less heavy on the dependencies. We can optimize the speed and new configurations for scalar multiplications with the support of different proposed and implementations. 
+
+
+The web wallet can be put more effort into and make it more user-friendly. The centralized client-server can be replaced with the InterPlanetary File System (IFPS), which is a protocol and peer-to-peer network for storing and sharing data in a distributed file system \cite{ifps}. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting all computing devices. It also provides a decentralized database so users can participate in maintaining the software. We can also investigate on the new authenticity mechanism for the decentralized network of our. Since password-based login is an insecure approach to online interactions and that multi-factor schemes add friction that reduce user adoption and productivity. 
