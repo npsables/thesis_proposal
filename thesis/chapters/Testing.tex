@@ -11,16 +11,33 @@
 We run a total of 10 test cases to make sure every API functions normally according to its definition (presenting tests with Solana and ed25519 keys). 
 
 \bigskip
+{\textbf{Test data}}
+
+\begin{framed}
+    \hspace*{13mm}        \{ \par
+    \hspace*{13mm}        "mnemonic" : 'honey opera much plate gloom accuse honey pudding chase beach flight pencil velvet apart series pepper antenna hill amazing season foot goddess harsh theory',    \par
+    \hspace*{13mm}        "master\_seed" : 'd51741549ced8fdce60e30ff8c0b885d6f156dfc44 \par
+    \hspace*{27mm}         b7de53dc66b5f8c3a3d48e06b1fd7c8c8c73748e2e78db3f84a4ba \par
+    \hspace*{27mm}         e855c9304e14f593674870a1db5cdb6d',    \par
+    \hspace*{13mm}        "m\/44'\/501'\/0'\/0'\/10'" : 'HSPjBD1z \par
+    \hspace*{37mm}        JLgj29hy8i7DD4HmaDPDh3bc1N2J4Dx9qsRn' \par
+    \hspace*{13mm}              \} \par
+    \end{framed}
+
+\bigskip
 {\textbf{Test table}}
 \bigskip
 
-\begin{tabular}{| m{2cm} | m{7cm} | m{1.5cm} | m{1.5cm} | m{1.5cm} | m{1.5cm} |}
+\begin{tabular}{| m{2cm} | m{7cm} | m{2cm} | m{2cm} | m{2cm} |}
     \hline
-    ID & Description & Test Data & Expected Result & Actual Result & Pass/Fail                                            \\ \hline
-    SOL-01 & Generate a valid mnemonic code contains 12 or 24 words.  & N$\backslash$A & Generate successfully & As expected & Pass \\ \hline
-    SOL-02 & Generate a valid mnemonic code contains 12 or 24 words.  &   \\ \hline
-    purpose   & The purpose of this child wallet & Text    \\ \hline
-    child\_address   & The address of the child wallet & Text    \\ \hline
+    ID & Description & Expected Result & Actual Result & Pass/Fail                                            \\ \hline
+    SOL-01 & Generate a valid mnemonic code contains 12 or 24 words. & Generate successfully & As expected & Pass \\ \hline
+    SOL-02 & Generate a valid master secret seed.  &  Generate successfully & As expected & Pass  \\ \hline
+    SOL-03 & Generate a valid master key pair. &   Generate successfully & As expected & Pass    \\ \hline
+    SOL-04 & Generate a valid path. &  Generate successfully & As expected & Pass   \\ \hline
+    SOL-05 & Generate a valid child key pair. &  Generate successfully & As expected & Pass   \\ \hline
+    SOL-06 & Generate a valid public address.&  Generate successfully & As expected & Pass   \\ \hline
+    SOL-07 & Generate a child generated from given mnemonic.&  Generate successfully & As expected & Pass   \\ \hline
 \end{tabular}
 % \captionof{table}{\label{Tab:SOL-01} Library testcases}
 
