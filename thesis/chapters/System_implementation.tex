@@ -368,13 +368,29 @@ There are potential attacks on this kind of server since we haven’t provided a
 
 React was invented by a software engineer at Facebook named Jordan Walke, was first introduced in 2011. Walke finalized the prototype and created React in 2012, soon combined it into Facebook in the same year. In 2013 React became open-source and later became available in Ruby on Rails and Python Applications. This is followed by the release of React Native, an extension of React for mobile development on Android and iOS, in 2015. Since then, React consistently pushed out many releases throughout the years, enhancing and submitting new features for users. React is a versatile tool that can be operated on both desktop and mobile platforms with many different features. One of them is the ability to produce interactively rather than simple static pages that can update and rerender data after each input from the user, thus permitting for a seamless UI without refreshing the whole page every time a component is changed. The reason for this is that React’s structure is based on components that allow for the design of complex UIs due to the component logic being written in JavaScript.
 
+There are another framework for JavaScript such as Vue.js, Angular, etc, but we choose React as it the most popular one. Compared to other framework, React is just a library, not a pre-built framework, which is easier to configure and develop. Another difference is that, React uses multiple components together to build up a website rather than a website template and update its inner elements. Each component is an HTML element which has its own properties and state. For this reason, React allows re-rendering specific components of the webpage in comparison to Vue.js or Angular, which re-renders a whole page. The reason why it can work like that is because React does not update the DOM directly, but through a virtual DOM. The virtual DOM is a JavaScript object which stores all the information to create a DOM. Every time a component updates its state, the virtual DOM compares the change and only render the changes onto the DOM. Overall, React helps us to maintain and update code easier through the component structure (similar to Object-oriented programming style), interactive website, and efficient DOM manipulation with virtual DOM.
+
 \bigskip
 {\textbf{Node.js}}
 \bigskip
 
-Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a "JavaScript everywhere" paradigm, unifying web-application development around a single programming language, rather than different languages for server-side and client-side scripts. 
+Node.js is required as it provides a JavaScript environment and libraries for developing React. Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a "JavaScript everywhere" paradigm, unifying web-application development around a single programming language, rather than different languages for server-side and client-side scripts.
 
 \bigskip
 {\textbf{User Interface}}
 \bigskip
+
+We designed the UI with Figma, a free web-based tools. Based on the use cases, the website would have these functionalities: create or import a wallet, create a child wallet, delete wallet (delete the mnemonic from local storage and logout), search for a destination address, modify current address on the server, and finally make a transaction. At the beginning, the website needs your wallet to perform all the other functions so the homepage should require you to create a new wallet or import your own wallet using your mnemonic code.
+
+% Homepage design
+
+Depend on your choice, the website then allows you to choose a mnemonic code and backup if you want to create a new one, or simply paste your mnemonic to restore your own wallet.
+
+% Mnemonic page
+
+After that, you are on the main page. The navigation bar will provide you with the option to delete wallet, and change the current blockchain network. The main content is the list of each wallet and all the standard functionalities of a wallet, which looks like a dropdown list.
+
+% Main page and the functional of a list
+
+To implement the UI in React, we need to break it down as smaller components. From the home page, you can see there are two components, the button component and the navigation bar. In the next page, it comes the text area component for you to enter or copy \& backup the mnemonic code. The refresh is the button component with an icon, so we don't need to create a new component. In the main page, you can notice that the navigation bar now has some functionalities but we can expand the navigation bar from the home page. The same goes with the add child wallet button, which is the plus icon button at the bottom of the list. The list component is the main component that you will interact with. In total, the whole application has four components: the navigation bar, the button, the text area, and the list.
 
