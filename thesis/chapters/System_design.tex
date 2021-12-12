@@ -1,5 +1,4 @@
-\chapter{System design}
-
+\chapter{System design} \label{chap:System_desgin}
 \textit{This chapter describes the process of designing our implementation. We divide our work into creating an open-source library that can help developers handle the primary function of a HD wallet (key generation, transaction integration, balance checking, etc.) and a Web Wallet for cryptocurrency users. }
 
 \minitoc
@@ -216,7 +215,7 @@ We created another server to handle “Address service”. Note that we can comb
 The users after creating their wallet will create a POST request to the server with their automatically created public keys in JSON.
 The JSON data contains the address of master wallet and default child wallets.
 We created the term "default child" just for init the hierarchical tree.
-The struct of the JSON request present as Figure~\ref{fig:json}.
+The structure of the JSON request present as Figure~\ref{fig:json}.
 
 \begin{figure}[ht!]
     \centering
