@@ -1,11 +1,14 @@
 \chapter{Introduction} 
 \label{Introduction}
+
 \textit{In this chapter, we are going to discuss the overview of the wallet we are creating. Thus, we are going to present the objective, scope, and structure
 of this thesis.}
-
+\adjustmtc
 \minitoc
-
 \section{Overview}
+\label{overview}
+\bigskip
+
 The Hierarchical Deterministic (HD) secret key derivation and transfer protocol allows creating child keys from parent keys in a hierarchy. Crypto wallets using the HD protocol are called HD wallets. HD wallet is a crypto software/hardware wallet that is used in a blockchain transaction. Some people call it a digital wallet, but that is not entirely correct. A digital wallet (e-wallet) such as Momo and Paypal can hold your digital assets (government-issued currency) and link to your credit/debit card. Your assets in these wallets present how much fiat money you have that is controlled by the central bank. Fiat money gives the authorities greater control over the economy because they can print money out of thin air. One problem of fiat money is that governments can cause hyperinflation if they create too much of it. On the other hand, HD wallets hold the cryptocurrencies (tokens) of the specific blockchain, a decentralized database in which all financial transactions that have ever been carried out are stored. Blockchains demonstrate some characters for the currency, where the number of native tokens is limited and minted to the genesis block. The amount of new coins is automatically reduced by years, so the inflation rate will also decrease.
 
 The money can be quickly transferred between a digital wallet and your bank account or card. The digital wallet secures the connection using public-key cryptography. On the contrary, an HD wallet doesn’t hold any of your coins. Your holdings live on the blockchain. It’s a collection of private and public keys. You can only be accessed to your assets using a private key. The keys prove the ownership of your digital money and allow you to make transactions. All your balances and transactions are public to the networks, and everyone with the internet can preserve them.
@@ -15,6 +18,7 @@ You can directly check your crypto assets without entering your PIN (bank accoun
 You can make a transaction directly, from your crypto wallet to another wallet, without a trusted third party. The transaction will be published to the blockchain network for nodes to confirm. All the process takes in terms of minutes, no matter how far it is from you to the receiver. With some lightning-fast consensus like Proof of History blockchain, it took less than 10 seconds. In the case of digital wallets or bank accounts, you have to wait for days before your transaction is confirmed, and the money is transferred when you decide to transfer through to another country or cross-bank. The bank does have a solution for this problem, but you have to pay a big amount for their service no matter how much you spend. That is why rather than the traditional stock markets, people are more likely to invest in the decentralized system since they have to stay home due to the COVID pandemic. The cryptocurrency still has some more advantages to traditional finance, but for the scope of our thesis, we won’t include them here.
 
 \section{Objectives}
+\label{objectives}
 
 We focus on the security and availability of the crypto wallet. In the blockchain system, there are no intermediaries or brokerages, which means all of the responsibility of your crypto asset is on you. The only way to access your crypto assets is your crypto wallet. If you lose your wallet deliberately (no backup, key leakage,..) or not (hacked, program error,...), you take it all. It’s too risky and unfair if the crypto wallet is insecure and inefficient. At least, the tradeoff by the CIA triad must be acceptable.
 
@@ -50,31 +54,3 @@ The contents of our thesis are presented in seven chapters, namely:
 \textbf{Chapter 6} summarizes the testing results of our application.
 
 \textbf{Chapter 7} concludes our work. Also, we analyze the drawbacks and how to prevent it with the spaces for improvements to the thesis.
-
-% The thesis contains of 7 chapters. The contents are below:
-
-% \begin{enumerate}
-%   \item Introduce DeFi and its architecture
-%   \item Background knowledge about blockchain technology, HD wallet and cryptography
-%   \item Related work, products amd technologies
-%   \item System design
-%   \item System implementation
-%   \item Testing and evaluation
-%   \item Conclusion and discussion
-% \end{enumerate}
-
-% \section{Tentative schedule}
-
-% To make sure we understand DeFi (blockchain application) and modern cryptography, we divided our thesis into 5 main stages:
-
-% \textbf{Stage 1:} Study and research about the background of cryptography
-
-% \textbf{Stage 2:} Study and research about blockchain and blockchain wallet
-
-% \textbf{Stage 3:} Analyze the CKD of HD wallet on Secp256k1 and its approach
-
-% \textbf{Stage 4:} Propose a CKD for HD wallet on ed25519
-
-% \textbf{Stage 5:} Implement the HD wallet on ed25519
-
-% In the thesis proposal stage, we operated stage 1, 2, 3 of the thesis. In the thesis stage, we will operate the remain stage.
