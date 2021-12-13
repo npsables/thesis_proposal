@@ -85,12 +85,12 @@ The main API are listed as:
 
     \item \textbf{hdcore.account.createChildAccount()}
           \begin{quote}
-              Return child account with specific given path.
+              Return child account with a specific path.
           \end{quote}
 
     \item \textbf{hdcore.account.getTransaction()}
           \begin{quote}
-              Return a mnemonic code with 12 or 24 words.
+              Return the \textbf{transaction} object, which has some functions below.
           \end{quote}
 
     \item \textbf{transaction.airdrop\_one()}
@@ -113,7 +113,7 @@ A few more function supports every detail to make the wallet work appropriately 
 
 
 \subsection{Documentation}
-Our documentation can be found at \textit{npm} {\href{https://www.npmjs.com/package/hdcore-ts}{here}}.
+Our documentation can be found at \textit{npm} ({\href{https://www.npmjs.com/package/hdcore-ts}{here}}).
 
 
 \section{The Hierarchical Deterministic Web Wallet}
@@ -383,31 +383,51 @@ Node.js is required as it provides a JavaScript environment and libraries for de
 We designed the UI with Figma, a free web-based tools. Based on the use cases, the website would have these functionalities: create or import a wallet, create a child wallet, delete wallet (delete the mnemonic from local storage and logout), search for a destination address, modify current address on the server, and finally make a transaction. At the beginning, the website needs your wallet to perform all the other functions so the homepage should require you to create a new wallet or import your own wallet using your mnemonic code.
 
 % Homepage design
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/component01.png}
+  \caption[Homepage design]{Homepage design}
+  \label{fig:homepage_desgin}
+\end{figure}
+
 
 Depend on your choice, the website then allows you to choose a mnemonic code and backup if you want to create a new one, or simply paste your mnemonic to restore your own wallet.
 
 % Mnemonic page
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/component02.png}
+  \caption[Create mnemonic]{Create mnemonic}
+  \label{fig:create_mnemonic}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/component03.png}
+  \caption[Import mnemonic]{Import mnemonic}
+  \label{fig:import_mnemonic}
+\end{figure}
 
 After that, you are on the main page. The navigation bar will provide you with the option to delete wallet, and change the current blockchain network. The main content is the list of each wallet and all the standard functionalities of a wallet, which looks like a dropdown list.
 
 % Main page and the functional of a list
 
-To implement the UI in React, we need to break it down as smaller components. From the home page, you can see there are two components, the button component and the navigation bar. In the next page, it comes the text area component for you to enter or copy \& backup the mnemonic code. The refresh is the button component with an icon, so we don't need to create a new component. In the main page, you can notice that the navigation bar now has some functionalities but we can expand the navigation bar from the home page. The same goes with the add child wallet button, which is the plus icon button at the bottom of the list. The list component is the main component that you will interact with. In total, the whole application has four components: the navigation bar, the button, the text area, and the list.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/component04.png}
+  \caption[Main page]{Main page}
+  \label{fig:maine_page}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=1\textwidth]{images/component05.png}
+  \caption[List functionality]{List functionality}
+  \label{fig:list_function}
+\end{figure}
+
+To implement the UI in React, we need to break it down as smaller components. From the home page, you can see there are two components, the button component and the navigation bar. In the next page, it comes the text area component for you to enter or copy \& backup the mnemonic code. The refresh is the button component with an icon, so we don't need to create a new component. In the main page, you can notice that the navigation bar now has some functionalities but we can expand the navigation bar from the home page. The same goes with the add child wallet button, which is the plus icon button at the bottom of the list. The list component is the main component that you will interact with. However, we only reused button component, navigation bar. That means, in total, the whole application has three main components: the navigation bar, the button, and the list.
 
 % Each component images in react
 
-From the described libraries above, the functionality can be passed in the event as follow:
-
-% Functionality: create mnemonic code/import mnemonic code
-
-% Functionality: create master wallet, its address and path
-
-% Functionality: request airdrop
-
-% Functionality: make a transaction
-
-% Functionality: add more child wallet
-
-% Functionality: push & pull to the server
-
-% Functionality: delete mnemonic and log out
+Each component has a function part for even catching, which will be passed in from the API library. We will illustrate how the functions are used in the testing part.
