@@ -6,7 +6,7 @@
 
 \minitoc
 
-\section{Protocol Proposals}
+\section{Related Protocol}
 \subsection{Key Derivation}
 
 The word “Hierarchical Deterministic” in crypto wallet were first introduced by Pieter Wuille in Bitcoin Improvement Proposal number 32 (BIP32)\cite{github/bip0032}. The initial idea was to build a wallet architect like a tree. From the root seed, we can derive child private keys and child public keys that construct many child wallets for different purposes. However, BIP32 only supports the elliptic curve used in Bitcoin, defined by the name "secp256k1" \cite{secp256k1}. SatoshiLabs Improvement Proposal number 10 (SLIP10) is an attempt to generalize the BIP32's key derivation schema for different curves, e.g., NIST P-256 and ed25519. For some security reasons, SLIP10 forbade normal child key derivation on curve ed25519. But SLIP23 adopted them both and proposed a new schema on curve Edwards25519 called "BIP32-ed25519" \cite{Khovratovich2017}. In this section, we will explain how these schemes work and analyze the difficulties in adapting BIP32 to the Edwards25519 Curve.
@@ -104,7 +104,7 @@ Master extended key is the first key to be generated from the root seed. A maste
 
 Pseudo-code of generation function is as below:
 
-\begin{itemize}
+\begin{enumerate}
     \item Generate a seed byte sequence S of a chosen length (between 128 and 512 bits; 256 bits is advised) from a (pseudo) random number generator (PRNG).
 
           \begin{quote}
@@ -129,7 +129,7 @@ Pseudo-code of generation function is as below:
               Return 32 bits left $I_L$ as the secret key and 32 bits right $I_R$ as the extended chain code.
           \end{quote}
 
-\end{itemize}
+\end{enumerate}
 In case $I_L$ is 0 or  n (private key  order n), the master key is invalid.
 
 \bigskip
@@ -172,7 +172,7 @@ And Public parent key $\rightarrow$ private child key is not possible. Derived c
     \end{figure}
 
     Pseudo-code:
-    \begin{itemize}
+    \begin{enumerate}
         \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
               \begin{itemize}
                   \item If so (hardened child): return false
@@ -202,7 +202,7 @@ And Public parent key $\rightarrow$ private child key is not possible. Derived c
 
         \item In case $parse_{256}(I_L)$ $\geq$ n or ki = 0, the resulting key is invalid, and one should proceed with the next value for i. (Note: this has probability lower than 1 in $2^{127}$.)
 
-    \end{itemize}
+    \end{enumerate}
 
     To summarize, we make use of the data contained inside the parent extended private key: the private key, the chain code, and the index of the desired child. Putting it through the HMAC function will generate some unique random bytes. We use these new random bytes to construct the following private key from the old one.
 
@@ -221,7 +221,7 @@ And Public parent key $\rightarrow$ private child key is not possible. Derived c
     \end{figure}
 
     Pseudo-code:
-    \begin{itemize}
+    \begin{enumerate}
         \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
               \begin{itemize}
                   \item If so (hardened child): return false
@@ -247,7 +247,7 @@ And Public parent key $\rightarrow$ private child key is not possible. Derived c
 
         \item In case $parse_{256}(I_L)$ $\geq$ n or $K_i$ is the point at infinity, the resulting key is invalid, and one should proceed with the next value for i.
 
-    \end{itemize}
+    \end{enumerate}
 
     In summary, public key derivation only allows normal child derivation.
     Putting the same key and Data through the HMAC function as we did in normal private, we can produce the child public key from the left 32 bytes via elliptic curve point addition.
@@ -271,7 +271,7 @@ And Public parent key $\rightarrow$ private child key is not possible. Derived c
 
     Pseudo-code:
 
-    \begin{itemize}
+    \begin{enumerate}
         \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
               \begin{itemize}
                   \item If so (hardened child):
@@ -299,7 +299,7 @@ And Public parent key $\rightarrow$ private child key is not possible. Derived c
 
         \item In case $parse_{256}(I_L)$ $\geq$ n or ki = 0, the resulting key is invalid, and one should proceed with the next value for i. (Note: this has probability lower than 1 in $2^{127}$.)
 
-    \end{itemize}
+    \end{enumerate}
 
     The hardened derivation is therefore used to create a "gap" in the tree above the level where extended public keys are used. Therefore, The hardened key derivation schema is needed to preserve security in HD Wallet.
 \end{adjustwidth}
@@ -401,7 +401,7 @@ On account of the mechanism elliptic curve mathematics works, the derived child 
 \subsubsection{SLIP10}
 \label{SLIP10}
 
-Due to the emergence of Blockchain technology and the more powerful full quantum attack, the industry applies some other more powerful curves and digital signature algorithms. The SatoshiLabs Improvement Proposals number 10 (SLIP10) was created for this reason. It defines a new hierarchical key derivation schema which is an extended superset of the BIP32 derivation algorithm to work on other curves. With secp256k1, SLIP10 is basically compatible. For the sake of our thesis, we will only examine their adaptation for the curve Edwards25519.
+Due to the emergence of Blockchain technology and the more powerful full quantum attack, the industry applies some other more powerful curves and digital signature algorithms. The SatoshiLabs Improvement Proposals number 10 (SLIP10) \cite{github/slip0010} was created for this reason. It defines a new hierarchical key derivation schema which is an extended superset of the BIP32 derivation algorithm to work on other curves. With secp256k1, SLIP10 is basically compatible. For the sake of our thesis, we will only examine their adaptation for the curve Edwards25519.
 
 \bigskip
 {\textbf{Master key generation function}}
@@ -419,7 +419,7 @@ Adapting the master key generation from BIP32, SLIP10 also has a master key that
 
 Pseudo-code:
 
-\begin{itemize}
+\begin{enumerate}
     \item Calculate I = HMAC-SHA512(Key = “ed25519 seed”, Data = S)
 
           \begin{quote}
@@ -436,7 +436,7 @@ Pseudo-code:
           \begin{quote}
               Because every 256-bit number (even 0) is a valid private key (see \ref{chap:background}) on curve ed25519, we don’t have to validate the $parse_{256}(I_L)$ and return it as a secret key.
           \end{quote}
-\end{itemize}
+\end{enumerate}
 
 \bigskip
 {\textbf{Hardened child key derivation function}}
@@ -454,7 +454,7 @@ The function CKDpriv(($k_{par}$, $c_{par}$), i) → ($k_i$, $c_i$) computes a ch
 \end{figure}
 
 Pseudo-code:
-\begin{itemize}
+\begin{enumerate}
     \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
           \begin{itemize}
               \item If so (hardened child):
@@ -477,7 +477,7 @@ Pseudo-code:
           \begin{quote}
               Same as the Master key generation function, SLIP10 returns the hashes directly as extended private child keys.
           \end{quote}
-\end{itemize}
+\end{enumerate}
 
 The HMAC-SHA512 function is specified in the Background.
 
@@ -557,7 +557,7 @@ This scheme adopts the master node derivation used in BIP32 and SLIP10 but defin
 \end{figure}
 
 Pseudo-code:
-\begin{itemize}
+\begin{enumerate}
     \item Let S be a seed byte sequence such as the master secret from BIP39.
           \begin{quote}
               The length of the seed is from 128 bits to 512 bits.
@@ -583,7 +583,7 @@ Pseudo-code:
           \end{itemize}
           \bigskip
     \item Let $k_R$ := k[32:64] and use ($k_L$, $k_R$) as the root extended private key and c := SHA-256($I_R$) as the root chain code.
-\end{itemize}
+\end{enumerate}
 
 \bigskip
 {\textbf{Child key derivation function}}
@@ -603,7 +603,7 @@ Surprisingly, BIP32-ED25519 allows both normal and hardened derivation. We can e
     \end{figure}
 
     Pseudo-code:
-    \begin{itemize}
+    \begin{enumerate}
         \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
               \begin{itemize}
                   \item If so (hardened child):
@@ -650,7 +650,7 @@ Surprisingly, BIP32-ED25519 allows both normal and hardened derivation. We can e
 
               \bigskip
 
-    \end{itemize}
+    \end{enumerate}
 
 
     \bigskip
@@ -665,7 +665,7 @@ Surprisingly, BIP32-ED25519 allows both normal and hardened derivation. We can e
     \end{figure}
 
     Pseudo-code:
-    \begin{itemize}
+    \begin{enumerate}
         \item Check whether $i \geq 2^{31}$ (whether the child is a hardened key).
               \begin{itemize}
                   \item If so (hardened child):
@@ -705,7 +705,7 @@ Surprisingly, BIP32-ED25519 allows both normal and hardened derivation. We can e
               \end{itemize}
               \bigskip
 
-    \end{itemize}
+    \end{enumerate}
 
     In summary, the above methods allow the derived child private keys to correspond to the child public key. The advantages described in Section \ref{bip32} are enabled.
     The authors gives us an working derivation schema but they didn't explained why did they choose spe$c_i$fic metrics for the schema. For example they shortened to 28-byte of $Z_L$ for the child keys.
@@ -759,7 +759,7 @@ To create a root seed from the mnemonic, BIP39 uses the PBKDF2 function with the
 
 
 \subsection{BIP44 - Index Path for Multi-coin Wallet}
-BIP-44 defines an index path for key derivation in BIP32, allowing a wallet to handle multiple coins, multiple accounts, external and internal chains per account, and millions of addresses per chain. In BIP44, Bitcoin registers their coin type as 0 and their testnet as 1. Later on SLIP44 \cite{bip44}, other blockchains start to register their type too. Right now there are more than 2000 indexes (each index represents a blockchain) on SLIP44 documentation.
+BIP44 \cite{bip44} defines an index path for key derivation in BIP32, allowing a wallet to handle multiple coins, multiple accounts, external and internal chains per account, and millions of addresses per chain. In BIP44, Bitcoin registers their coin type as 0 and their testnet as 1. Later on SLIP44 \cite{slip44}, other blockchains start to register their type too. Right now there are more than 2000 indexes (each index represents a blockchain) on SLIP44 documentation.
 
 \bigskip
 {\textbf{Wallet Structure}}
@@ -827,5 +827,5 @@ The Polkadot community recommends their wallet developers implement SLIP10 since
 
 Oasis \cite{oasis} on the other hand don't use use BIP32-Ed25519's private and public key directly but use the obtained $k_L$ (first 32 bytes) of the 64 byte BIP32-Ed25519 derived private key as Ed25519's seed (i.e. non-extended private key). But in Mar 2021 they decided to change from BIP32-ED25519 to SLIP10 schema, leaving it “not applicable in future”.
 
-The BIP32-ED25519 has been very poorly adapted in practice ever since Jeff Burdges warning \cite{Jeff}. But it is still very useful for cold wallets. Hardware wallets \href{https://www.ledger.com/}{Ledger} and \href{https://trezor.io/}{Trezor} implement both SLIP10 and BIP32-ED25519 to their key generation schema. The advantages of public-key derivation impactfully remain. Attacks aim to steal private keys from hardware wallets but are still shallow. Users can publish their master public key to the networks, while child keys can be kept safe in users' pockets. If ever the transaction is needed, users just need to derive child keys from their hardware and sign the transaction. Plus, Ledger and Trezor are better than other wallets since they are custodial type wallets and can hold multiple types of native tokens.
+The BIP32-ED25519 has been very poorly adapted in practice ever since Jeff Burdges's warning \cite{Jeff}. But it is still very useful for cold wallets. Hardware wallets \href{https://www.ledger.com/}{Ledger} and \href{https://trezor.io/}{Trezor} implement both SLIP10 and BIP32-ED25519 to their key generation schema. The advantages of public-key derivation impactfully remain. Attacks aim to steal private keys from hardware wallets but are still shallow. Users can publish their master public key to the networks, while child keys can be kept safe in users' pockets. If ever the transaction is needed, users just need to derive child keys from their hardware and sign the transaction. Plus, Ledger and Trezor are better than other wallets since they are custodial type wallets and can hold multiple types of native tokens.
 
