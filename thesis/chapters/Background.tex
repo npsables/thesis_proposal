@@ -493,7 +493,7 @@ Where:
 
 The final result of HMAC is equivalent to that of the underlying hash function (for example, 256 and 512 bits respectively in the case of SHA-256 and SHA-512), although it can be truncated if desired.
 
-\subsubsection{Password Based Key Derivation Function (PBKDF2)}
+\subsection{Password Based Key Derivation Function (PBKDF2)}
 
 PBKDF2 is a simple cryptographic key derivation function approved by NIST, which is resistant to dictionary attacks and rainbow table attacks (use precomputed hashes). It applies a pseudorandom function (our thesis uses HMAC) to the input password or passphrase along with a salt value and repeats the process many times to produce a derived key, which can then be used as a cryptographic key in subsequent operations. PBKDF2 takes several input parameters and produces the derived key as output:
 
