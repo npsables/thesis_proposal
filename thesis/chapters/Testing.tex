@@ -8,7 +8,7 @@
 \label{testlib}
 \subsection{Testcases}
 
-We run a total of 10 test cases to make sure every API functions normally according to its definition (presenting tests with Solana and ed25519 keys). 
+We run a total of 10 test cases to make sure every API functions normally according to its definition (presenting tests with Solana and Ed25519 keys). 
 
 \bigskip
 {\textbf{Test data}}
@@ -112,7 +112,7 @@ We acknowledge that cryptography is a tool to achieve security. Still, if we get
 
 Digital signature generation libraries like tweetnacl and secp256k1 (for Solana and Ethereum keys) are completely free of timing side-channels since they provide constant time and constant memory access. We look into their publication and implementation to observe their approach compared to the original paper.
 
-We use the hardened key derivation schema of the BIP32 and SLIP10 to avoid the key recovery attack on public key derivation because our wallet is a hot wallet type. We examine the potential vulnerabilities of the BIP32-ED25519 paper for ed25519 curves and take the researcher's recommendation seriously. To compensate for the inconvenience of hardened key schema, we created a system alongside our library to provide a comfortable assets exchange.
+We use the hardened key derivation schema of the BIP32 and SLIP10 to avoid the key recovery attack on public key derivation because our wallet is a hot wallet type. We examine the potential vulnerabilities of the BIP32-Ed25519 paper for Ed25519 curves and take the researcher's recommendation seriously. To compensate for the inconvenience of hardened key schema, we created a system alongside our library to provide a comfortable assets exchange.
 
 We also make sure the requests and connection of the wallet to the blockchain will not leak any important information about the created wallet. Overall, our library applied a provable cryptography library and followed the safest schema in the industrial community, and improvised the efficiency by current technology.
 

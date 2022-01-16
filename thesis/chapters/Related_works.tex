@@ -2,14 +2,14 @@
 \label{chap: Related works}
 
 \textit{This chapter describes the attempts on Cryptography protocols behind the existing HD wallets as
-    well as the attempt of adapting these mechanisms to curve ed25519. We analyze the famous wallet that the community are using.}
+    well as the attempt of adapting these mechanisms to curve Ed25519. We analyze the famous wallet that the community are using.}
 
 \minitoc
 
 \section{Related Protocol}
 \subsection{Key Derivation}
 
-The word “Hierarchical Deterministic” in crypto wallet were first introduced by Pieter Wuille in Bitcoin Improvement Proposal number 32 (BIP32)\cite{github/bip0032}. The initial idea was to build a wallet architect like a tree. From the root seed, we can derive child private keys and child public keys that construct many child wallets for different purposes. However, BIP32 only supports the elliptic curve used in Bitcoin, defined by the name ``secp256k1" \cite{secp256k1}. SatoshiLabs Improvement Proposal number 10 (SLIP10) is an attempt to generalize the BIP32's key derivation schema for different curves, e.g., NIST P-256 and ed25519. For some security reasons, SLIP10 forbade normal child key derivation on curve ed25519. But SLIP23 adopted them both and proposed a new schema on curve Edwards25519 called ``BIP32-ed25519" \cite{Khovratovich2017}. In this section, we will explain how these schemes work and analyze the difficulties in adapting BIP32 to the Edwards25519 Curve.
+The word “Hierarchical Deterministic” in crypto wallet were first introduced by Pieter Wuille in Bitcoin Improvement Proposal number 32 (BIP32)\cite{github/bip0032}. The initial idea was to build a wallet architect like a tree. From the root seed, we can derive child private keys and child public keys that construct many child wallets for different purposes. However, BIP32 only supports the elliptic curve used in Bitcoin, defined by the name ``secp256k1" \cite{secp256k1}. SatoshiLabs Improvement Proposal number 10 (SLIP10) is an attempt to generalize the BIP32's key derivation schema for different curves, e.g., NIST P-256 and Ed25519. For some security reasons, SLIP10 forbade normal child key derivation on curve Ed25519. But SLIP23 adopted them both and proposed a new schema on curve Edwards25519 called ``BIP32-Ed25519" \cite{Khovratovich2017}. In this section, we will explain how these schemes work and analyze the difficulties in adapting BIP32 to the Edwards25519 Curve.
 
 \subsubsection{BIP32}
 \label{bip32}
@@ -56,7 +56,7 @@ The index of the child key is a 32-bit integer, meaning that each extended key h
 
 We couldn’t find any reason behind why the author of BIP32 designed the parent extended keys to have $2^{32}$ total child keys each. Poulami Das et al.\cite{DBLP:conf/ccs/0003EFL021} investigated BIP32 with security analysis and experimented with a similar key derivation schema (BIP32-m) with only $2^{20}$ child keys, pointing out $2^{32}$ child keys won’t create any vulnerability on the system.
 
-In the next part, we will represent an extended private key as $(k, c)$, with k the normal private key, and c the chain code. An extended public key is represented as $(K, c)$, with $K = point(k)$ and $c$ the chain code. The index is denoted to \textit{i}; to ease, $i_H$ is the index of a hardened key representing a number of $i+2^{31}$.
+In the next part, we will represent an extended private key as $(k, c)$, with $k$ the normal private key, and $c$ the chain code. An extended public key is represented as $(K, c)$, with $K = point(k)$ and $c$ the chain code. The index is denoted to \textit{i}; to ease, $i_H$ is the index of a hardened key representing a number of $i+2^{31}$.
 
 \bigskip
 {\textbf{Convention}}. In the rest of this thesis, we will assume the public key cryptography used in Blockchain, namely elliptic curve cryptography using the field and curve parameters. Variables below are either:
@@ -140,7 +140,7 @@ Also it provide a better integrity of information for the secret keys.
 And public parent key $\rightarrow$ private child key is not possible. Derived child extended keys (and parent keys) are independent of each other. In other words, you wouldn’t know that two public keys in an extended tree are connected in any way.
 
 \bigskip
-{\textbf{Normal extended child private key derivation function}}. \label{norm1} The function CKDpriv(($k_{par}$, $c_{par}$), i) $\rightarrow$ ($k_i$, $c_i$) computes a normal child extended private key from the parent extended key.
+{\textbf{Normal extended child private key derivation function}}.\label{norm1} The function CKDpriv(($k_{par}$, $c_{par}$), $i$) $\rightarrow$ ($k_i$, $c_i$) computes a normal child extended private key from the parent extended key.
 The \autoref{fig:1} describes the process.
 
 \begin{figure}[ht!]
@@ -396,7 +396,7 @@ Pseudo-code:
     \item Use $parse_{256}(I_L)$ as the master secret key, and $I_R$ as master chain code.
 
           \begin{quote}
-              Because every 256-bit number (even 0) is a valid private key (see \ref{chap:background}) on curve ed25519, we don’t have to validate the $parse_{256}(I_L)$ and return it as a secret key.
+              Because every 256-bit number (even 0) is a valid private key (see \ref{chap:background}) on curve Ed25519, we don’t have to validate the $parse_{256}(I_L)$ and return it as a secret key.
           \end{quote}
 \end{enumerate}
 
@@ -442,35 +442,35 @@ Pseudo-code:
 The HMAC-SHA512 function is specified in the Background.
 
 \bigskip
-{\textbf{Difficulties in adapting BIP32 to ed25519 curve}}. BIP32 was designed for curve secp256k1 only. Applying different curve schema is very challenging due to the nature of each curve. Ed25519 specifically, researchers around the world meet two main problems as below.
+{\textbf{Difficulties in adapting BIP32 to Ed25519 curve}}. BIP32 was designed for curve secp256k1 only. Applying different curve schema is very challenging due to the nature of each curve. Ed25519 specifically, researchers around the world meet two main problems as below.
 
 
 \begin{adjustwidth}{1cm}{}
     \bigskip
     {\textbf{Ed25519's private key is not the multipliers}}. Ed25519 key pair generation is different from secp256k1. \autoref{fig:multiply_ed25519} shows how public key A was generated from private key k. As we present in Section \ref{blockchain}, the public key A is the encoding of the point caused by a fixed-base scalar multiplication [s]B (B is the generator) where s is a “bit-clamping” (or pruning) value produced from the left half of the HMAC function result. The linearity in the BIP32 schema is lost entirely when applied to the Ed25519 keypair. The private keys are now no longer multipliers for the group generator.
 
-    So the normal private keys, when derived, won’t correspond to the normal public key. The modified hash of the private key is now the multiplier. This cannot be changed since it is the core of speeding up in the ed25519 curve. Researchers will have to find out another way to work around key derivation for ed25519 because of this problem.
+    So the normal private keys, when derived, won’t correspond to the normal public key. The modified hash of the private key is now the multiplier. This cannot be changed since it is the core of speeding up in the Ed25519 curve. Researchers will have to find out another way to work around key derivation for Ed25519 because of this problem.
 
     \bigskip
     \begin{figure}[ht!]
         \centering
         \includegraphics[width=0.9\textwidth]{images/ed25519_generator_multiplier.png}
-        \caption[Multiply process of ed25519]{Multiply process of ed25519 \cite{learnme}}
+        \caption[Multiply process of Ed25519]{Multiply process of Ed25519 \cite{learnme}}
         \label{fig:multiply_ed25519}
     \end{figure}
 
 
     \bigskip
-    {\textbf{Ed25519's “bit clamping" problem}}. For performance reasons, ed25519 doesn't provide a prime-order group and provides a group of order h * l instead, where h is a small cofactor of 8 and l is a 252-bit prime (Section \ref{cryptography}). In short, a cofactor is one of the parameters that make up an elliptic curve. The number of points on the elliptic curve can be described as n = r * h where r is the prime order of a subgroup and h is the cofactor.
+    {\textbf{Ed25519's “bit clamping" problem}}. For performance reasons, Ed25519 doesn't provide a prime-order group and provides a group of order h * l instead, where h is a small cofactor of 8 and l is a 252-bit prime (Section \ref{cryptography}). In short, a cofactor is one of the parameters that make up an elliptic curve. The number of points on the elliptic curve can be described as n = r * h where r is the prime order of a subgroup and h is the cofactor.
 
     The method of using a cofactor to boost a better performance \cite{DBLP:journals/iacr/BernsteinL17} has proven to be a source of issues and vulnerabilities in higher-layer protocol. If the cofactor is 1, like in many of the standardized curves, it’s not something we need to worry about. If it is not one, careful consideration needs to be made for its implications in cryptographic schemes to avoid a few types of attacks, notably small-subgroup attacks \cite{DBLP:journals/rfc/rfc2785} and more announced malleability attacks (For example in Monero Blockchain \cite{Riccardo}).
 
-    To prevent this, ed25519 performs a “bit clamping” on step \textit{set/clear bits} in \autoref{fig:multiply_ed25519} as follow (bytes represented in little-endian form):
+    To prevent this, Ed25519 performs a “bit clamping” on step \textit{set/clear bits} in \autoref{fig:multiply_ed25519} as follow (bytes represented in little-endian form):
 
     \begin{itemize}
         \item input[0] \&= 248
               \begin{quote}
-                  Setting the lowest 3 bits to 0 makes the private key the multiple of 8. This is only useful to prevent small-subgroup attacks in Diffie Hellman key exchange \cite{enwiki:1057850165}, but the creator of ed25519 makes it a global schema. In our thesis, we don't use DH in any of our processes, so we won't discuss this problem further. Clearing these 3 bits does not roughly reduce the keyspace since it still leaves 252 higher bits, but if we continue to clamp through the process, this will result in big security issues (see Section \ref{bip32ed25519}).
+                  Setting the lowest 3 bits to 0 makes the private key the multiple of 8. This is only useful to prevent small-subgroup attacks in Diffie Hellman key exchange \cite{enwiki:1057850165}, but the creator of Ed25519 makes it a global schema. In our thesis, we don't use DH in any of our processes, so we won't discuss this problem further. Clearing these 3 bits does not roughly reduce the keyspace since it still leaves 252 higher bits, but if we continue to clamp through the process, this will result in big security issues (see Section \ref{bip32ed25519}).
 
               \end{quote}
 
@@ -481,12 +481,12 @@ The HMAC-SHA512 function is specified in the Background.
 
                   Gregory Maxwell (Bitcoin core dev, CEO of Blockstream) said it would prevent the scalar from exceeding the order of the group \cite{mail:000860}. Furthermore, it's also a performance hack so that the exponentiation ladder does not need to correctly handle the point at infinity.
 
-                  Later on, Daniel J. Bernstein (djb), the creator of ed25519, explained in a mailing list post from 2014 that some implementations implement it in variable-time based on the position of the highest bit. To avoid implementations having to care about this, he decided to make this part of the standard so that if the implementation is variable time in that way, it will run in constant time because of this clamping \cite{Bernstein:2014}. This prevents side-channel attack vector via timing leakage on weak scalar multiplication implementations \cite{DBLP:journals/iacr/BrumleyT11}.
+                  Later on, Daniel J. Bernstein (djb), the creator of Ed25519, explained in a mailing list post from 2014 that some implementations implement it in variable-time based on the position of the highest bit. To avoid implementations having to care about this, he decided to make this part of the standard so that if the implementation is variable time in that way, it will run in constant time because of this clamping \cite{Bernstein:2014}. This prevents side-channel attack vector via timing leakage on weak scalar multiplication implementations \cite{DBLP:journals/iacr/BrumleyT11}.
 
               \end{quote}
 
     \end{itemize}
-    In conclusion, pruning the scalar generated from the private key changes the linearity of the system completely. SLIP10 avoids these issues because it doesn't try to support non-hardened parent public key to child public key derivation and only supports hardened private parent key to private child key derivation when used with the ed25519 curve. Also, SLIP10 doesn't use any hardened derivation containing ``bit clamping" in the process. The randomly generated child keys act as a seed in the next generation. In the signature generation, they don't have to prune the secret key the second time. SLIP10 remains the most implemented key derivation structure that the blockchain community uses and is recommended to use.
+    In conclusion, pruning the scalar generated from the private key changes the linearity of the system completely. SLIP10 avoids these issues because it doesn't try to support non-hardened parent public key to child public key derivation and only supports hardened private parent key to private child key derivation when used with the Ed25519 curve. Also, SLIP10 doesn't use any hardened derivation containing ``bit clamping" in the process. The randomly generated child keys act as a seed in the next generation. In the signature generation, they don't have to prune the secret key the second time. SLIP10 remains the most implemented key derivation structure that the blockchain community uses and is recommended to use.
 
 \end{adjustwidth}
 
@@ -494,12 +494,12 @@ The HMAC-SHA512 function is specified in the Background.
 \subsubsection{SLIP23}
 \label{bip32ed25519}
 
-SatoshiLabs Improvement Proposals number 23 (SLIP23) is about Cardano HD master node derivation from a master seed, but also documented child key derivation function, which is based on Dmitry’s paper BIP32-Ed25519 \cite{Khovratovich2017}. We use SLIP23 instead of CIP03 (Cardano Improvement Proposal) because CIP is merely to document the existing standards and not to provide rationales for the various methods used in key derivation. For a long time, Cardano hasn’t updated documentation on this topic. Documentation about BIP32-ED25519 on the Cardano website is also removed. This section describes a hierarchical deterministic key derivation approach for curve ed25519 that overcomes the security issues mentioned in BIP32.
+SatoshiLabs Improvement Proposals number 23 (SLIP23) is about Cardano HD master node derivation from a master seed, but also documented child key derivation function, which is based on Dmitry’s paper BIP32-Ed25519 \cite{Khovratovich2017}. We use SLIP23 instead of CIP03 (Cardano Improvement Proposal) because CIP is merely to document the existing standards and not to provide rationales for the various methods used in key derivation. For a long time, Cardano hasn’t updated documentation on this topic. Documentation about BIP32-Ed25519 on the Cardano website is also removed. This section describes a hierarchical deterministic key derivation approach for curve Ed25519 that overcomes the security issues mentioned in BIP32.
 
 In practice, there is much confusion in implementing the original paper to their library (or application). In every next part, we will present the most general ideas of the original paper.
 
 \bigskip
-{\textbf{Master Extended Key generation function (root key in the paper)}}. This scheme adopts the master node derivation used in BIP32 and SLIP10 but defines a new Key input ``ed25519 cardano seed" for the Cardano deterministic key hierarchy. They implement ed25519's ``bit clamping" to the derivation schema.
+{\textbf{Master Extended Key generation function (root key in the paper)}}. This scheme adopts the master node derivation used in BIP32 and SLIP10 but defines a new Key input ``ed25519 cardano seed" for the Cardano deterministic key hierarchy. They implement Ed25519's ``bit clamping" to the derivation schema.
 \autoref{fig:slip23_master} describes the process.
 
 \begin{figure}[ht!]
@@ -531,7 +531,7 @@ Pseudo-code:
               \item $k_L$[0] := $k[0]$ \& 0xf8
               \item $k_L$[31] := ($k_L$[31] \& 0x1f) | 0x40.
                     \begin{quote}
-                        This step is compatible with “bit clamping” in ed25519.
+                        This step is compatible with “bit clamping” in Ed25519.
                     \end{quote}
           \end{itemize}
           \bigskip
@@ -539,7 +539,7 @@ Pseudo-code:
 \end{enumerate}
 
 \bigskip
-{\textbf{Child key derivation function}}. Surprisingly, BIP32-ED25519 allows both normal and hardened derivation. We can even generate hardened derivations on public keys since the linearity is ignored. With $B$ is the generator, the next parts will generalize the derivation processes.
+{\textbf{Child key derivation function}}. Surprisingly, BIP32-Ed25519 allows both normal and hardened derivation. We can even generate hardened derivations on public keys since the linearity is ignored. With $B$ is the generator, the next parts will generalize the derivation processes.
 
 \begin{adjustwidth}{0.5cm}{}
     \bigskip
@@ -565,7 +565,7 @@ Pseudo-code:
                         \begin{quote}
                             let $Z$ = HMAC-SHA512(Key = $c_{par}$, Data = 0x02 $\parallel$ $ser_{P}(K_{par})$ $\parallel$ $ser_{32}(i)$).
 
-                            The value $ser_P(K_{par})$ is represented as a little-endian string of 32 octets defined in ed25519 signature \cite{DBLP:journals/rfc/rfc8032}.
+                            The value $ser_P(K_{par})$ is represented as a little-endian string of 32 octets defined in Ed25519 signature \cite{DBLP:journals/rfc/rfc8032}.
 
                         \end{quote}
               \end{itemize}
@@ -661,13 +661,13 @@ Pseudo-code:
 \end{adjustwidth}
 
 \bigskip
-{\textbf{The BIP32-ED25519 key leakage problem}}. Same as BIP32, the problem is if the attackers have one of the private child keys, can they recover all of the other wallets? The answer is no thanks to the hash function HMAC-SHA512 between the secret parent key and its children. Therefore, the extended key can be guessed by brute-force 2**256 different master secrets. But the number of recovered wallets is only limited in this case. They can retrieve only the parent keys they derived from and then generate all branches of child keys from that node. This may lead to a fundamental leakage problem if the implementers fail to check the depth of child wallets. The implementers also have difficulties reviewing all the cases, even harder to keep track of the depth when more child wallets are produced. This case raises a problem in our thesis where we allow users (who have no ideas of the security issues) to choose their index and depth of the tree. Hardened derivation of BIP32-ED25519 also is vulnerable to this attack vector. Furthermore, using the public key as a part of the function to derive a child private key won’t serve the standard properties that the SLIP10 hardened key provided.
+{\textbf{The BIP32-Ed25519 key leakage problem}}. Same as BIP32, the problem is if the attackers have one of the private child keys, can they recover all of the other wallets? The answer is no thanks to the hash function HMAC-SHA512 between the secret parent key and its children. Therefore, the extended key can be guessed by brute-force 2**256 different master secrets. But the number of recovered wallets is only limited in this case. They can retrieve only the parent keys they derived from and then generate all branches of child keys from that node. This may lead to a fundamental leakage problem if the implementers fail to check the depth of child wallets. The implementers also have difficulties reviewing all the cases, even harder to keep track of the depth when more child wallets are produced. This case raises a problem in our thesis where we allow users (who have no ideas of the security issues) to choose their index and depth of the tree. Hardened derivation of BIP32-Ed25519 also is vulnerable to this attack vector. Furthermore, using the public key as a part of the function to derive a child private key won’t serve the standard properties that the SLIP10 hardened key provided.
 
 \bigskip
-{\textbf{The BIP32-ED25519 bit clamping before signing problem}}. Jeff Burdges (Web3 Foundation, Polkadot Blockchain), who is famous for finding the vulnerabilities in the BIP32-ED25519 proposal, warned us about a potential attack vector occurring under the many time the derivation function clamping. Ed25519’s bit clamping is only designed for preventing attacks in the signing method and key exchange. According to Burdges, clamping the bits doesn’t make the key more secure; instead, it makes the key weaker. BIP32-Ed25519 also uses only 224-bit scalar derivation (28-byte), so each level of derivation weakens the adequate strength of the computed scalar value.
+{\textbf{The BIP32-Ed25519 bit clamping before signing problem}}. Jeff Burdges (Web3 Foundation, Polkadot Blockchain), who is famous for finding the vulnerabilities in the BIP32-Ed25519 proposal, warned us about a potential attack vector occurring under the many time the derivation function clamping. Ed25519’s bit clamping is only designed for preventing attacks in the signing method and key exchange. According to Burdges, clamping the bits doesn’t make the key more secure; instead, it makes the key weaker. BIP32-Ed25519 also uses only 224-bit scalar derivation (28-byte), so each level of derivation weakens the adequate strength of the computed scalar value.
 Burdges also mentioned a straightforward full key recovery attack if one permits long key derivation paths along with either clamping by an Ed25519 library \cite{Jeff}.
 
-In conclusion, there are three most notable key derivation methods that we mentioned. There is some more approach to HD key tree derivation like the Tor’s approach \cite{torspec}. It was released four years before the BIP32-ED25519. However, they haven’t published any implementations as well as the test vector on the internet, making it very hard for the open-source researcher and the community to validate. We consider any project with this behavior as a fraud proposal and continue with our thesis.
+In conclusion, there are three most notable key derivation methods that we mentioned. There is some more approach to HD key tree derivation like the Tor’s approach \cite{torspec}. It was released four years before the BIP32-Ed25519. However, they haven’t published any implementations as well as the test vector on the internet, making it very hard for the open-source researcher and the community to validate. We consider any project with this behavior as a fraud proposal and continue with our thesis.
 
 \subsection{BIP39 - Random Password Generator}
 \label{bip39}
@@ -727,20 +727,20 @@ BIP44 defines a logical hierarchy for deterministic wallets. Each level of the h
 \section{Related Works}
 \label{related}
 
-The HD wallets on curve ed25519 were quite a challenge for the community. There has been quite an effortless number of implemented open-source libraries and evaluated by experts in cryptography. We do not try to find and analyze all applicable works. Instead, we focus on the notable library and the application that is generally used. We divide into two categories as the core library and real-world implementation.
+The HD wallets on curve Ed25519 were quite a challenge for the community. There has been quite an effortless number of implemented open-source libraries and evaluated by experts in cryptography. We do not try to find and analyze all applicable works. Instead, we focus on the notable library and the application that is generally used. We divide into two categories as the core library and real-world implementation.
 
 \bigskip
 {\textbf{Library implementation}}
 
-The SLIP10 approach is widely used because of its easy understanding process and strict security. \textit{christsim}'s Typescript library \cite{christsim} followed all the instructions of SLIP10 and provided all derivation features of the three curves in SLIP10. However, it lacks test vectors on ed25519 keys. The code seems to be redundant since using class objects but never making use of OOP structure.
+The SLIP10 approach is widely used because of its easy understanding process and strict security. \textit{christsim}'s Typescript library \cite{christsim} followed all the instructions of SLIP10 and provided all derivation features of the three curves in SLIP10. However, it lacks test vectors on Ed25519 keys. The code seems to be redundant since using class objects but never making use of OOP structure.
 
-\textit{alepop / ed25519-hd-key} (github) \cite{alepop} offers a simpler implementation of SLIP10 using functional programming. It is only built for ed25519 key generation. The library provides valid result keys or input path checking and also gives the user permission to change the value of the offset (range of hardened keys).
+\textit{alepop / ed25519-hd-key} (github) \cite{alepop} offers a simpler implementation of SLIP10 using functional programming. It is only built for Ed25519 key generation. The library provides valid result keys or input path checking and also gives the user permission to change the value of the offset (range of hardened keys).
 
 \textit{chatch / stellar-hd-wallet} is an HD wallet library designed for the Stellar (blockchain) application. It implements full hardened derivation of the SLIP10 version and supports multiple languages for mnemonic code. The library lacks a Stellar address extraction from the public key.
 
-On the other hand, due to the missing references and test vectors, BIP32-ED25519 struggles with many incompatible implementations.
+On the other hand, due to the missing references and test vectors, BIP32-Ed25519 struggles with many incompatible implementations.
 
-\textit{vbmirthr}'s OCaml library \cite{vinc} and \textit{islishude}'s Go implementation \cite{Shude} follow BIP32-ED25519 original master key derivation specification and use SHA512 and SHA256 for deriving the private key k and chain code c (respectively) from the master secret S.
+\textit{vbmirthr}'s OCaml library \cite{vinc} and \textit{islishude}'s Go implementation \cite{Shude} follow BIP32-Ed25519 original master key derivation specification and use SHA512 and SHA256 for deriving the private key k and chain code c (respectively) from the master secret S.
 
 LedgerHQ's Python implementation \cite{LedgerHQ} uses HMAC-SHA512 and HMAC-SHA256 instead.
 Furthermore, vbmirthr's instructions to discard the seed (i.e. master secret) if the master key's third-highest bit of the last octet of $k_L$ is not zero. Meanwhile, islishude's Go library just follows BIP32-Ed25519 papers and clears the master key's third-highest bit. LedgerHQ's implementations repeatedly set the seed and feed the input to the master key generation and restart the process until a master key meets the desired properties.
@@ -754,9 +754,9 @@ They aim to address all the points above with the drawback of being less quantum
 
 Sollet \cite{sollet} is a famous open-source non-custodial and HD wallet for users to manage assets on the Solana blockchain safely. Users can access the wallet by their browser. The wallet provided multiple types of token (only on chain) management. But the user only has access to one wallet at a time. If they want to use another, they will have to log out and choose a different index. The wallet is mainly used by developers for testing.
 
-The Polkadot community recommends their wallet developers implement SLIP10 since they haven’t prioritized investigating into Bip32-Ed25519. Jeff Burdges research on Polkadot wallet security refers to BIP32-ED25519 as a “zombie” \cite{Jeff1} and suggests their cryptosystem should not use this as HD wallet core.
+The Polkadot community recommends their wallet developers implement SLIP10 since they haven’t prioritized investigating into Bip32-Ed25519. Jeff Burdges research on Polkadot wallet security refers to BIP32-Ed25519 as a “zombie” \cite{Jeff1} and suggests their cryptosystem should not use this as HD wallet core.
 
-Oasis \cite{oasis} on the other hand don't use use BIP32-Ed25519's private and public key directly but use the obtained $k_L$ (first 32 bytes) of the 64 byte BIP32-Ed25519 derived private key as Ed25519's seed (i.e. non-extended private key). But in Mar 2021 they decided to change from BIP32-ED25519 to SLIP10 schema, leaving it “not applicable in future”.
+Oasis \cite{oasis} on the other hand don't use use BIP32-Ed25519's private and public key directly but use the obtained $k_L$ (first 32 bytes) of the 64 byte BIP32-Ed25519 derived private key as Ed25519's seed (i.e. non-extended private key). But in Mar 2021 they decided to change from BIP32-Ed25519 to SLIP10 schema, leaving it “not applicable in future”.
 
-The BIP32-ED25519 has been very poorly adapted in practice ever since Jeff Burdges's warning \cite{Jeff}. But it is still very useful for cold wallets. Hardware wallets \href{https://www.ledger.com/}{Ledger} and \href{https://trezor.io/}{Trezor} implement both SLIP10 and BIP32-ED25519 to their key generation schema. The advantages of public-key derivation impactfully remain. Attacks aim to steal private keys from hardware wallets but are still shallow. Users can publish their master public key to the networks, while child keys can be kept safe in users' pockets. If ever the transaction is needed, users just need to derive child keys from their hardware and sign the transaction. Plus, Ledger and Trezor are better than other wallets since they are custodial type wallets and can hold multiple types of native tokens.
+The BIP32-Ed25519 has been very poorly adapted in practice ever since Jeff Burdges's warning \cite{Jeff}. But it is still very useful for cold wallets. Hardware wallets \href{https://www.ledger.com/}{Ledger} and \href{https://trezor.io/}{Trezor} implement both SLIP10 and BIP32-Ed25519 to their key generation schema. The advantages of public-key derivation impactfully remain. Attacks aim to steal private keys from hardware wallets but are still shallow. Users can publish their master public key to the networks, while child keys can be kept safe in users' pockets. If ever the transaction is needed, users just need to derive child keys from their hardware and sign the transaction. Plus, Ledger and Trezor are better than other wallets since they are custodial type wallets and can hold multiple types of native tokens.
 
