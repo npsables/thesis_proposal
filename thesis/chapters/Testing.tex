@@ -28,16 +28,18 @@ We run a total of 10 test cases to make sure every API functions normally accord
 {\textbf{Test table}}
 \bigskip
 
-\begin{tabular}{| m{2cm} | m{7cm} | m{2cm} | m{2cm} | m{2cm} |}
-    \hline
-    ID & Description & Expected Result & Actual Result & Pass/Fail                                            \\ \hline
-    SOL-01 & Generate a valid mnemonic code contains 12 or 24 words. & Generate successfully & As expected & Pass \\ \hline
-    SOL-02 & Generate a valid master secret seed.  &  Generate successfully & As expected & Pass  \\ \hline
-    SOL-03 & Generate a valid master key pair. &   Generate successfully & As expected & Pass    \\ \hline
-    SOL-04 & Generate a valid path. &  Generate successfully & As expected & Pass   \\ \hline
-    SOL-05 & Generate a valid child key pair. &  Generate successfully & As expected & Pass   \\ \hline
-    SOL-06 & Generate a valid public address.&  Generate successfully & As expected & Pass   \\ \hline
-    SOL-07 & Generate a child generated from given mnemonic.&  Generate successfully & As expected & Pass   \\ \hline
+\begin{tabular}{ m{2cm} m{6cm}  m{2cm}  m{3cm}  m{2cm} }
+    \toprule
+    ID & Description & Expected Result & Actual Result & Pass/Fail                                            \\ 
+    \midrule
+    SOL-01 & Generate a valid mnemonic code contains 12 or 24 words. & Generate successfully & As expected & Pass \\ 
+    SOL-02 & Generate a valid master secret seed.  &  Generate successfully & As expected & Pass  \\ 
+    SOL-03 & Generate a valid master key pair. &   Generate successfully & As expected & Pass    \\ 
+    SOL-04 & Generate a valid path. &  Generate successfully & As expected & Pass   \\ 
+    SOL-05 & Generate a valid child key pair. &  Generate successfully & As expected & Pass   \\ 
+    SOL-06 & Generate a valid public address.&  Generate successfully & As expected & Pass   \\ 
+    SOL-07 & Generate a child generated from given mnemonic.&  Generate successfully & As expected & Pass   \\
+    \bottomrule
 \end{tabular}
 % \captionof{table}{\label{Tab:SOL-01} Library testcases}
 
@@ -118,21 +120,23 @@ We also make sure the requests and connection of the wallet to the blockchain wi
 \label{testhd}
 \subsection{Testcases}
 We test our Web Wallet behaviors by following testcases.
-{\textbf{Test table}}
-\bigskip
 
-\begin{tabular}{| m{2cm} | m{4.5cm} | m{6cm} | m{2cm} | m{1.5cm} |}
-    \hline
-    ID & Description & Expected Result & Actual Result & Pass/Fail                                            \\ \hline
-    HDW-01 & Create a new mnemonic word and create a new wallet from it. & Go to the main page successfully & As expected & Pass \\ \hline
-    HDW-02 & Import a mnemonic word and restore a wallet.  &  Go to the main page successfully. & As expected & Pass  \\ \hline
-    HDW-03 & Request airdrop 1 SOL from the Solana devnet. &  The balance increased by 1 SOL. & As expected & Pass    \\ \hline
-    HDW-04 & Transfer 0.05 SOL using send in the main page. &  The balance is reduced by the 0.05 SOL with some fee (0.00005 SOL), and the receiver received 0.05 of SOL & As expected & Pass   \\ \hline
-    HDW-05 & Delete and logout in the main page. &  The localStorage is cleared and the user is brought to the homepage. & As expected & Pass   \\ \hline
-    HDW-06 & Push a child address to the address service.&  The server received the request and store the address to the database. & As expected & Pass   \\ \hline
-    HDW-07 & Pull a child address from the address service.&  The server received the request and delete the address from the database. & As expected & Pass   \\ \hline
-    HDW-08 & Create a child wallet in the main page.&  A wallet is create with the path includes the index provided by the user and the purpose is displayed correctly from the user's input. & As expected & Pass   \\ \hline
-    HDW-09 & Search a child wallet's address using the master wallet address in the main page.& Display all the pushed child wallets's addresses of the master address from the databases. & As expected & Pass   \\ \hline
+{\textbf{Test table}}
+
+\begin{tabular}{ m{1.5cm} m{4.5cm} m{5.5cm} m{3cm} m{1.5cm}}
+    \toprule
+    ID & Description & Expected Result & Actual Result & Pass/Fail                                            \\ 
+    \midrule
+    HDW-01 & Create a new mnemonic word and create a new wallet from it. & Go to the main page successfully & As expected & Pass \\ 
+    HDW-02 & Import a mnemonic word and restore a wallet.  &  Go to the main page successfully. & As expected & Pass  \\ 
+    HDW-03 & Request airdrop 1 SOL from the Solana devnet. &  The balance increased by 1 SOL. & As expected & Pass    \\ 
+    HDW-04 & Transfer 0.05 SOL using send in the main page. &  The balance is reduced by the 0.05 SOL with some fee (0.00005 SOL), and the receiver received 0.05 of SOL & As expected & Pass   \\ 
+    HDW-05 & Delete and logout in the main page. &  The localStorage is cleared and the user is brought to the homepage. & As expected & Pass   \\ 
+    HDW-06 & Push a child address to the address service.&  The server received the request and store the address to the database. & As expected & Pass   \\ 
+    HDW-07 & Pull a child address from the address service.&  The server received the request and delete the address from the database. & As expected & Pass   \\ 
+    HDW-08 & Create a child wallet in the main page.&  A wallet is create with the path includes the index provided by the user and the purpose is displayed correctly from the user's input. & As expected & Pass   \\ 
+    HDW-09 & Search a child wallet's address using the master wallet address in the main page.& Display all the pushed child wallets's addresses of the master address from the databases. & As expected & Pass   \\ 
+    \bottomrule
 \end{tabular}
 \subsection{Security Discussion}
 

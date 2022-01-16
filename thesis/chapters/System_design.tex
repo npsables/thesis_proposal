@@ -271,76 +271,94 @@ The security tests will be examined with specific aims and different tools. We w
 {\textbf{Use case detail}}
 
 \begin{table}[b]
-    \begin{tabular}{| m{8cm} | m{6cm} |}
-        \hline
-        Use case name            & Table reference      \\ \hline
-        Create new wallet.       & Table \ref{Tab:UC-1} \\ \hline
-        Create new child wallet. & Table \ref{Tab:UC-2} \\ \hline
-        Delete wallet.           & Table \ref{Tab:UC-3} \\ \hline
-        Search address.          & Table \ref{Tab:UC-4} \\ \hline
-        Modify address.          & Table \ref{Tab:UC-5} \\ \hline
-        Make transaction.        & Table \ref{Tab:UC-6} \\ \hline
+    \begin{tabular}{ m{8cm} m{6cm}}
+        \toprule
+        Use case name            & Table reference      \\ 
+        \midrule
+        Create new wallet.       & Table \ref{Tab:UC-1} \\ 
+        Create new child wallet. & Table \ref{Tab:UC-2} \\ 
+        Delete wallet.           & Table \ref{Tab:UC-3} \\ 
+        Search address.          & Table \ref{Tab:UC-4} \\ 
+        Modify address.          & Table \ref{Tab:UC-5} \\ 
+        Make transaction.        & Table \ref{Tab:UC-6} \\ 
         % Share. & Table \ref{Tab:UC-8}\\ \hline
         % Set permission. & Table \ref{Tab:UC-9}\\ \hline
         % View change history. & Table \ref{Tab:UC-10}\\ \hline
         % Revert. & Table \ref{Tab:UC-11}\\ \hline
+        \bottomrule
     \end{tabular}
     \captionof{table}{\label{Tab:UCList}Use case List}
 \end{table}
 \clearpage
 
 \begin{table}[]
-    \begin{tabular}{| m{4cm} | m{11cm} |}
-        \hline
-        Use Case Name:     & Create new wallet.                                                                    \\ \hline
-        Event:             & The user accesses the wallet page.                                                    \\ \hline
-        Description:       & The user chooses to create or recover their HD wallet and go on to their wallet page. \\ \hline
+    \begin{tabular}{m{4cm}  m{11cm} }
+        \toprule
+        Use Case Name:     & Create new wallet.        \\
+        \midrule 
+        Event:             & The user accesses the wallet page.                                                    \\ 
+        \midrule
+
+        Description:       & The user chooses to create or recover their HD wallet and go on to their wallet page. \\ 
+
+        \midrule
         Preconditions:     & \begin{itemize}
             \item Application has an internet connection.
-        \end{itemize}                                                            \\ \hline
+        \end{itemize}                                                            \\
+        \midrule
         Post-conditions:   & \begin{itemize}
             \item Default wallets are generated for the user.
             \item The user gets to their wallet page.
             \item The user is able to perform actions with their wallets.
-        \end{itemize}                                                            \\ \hline
+        \end{itemize}                                                            \\ 
+        \midrule
         Normal flows:      & \begin{enumerate}
             \item The user accesses the homepage from the browser.
             \item Web shows two options: “Create new wallet” and “Recover wallet”.
             \item Users choose “Create new wallet”.
             \item Web shows 12 or 24 mnemonic words.
             \item The user clicks on the create wallet button or refreshes the mnemonic code until they are satisfied with the code.
-        \end{enumerate}                                                            \\ \hline
+        \end{enumerate}                                                            \\ 
+        \midrule
         Alternative flows: & \begin{itemize}
-            \item {3a. TThe user chooses “Recover wallet”.}
+            \item {3a. The user chooses “Recover wallet”.}
                   \begin{itemize}
                       \item 3a.1. Web shows an input form.
                       \item 3a.2. Users enter their mnemonic code.
                   \end{itemize}
-        \end{itemize}                                                            \\ \hline
+        \end{itemize}                                                            \\ 
+        \midrule
         Exception:         & \begin{itemize}
             \item {3a. The user enters an invalid mnemonic code.}
                   \begin{itemize}
                       \item Web warns the users and tells them to enter another code.
                   \end{itemize}
-        \end{itemize}                                                            \\ \hline
+        \end{itemize}                                                            \\ 
+        \bottomrule
+
     \end{tabular}
     \captionof{table}{\label{Tab:UC-1} Use case: Create new wallet.}
 \end{table}
 \clearpage
 \begin{table}[]
-    \begin{tabular}{| m{4cm} | m{11cm} |}
-        \hline
-        Use Case Name:     & Create new child wallet.                                                  \\ \hline
-        Event:             & The user chooses “Derive wallet” button to create a new child wallet.     \\ \hline
-        Description:       & The user chooses to derive a new child wallet from the chosen blockchain. \\ \hline
+    \begin{tabular}{m{4cm} m{11cm} }
+        \toprule
+        Use Case Name:     & Create new child wallet.                                                  \\ 
+        \midrule 
+        Event:             & The user chooses “Derive wallet” button to create a new child wallet.     \\ 
+        \midrule 
+        Description:       & The user chooses to derive a new child wallet from the chosen blockchain. \\ 
+        \midrule 
         Preconditions:     & \begin{itemize}
             \item Application has an internet connection.
             \item The user already accesses the wallet page.
-        \end{itemize}                                                \\ \hline
+        \end{itemize}                                                \\ 
+        \midrule 
         Post-conditions:   & \begin{itemize}
             \item A child wallet is generated for the user.
             \item The user is able to perform actions with their child wallet.
-        \end{itemize}                                                \\ \hline
+        \end{itemize}                                                \\ 
+        \midrule 
         Normal flows:      & \begin{enumerate}
             \item The user chooses a blockchain on the top bar.
             \item Web shows that blockchain wallet page.
@@ -348,32 +366,40 @@ The security tests will be examined with specific aims and different tools. We w
             \item Web shows index input form.
             \item The user enters the index for the child wallet and click "Create".
             \item Web shows the child wallet.
-        \end{enumerate}                                                \\ \hline
-        Alternative flows: & N $\backslash$ A                                                          \\ \hline
+        \end{enumerate}                                                \\ 
+        \midrule 
+        Alternative flows: & N $\backslash$ A                                                          \\ 
+        \midrule 
         Exception:         & \begin{itemize}
             \item {5. The user enters an invalid index.}
                   \begin{itemize}
                       \item Web warns the users and tells them to enter another index.
                   \end{itemize}
-        \end{itemize}                                                \\ \hline
+        \end{itemize}                                                \\ 
+        \bottomrule
     \end{tabular}
     \captionof{table}{\label{Tab:UC-2} Create new child wallet.}
 \end{table}
 \clearpage
 
 \begin{table}[]
-    \begin{tabular}{| m{4cm} | m{11cm} |}
-        \hline
-        Use Case Name:     & Delete Wallet from the browser.                                                                  \\ \hline
-        Event:             & The user chooses “Delete this wallet” in the top bar.                                            \\ \hline
-        Description:       & The user no longer uses the wallet and wants to delete the wallet information on their computer. \\ \hline
+    \begin{tabular}{m{4cm} m{11cm}}
+        \toprule
+        Use Case Name:     & Delete Wallet from the browser.                                                                  \\ 
+        \midrule 
+        Event:             & The user chooses “Delete this wallet” in the top bar.                                            \\ 
+        \midrule 
+        Description:       & The user no longer uses the wallet and wants to delete the wallet information on their computer. \\ 
+        \midrule 
         Preconditions:     & \begin{itemize}
             \item Application has an internet connection.
             \item The user already accesses the wallet page.
-        \end{itemize}                                                                       \\ \hline
+        \end{itemize}                                                                       \\ 
+        \midrule 
         Post-conditions:   & \begin{itemize}
             \item Delete all local storage and session from the user browser.
-        \end{itemize}                                                                       \\ \hline
+        \end{itemize}                                                                       \\ 
+        \midrule 
         Normal flows:      & \begin{enumerate}
             \item The user clicks on “Delete this wallet”.
             \item Web warns the user if they are sure.
@@ -381,42 +407,53 @@ The security tests will be examined with specific aims and different tools. We w
             \item Web shows index input form.
             \item Web delete all information from user's local storage and browser session.
             \item Return to homepage.
-        \end{enumerate}                                                                       \\ \hline
+        \end{enumerate}                                                                       \\
+        \midrule 
         Alternative flows: & \begin{itemize}
             \item {3. The user chooses “No”.}
                   \begin{itemize}
                       \item Web returns to the current stage.
                   \end{itemize}
-        \end{itemize}                                                                       \\ \hline
-        Exception:         & N $\backslash$ A                                                                                 \\ \hline
+        \end{itemize}                                                                       \\ 
+        \midrule 
+        Exception:         &   N $\backslash$ A                                                  \\ 
+        \bottomrule
     \end{tabular}
     \captionof{table}{\label{Tab:UC-3} Delete Wallet from the browser.}
 \end{table}
 \clearpage
 
 \begin{table}[]
-    \begin{tabular}{| m{4cm} | m{11cm} |}
-        \hline
-        Use Case Name:     & Search address.                                                                                                                         \\ \hline
-        Event:             & A bar pops up when the user clicks “Send” on the wallet component. To search for an address in the database, the user clicks “Look up”. \\ \hline
-        Description:       & The user want to make a transaction and look up the receiver address of a blockchain.                                                   \\ \hline
+    \begin{tabular}{m{4cm}  m{11cm}}
+        \toprule
+        Use Case Name:     & Search address.                                                                                                                         \\ 
+        \midrule 
+        Event:             & A bar pops up when the user clicks “Send” on the wallet component. To search for an address in the database, the user clicks “Look up”. \\ 
+        \midrule 
+        Description:       & The user want to make a transaction and look up the receiver address of a blockchain.                                                   \\ 
+        \midrule 
         Preconditions:     & \begin{itemize}
             \item Application has an internet connection.
             \item The user already accesses the wallet page.
-        \end{itemize}                                                                                                              \\ \hline
+        \end{itemize}                                                                                                              \\ 
+        \midrule 
         Post-conditions:   & \begin{itemize}
             \item Return the receiver addresses of the chosen blockchain.
-        \end{itemize}                                                                                                              \\ \hline
+        \end{itemize}                                                                                                              \\ 
+        \midrule 
         Normal flows:      & \begin{enumerate}
             \item The user clicks on “Send” of a specific wallet.
             \item Web pop up a transaction box.
             \item The user fills in the master address of the receiver.
             \item Web returns a list of addresses of the receiver.
-        \end{enumerate}                                                                                                              \\ \hline
-        Alternative flows: & N $\backslash$ A                                                                                                                        \\ \hline
+        \end{enumerate}                                                                                                              \\ 
+        \midrule 
+        Alternative flows: & N $\backslash$ A                                                                                                                        \\ 
+        \midrule 
         Exception:         & \begin{itemize}
             \item {4. The address doesn't exist in the database, the web return zero address.}
-        \end{itemize}                                                                                                              \\ \hline
+        \end{itemize}           \\ 
+        \bottomrule
     \end{tabular}
     \captionof{table}{\label{Tab:UC-4} Search address.}
 \end{table}
@@ -424,57 +461,73 @@ The security tests will be examined with specific aims and different tools. We w
 
 
 \begin{table}[]
-    \begin{tabular}{| m{4cm} | m{11cm} |}
-        \hline
-        Use Case Name:     & Modify addresses in the database (push or pull).               \\ \hline
-        Event:             & The user clicks on “Pull" or “Push” from the wallet component. \\ \hline
-        Description:       & The user chooses which wallet to public to others.             \\ \hline
+    \begin{tabular}{m{4cm} m{11cm}}
+        \toprule
+        Use Case Name:     & Modify addresses in the database (push or pull).               \\ 
+        \midrule 
+        Event:             & The user clicks on “Pull" or “Push” from the wallet component. \\ 
+        \midrule 
+        Description:       & The user chooses which wallet to public to others.             \\ 
+        \midrule 
         Preconditions:     & \begin{itemize}
             \item Application has an internet connection.
             \item The user already accesses the wallet page.
-        \end{itemize}                                     \\ \hline
+        \end{itemize}                                     \\ 
+        \midrule 
         Post-conditions:   & \begin{itemize}
             \item The chosen wallet address is either deleted or added in the database.
-        \end{itemize}                                     \\ \hline
+        \end{itemize}                                     \\ 
+        \midrule 
         Normal flows:      & \begin{enumerate}
             \item The user clicks on “Pull wallet”.
             \item The web shows requests succeed and status removed from database.
-        \end{enumerate}                                     \\ \hline
+        \end{enumerate}                                     \\ 
+        \midrule 
         Alternative flows: & \begin{itemize}
             \item {1a. The user clicks on “Add”.}
                   \begin{itemize}
                       \item The web shows requests succeed and status added.
                   \end{itemize}
-        \end{itemize}                                     \\ \hline
-        Exception:         & N $\backslash$ A                                               \\ \hline
+        \end{itemize}                                     \\ 
+        \midrule 
+        Exception:         & N $\backslash$ A                                               \\ 
+        \bottomrule
     \end{tabular}
     \captionof{table}{\label{Tab:UC-5} Modify addresses in the database.}
 \end{table}
 \clearpage
 
 \begin{table}[]
-    \begin{tabular}{| m{4cm} | m{11cm} |}
-        \hline
-        Use Case Name:     & Make transaction.                                    \\ \hline
-        Event:             & The user clicks on “Send” from the wallet component. \\ \hline
-        Description:       & The user wants to send coins to somebody.        .   \\ \hline
+    \begin{tabular}{m{4cm} m{11cm} }
+        \toprule
+        Use Case Name:     & Make transaction.                                    \\ 
+        \midrule 
+        Event:             & The user clicks on “Send” from the wallet component. \\ 
+        \midrule 
+        Description:       & The user wants to send coins to somebody.  \\ 
+        \midrule 
         Preconditions:     & \begin{itemize}
             \item Application has an internet connection.
             \item The user already accesses the wallet page.
-        \end{itemize}                           \\ \hline
+        \end{itemize}                           \\ 
+        \midrule 
         Post-conditions:   & \begin{itemize}
             \item The coins is sent and the transaction is public to the blockchain explorer.
-        \end{itemize}                           \\ \hline
+        \end{itemize}                           \\ 
+        \midrule 
         Normal flows:      & \begin{enumerate}
             \item The user clicks on “Send”.
             \item Web pop up a transaction box.
             \item The user enters the address of the receiver (by looking up or entering straight to the forms) and clicks “Confirm”.
             \item Web shows transaction status and link to blockchain explorer.
-        \end{enumerate}                           \\ \hline
-        Alternative flows: & N $\backslash$ A                                     \\ \hline
+        \end{enumerate}                           \\ 
+        \midrule 
+        Alternative flows: & N $\backslash$ A                                     \\
+        \midrule 
         Exception:         & \begin{itemize}
             \item {Web shows something wrong with the transaction and returns to the current stage.}
-        \end{itemize}                           \\ \hline
+        \end{itemize}                           \\ 
+        \bottomrule
     \end{tabular}
     \captionof{table}{\label{Tab:UC-6} Make transaction.}
 \end{table}
