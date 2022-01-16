@@ -183,8 +183,8 @@ Example request:
 \hspace*{13mm}        - - url http://localhost:8080/getaddress \par
 \hspace*{13mm}        - - header 'Content-Type: application/json' \par
 \hspace*{13mm}        - - data '\{ \par
-\hspace*{20mm}                "address": "test", \par
-\hspace*{20mm}                "chain": "501" \par
+\hspace*{20mm}                ``address": ``test", \par
+\hspace*{20mm}                ``chain": ``501" \par
 \hspace*{20mm}            \}' \par
 \end{framed}
 
@@ -193,13 +193,13 @@ Example response:
 
 \begin{framed}
     \hspace*{13mm}        \{\par
-    \hspace*{13mm}          "list\_address": \{ \par
-    \hspace*{18mm}        "default": "childaddress", \par
-    \hspace*{18mm}        "business": "childaddress1"    \par
+    \hspace*{13mm}          ``list\_address": \{ \par
+    \hspace*{18mm}        ``default": ``childaddress", \par
+    \hspace*{18mm}        ``business": ``childaddress1"    \par
     \hspace*{18mm}        \},\par
-    \hspace*{13mm}                "message": "Succeed",   \par
-    \hspace*{13mm}                "status": "Succeed",  \par
-    \hspace*{13mm}             "statusCode": 200   \par
+    \hspace*{13mm}                ``message": ``Succeed",   \par
+    \hspace*{13mm}                ``status": ``Succeed",  \par
+    \hspace*{13mm}             ``statusCode": 200   \par
     \hspace*{13mm}                 \}    \par
 
 \end{framed}
@@ -234,16 +234,16 @@ Example request:
 \hspace*{13mm}        - - url http://localhost:8080/createdefault \par
 \hspace*{13mm}        - - header 'Content-Type: application/json' \par
 \hspace*{13mm}        - - data '\{ \par
-\hspace*{20mm}                "\_id": "tess1231",\par
-\hspace*{27mm}                "address": \{ \par
-\hspace*{35mm}                "1": \{ \par
-\hspace*{40mm}                "default": "wallet1" \{ \par
+\hspace*{20mm}                ``\_id": ``tess1231",\par
+\hspace*{27mm}                ``address": \{ \par
+\hspace*{35mm}                ``1": \{ \par
+\hspace*{40mm}                ``default": ``wallet1" \{ \par
 \hspace*{40mm}                \}, \par
-\hspace*{35mm}                "60": \{ \par
-\hspace*{40mm}                "default": "wallet2" \par
+\hspace*{35mm}                ``60": \{ \par
+\hspace*{40mm}                ``default": ``wallet2" \par
 \hspace*{40mm}                \}, \par
-\hspace*{35mm}                "501": \{ \par
-\hspace*{40mm}                "default": "wallet3" \par
+\hspace*{35mm}                ``501": \{ \par
+\hspace*{40mm}                ``default": ``wallet3" \par
 \hspace*{40mm}                \} \par
 \hspace*{27mm}              \} \par
 \hspace*{20mm}            \}' \par
@@ -253,9 +253,9 @@ Example response:
 
 \begin{framed}
     \hspace*{13mm}        \{ \par
-    \hspace*{13mm}                "message": "Succeed",    \par
-    \hspace*{13mm}                "status": "Succeed",    \par
-    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                ``message": ``Succeed",    \par
+    \hspace*{13mm}                ``status": ``Succeed",    \par
+    \hspace*{13mm}             ``statusCode": 200    \par
     \hspace*{13mm}                 \}    \par
 \end{framed}
 
@@ -292,10 +292,10 @@ Example request:
 \hspace*{13mm}        - - url http://localhost:8080/pushaddress \par
 \hspace*{13mm}        - - header 'Content-Type: application/json' \par
 \hspace*{13mm}        - - data '\{ \par
-\hspace*{27mm}                "address": "test",  \par
-\hspace*{40mm}                "chain": "60", \par
-\hspace*{40mm}                "purpose": "business1", \par
-\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \par
+\hspace*{27mm}                ``address": ``test",  \par
+\hspace*{40mm}                ``chain": ``60", \par
+\hspace*{40mm}                ``purpose": ``business1", \par
+\hspace*{40mm}                ``child\_address": ``0x88d696674a104489f..." \par
 \hspace*{27mm}              \} \par
 \end{framed}
 
@@ -303,9 +303,9 @@ Example response:
 
 \begin{framed}
     \hspace*{13mm}        \{ \par
-    \hspace*{13mm}                "message": "Succeed",    \par
-    \hspace*{13mm}                "status": "Succeed",    \par
-    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                ``message": ``Succeed",    \par
+    \hspace*{13mm}                ``status": ``Succeed",    \par
+    \hspace*{13mm}             ``statusCode": 200    \par
     \hspace*{13mm}                 \}    \par
 \end{framed}
 
@@ -343,10 +343,10 @@ Example request:
 \hspace*{13mm}        - - url http://localhost:8080/deleteaddress \par
 \hspace*{13mm}        - - header 'Content-Type: application/json' \par
 \hspace*{13mm}        - - data '\{ \par
-\hspace*{27mm}                "address": "test",  \par
-\hspace*{40mm}                "chain": "60", \par
-\hspace*{40mm}                "purpose": "business1", \par
-\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \par
+\hspace*{27mm}                ``address": ``test",  \par
+\hspace*{40mm}                ``chain": ``60", \par
+\hspace*{40mm}                ``purpose": `business1", \par
+\hspace*{40mm}                ``child\_address": ``0x88d696674a104489f..." \par
 \hspace*{27mm}              \} \par
 \end{framed}
 
@@ -354,9 +354,9 @@ Example response:
 
 \begin{framed}
     \hspace*{13mm}        \{ \par
-    \hspace*{13mm}                "message": "Succeed",    \par
-    \hspace*{13mm}                "status": "Succeed",    \par
-    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                ``message": ``Succeed",    \par
+    \hspace*{13mm}                ``status": ``Succeed",    \par
+    \hspace*{13mm}             ``statusCode": 200    \par
     \hspace*{13mm}                 \}    \par
 \end{framed}
 

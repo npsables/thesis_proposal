@@ -9,7 +9,7 @@
 \section{Related Protocol}
 \subsection{Key Derivation}
 
-The word “Hierarchical Deterministic” in crypto wallet were first introduced by Pieter Wuille in Bitcoin Improvement Proposal number 32 (BIP32)\cite{github/bip0032}. The initial idea was to build a wallet architect like a tree. From the root seed, we can derive child private keys and child public keys that construct many child wallets for different purposes. However, BIP32 only supports the elliptic curve used in Bitcoin, defined by the name "secp256k1" \cite{secp256k1}. SatoshiLabs Improvement Proposal number 10 (SLIP10) is an attempt to generalize the BIP32's key derivation schema for different curves, e.g., NIST P-256 and ed25519. For some security reasons, SLIP10 forbade normal child key derivation on curve ed25519. But SLIP23 adopted them both and proposed a new schema on curve Edwards25519 called "BIP32-ed25519" \cite{Khovratovich2017}. In this section, we will explain how these schemes work and analyze the difficulties in adapting BIP32 to the Edwards25519 Curve.
+The word “Hierarchical Deterministic” in crypto wallet were first introduced by Pieter Wuille in Bitcoin Improvement Proposal number 32 (BIP32)\cite{github/bip0032}. The initial idea was to build a wallet architect like a tree. From the root seed, we can derive child private keys and child public keys that construct many child wallets for different purposes. However, BIP32 only supports the elliptic curve used in Bitcoin, defined by the name ``secp256k1" \cite{secp256k1}. SatoshiLabs Improvement Proposal number 10 (SLIP10) is an attempt to generalize the BIP32's key derivation schema for different curves, e.g., NIST P-256 and ed25519. For some security reasons, SLIP10 forbade normal child key derivation on curve ed25519. But SLIP23 adopted them both and proposed a new schema on curve Edwards25519 called ``BIP32-ed25519" \cite{Khovratovich2017}. In this section, we will explain how these schemes work and analyze the difficulties in adapting BIP32 to the Edwards25519 Curve.
 
 \subsubsection{BIP32}
 \label{bip32}
@@ -35,7 +35,7 @@ BIP32 also makes wallets more recoverable since users only have to maintain the 
     An extended key consists of a private or public key and chain code. An extended key can create children, generating its own branch in the tree structure. Sharing an extended key gives access to the entire branch.
 \end{adjustwidth}
 
-The term "extended key" could also be thought of as "extensible key" because such a key can be used to derive children. BIP32 extends both private and public keys first with an extra chain code. This extension is added in order to prevent depending solely on the key itself; it also is identical for corresponding private and public keys.
+The term ``extended key" could also be thought of as ``extensible key" because such a key can be used to derive children. BIP32 extends both private and public keys first with an extra chain code. This extension is added in order to prevent depending solely on the key itself; it also is identical for corresponding private and public keys.
 
 In total, an extended key is represented simply as the concatenation of the 32 bytes key and 32 bytes chain code into a 64 bytes sequence (512-bits). So the total number of possible extended key pairs is almost 2512, but the produced keys are only 256 bits long and offer about half of that in terms of security. But the designed key size already satisfies the requirement of the NIST recommendation. In specifically, to maintain security against classical attacks, NIST has recommended transitions from key sizes and algorithms that provide 80 bits of security to key sizes and algorithms that provide 112 or 128 bits of security in 2016 \cite{Barker2019}.
 
@@ -103,9 +103,9 @@ Pseudo-code of generation function is as below:
               The PRNG, as mentioned in Section \ref{chap:background}, is recommended to produce a root seed. However, BIP39 \cite{github/bip0039} invented a method to create a seed from mnemonic code or mnemonic sentence entropy. We will discuss BIP39 in Section \ref{SLIP10} . Ideally, the creation of BIP39 helps users to maintain their wallets more efficiently since secure random sentences (12 to 24 words) are more comfortable than protecting a random byte sequence.
           \end{quote}
 
-    \item Calculate $I$ = HMAC-SHA512(Key = "Bitcoin seed", Data = $S$)
+    \item Calculate $I$ = HMAC-SHA512(Key = ``Bitcoin seed", Data = $S$)
           \begin{quote}
-              The HMAC function returns 512 bits of data (which is totally unpredictable) from a key and data component. BIP32 added the key "Bitcoin seed" to the function, although it could be arbitrary when deriving the master node from the seed. This is considered necessary to ensure proper domain separation between different elliptic curves or different types of key hierarchy generation schemas.
+              The HMAC function returns 512 bits of data (which is totally unpredictable) from a key and data component. BIP32 added the key ``Bitcoin seed" to the function, although it could be arbitrary when deriving the master node from the seed. This is considered necessary to ensure proper domain separation between different elliptic curves or different types of key hierarchy generation schemas.
           \end{quote}
 
     \item Split $I$ into two 32-byte sequences, $I_L$ and $I_R$.
@@ -275,7 +275,7 @@ Pseudo-code:
 
 \end{enumerate}
 
-The hardened derivation is therefore used to create a "gap" in the tree above the level where extended public keys are used. Therefore, The hardened key derivation schema is needed to preserve security in HD Wallet.
+The hardened derivation is therefore used to create a ``gap" in the tree above the level where extended public keys are used. Therefore, The hardened key derivation schema is needed to preserve security in HD Wallet.
 
 \bigskip
 {\textbf{The relation between normal keys derivation}}. From here to the rest of BIP32 section, we assume a scenario where:
@@ -333,9 +333,9 @@ On account of the mechanism elliptic curve mathematics works, the derived child 
     \bigskip
     {\textbf{First, the value}}. This shortcut can be used to create a very secure public key–only deployments where a server or application has a copy of an extended public key and no private keys whatsoever. That kind of deployment can produce an infinite number of public keys and Bitcoin addresses, but cannot spend any of the money sent to those addresses. Meanwhile, on another, more secure server, the extended private key can derive all the corresponding private keys to sign transactions and spend the money.
 
-    One common application of this solution is to install an extended public key on a web server that serves an eCommerce application. The web server can use the public key derivation function to create a new Bitcoin address for every transaction (e.g., for a customer shopping cart). The web server will not have any private keys that would be vulnerable to theft. Without HD wallets, the only way to do this is to generate thousands of Bitcoin addresses on a separate secure server and then preload them on the eCommerce server. That approach is cumbersome and requires constant maintenance to ensure that the eCommerce server doesn’t "run out" of addresses.
+    One common application of this solution is to install an extended public key on a web server that serves an eCommerce application. The web server can use the public key derivation function to create a new Bitcoin address for every transaction (e.g., for a customer shopping cart). The web server will not have any private keys that would be vulnerable to theft. Without HD wallets, the only way to do this is to generate thousands of Bitcoin addresses on a separate secure server and then preload them on the eCommerce server. That approach is cumbersome and requires constant maintenance to ensure that the eCommerce server doesn’t ``run out" of addresses.
 
-    Another common application of this solution is for cold storage or hardware wallets. In that scenario, the extended private key can be stored on a paper wallet or hardware device (such as a Trezor hardware wallet), while the extended public key can be kept online. The user can create "receive" addresses at will, while the private keys are safely stored offline. To spend the funds, the user can use the extended private key on an offline signing Bitcoin client or sign transactions on the hardware wallet device (e.g., Trezor).
+    Another common application of this solution is for cold storage or hardware wallets. In that scenario, the extended private key can be stored on a paper wallet or hardware device (such as a Trezor hardware wallet), while the extended public key can be kept online. The user can create ``receive" addresses at will, while the private keys are safely stored offline. To spend the funds, the user can use the extended private key on an offline signing Bitcoin client or sign transactions on the hardware wallet device (e.g., Trezor).
 
     The main use case for which this feature is advertised is in hierarchical organizations: the treasurer of a company might have control over the root private key of a BIP32 wallet and then hand off a “child” seed to each of the company’s departments who will then use that seed to operate their own wallet. The treasurer will have the master key to everything, but each department will only have the key to their own part of the funds.
 
@@ -486,7 +486,7 @@ The HMAC-SHA512 function is specified in the Background.
               \end{quote}
 
     \end{itemize}
-    In conclusion, pruning the scalar generated from the private key changes the linearity of the system completely. SLIP10 avoids these issues because it doesn't try to support non-hardened parent public key to child public key derivation and only supports hardened private parent key to private child key derivation when used with the ed25519 curve. Also, SLIP10 doesn't use any hardened derivation containing "bit clamping" in the process. The randomly generated child keys act as a seed in the next generation. In the signature generation, they don't have to prune the secret key the second time. SLIP10 remains the most implemented key derivation structure that the blockchain community uses and is recommended to use.
+    In conclusion, pruning the scalar generated from the private key changes the linearity of the system completely. SLIP10 avoids these issues because it doesn't try to support non-hardened parent public key to child public key derivation and only supports hardened private parent key to private child key derivation when used with the ed25519 curve. Also, SLIP10 doesn't use any hardened derivation containing ``bit clamping" in the process. The randomly generated child keys act as a seed in the next generation. In the signature generation, they don't have to prune the secret key the second time. SLIP10 remains the most implemented key derivation structure that the blockchain community uses and is recommended to use.
 
 \end{adjustwidth}
 
@@ -499,7 +499,7 @@ SatoshiLabs Improvement Proposals number 23 (SLIP23) is about Cardano HD master 
 In practice, there is much confusion in implementing the original paper to their library (or application). In every next part, we will present the most general ideas of the original paper.
 
 \bigskip
-{\textbf{Master Extended Key generation function (root key in the paper)}}. This scheme adopts the master node derivation used in BIP32 and SLIP10 but defines a new Key input "ed25519 cardano seed" for the Cardano deterministic key hierarchy. They implement ed25519's "bit clamping" to the derivation schema.
+{\textbf{Master Extended Key generation function (root key in the paper)}}. This scheme adopts the master node derivation used in BIP32 and SLIP10 but defines a new Key input ``ed25519 cardano seed" for the Cardano deterministic key hierarchy. They implement ed25519's ``bit clamping" to the derivation schema.
 \autoref{fig:slip23_master} describes the process.
 
 \begin{figure}[ht!]
@@ -517,7 +517,7 @@ Pseudo-code:
           \end{quote}
           \bigskip
 
-    \item Calculate $I$ := HMAC-SHA512(Key = "ed25519 cardano seed", Data = $S$).
+    \item Calculate $I$ := HMAC-SHA512(Key = ``ed25519 cardano seed", Data = $S$).
           \bigskip
     \item Split $I$ into two 32-byte sequences, $I_L$ as 32 bits left and $I_R$ as 32 bits right.
           \bigskip
@@ -688,7 +688,7 @@ Entropy values must be sourced from a strong source of randomness. This means fl
 Next, create a bit sequence of the SHA256 hash of ENT called checksum where n = ENT.length / 4. This value is appended to the end of ENT. Next, these converted bits are split into groups of 11 bits, each encoding a number from 0-2047, present as an index. Finally, we convert these numbers into words from the BIP39 wordlist and use these words as a mnemonic sentence.
 
 \bigskip
-{\textbf{Mnemonic to Seed}}. To create a root seed from the mnemonic, BIP39 uses the PBKDF2 function with the generated mnemonic sentence (in UTF-8 NFKD) used as the password and the string "mnemonic" + optional passphrase (UTF-8 NFKD) as the salt. The iteration count is set to 2048. The HMAC-SHA512 is used as the pseudo-random function, providing the length of the derived key is 512 bits (64 bytes).
+{\textbf{Mnemonic to Seed}}. To create a root seed from the mnemonic, BIP39 uses the PBKDF2 function with the generated mnemonic sentence (in UTF-8 NFKD) used as the password and the string ``mnemonic" + optional passphrase (UTF-8 NFKD) as the salt. The iteration count is set to 2048. The HMAC-SHA512 is used as the pseudo-random function, providing the length of the derived key is 512 bits (64 bytes).
 
 
 \subsection{BIP44 - Index Path for Multi-coin Wallet}
