@@ -447,7 +447,9 @@ The HMAC-SHA512 function is specified in the Background.
 
 \begin{adjustwidth}{1cm}{}
     \bigskip
-    {\textbf{Ed25519's private key is not the multipliers for the group generator}}
+    {\textbf{Ed25519's private key is not the multipliers}}. Ed25519 key pair generation is different from secp256k1. \autoref{fig:multiply_ed25519} shows how public key A was generated from private key k. As we present in Section \ref{blockchain}, the public key A is the encoding of the point caused by a fixed-base scalar multiplication [s]B (B is the generator) where s is a “bit-clamping” (or pruning) value produced from the left half of the HMAC function result. The linearity in the BIP32 schema is lost entirely when applied to the Ed25519 keypair. The private keys are now no longer multipliers for the group generator.
+
+    So the normal private keys, when derived, won’t correspond to the normal public key. The modified hash of the private key is now the multiplier. This cannot be changed since it is the core of speeding up in the ed25519 curve. Researchers will have to find out another way to work around key derivation for ed25519 because of this problem.
 
     \bigskip
     \begin{figure}[ht!]
@@ -457,14 +459,9 @@ The HMAC-SHA512 function is specified in the Background.
         \label{fig:multiply_ed25519}
     \end{figure}
 
-    Ed25519 key pair generation is different from secp256k1. \autoref{fig:multiply_ed25519} shows how public key A was generated from private key k. As we present in Section \ref{blockchain}, the public key A is the encoding of the point caused by a fixed-base scalar multiplication [s]B (B is the generator) where s is a “bit-clamping” (or pruning) value produced from the left half of the HMAC function result. The linearity in the BIP32 schema is lost entirely when applied to the Ed25519 keypair. The private keys are now no longer multipliers for the group generator.
-
-    So the normal private keys, when derived, won’t correspond to the normal public key. The modified hash of the private key is now the multiplier. This cannot be changed since it is the core of speeding up in the ed25519 curve. Researchers will have to find out another way to work around key derivation for ed25519 because of this problem.
 
     \bigskip
-    {\textbf{Ed25519's “bit clamping" problem}}
-
-    For performance reasons, ed25519 doesn't provide a prime-order group and provides a group of order h * l instead, where h is a small cofactor of 8 and l is a 252-bit prime (Section \ref{cryptography}). In short, a cofactor is one of the parameters that make up an elliptic curve. The number of points on the elliptic curve can be described as n = r * h where r is the prime order of a subgroup and h is the cofactor.
+    {\textbf{Ed25519's “bit clamping" problem}}. For performance reasons, ed25519 doesn't provide a prime-order group and provides a group of order h * l instead, where h is a small cofactor of 8 and l is a 252-bit prime (Section \ref{cryptography}). In short, a cofactor is one of the parameters that make up an elliptic curve. The number of points on the elliptic curve can be described as n = r * h where r is the prime order of a subgroup and h is the cofactor.
 
     The method of using a cofactor to boost a better performance \cite{DBLP:journals/iacr/BernsteinL17} has proven to be a source of issues and vulnerabilities in higher-layer protocol. If the cofactor is 1, like in many of the standardized curves, it’s not something we need to worry about. If it is not one, careful consideration needs to be made for its implications in cryptographic schemes to avoid a few types of attacks, notably small-subgroup attacks \cite{DBLP:journals/rfc/rfc2785} and more announced malleability attacks (For example in Monero Blockchain \cite{Riccardo}).
 
@@ -542,11 +539,11 @@ Pseudo-code:
 \end{enumerate}
 
 \bigskip
-{\textbf{Child key derivation function}}. Surprisingly, BIP32-ED25519 allows both normal and hardened derivation. We can even generate hardened derivations on public keys since the linearity is ignored. With B is the generator, the next parts will generalize the derivation processes.
+{\textbf{Child key derivation function}}. Surprisingly, BIP32-ED25519 allows both normal and hardened derivation. We can even generate hardened derivations on public keys since the linearity is ignored. With $B$ is the generator, the next parts will generalize the derivation processes.
 
 \begin{adjustwidth}{0.5cm}{}
     \bigskip
-    {\textbf{Private key derivation}}. Let $k$ = ($k_L$, $k_R$) be the extended private key and $K$ the public key. Extended private child key $k_i$ = ($k_L $, $k_R$) for child i is produced as \autoref{fig:slip23_private}.
+    {\textbf{Private key derivation}}. Let $k$ = ($k_L$, $k_R$) be the extended private key and $K$ the public key. Extended private child key $k_i$ = ($k_L $, $k_R$) for child $i$ is produced as \autoref{fig:slip23_private}.
     \begin{figure}[ht!]
         \centering
         \includegraphics[width=1\textwidth]{images/slip23_private.png}
@@ -574,7 +571,7 @@ Pseudo-code:
               \end{itemize}
               \bigskip
 
-        \item Split Z into two parts: the left 28-byte sequences $Z_L$ and right side 32-byte sequences $Z_R$.
+        \item Split $Z$ into two parts: the left 28-byte sequences $Z_L$ and right side 32-byte sequences $Z_R$.
               \begin{itemize}
                   \item let $k_L$ = 8$Z_L$ +  $k_{parL}$. If $k_L$ mod n (base order) = 0: return false.
 
@@ -586,7 +583,7 @@ Pseudo-code:
         \item The returned child private key ($k_L$, $k_R$).
 
               \bigskip
-        \item Check whether i $\geq$ $2^{31}$ (whether the child is a hardened key).
+        \item Check whether $i$ $\geq$ $2^{31}$ (whether the child is a hardened key).
               \begin{itemize}
                   \item If so (hardened child):
                         \begin{quote}
