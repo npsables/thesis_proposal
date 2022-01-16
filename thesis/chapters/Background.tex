@@ -1,11 +1,11 @@
 \chapter{Background}
 \label{chap:background}
 
-\textit{In this chapter, we introduce the foundation knowledge of the thesis, including the Blockchain Technology, Cryptography, and Hierarchical Deterministic Wallet (HD wallet)}
+\textit{In this chapter, we present the foundation knowledge of the thesis, including the block\hyp{}chain technology, cryptography, and hierarchical deterministic wallet (HD wallet)}
 
 \minitoc
 
-\section{Blockchain Technology}
+\section{Blockchain technology}
 \label{blockchain}
 \bigskip
 \subsection{What is blockchain?}
@@ -79,14 +79,15 @@ So, a group is set with one operation and the corresponding inverse operation. I
 
 \vspace{0.25cm}\textbf{Definition:} A field F is a set of elements with the following properties.
 \begin{itemize}
-  \item All elements of F form an additive group with the group operation “$+$” and the neutral element $0$.
-  \item All elements of F except $0$ form a multiplicative group with the group operation $\times$ and the neutral element $1$.
+  \item All elements of F form an additive group with the group operation ``$+$" and the neutral element $0$.
+  \item All elements of F except $0$ form a multiplicative group with the group operation ``$\times$" and the neutral element $1$.
   \item When the two group operations are mixed, the distributivity law holds, i.e., for all $a, b, c \in F: a \times (b+c) = (a \times b) + (a \times c)$.
 \end{itemize}
 
-In the elliptic curve, we are interested in fields with a finite number of elements, the finite field. The number of elements in the field $F_p$ is called the order (cardinality) of the field, denoted by $|F_p|$. A field with order $m$ only exists if $m$ is a prime power, i.e., $m = p^n$, for some positive integer $n$ and a prime integer $p$. $p$ is called the characteristic of the finite field, denoted as $char(p)$. A finite field is denoted as $GF(p^n)$ or $F_{p^n}$. The most intuitive examples of finite fields are fields of prime order with $n = 1$. Elements of the prime field $F_p$ can be represented by integers $0, 1, …, p-1$. The two operations of the field are modular integer addition and integer multiplication modulo $p$. With $n > 1$, the field is called extension field, the elements are polynomials $a_{n-1}X^{n-1} + a_{n-2}X^{n-2} + … + a_1X + a_0$, where the coefficient $a$ is in $F_p$. The arithmetic operations in an extension field are polynomial addition modulo $p$ with the coefficients and polynomial multiplication modulo $P(x)$. $P(x)$ is called the irreducible polynomials, which acts like ‘a prime’ of the polynomials.
+In the elliptic curve, we are interested in fields with a finite number of elements, the finite field. The number of elements in the field $F_p$ is called the order (cardinality) of the field, denoted by $|F_p|$. A field with order $m$ only exists if $m$ is a prime power, i.e., $m = p^n$, for some positive integer $n$ and a prime integer $p$. $p$ is called the characteristic of the finite field, denoted as $char(p)$. A finite field is denoted as $GF(p^n)$ or $F_{p^n}$. The most intuitive examples of finite fields are fields of prime order with $n = 1$. Elements of the prime field $F_p$ can be represented by integers $0, 1, \dotso , p-1$. The two operations of the field are modular integer addition and integer multiplication modulo $p$. With $n > 1$, the field is called extension field, the elements are polynomials $a_{n-1}X^{n-1} + a_{n-2}X^{n-2} + \dotso + a_1X + a_0$, where the coefficient $a$ is in $F_p$. The arithmetic operations in an extension field are polynomial addition modulo $p$ with the coefficients and polynomial multiplication modulo $P(x)$. $P(x)$ is called the irreducible polynomials, which acts like ``a prime" of the polynomials.
 
-Elliptic curve usually works in the prime field, to gain a finite number of curve points. The points on an elliptic curve over $F_p$ also belong to a group, called cyclic group. A cyclic group is a multiplicative group $F_p^* = {gcd(x,p) = 1 | x \in {1, 2, ..., p-1}}$, where $p$ is a prime and contains at least one special element $\alpha$. The element $\alpha$ is called primitive element or generator, such that $ord(\alpha) = |(F_p)^*|$, where the order of $\alpha$ ($ord(\alpha)$) is the smallest positive integer $k$ satisfies $a^k = a \circ a \circ … \circ a$ (k times) $= 1$. The multiplies of $\alpha$ generates all the elements in the $F_p^*$ , and they repeat cyclically similar to a modulo congruence. E.g.: For a $F_{11}^*$ with order of 10, the generator $\alpha$ can be 2 since.
+Elliptic curve usually works in the prime field, to gain a finite number of curve points. The points on an elliptic curve over $F_p$ also belong to a group, called cyclic group. A cyclic group is a multiplicative group $F_p^* = {gcd(x,p) = 1 | x \in {1, 2, \dotso , p-1}}$, where $p$ is a prime and contains at least one special element $\alpha$. The element $\alpha$ is called primitive element or generator, such that $ord(\alpha) = |(F_p)^*|$, where the order of $\alpha$ (denoted $ord(\alpha)$) is the smallest positive integer $k$ satisfies $a^k = a \circ a \circ \dotso \circ a$ (k times) $= 1$. The multiplies of $\alpha$ generates all the elements in the $F_p^*$ , and they repeat cyclically similar to a modulo congruence. E.g.: For a $F_{11}^*$ with order of 10, the generator $\alpha$ can be 2 since\\
+
 
 \setlength{\columnsep}{4cm}
 \begin{multicols}{2}
@@ -103,7 +104,6 @@ Elliptic curve usually works in the prime field, to gain a finite number of curv
   $\alpha^{11} \mod 11 = 2$
   $\alpha^{12} \mod 11 = 4$
   $\alpha^{13} \mod 11 = 8$
-  And so on...
 \end{multicols}
 
 
@@ -112,21 +112,21 @@ Note that there can be more than one generator for a cyclic group, but a group o
 \subsubsection{Weierstrass curve - the general form of an elliptic curve}
 About elliptic curves, there are curve types and equation types. An elliptic curve $E$ defined over a field $F_p$ is given by the equation
 
-\hspace{0.25cm}
+
 \begin{center}
-  $y^2 + a_1xy + a_2y \equiv x^3 + a_3x^2 + a_3x^2 + a_4x + a_5 \quad (mod \quad p)$\\
+  $y^2 + a_1xy + a_2y \equiv x^3 + a_3x^2 + a_3x^2 + a_4x + a_5 \quad (mod \ p)$,\\
 \end{center}
-\hspace{0.25cm}
+
 
 where the coefficients $a_i$ are elements in the field $F_p$. The set of points in $E(F_p)$ satisfied the equation and the point of infinity $\Theta$. The elliptic curves that satisfy the equation above are called Weierstrass curves, i.e., a curve type. Consider polynomials over $F_p$, where a characteristic $char(p) \neq 2,3$, the equation above can be reduced into a short Weierstrass form
 
-\hspace{0.25cm}
-\begin{center}
-  $y^2 \equiv x^3 + a_1x + a_2 \quad (mod \quad p)$, where $4a_1^3 + 27a_2^2 \not\equiv 0 \mod p$
-\end{center}
-\hspace{0.25cm}
 
-The set of all pairs $(x,y) \in F_p$ together with an imaginary point at infinity $\Theta$ satisfying the equation is the set of points on the elliptic curve, with the condition to exclude singular curve. The scalar multiplication, addition and doubling laws allow arithmetic operations in the elliptic curve group laws. The group laws for an elliptic curve
+\begin{center}
+  $y^2 \equiv x^3 + a_1x + a_2 \quad (mod \ p)$,
+\end{center}
+
+
+where $4a_1^3 + 27a_2^2 \not\equiv 0 \mod p$ to exclude singular curve. The set of all pairs $(x,y) \in F_p$ together with an imaginary point at infinity $\Theta$ satisfying the equation is the set of points on the elliptic curve, with the condition to exclude singular curve. The scalar multiplication, addition and doubling laws allow arithmetic operations in the elliptic curve group laws. The group laws for an elliptic curve
 
 \begin{itemize}
   \item The elements of the group are the points of an elliptic curve.
@@ -154,7 +154,7 @@ The point arithmetic operations defined in the group law are in geometric repres
   \item If $P = Q$, $P + Q = P + P = 2P = R$, the coordinates of $R$ can be computed as
 
         \begin{itemize}
-          \item[$\bullet$] Compute $s = (3x_1^2 + a_1 (2y_1)^{-1} \mod p$
+          \item[$\bullet$] Compute $s = (3x_1^2 + a_1 (2y_1)^{-1}) \mod p$
           \item[$\bullet$] Compute $x_3 = s^2 - 2x_1 \mod p$, and $y_3 = s(x_1 - x_3) - y_1 \mod p$
         \end{itemize}
 
@@ -179,7 +179,7 @@ Also, in practice, a point $P(x,y)$ can be compressed to an integer ($y$’s LSB
 Given an elliptic curve $E$, we consider a primitive element $P$ and other element $T$, the discrete log problem is finding an integer $d$, where
 \begin{center}
 
-$d \in [1, \#E]$ such that $P + P + … + P$ ("+" $d$ times) $= dP = T$.
+$d \in [1, \#E]$ such that $P + P + \dotso + P$ ("+" $d$ times) $= dP = T$.
 \end{center}
 
 The ECDLP is considered to be infeasible if the elliptic curve parameters are carefully chosen \cite{DBLP:journals/iacr/BosCLN14}. In ECC, we interpret the integer $d$ as the private key, $T$ as the public key, and the exact number of point points $E$ of a curve. The number of points on the curve can be counted by trying all the possible values for $x$ in $F_p$, but this is not efficient if the $p$ is a large prime. Haskel’s theorem only gives an upper and lower bound for number of point on an elliptic curve parameters are carefully chosen \cite{DBLP:journals/iacr/BosCLN14}. 
@@ -310,27 +310,27 @@ which means that the addition laws for twisted Edwards are complete (no exceptio
 \subsubsection{The standard ECDSA}
 ECDSA is a standard Digital Signature Algorithm for elliptic curve cryptography. The necessary parameters are defined above, with a hash function $H$ and the message $M$ needs to be signed. Denote that $k$ is the randomly generated private key in the range  $[1, n - 1]$, and $K$ is the public key by a scalar multiplication $K =[k]G$. To sign a message, do the following steps:
 
-\begin{itemize}
+\begin{enumerate}
   \item Choose a random integer $a$ from $[1, n - 1]$ (called nonce)
   \item Calculate $P = [a]G = (x, y)$, then $r = x \mod n$. If $r = 0$, goes back to step 1
-  \item If not, calculate $s=(m+rk) a^{-1} \mod n$,with $m = H(M)$ as the hash value of the message. If $s = 0$, goes back to step 1
+  \item If not, calculate $s=(m+rk) a^{-1} \mod n$, with $m = H(M)$ as the hash value of the message. If $s = 0$, goes back to step 1
   \item If not, the pair $(r, s)$ is the signature.
-\end{itemize}
+\end{enumerate}
 
-The process requires choosing an appropriate random integer $a$ to mask the private key through the modular multiplicative inverse of $a$ and the sum of $m$ with $r$ times $k$. To verify the signature, we re-calculate point $P’$ and compare the x-coordinate:
+The process requires choosing an appropriate random integer $a$ to mask the private key through the modular multiplicative inverse of $a$ and the sum of $m$ with $r$ times $k$. To verify the signature, we re-calculate point $P^\prime$ and compare the x-coordinate:
 
 \begin{itemize}
-  \item Calculate $u = s^{-1}m \mod n, v = s^{-1}r \mod n$
-  \item Calculate $P' = [u]G + [v]K = (x', y')$
-  \item Compare $r$ and $(x' \mod n)$; if they are congruent, the signature is valid
+  \item Calculate $u = s^{-1} m \mod n$ and $v = s^{-1} r \mod n$
+  \item Calculate $P^\prime = [u]G + [v]K = (x^\prime, y^\prime)$
+  \item Compare $r$ and $(x^\prime \mod n)$. If they are congruent, the signature is valid
 \end{itemize}
 
 The algorithm’s proof of correctness
 
 \begin{itemize}
-  \item $P’ = [u]G + [v]K = [u]G + [vk]G = [u +vk]G = [s^{-1}m \mod n + s^{-1}rk \mod n]G = [s^{-1}(m + rk) \mod n]G$ (1)
+  \item $P^\prime = [u]G + [v]K = [u]G + [vk]G = [u +vk]G = [s^{-1}m \mod n + s^{-1}rk \mod n]G = [s^{-1}(m + rk) \mod n]G$ (1)
   \item Since $s = a^{-1}(m+rk) \mod n \Rightarrow a = s^{-1}(m+rk) \mod n$ (2)
-  \item Substitute (2) into (1), $P’ = [s^{-1}(m + rk) \mod n]G = [a]G = P$
+  \item Substitute (2) into (1), $P^\prime = [s^{-1}(m + rk) \mod n]G = [a]G = P$
 \end{itemize}
 
 The verification is simple to understand, but note that we have to calculate modular multiplicative inverse in both processes, signing and verifying. The modular inverse is an expensive ECC computation. In modular arithmetic, to find a multiplicative inverse of an integer $a$ with a prime $p$, we first compute if $gcd(a, p) = 1$ to know If $a$ has a modular inverse. ECC requires one more condition compared to modular arithmetic: the point needs to be on the curve, which means the coordinates have to satisfy the curve equation and follow the curve’s addition law. That’s why signing a message takes a lot of trial and error to find a suitable nonce. Moreover, to ensure the private key won’t be leaked, the nonce has to be randomly generated for every signature. Or else, the private key can be retrieved as follow
@@ -355,22 +355,22 @@ EdDSA is a digital signature scheme using a variant of Schnorr’s signature bas
   \item Choose a private key $k$ in range $[1, n -1]$ and calculate $P = [k]G$
   \item Hash the message $M$ to obtain $m = H(M)$
   \item Generate a random number $z$ in range $[1, n -1]$, then calculate $R = [z]G$
-  \item Calculate $s = z + H(r \| P \| m) \times k$, where $r$ is the x-coordinate of the point $R$, $\|$ denote string concatenation
-  \item The signature is the pair $(r, s)$
+  \item Calculate $s = z + H(r \ \| \ P \ \| \ m) \times k$, where $r$ is the x-coordinate of the point $R(x, \ y)$, and the symbol ``$\|$" denote string concatenation
+  \item The signature is the pair $(r, \ s)$
 \end{itemize}
 
-Once you obtain the signature $(r, s)$ and the public key (the point $P$), you can verify it by
+Once you obtain the signature $(r, \ s)$ and the public key (the point $P$), you can verify it by
 
 \begin{itemize}
-  \item Calculate $R(r, y)$ with $r$
-  \item Verify if $[s]G = R + [H(r \| P \| m)]P$. If true, the signature is valid
+  \item Calculate $R(x, \ y)$ with $r$ as the x-coordinate
+  \item Verify if $[s]G = R + [H(r \ \| \ P \ \| \ m)]P$. If true, the signature is valid
 \end{itemize}
 
 Proof of correctness
 
 \begin{itemize}
-  \item LHS: $[s]G = [z + H(r \| P \| m) \times k]G$
-  \item RHS: $R + [H(r \| P \| m)] P = [z]G + [H(r \| P \| m)] \times [k]G = [z]G + [H(r \| P \| m) \times k]G = [z + H(r \| P \| m) \times k]G = LHS$
+  \item LHS: $[s]G = [z + H(r \ \| \ P \ \| \ m) \times k]G$
+  \item RHS: $R + [H(r \ \| \ P \ \| \ m)] P = [z]G + [H(r \| P \| m)] \times [k]G = [z]G + [H(r \| P \| m) \times k]G = [z + H(r \ \| \ P \ \| \ m) \times k]G =$ LHS
 \end{itemize}
 
 Schnorr’s signature algorithm, therefore, guarantees that if either $r$, the original message $m$, or the public key $P$ is invalid, the signature is also invalid. Note that a point is compressed when hashing, with a corresponding compression scheme for the curve. Then, in 2012, Daniel J. Bernstein, Niels Duif, Tanja Lange, Peter Schwabe, and Bo-Yin Yang adjusted Schnorr’s signature for twisted Edwards curve and developed an EdDSA scheme, called Ed25519. Since Ed25519 use a point little-endian encoding scheme, the key generation is a bit different
@@ -380,11 +380,11 @@ Schnorr’s signature algorithm, therefore, guarantees that if either $r$, the o
   \item Public key: also a $b$-bit integer. To generate a public key from the private key
 
         \begin{itemize}
-          \item[$\bullet$] Hash the private key: $H(k) = (h_0, h_1,…, h_{2b-1})$
-          \item[$\bullet$] Use the lower 32 bytes $(h_0, h_1,..., h_{b-1})$ for buffer. Pruning the buffer by setting $h_0 = h_1 = h_2= h_{b-1} = 0$, and $h_{b-2} = 1$
+          \item[$\bullet$] Hash the private key: $H(k) = (h_0, h_1, \dotso , h_{2b-1})$
+          \item[$\bullet$] Use the lower 32 bytes $(h_0, h_1, \dotso , h_{b-1})$ for buffer. Pruning the buffer by setting $h_0 = h_1 = h_2= h_{b-1} = 0$, and $h_{b-2} = 1$
           \item[$\bullet$] Interpret the buffer as a little-endian integer, denoted $s$
-          \item[$\bullet$] Computer the point $A’ = [s]B$
-          \item[$\bullet$] Encode $A’$ to obtain $A$. $A$ is the public key
+          \item[$\bullet$] Computer the point $A^\prime = [s]B$
+          \item[$\bullet$] Encode $A^\prime$ to obtain $A$. $A$ is the public key
         \end{itemize}
 
 \end{itemize}
@@ -392,31 +392,31 @@ Schnorr’s signature algorithm, therefore, guarantees that if either $r$, the o
 To sign a message $M$, you need the private key $k$ and the public key $A$. The steps are
 
 \begin{itemize}
-  \item Hash the private key:  $H(k) = (h_0, h_1 ,…, h_{2b-1})$
-  \item Use the higher 32 bytes $(h_b, h_{b+1},..., h_{2b-1})$ for buffer
-  \item Compute $r = H($ buffer $\| M) \mod L$
-  \item Compute $R’ = [r]B$ and encode $R’$ to gain $R$
+  \item Hash the private key:  $H(k) = (h_0, h_1 ,\dotso, h_{2b-1})$
+  \item Use the higher 32 bytes $(h_b, h_{b+1},\dotso, h_{2b-1})$ for buffer
+  \item Compute $r = H(buffer \ \| \ M) \mod L$
+  \item Compute $R^\prime = [r]B$ and encode $R^\prime$ to gain $R$
   \item Compute $s$ (the same as public key generation). Then compute and encode to obtain the public key $A$
-  \item Compute $e = H(R\|A\|M) \mod L$
-  \item Compute $S’ = (r+e \times s) \mod L$, encode $S’$ to obtain $S$
-  \item The signatures is $(R \| S)$
+  \item Compute $e = H(R \ \| \ A \ \| \ M) \mod L$
+  \item Compute $S^\prime = (r+e \times s) \mod L$, encode $S^\prime$ to obtain $S$
+  \item The signatures is $(R \ \| \ S)$
 \end{itemize}
 
-Note that $S$ is the little-endian encoding of $S’$, which has the three MSB of the final octets are always zero. This causes the last 3 bits of the signature $(R \| S)$ are also zeros. For verification, any decoding failure means that the signatures are invalid. To verify the signature $(R \| S)$\\
+Note that $S$ is the little-endian encoding of $S^\prime$, which has the three MSB of the final octets are always zero. This causes the last 3 bits of the signature $(R \ \| \ S)$ are also zeros. For verification, any decoding failure means that the signatures are invalid. To verify the signature $(R \| S)$\\
 
 \begin{itemize}
-  \item Decode the first half (the first 256 bits) of the signature for $R’$ and the other half for $S’$
-  \item Decode $A$ to obtain $A’$
-  \item Compute $e’ = H(R\|A\|M)$ as a 64-byte little-endian integer
-  \item If $[S’]B = R’ + [e’]A’$, then the signature is valid
+  \item Decode the first half (the first 256 bits) of the signature for $R^\prime$ and the other half for $S^\prime$
+  \item Decode $A$ to obtain $A^\prime$
+  \item Compute $e^\prime = H(R \ \| \ A \ \| \ M)$ as a 64-byte little-endian integer
+  \item If $[S^\prime]B = R^\prime + [e^\prime]A^\prime$, then the signature is valid
 \end{itemize}
 
-Take a note that $e’$ (512-bit) is congruent to $e$(253-bit) mod $L$, which means the scalar multiplication will result in the same point. Proof-of-correctness
+Take a note that $e^\prime$ (512-bit) is congruent to $e$(253-bit) mod $L$, which means the scalar multiplication will result in the same point. Proof-of-correctness
 
 \begin{itemize}
-  \item LHS = $[S]B = [(r + e \times s) \mod L]B = [r \mod L]B + [e \times s \mod L]B = [r]B + [e \times s]B = R’ + [e]A’$
-  \item As noted, $[e’]P = [e]P \Rightarrow [e’]A’ = [e]A’$ (1)
-  \item Substitute (1) into LHS = $R’ + [e]A’ = R’ + [e’]A’$ = RHS
+  \item LHS = $[S]B = [(r + e \times s) \mod L]B = [r \mod L]B + [e \times s \mod L]B = [r]B + [e \times s]B = R^\prime + [e]A^\prime$
+  \item As noted, $[e^\prime]P = [e]P \Rightarrow [e^\prime]A^\prime = [e]A^\prime$ (1)
+  \item Substitute (1) into LHS = $R^\prime + [e]A^\prime = R^\prime + [e^\prime]A^\prime$ = RHS
 \end{itemize}
 
 In EdDSA, we can see that there is no random nonce used. Instead, EdDSA uses a deterministic nonce from the message digest and a part of the private key. Through all the process, the private key is not used directly to sign, ensure that there are no information about the private key can be leaked.

@@ -48,6 +48,9 @@
 \usepackage{amsthm,thmtools}
 \usepackage{pgfgantt}
 \usepackage{multicol}
+\usepackage{hyphenat}
+\usepackage{tocloft}
+\usepackage{etoc}
 
 \declaretheorem{theorem}
 \declaretheorem[style=definition]{definition}
@@ -182,7 +185,7 @@
 \mtcsetrules{minitoc}{off}
 \mtcsetfeature{minitoc}{after}{\vspace{-30pt}}
 \mtcsetfeature{minitoc}{before}{\vspace{-30pt}}
-\setcounter{minitocdepth}{3}
+\setcounter{minitocdepth}{1}
 \let\oldminitoc\minitoc
 \renewcommand{\minitoc}{
   \vfill
