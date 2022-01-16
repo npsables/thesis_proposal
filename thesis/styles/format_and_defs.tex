@@ -24,6 +24,7 @@
 \usepackage[utf8]{inputenc} % The default since 2018
 \DeclareUnicodeCharacter{200B}{{\hskip 0pt}}
 \usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{tikz}
 \usetikzlibrary{automata, arrows, calc, arrows.meta}
 \usepackage{float}
@@ -182,7 +183,7 @@
 \mtcsetrules{minitoc}{off}
 \mtcsetfeature{minitoc}{after}{\vspace{-30pt}}
 \mtcsetfeature{minitoc}{before}{\vspace{-30pt}}
-\setcounter{minitocdepth}{3}
+\setcounter{minitocdepth}{1}
 \let\oldminitoc\minitoc
 \renewcommand{\minitoc}{
   \vfill
