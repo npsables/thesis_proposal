@@ -116,6 +116,24 @@ We also make sure the requests and connection of the wallet to the blockchain wi
 
 \section{The Hierarchical Deterministic Web Wallet}
 \label{testhd}
+\subsection{Testcases}
+We test our Web Wallet behaviors by following testcases.
+{\textbf{Test table}}
+\bigskip
+
+\begin{tabular}{| m{2cm} | m{4.5cm} | m{6cm} | m{2cm} | m{1.5cm} |}
+    \hline
+    ID & Description & Expected Result & Actual Result & Pass/Fail                                            \\ \hline
+    HDW-01 & Create a new mnemonic word and create a new wallet from it. & Go to the main page successfully & As expected & Pass \\ \hline
+    HDW-02 & Import a mnemonic word and restore a wallet.  &  Go to the main page successfully. & As expected & Pass  \\ \hline
+    HDW-03 & Request airdrop 1 SOL from the Solana devnet. &  The balance increased by 1 SOL. & As expected & Pass    \\ \hline
+    HDW-04 & Transfer 0.05 SOL using send in the main page. &  The balance is reduced by the 0.05 SOL with some fee (0.00005 SOL), and the receiver received 0.05 of SOL & As expected & Pass   \\ \hline
+    HDW-05 & Delete and logout in the main page. &  The localStorage is cleared and the user is brought to the homepage. & As expected & Pass   \\ \hline
+    HDW-06 & Push a child address to the address service.&  The server received the request and store the address to the database. & As expected & Pass   \\ \hline
+    HDW-07 & Pull a child address from the address service.&  The server received the request and delete the address from the database. & As expected & Pass   \\ \hline
+    HDW-08 & Create a child wallet in the main page.&  A wallet is create with the path includes the index provided by the user and the purpose is displayed correctly from the user's input. & As expected & Pass   \\ \hline
+    HDW-09 & Search a child wallet's address using the master wallet address in the main page.& Display all the pushed child wallets's addresses of the master address from the databases. & As expected & Pass   \\ \hline
+\end{tabular}
 \subsection{Security Discussion}
 
 We think that no system is perfectly safe from security threats. At least, we can prevent common attacks from happening. Observing mentioned OWASP’s securities risk, we present as follows:
