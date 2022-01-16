@@ -1,8 +1,7 @@
 \chapter{Introduction} 
 \label{Introduction}
 
-\textit{In this chapter, we are going to discuss the overview of the wallet we are creating. Thus, we are going to present the objective, scope, and structure
-of this thesis.}
+\textit{In this chapter, we are going to discuss the overview of the wallet we are creating. Thus, we are going to present the objective, scope, and structure of this thesis.}
 \adjustmtc
 \minitoc
 \section{Overview}
@@ -22,7 +21,7 @@ You can make a transaction directly, from your crypto wallet to another wallet, 
 
 We focus on the security and availability of the crypto wallet. In the blockchain system, there are no intermediaries or brokerages, which means all of the responsibility of your crypto asset is on you. The only way to access your crypto assets is your crypto wallet. If you lose your wallet deliberately (no backup, key leakage,..) or not (hacked, program error,...), you take it all. It’s too risky and unfair if the crypto wallet is insecure and inefficient. At least, the tradeoff by the CIA triad must be acceptable.
 
-The release of Curve25519 from the safecurves project \cite{Bernstein2006}, which has an incredible speed in ECDH and is applicable in the digital signature ed25519 \cite{Bernstein2011}, marks a new trend in ECC. The standard ECDSA has had a flaw since 2009 \cite{Schmidt2009} so the need of a higher-security signature is vital. Also, the expiration of Schnorr’s signature patent in 2008 allows ed25519, a digital signature based on Schnorr’s signature and the twisted Edwards curve, to be publicly used. The advantages of ed25519 are comprised from the RFC 8032 document \cite{Josefsson2017}:
+The release of Curve25519 from the safecurves project \cite{Bernstein2006}, which has an incredible speed in ECDH and is applicable in the digital signature ed25519 \cite{Bernstein2011}, marks a new trend in ECC. The standard ECDSA has had a flaw since 2009 \cite{Schmidt2009} so the need of a higher-security signature is vital. Also, the expiration of Schnorr’s signature patent in 2008 allows ed25519, a digital signature based on Schnorr’s signature and the twisted Edwards curve, to be publicly used. The advantages of Ed25519 are comprised from the RFC 8032 document \cite{Josefsson2017}:
 
 \begin{enumerate}
     \item High performance in various platforms.   
@@ -43,13 +42,13 @@ In this thesis, we study elliptic curve cryptography and its digital signature a
 
 The contents of our thesis are presented in seven chapters, namely:
 
-\textbf{Chapter 2} introduces and discusses the background knowledge of this thesis, including the necessary knowledge of the HD Wallet and Blockchain network, group and field for Elliptic Curve Cryptography, Schemas of ed25519 and its performance as well as the important Cryptography functions.
+\textbf{Chapter 2} introduces and discusses the background knowledge of this thesis, including the necessary knowledge of the HD wallet and blockchain network, group and field for elliptic curve cryptography, schemas of Ed25519 and its performance as well as the important cryptography functions.
 
-\textbf{Chapter 3} discusses the protocols of the HD Wallet, the related works on implemented library and some open source wallet that used in the industry. 
+\textbf{Chapter 3} discusses the protocols of the HD wallet, the related works on implemented library and some open source wallet that used in the industry. 
 
-\textbf{Chapter 4} shows our system design for the HD Wallet for ed25519, how did we solve the challenge on key derivation schema. We also improve the wallet by letting it hold tokens of different Blockchains (expanding with secp256k1 curve).
+\textbf{Chapter 4} shows our system design for the HD Wallet for ed25519, how did we solve the challenge on key derivation schema. We also improve the wallet by letting it hold tokens of different blockchains (expanding with Secp256k1 curve).
 
-\textbf{Chapter 5} describes how we actually implement the HD Wallet, including the discussion on library that we used.
+\textbf{Chapter 5} describes how we actually implement the HD wallet, including the discussion on library that we used.
 
 \textbf{Chapter 6} summarizes the testing results of our application.
 

@@ -1,5 +1,5 @@
 \chapter{System design} \label{chap:System_desgin}
-\textit{This chapter describes the process of designing our implementation. We divide our work into creating an open-source library that can help developers handle the primary function of a HD wallet (key generation, transaction integration, balance checking, etc.) and a Web Wallet for cryptocurrency users. }
+\textit{This chapter describes the process of designing our implementation. We divide our work into creating an open-source library that can help developers handle the primary function of an HD wallet (key generation, transaction integration, balance checking, etc.) and a Web Wallet for cryptocurrency users. }
 
 \minitoc
 
@@ -13,7 +13,7 @@ Also, we believe anyone should have access to any of the non-custodial wallets s
 
 The library is supposed to be easy to maintain, read and contribute to. We organize as \autoref{fig:lib1}:
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.5\textwidth]{images/lib_struct.png}
     \caption[General library structure]{General library structure}
@@ -50,7 +50,7 @@ For testing our library, we use test vectors. A test vector offers a compact way
 
 A test case contains steps as in \autoref{fig:testcase}. The test case includes specific variables or conditions, using which a user can compare expected and actual results to determine whether the library behaves appropriately as per their requirements.
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/testcase.png}
     \caption[Testcase components]{Testcase components}
@@ -86,7 +86,7 @@ We decided to create a web wallet for our thesis so we don’t have to deal with
 
 Our web wallet is a non-custodial hot wallet where users can sign in, generate accounts in different blockchains, and send and receive native tokens (see \autoref{fig:webwallet}). They have absolute controls over private keys for every blockchain address, and the wallet provider has no access to them. We will use the localhost environment as a server for the wallet provider.
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/webwallet.png}
     \caption[Example of Web Wallet flow]{Example of Web Wallet flow}
@@ -120,7 +120,7 @@ We use both secp256k1 and ed25519 digital signature algorithms to sign our walle
 Derivation function is the most important part of our wallets. We presented three of the most famous schemas in Chapter \ref{chap: Related works}. In order to match the standard of cryptography technology to achieve a securely appropriate application, we will adapt hardened key derivation of both BIP32 (for secp256k1) and SLIP10 (for ed25519) for our wallet.
 Our key derivation tree will look like \autoref{fig:webwallettree}
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{images/tree_web_wallet.png}
     \caption[HD Web Wallet tree]{HD Web Wallet tree}
@@ -177,7 +177,7 @@ In practice, our system requires a server to host the RESTful web service to han
 
 The protocols between users and our server describes as \autoref{fig:uws}:
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/design_uws.png}
     \caption[Between users and Wallet Provider]{Between users and Wallet Provider}
@@ -194,7 +194,7 @@ If the users want to make a transaction they will connect directly to the blockc
 
 The protocols described as \autoref{fig:ubl}:
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/design_ubl.png}
     \caption[Between users and Blockchain network]{Between users and Blockchain network}
@@ -205,7 +205,7 @@ The protocols described as \autoref{fig:ubl}:
 
 We created another server to handle “Address service”. Note that we can combine this server with the Web Service Server above. But they served different purposes, and we don’t want our system to be synthetic. Furthermore, this separated architecture will be easier to update and test.
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/design_uas.png}
     \caption[Between users and Address Service]{Between users and Address Service}
@@ -217,7 +217,7 @@ The JSON data contains the address of master wallet and default child wallets.
 We created the term "default child" just for init the hierarchical tree.
 The structure of the JSON request present as Figure~\ref{fig:json}.
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\textwidth]{images/design_json.png}
     \caption[Request Data]{Request Data}
@@ -228,7 +228,7 @@ The database handler will save the JSON object from the request handler. The rea
 
 The database is designed just like the JSON object, but holds more values (see \autoref{fig:json1})
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\textwidth]{images/json1.png}
     \caption[General JSON object of a Wallet]{JSON object of a Wallet}
@@ -257,7 +257,7 @@ The security tests will be examined with specific aims and different tools. We w
 
 \subsubsection{Use Case diagram}
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{images/usecases.png}
     \caption[Usecase diagram]{Usecase diagram}
@@ -539,7 +539,7 @@ The security tests will be examined with specific aims and different tools. We w
 We designed the UI with Figma, a free web-based tools. Based on the use cases, the website would have these functionalities: create or import a wallet, create a child wallet, delete wallet (delete the mnemonic from local storage and logout), search for a destination address, modify current address on the server, and finally make a transaction. At the beginning, the website needs your wallet to perform all the other functions so the homepage should require you to create a new wallet or import your own wallet using your mnemonic code.
 
 % Homepage design
-\begin{figure}[h!]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.8\textwidth]{images/component01.png}
   \caption[Homepage design]{Homepage design}
@@ -549,14 +549,14 @@ We designed the UI with Figma, a free web-based tools. Based on the use cases, t
 
 Depend on your choice, the website then allows you to choose a mnemonic code and backup if you want to create a new one, or simply paste your mnemonic to restore your own wallet.
 
-\begin{figure}[h!]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.8\textwidth]{images/component02.png}
   \caption[Create mnemonic]{Create mnemonic}
   \label{fig:create_mnemonic}
 \end{figure}
 \bigbreak
-\begin{figure}[h!]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.9\textwidth]{images/component03.png}
   \caption[Import mnemonic]{Import mnemonic}
@@ -565,14 +565,14 @@ Depend on your choice, the website then allows you to choose a mnemonic code and
 
 After that, you are on the main page. The navigation bar will provide you with the option to delete wallet, and change the current blockchain network. The main content is the list of each wallet and all the standard functionalities of a wallet, which looks like a dropdown list.\\
 
-\begin{figure}[h!]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{images/component04.png}
   \caption[Main page]{Main page}
   \label{fig:maine_page}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=1\textwidth]{images/component05.png}
   \caption[List functionality]{List functionality}
