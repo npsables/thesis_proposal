@@ -352,7 +352,7 @@ On account of the mechanism elliptic curve mathematics works, the derived child 
     \end{equation}
 
     \bigskip
-    If the attackers already have users private keys, they are more likely to possess the index i as well, even if they are not, they can still brute force the index (range 0 to $2^{31}$) until satisfied the K(i) = k(i) * G. So that they can easily produce the parent private key. Not only that, together with a parent chain code, if they were continuing to perform the formula, they can reveal the master secret key. Worse, the master secret key with it’s chain code will generate the entire private keys of all the wallets.
+    If the attackers already have users private keys, they are more likely to possess the index i as well, even if they are not, they can still brute force the index (range 0 to $2^{31}$) until satisfied the $K(i) = k(i) * G$. So that they can easily produce the parent private key. Not only that, together with a parent chain code, if they were continuing to perform the formula, they can reveal the master secret key. Worse, the master secret key with it’s chain code will generate the entire private keys of all the wallets.
 
     \bigskip
     {\textbf{Avoiding the weakness}}. The ability to derive a branch of public keys from an extended public key is advantageous, but it comes with the above potential risk. The more keys derived for each party lead to the more fragile their wallet becomes. In practice, we see a lot of HD wallets still use normal key derivation like (\href{https://electrum.org/#home}{Electrum lightweight Bitcoin Wallet}). We evaluate these kinds of wallets in Section \ref{related}. Right now, we consider those applications that use normal key derivation that their security limitations are well worth the benefit.
@@ -447,7 +447,7 @@ The HMAC-SHA512 function is specified in the Background.
 
 \begin{adjustwidth}{1cm}{}
     \bigskip
-    {\textbf{Ed25519's private key is not the multipliers}}. Ed25519 key pair generation is different from secp256k1. \autoref{fig:multiply_ed25519} shows how public key A was generated from private key k. As we present in Section \ref{blockchain}, the public key A is the encoding of the point caused by a fixed-base scalar multiplication [s]B (B is the generator) where s is a “bit-clamping” (or pruning) value produced from the left half of the HMAC function result. The linearity in the BIP32 schema is lost entirely when applied to the Ed25519 keypair. The private keys are now no longer multipliers for the group generator.
+    {\textbf{Ed25519's private key is not the multipliers}}. Ed25519 key pair generation is different from secp256k1. \autoref{fig:multiply_ed25519} shows how public key A was generated from private key k. As we present in Section \ref{blockchain}, the public key A is the encoding of the point caused by a fixed-base scalar multiplication $[s]B$ ($B$ is the generator) where $s$ is a “bit-clamping” (or pruning) value produced from the left half of the HMAC function result. The linearity in the BIP32 schema is lost entirely when applied to the Ed25519 keypair. The private keys are now no longer multipliers for the group generator.
 
     So the normal private keys, when derived, won’t correspond to the normal public key. The modified hash of the private key is now the multiplier. This cannot be changed since it is the core of speeding up in the Ed25519 curve. Researchers will have to find out another way to work around key derivation for Ed25519 because of this problem.
 
@@ -576,7 +576,7 @@ Pseudo-code:
               \begin{itemize}
                   \item let $k_L$ = 8$Z_L$ +  $k_{parL}$. If $k_L$ mod n (base order) = 0: return false.
 
-                  \item let  $k_R$ = $Z_R$ +  $k_{parR}$ (mod 2**256)
+                  \item let  $k_R$ = $Z_R$ +  $k_{parR}$ (mod $2^{256}$)
 
               \end{itemize}
               \bigskip
@@ -662,7 +662,7 @@ Pseudo-code:
 \end{adjustwidth}
 
 \bigskip
-{\textbf{The BIP32-Ed25519 key leakage problem}}. Same as BIP32, the problem is if the attackers have one of the private child keys, can they recover all of the other wallets? The answer is no thanks to the hash function HMAC-SHA512 between the secret parent key and its children. Therefore, the extended key can be guessed by brute-force 2**256 different master secrets. But the number of recovered wallets is only limited in this case. They can retrieve only the parent keys they derived from and then generate all branches of child keys from that node. This may lead to a fundamental leakage problem if the implementers fail to check the depth of child wallets. The implementers also have difficulties reviewing all the cases, even harder to keep track of the depth when more child wallets are produced. This case raises a problem in our thesis where we allow users (who have no ideas of the security issues) to choose their index and depth of the tree. Hardened derivation of BIP32-Ed25519 also is vulnerable to this attack vector. Furthermore, using the public key as a part of the function to derive a child private key won’t serve the standard properties that the SLIP10 hardened key provided.
+{\textbf{The BIP32-Ed25519 key leakage problem}}. Same as BIP32, the problem is if the attackers have one of the private child keys, can they recover all of the other wallets? The answer is no thanks to the hash function HMAC-SHA512 between the secret parent key and its children. Therefore, the extended key can be guessed by brute-force $2^{256}$ different master secrets. But the number of recovered wallets is only limited in this case. They can retrieve only the parent keys they derived from and then generate all branches of child keys from that node. This may lead to a fundamental leakage problem if the implementers fail to check the depth of child wallets. The implementers also have difficulties reviewing all the cases, even harder to keep track of the depth when more child wallets are produced. This case raises a problem in our thesis where we allow users (who have no ideas of the security issues) to choose their index and depth of the tree. Hardened derivation of BIP32-Ed25519 also is vulnerable to this attack vector. Furthermore, using the public key as a part of the function to derive a child private key won’t serve the standard properties that the SLIP10 hardened key provided.
 
 \bigskip
 {\textbf{The BIP32-Ed25519 bit clamping before signing problem}}. Jeff Burdges (Web3 Foundation, Polkadot Blockchain), who is famous for finding the vulnerabilities in the BIP32-Ed25519 proposal, warned us about a potential attack vector occurring under the many time the derivation function clamping. Ed25519’s bit clamping is only designed for preventing attacks in the signing method and key exchange. According to Burdges, clamping the bits doesn’t make the key more secure; instead, it makes the key weaker. BIP32-Ed25519 also uses only 224-bit scalar derivation (28-byte), so each level of derivation weakens the adequate strength of the computed scalar value.
