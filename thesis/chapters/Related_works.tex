@@ -749,7 +749,7 @@ Furthermore, vbmirthr's instructions to discard the seed (i.e. master secret) if
 \bigskip
 {\textbf{Real-world application}}
 
-Interestingly, the IOTA ledger combines Ed25519 as a second signature scheme with the currently used Winternitz-OTS [Ref] but uses SLIP10 as their key derivation schema.
+Interestingly, the IOTA ledger combines Ed25519 as a second signature scheme with the currently used Winternitz-OTS \cite{IOTA} but uses SLIP10 as their key derivation schema.
 They aim to address all the points above with the drawback of being less quantum robust. The digital signature is called a bundle, and they prove it is sufficiently immune against a powerful quantum computer running Shor’s algorithm \cite{shor} when addresses are not reused.
 
 Sollet \cite{sollet} is a famous open-source non-custodial and HD wallet for users to manage assets on the Solana blockchain safely. Users can access the wallet by their browser. The wallet provided multiple types of token (only on chain) management. But the user only has access to one wallet at a time. If they want to use another, they will have to log out and choose a different index. The wallet is mainly used by developers for testing.
