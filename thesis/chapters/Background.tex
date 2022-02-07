@@ -10,9 +10,9 @@
 \bigskip
 \subsection{What is blockchain?}
 
-Blockchains are immutable digital ledger systems implemented in a distributed fashion (i.e., without a central repository) and usually without a central authority. The definition of blockchain was introduced to the world by a person (or a group of people) under the name Satoshi Nakamoto on October 31, 2008. It was applied to enable the emergence of a "purely peer-to-peer (no financial institution or third party) electronic cash" named Bitcoin where transactions take place in a distributed system. Satoshi did not invent the blockchain, and the Bitcoin blockchain is not the first chain that was ever created.
+Blockchains are immutable digital ledger systems implemented in a distributed fashion (i.e., without a central repository) and usually without a central authority. The definition of blockchain was introduced to the world by a person (or a group of people) under the name Satoshi Nakamoto on October 31, 2008. It was applied to enable the emergence of a ``purely peer-to-peer (no financial institution or third party) electronic cash" named Bitcoin where transactions take place in a distributed system. Satoshi did not invent the blockchain, and the Bitcoin blockchain is not the first chain that was ever created.
 
-The word "blockchain" or "block" and "chain" wasn't used back then. Only when it was known in Satoshi Nakamoto's Bitcoin paper did the term "chain" of "blocks” become a representation for this technology. Later on, the community used that word for Nakamoto's invention. Bound to the emergence of Bitcoin and cryptocurrency, a concise description of blockchain technology is provided by NIST: Blockchains are distributed digital ledgers of cryptographically signed transactions that are grouped into blocks. Each block is cryptographically linked to the previous one (making it tamper evident) after validation and undergoing a consensus decision. As new blocks are added, older blocks become more difficult to modify (creating tamper resistance). New blocks are replicated across copies of the ledger within the network, and any conflicts are resolved automatically using established rules.
+The word ``blockchain" or ``block" and ``chain" wasn't used back then. Only when it was known in Satoshi Nakamoto's Bitcoin paper did the term ``chain" of ``blocks” become a representation for this technology. Later on, the community used that word for Nakamoto's invention. Bound to the emergence of Bitcoin and cryptocurrency, a concise description of blockchain technology is provided by NIST: Blockchains are distributed digital ledgers of cryptographically signed transactions that are grouped into blocks. Each block is cryptographically linked to the previous one (making it tamper evident) after validation and undergoing a consensus decision. As new blocks are added, older blocks become more difficult to modify (creating tamper resistance). New blocks are replicated across copies of the ledger within the network, and any conflicts are resolved automatically using established rules.
 
 \subsection{How does it works?}
 
@@ -26,7 +26,7 @@ Suppose that Alice wants to send 10 BTC to Bob, she uses her blockchain wallet t
 
 \subsection{What is a blockchain wallet?}
 
-A blockchain wallet, sometimes referred to as a cryptocurrency wallet or crypto wallet, is a program that allows you to "store", send and receive digital currencies. Since cryptocurrency doesn’t exist in any physical form, your wallet doesn't actually hold any of your coins. Instead, it tracks the transactions you made, which are stored in blockchain, and then infers your balance. Thereby, blockchain is an essential component of a blockchain wallet.
+A blockchain wallet, sometimes referred to as a cryptocurrency wallet or crypto wallet, is a program that allows you to ``store", send and receive digital currencies. Since cryptocurrency doesn’t exist in any physical form, your wallet doesn't actually hold any of your coins. Instead, it tracks the transactions you made, which are stored in blockchain, and then infers your balance. Thereby, blockchain is an essential component of a blockchain wallet.
 
 Instead of holding physical coins, a wallet has a public key and a private key. Public key is a long sequence of letters and numbers that can form the wallet address. With this, other people can send money to your wallets. It’s similar to a bank account number in which it can only be used to send money to an account. Private key is used to access the funds stored in the wallet. With this, you can control the funds tied to your wallet’s address. It works like your PIN number, you should keep it 100\% secret and secure. However, it’s worth noting that not all wallets give you sole ownership of your private key, which essentially means that you don’t have full control over your coins. As well as storing your public and private keys, crypto wallets interface with the blockchains of various currencies so that you can check your balance and send and receive funds.
 
@@ -44,9 +44,9 @@ Hardware wallets add another layer of security by keeping your private key on a 
 
 Paper wallets take the concept of entirely offline keys used for hardware wallets to the next logical step: simply print out your public and private keys and use that piece of paper as your wallet. As secure as they are, paper wallets are also complex and quite confusing for beginners. They’re typically only used by advanced users who want a high level of security. To transfer money to a paper wallet, you use a software wallet (any of the above mentioned) to send money to the public key printed on the sheet of paper. Most often, this is printed as a QR code for easy scanning. To transfer money from the paper wallet to someone else, you would first need to transfer money to a software wallet (by manually entering the private key into the software), and then transfer money from the software wallet to the recipient as usual. Popular paper wallets: Bitaddress.org, WalletGenerator.net.
 
-As you’re researching and comparing a range of wallets, you’ll probably come across the terms “hot wallet” and “cold wallet”, or perhaps the concept of “cold storage”. So, what does temperature have to do with crypto storage? A wallet is hot when it's connected to the Internet. Nothing on the Internet is 100\% secure, so funds kept in a hot wallet are always at a slight risk of theft or loss from software bugs or hackers. A wallet is cold when it's safely offline and can't be deliberately or accidentally compromised over the Internet.
+As you’re researching and comparing a range of wallets, you’ll probably come across the terms ``hot wallet” and ``cold wallet”, or perhaps the concept of ``cold storage”. So, what does temperature have to do with crypto storage? A wallet is hot when it's connected to the Internet. Nothing on the Internet is 100\% secure, so funds kept in a hot wallet are always at a slight risk of theft or loss from software bugs or hackers. A wallet is cold when it's safely offline and can't be deliberately or accidentally compromised over the Internet.
 
-From an economic perspective, the wallet can be custodial (requires KYC) or non-custodial (doesn’t require KYC). Custody means that your wallet is controlled by a third party, and they need your personal information to authenticate you whenever you want to use your wallet. An example is the Binance “wallet”, or actually, the application provided by Binance. Your private keys are managed by them, which resembles a bank managing your account. Also, you have to provide your ID number, phone number, and email so that every time you want to make a transaction, the application can authenticate the right owner of the wallet. With that, you put faith in a third party to secure your funds and return them if you want to trade or send them somewhere else. While a custodial wallet lessens your responsibility, it requires you to trust in the custodian that holds your funds, which is usually a cryptocurrency exchange. On the other hand, non-custodial crypto wallets give you complete control of your keys and therefore your crypto assets. While some people store large amounts of crypto on exchange accounts, many feel more comfortable with a non-custodial wallet, which eliminates a third-party between you and your crypto. Apart from that, based on an engineering prespective, we cared about how the key is managed. We re-categorize the wallet into three main groups: hardware, software and hybrid. Hardware wallets are only connected to the internet when you need to make a transaction and you have no information about the secret keys, whereas software wallets are connected to the internet and store your secret keys. Hybrid is the combination of both hardware and software wallet, that your secret keys are stored in a secured space and are managed by the software. We will develop on a hybrid wallet as we need some information about the secret keys and need to manage the keys.
+From an economic perspective, the wallet can be custodial (requires KYC) or non-custodial (doesn’t require KYC). Custody means that your wallet is controlled by a third party, and they need your personal information to authenticate you whenever you want to use your wallet. An example is the Binance ``wallet”, or actually, the application provided by Binance. Your private keys are managed by them, which resembles a bank managing your account. Also, you have to provide your ID number, phone number, and email so that every time you want to make a transaction, the application can authenticate the right owner of the wallet. With that, you put faith in a third party to secure your funds and return them if you want to trade or send them somewhere else. While a custodial wallet lessens your responsibility, it requires you to trust in the custodian that holds your funds, which is usually a cryptocurrency exchange. On the other hand, non-custodial crypto wallets give you complete control of your keys and therefore your crypto assets. While some people store large amounts of crypto on exchange accounts, many feel more comfortable with a non-custodial wallet, which eliminates a third-party between you and your crypto. Apart from that, based on an engineering prespective, we cared about how the key is managed. We re-categorize the wallet into three main groups: hardware, software and hybrid. Hardware wallets are only connected to the internet when you need to make a transaction and you have no information about the secret keys, whereas software wallets are connected to the internet and store your secret keys. Hybrid is the combination of both hardware and software wallet, that your secret keys are stored in a secured space and are managed by the software. We will develop on a hybrid wallet as we need some information about the secret keys and need to manage the keys.
 
 \subsection{What is a HD wallet?}
 
@@ -61,14 +61,14 @@ Why an HD wallet? Essentially, the HD wallet helps the user to manage multiple k
 
 Elliptic curve cryptography is a branch of public key cryptography, a.k.a asymmetric-key cryptography. An elliptic curve is defined by a curve equation built on a finite field F for coordinates. In order to understand elliptic curves, knowledge about group theory and number theory are required. In the next section, we will introduce the finite field and an interesting characteristic of the group that the elliptic curve used. Then, we explain the elliptic curve cryptography, the ECDLP and some case studies that are necessary for our thesis.
 
-\subsubsection{Finite field \& cyclic group}
+\subsubsection{Finite field and cyclic group}
 
 A finite field, sometimes called Galois field, is a set with a finite number of elements. Roughly speaking, a Galois field is a finite set of elements in which we can add, subtract, multiply and invert. Before we introduce the definition of a field, we first need the concept of a simpler algebraic structure, a group
 
-\vspace{0.25cm}\textbf{Definition:} A group is a set of elements $G$ together with an operation $\circ$ which combines two elements of $G$. A group has the following properties
+\vspace{0.25cm}\textbf{Definition:} A group is a set of elements $G$ together with an operation ``$\circ$" which combines two elements of $G$. A group has the following properties
 
 \begin{itemize}
-  \item The group operation $\circ$ is closed. That is, for all $a,b \in G$, it holds that $a \circ b = c \in G$.
+  \item The group operation ``$\circ$" is closed. That is, for all $a,b \in G$, it holds that $a \circ b = c \in G$.
   \item The group operation is associative. That is, $a \circ (b \circ c) = (a \circ b) \circ c$ for all $a, b, c \in G$.
   \item There is an element $1 \in G$, called the neutral element (or the identity element), such that $a \circ 1 = 1 \circ a = a$ for all $a \in G$.
   \item For each $a \in G$ there exists an element $a^{-1} \in G$, called the inverse of $a$, such that $a \circ a^{-1} = a^{-1} \circ a = 1$ for all $a \in G$.
@@ -86,31 +86,33 @@ So, a group is set with one operation and the corresponding inverse operation. I
 
 In the elliptic curve, we are interested in fields with a finite number of elements, the finite field. The number of elements in the field $F_p$ is called the order (cardinality) of the field, denoted by $|F_p|$. A field with order $m$ only exists if $m$ is a prime power, i.e., $m = p^n$, for some positive integer $n$ and a prime integer $p$. $p$ is called the characteristic of the finite field, denoted as $char(p)$. A finite field is denoted as $GF(p^n)$ or $F_{p^n}$. The most intuitive examples of finite fields are fields of prime order with $n = 1$. Elements of the prime field $F_p$ can be represented by integers $0, 1, \dotso , p-1$. The two operations of the field are modular integer addition and integer multiplication modulo $p$. With $n > 1$, the field is called extension field, the elements are polynomials $a_{n-1}X^{n-1} + a_{n-2}X^{n-2} + \dotso + a_1X + a_0$, where the coefficient $a$ is in $F_p$. The arithmetic operations in an extension field are polynomial addition modulo $p$ with the coefficients and polynomial multiplication modulo $P(x)$. $P(x)$ is called the irreducible polynomials, which acts like ``a prime" of the polynomials.
 
-Elliptic curve usually works in the prime field, to gain a finite number of curve points. The points on an elliptic curve over $F_p$ also belong to a group, called cyclic group. A cyclic group is a multiplicative group $F_p^* = {gcd(x,p) = 1 | x \in {1, 2, \dotso , p-1}}$, where $p$ is a prime and contains at least one special element $\alpha$. The element $\alpha$ is called primitive element or generator, such that $ord(\alpha) = |(F_p)^*|$, where the order of $\alpha$ (denoted $ord(\alpha)$) is the smallest positive integer $k$ satisfies $a^k = a \circ a \circ \dotso \circ a$ (k times) $= 1$. The multiplies of $\alpha$ generates all the elements in the $F_p^*$ , and they repeat cyclically similar to a modulo congruence. E.g.: For a $F_{11}^*$ with order of 10, the generator $\alpha$ can be 2 since\\
+Elliptic curve usually works in the prime field, to gain a finite number of curve points. The points on an elliptic curve over $F_p$ also belong to a group, called cyclic group. A cyclic group is a multiplicative group $F_p^* = \{ gcd(x,p) = 1 \ | \ x \in [ 1, 2, \dotso , p-1 ] \}$, where $p$ is a prime and contains at least one special element $\alpha$. The element $\alpha$ is called primitive element or generator, such that $ord(\alpha) = |(F_p)^*|$, where the order of $\alpha$ (denoted $ord(\alpha)$) is the smallest positive integer $k$ satisfies $a^k = a \circ a \circ \dotso \circ a$ ($k$ times) $= 1$. The multiplies of $\alpha$ generates all the elements in the $F_p^*$ , and they repeat cyclically similar to a modulo congruence. E.g.: For a $F_{11}^* = \{ 1, \ 2, \ 3, \ 4, \ 5, \ 6, \ 7, \ 8, \ 9, \ 10 \}$ with order of 10, the generator $\alpha$ can be 2 since:\\
 
 
-\setlength{\columnsep}{4cm}
-\begin{multicols}{2}
-  $\alpha^1 \mod 11 = 2$
-  $\alpha^2 \mod 11 = 4$
-  $\alpha^3 \mod 11 = 8$
-  $\alpha^4 \mod 11 = 5$
-  $\alpha^5 \mod 11 = 10$
-  $\alpha^6 \mod 11 = 9$
-  $\alpha^7 \mod 11 = 7$
-  $\alpha^8 \mod 11 = 3$
-  $\alpha^9 \mod 11 = 6$
-  $\alpha^{10} \mod 11 = 1$
+\setlength{\columnsep}{3cm}
+\begin{multicols}{3}
+  $\alpha^1 \mod 11 = \mathbf{2}$
+  $\alpha^2 \mod 11 = \mathbf{4}$
+  $\alpha^3 \mod 11 = \mathbf{8}$
+  $\alpha^4 \mod 11 = \mathbf{5}$
+  $\alpha^5 \mod 11 \ \ = \mathbf{10}$
+  $\alpha^6 \ \mod 11 = \mathbf{9}$
+  $\alpha^7 \ \mod 11 = \mathbf{7}$
+  $\alpha^8 \ \mod 11 = \mathbf{3}$
+  $\alpha^9 \ \mod 11 = \mathbf{6}$
+  $\alpha^{10} \mod 11 = \mathbf{1}$
   $\alpha^{11} \mod 11 = 2$
   $\alpha^{12} \mod 11 = 4$
   $\alpha^{13} \mod 11 = 8$
+  $\alpha^{14} \mod 11 = 5$
+  $\dotso$
 \end{multicols}
 
 
-Note that there can be more than one generator for a cyclic group, but a group only needs one element $\alpha$ to be cyclic. It is similar to a finite field, with an additional condition, that is the element $\alpha$. This behavior will also work for an elliptic curve introduced in the next section, where the scalar multiples of a point on an elliptic curve are repeating cyclically.
+As you can see, when we multiply 2 by itself $k$-time, from $k = 1$ to $k = 10$, the results generate all elements in the field $F_{11}^*$. After the $k$ reaches $10$, we can see the results go back to 2 and repeat the cycle. Note that there can be more than one generator for a cyclic group, but a group only needs one element $\alpha$ to be cyclic. So, a cyclic group is a finite field that exists a generator element $\alpha$. This behavior will also work for an elliptic curve introduced in the next section, where the multiply operation is replaced by the point addition operation.
 
 \subsubsection{Weierstrass curve - the general form of an elliptic curve}
-About elliptic curves, there are curve types and equation types. An elliptic curve $E$ defined over a field $F_p$ is given by the equation
+For elliptic curves, there are multiple curve forms in geometry, and each of them has a different equation. An elliptic curve $E$ defined over a finite field $F_p$ is given by the equation
 
 
 \begin{center}
@@ -118,7 +120,7 @@ About elliptic curves, there are curve types and equation types. An elliptic cur
 \end{center}
 
 
-where the coefficients $a_i$ are elements in the field $F_p$. The set of points in $E(F_p)$ satisfied the equation and the point of infinity $\Theta$. The elliptic curves that satisfy the equation above are called Weierstrass curves, i.e., a curve type. Consider polynomials over $F_p$, where a characteristic $char(p) \neq 2,3$, the equation above can be reduced into a short Weierstrass form
+where the coefficients $a_i$ are elements in the field $F_p$. The set of points in $E(F_p)$ satisfied the equation with an addition ``imaginary" point called the point of infinity $\Theta$. The elliptic curves that satisfy the equation above are called Weierstrass curves, i.e., a curve form. Consider polynomials over $F_p$, where a characteristic $char(p) \neq 2, \ 3$, the equation above can be reduced into a short Weierstrass form
 
 
 \begin{center}
@@ -126,41 +128,43 @@ where the coefficients $a_i$ are elements in the field $F_p$. The set of points 
 \end{center}
 
 
-where $4a_1^3 + 27a_2^2 \not\equiv 0 \mod p$ to exclude singular curve. The set of all pairs $(x,y) \in F_p$ together with an imaginary point at infinity $\Theta$ satisfying the equation is the set of points on the elliptic curve, with the condition to exclude singular curve. The scalar multiplication, addition and doubling laws allow arithmetic operations in the elliptic curve group laws. The group laws for an elliptic curve
+where the condition $4a_1^3 + 27a_2^2 \ \not\equiv 0 \ (mod \ p)$ must hold to exclude singular curve. The set of all pairs $(x,y) \in F_p$ together with an imaginary point at infinity $\Theta$ satisfying the equation is the set of points on the elliptic curve, with the condition to exclude singular curve. The scalar multiplication, addition and doubling laws allow arithmetic operations in the elliptic curve group laws. The group laws for an elliptic curve are:
 
-\begin{itemize}
+\begin{enumerate}
   \item The elements of the group are the points of an elliptic curve.
-  \item The neutral element is the point at infinity $\infty$, denoted $\Theta$.
+  \item The neutral element is the point at infinity ``$\infty$", denoted by $\Theta$.
   \item The inverse of a point $P$ is the one symmetric about the x-axis.
   \item Addition is given by the rule: given three aligned, non-zero points $P$, $Q$, and $R$, their sum is $P + Q + R = \Theta$.
   \item The inverse or negative point of a point $P(x,y)$ is defined as $-P(x,y) = P(x,-y)$ such that $P + (-P) = \Theta$.
-\end{itemize}
+\end{enumerate}
 
 The set of points on the elliptic curve with the point $\Theta$ has cyclic subgroups. Under certain conditions all points on an elliptic curve form a cyclic group. Each point on an elliptic curve is a generator for its cyclic subgroup of point on $E$. As mentioned above, an element $\alpha$ now is a point on the curve, it may not generate all point on a curve but its generated group is a cyclic subgroup, i.e., part of all points on the curve. The ECC works around this special case in ECDLP.
 
-The point arithmetic operations defined in the group law are in geometric representation. To work with $F_p$, point addition laws need to be calculated in an algebraic way. The addition laws for a general curve, given $P(x_1, y_1), Q(x_2, y_2), R(x_3, y_3)$, are
+The point arithmetic operations defined in the group law are in geometric representation. To work with $F_p$, point addition laws need to be calculated in an algebraic way. The addition laws for a general curve, given $P(x_1, y_1), Q(x_2, y_2), R(x_3, y_3)$, are:
 
-\begin{itemize}
-  \item $P + \Theta = \Theta + P = P$
-  \item $\Theta + \Theta = \Theta$
-  \item $P + Q = \Theta$ if $Q = -P$ or $P = -Q$
-  \item If $P \neq Q$, $P + Q = R$, the coordinates of $R$ can be computed as
-
-        \begin{itemize}
-          \item[$\bullet$] Compute $s = (y_2 - y_1) (x_2 - x_1)^{-1} \mod p$
-          \item[$\bullet$] Compute $x_3 = s^2 - x_1 - x_2 \mod p$, and $y_3 = s(x_1 - x_3) - y_1 \mod p$
-        \end{itemize}
-
-  \item If $P = Q$, $P + Q = P + P = 2P = R$, the coordinates of $R$ can be computed as
+\begin{enumerate}
+  \item $P + \Theta = \Theta + P = P$.
+  \item $\Theta + \Theta = \Theta$.
+  \item $P + Q = \Theta$ if $Q = -P$ or $P = -Q$.
+  \item If $P \neq Q$, $P + Q = R$, the coordinates of $R$ can be computed as:
 
         \begin{itemize}
-          \item[$\bullet$] Compute $s = (3x_1^2 + a_1 (2y_1)^{-1}) \mod p$
-          \item[$\bullet$] Compute $x_3 = s^2 - 2x_1 \mod p$, and $y_3 = s(x_1 - x_3) - y_1 \mod p$
+        \addtolength{\itemindent}{1cm}
+          \item[$\bullet \ $ Step 1:] Compute $s = (y_2 - y_1) (x_2 - x_1)^{-1} \mod p$.
+          \item[$\bullet \ $ Step 2:] Compute $x_3 = s^2 - x_1 - x_2 \mod p$, and $y_3 = s(x_1 - x_3) - y_1 \mod p$.
         \end{itemize}
 
-\end{itemize}
+  \item If $P = Q$, $P + Q = P + P = 2P = R$, the coordinates of $R$ can be computed as:
 
-Here, the addition law is incomplete, since we can’t add the same point twice, we have to use the point doubling formula. The Weierstrass form is the general form of an elliptic curve, any curve can be expressed in a Weierstrass form. There are also other types of curves such as the Koblitz curve, Montgomery curve and (twisted) Edwards curve, which will be presented in the following sections. Before that, most of the elliptic curves need a domain parameter as follow.\\
+        \begin{itemize}
+        \addtolength{\itemindent}{1cm}
+          \item[$\bullet \ $ Step 1:] Compute $s = (3x_1^2 + a_1 (2y_1)^{-1}) \mod p$.
+          \item[$\bullet \ $ Step 2:] Compute $x_3 = s^2 - 2x_1 \mod p$, and $y_3 = s(x_1 - x_3) - y_1 \mod p$.
+        \end{itemize}
+
+\end{enumerate}
+
+Here, the addition law is incomplete, since we can’t add the same point twice, we have to use the point doubling formula. The Weierstrass form is the general form of an elliptic curve, any curve can be expressed in a Weierstrass form. There are also other types of curves such as the Koblitz curve, Montgomery curve and (twisted) Edwards curve, which will be presented in the following sections. Before that, most of the elliptic curves need a domain parameter as follow:
 
 \begin{itemize}
   \item$p$: The prime that specifies the size of the finite field
@@ -172,47 +176,41 @@ Here, the addition law is incomplete, since we can’t add the same point twice,
         \item$h$: The cofactor of the subgroup such that with $n(hP)=0$, $G = hP$. In other words, $h=N/n$
 \end{itemize}
 
-Also, in practice, a point $P(x,y)$ can be compressed to an integer ($y$’s LSB in the first byte $\|$  $x$). The first byte of $y$ can be $0x02$ for even $y$, or $0x03$ for odd $y$(negative $y$) with the given $x$. For instance, a point $P(6, 8)$ can be compressed to the integer $0x026$ in hexadecimal format. The actual number is almost 256-bit long, this is just a simple example.
+Also, in practice, a point $P(x,y)$ can be compressed to an integer ($y$’s LSB in the first byte $\|$  $x$). The first byte of $y$ can be $0x02$ for even $y$, or $0x03$ for odd $y$ (negative $y$) with the given $x$. For instance, a point $P(6, 8)$ can be compressed to the integer $0x026$ in hexadecimal format. The actual number is almost 256-bit long, this is just a plain example.
 
 \subsubsection{Elliptic curve discrete logarithm problem - ECDLP}
 
 Given an elliptic curve $E$, we consider a primitive element $P$ and other element $T$, the discrete log problem is finding an integer $d$, where
 \begin{center}
 
-$d \in [1, \#E]$ such that $P + P + \dotso + P$ ("+" $d$ times) $= dP = T$.
+$d \in [1, \ \#E]$ satisfies $P + P + \dotso + P$ (``+" $d$ times) $= dP = T$.
 \end{center}
 
-The ECDLP is considered to be infeasible if the elliptic curve parameters are carefully chosen \cite{DBLP:journals/iacr/BosCLN14}. In ECC, we interpret the integer $d$ as the private key, $T$ as the public key, and the exact number of point points $E$ of a curve. The number of points on the curve can be counted by trying all the possible values for $x$ in $F_p$, but this is not efficient if the $p$ is a large prime. Haskel’s theorem only gives an upper and lower bound for number of point on an elliptic curve parameters are carefully chosen \cite{DBLP:journals/iacr/BosCLN14}. 
+The ECDLP is considered to be infeasible if the elliptic curve parameters are carefully chosen \cite{DBLP:journals/iacr/BosCLN14}. In ECC, we interpret the integer $d$ as the private key, $T$ as the public key, and the exact number of point points $E$ of a curve. The number of points on the curve can be counted by trying all the possible values for $x$ in $F_p$, but this is not efficient if the $p$ is a large prime. There exists a theorem related to this, called Haskel’s theorem. However, Haskel’s theorem only gives an upper and lower bound for number of point on an elliptic curve \cite{DBLP:journals/iacr/BosCLN14}, which is
 
-\hspace{0.25cm}
 \begin{center}
-  $p+1-2\sqrt{p} \leq \#E \leq p+1+2\sqrt{p}$\\
+  $p+1-2\sqrt{p} \leq \#E \leq p+1+2\sqrt{p}$.
 \end{center}
-\hspace{0.25cm}
 
-In order word, find the exact numbers of points on a curve is computationally difficult. Luckily, there's a faster algorithm for computing the order: Schoof's algorithm. We won't enter the details of the algorithm - what matters is that it runs in polynomial time, and this is what we need.
+In order word, find the exact numbers of points on a curve is computationally difficult. Luckily, there's a faster algorithm for computing the order: Schoof's algorithm. We won't enter the details of the algorithm - what matters is that it runs in polynomial time \cite{Schoof}, and this is what we need.
 
 \subsubsection{Koblitz curve, case study: Secp256k1}
 The elliptic curve Secp256k1 is a Koblitz curve, which has the equation
 
-\hspace{0.25cm}
 \begin{center}
-  $y^2 \equiv x^3 + 7 \quad (mod \quad p)$
+  $y^2 \equiv x^3 + 7 \quad (mod \ p)$,
 \end{center}
-\hspace{0.25cm}
 
-with the param standards \href{https://en.bitcoin.it/wiki/Secp256k1}{Secp256k1}, where $p = 2^{256 - 232 - 29 - 28 - 27 - 26 - 24 - 1}, h = 1$. Its finite field is defined over the finite field $F_2$, with the neutral element as the point at infinity $\Theta$. The addition law for Secp256k1 are \href{https://www.researchgate.net/publication/332783847_Arithmetic_of_Koblitz_Curve_Secp256k1_Used_in_Bitcoin_Cryptocurrency_Based_on_One_Variable_Polynomial_Division}{Secp256k1 documentaton} and improved in \href{https://www.researchgate.net/publication/223346975_Koblitz_curve_cryptosystems}{Koblitz curve cryptosystem} .The addition law for the Koblitz curve is “incomplete”.
+with the param standards \href{https://en.bitcoin.it/wiki/Secp256k1}{Secp256k1}, where $p = 2^{256 - 232 - 29 - 28 - 27 - 26 - 24 - 1}, h = 1$. Its finite field is defined over the finite field $F_2$, with the neutral element as the point at infinity $\Theta$. The addition law for Secp256k1 are \href{https://www.researchgate.net/publication/332783847_Arithmetic_of_Koblitz_Curve_Secp256k1_Used_in_Bitcoin_Cryptocurrency_Based_on_One_Variable_Polynomial_Division}{Secp256k1 documentation} and improved in \href{https://www.researchgate.net/publication/223346975_Koblitz_curve_cryptosystems}{Koblitz curve cryptosystem} .The addition law for the Koblitz curve is “incomplete”.
 
 \subsubsection{Montgomery curve, case study: Curve25519}
 Daniel J. Bernstein originally discovered the Curve25519, in the form of the Montgomery curve, has the equation
 
-\hspace{0.25cm}
 \begin{center}
-  $By^2 \equiv x^3 + A^2 + x \quad (mod \quad p)$, where $B(A^2-4) \neq 0, B \neq 0, A \neq \pm 2$
+  $By^2 \equiv x^3 + A^2 + x \quad (mod \ p)$,
 \end{center}
-\hspace{0.25cm}
 
-with $A = 486662x, B = 1$, over the prime field defined by the prime number $p=2^{255}-19$, the base point has $x$-coordinate $= 9$,  the cofactor $h = 8$ and the subgroup order is $n = 2^{252} + 27742317777372353535851937790883648493$. The neutral element is the point at infinity $\Theta$, and the negation is $-P(x, y) = P(x, -y)$. The Montgomery curve has a special algorithm to compute scalar multiples of points in constant-time, called Montgomery ladder. Let the scalar integer is $a$ in binary form and the point is $P$, the algorithm works as follow
+where $B(A^2-4) \neq 0, B \neq 0, A \neq \pm 2$. For the Curve25519, $A = 486662x, B = 1$, the prime field is defined by the prime number $p=2^{255}-19$, the base point has $x$-coordinate $= 9$,  the cofactor $h = 8$ and the subgroup order is $n = 2^{252} + 27742317777372353535851937790883648493$. The neutral element is the point at infinity $\Theta$, and the negation is $-P(x, y) = P(x, -y)$. The Montgomery curve has a special algorithm to compute scalar multiples of points in constant-time, called Montgomery ladder. Let the scalar integer is $a$ in binary form and the point is $P$, the algorithm works as follow
 
 \begin{figure}[ht!]
   \centering

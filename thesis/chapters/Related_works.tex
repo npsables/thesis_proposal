@@ -499,7 +499,8 @@ SatoshiLabs Improvement Proposals number 23 (SLIP23) is about Cardano HD master 
 In practice, there is much confusion in implementing the original paper to their library (or application). In every next part, we will present the most general ideas of the original paper.
 
 \bigskip
-{\textbf{Master Extended Key generation function (root key in the paper)}}. This scheme adopts the master node derivation used in BIP32 and SLIP10 but defines a new Key input ``ed25519 cardano seed" for the Cardano deterministic key hierarchy. They implement Ed25519's ``bit clamping" to the derivation schema.
+{\textbf{Master Extended Key generation function (root key in the paper)}}. This scheme adopts the master node derivation used in BIP32 and SLIP10 but defines a new Key input ``Ed25519 cardano seed" for the Cardano deterministic key hierarchy. They implement ed25519's ``bit clamping" to the derivation schema.
+
 \autoref{fig:slip23_master} describes the process.
 
 \begin{figure}[ht!]
