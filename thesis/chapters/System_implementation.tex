@@ -5,16 +5,12 @@
 
 \section{The Library}
 \bigskip
-{\textbf{Typescript}}
-
-TypeScript is a strict superset of javascript, designed as a strongly typed programming language by Microsoft. A strongly typed language is more secure because it requires explicit declarations to convert or compare between types in order to convert between languages. This allows for the avoidance of errors and memory exploitations such as the CWE-704 Incorrect Type Conversion or Cast \cite{cwe}. At the same time, it checks types at compile time to find any potential type errors before they are propagated into the program.
+{\textbf{Typescript}}. TypeScript is a strict superset of javascript, designed as a strongly typed programming language by Microsoft. A strongly typed language is more secure because it requires explicit declarations to convert or compare between types in order to convert between languages. This allows for the avoidance of errors and memory exploitations such as the CWE-704 Incorrect Type Conversion or Cast \cite{cwe}. At the same time, it checks types at compile time to find any potential type errors before they are propagated into the program.
 
 TypeScript uses a transpiler, a source-to-source compiler that takes TypeScript source and converts it into JavaScript. The TypeScript code ends up running as JavaScript. In conclusion, TypeScript does provide a set of constraints regarding typing, which enforces a higher level of security.
 
 \bigskip
-{\textbf{Tweetnacl-js}}
-
-TweetNaCl-js is a translation of TweetNaCl to JavaScript, which is as close as possible to the original C implementation. It provides public key and secret key authenticated encryption, scalar multiplication, digital signatures, hashing, random bytes generation, and constant-time comparison. Tweetnacl was written by many cryptography experts.
+{\textbf{Tweetnacl-js}}. TweetNaCl-js is a translation of TweetNaCl to JavaScript, which is as close as possible to the original C implementation. It provides public key and secret key authenticated encryption, scalar multiplication, digital signatures, hashing, random bytes generation, and constant-time comparison. Tweetnacl was written by many cryptography experts.
 
 Bernstein et al. \cite{Bernstein2012} focuses on the security analysis of the NaCl cryptographic library.
 More specifically, the security impact of NaCl's design features, such as no data flow
@@ -24,9 +20,8 @@ from secrets to load addresses, no data flow from secrets to branch conditions; 
 Our library expands on the implementation of the secp256k1 curve and their blockchain transaction problem. For the sake of our thesis, we will only present the core function of the ed25519 blockchain since others will follow the same schemas and rules (just different dependencies).
 
 \bigskip
-{\textbf{Structure}}
-
-Applying our design with Typescripts, we have the library model as \autoref{fig:type_lib}
+{\textbf{Structure}}. Applying our design, we have the library model as \autoref{fig:type_lib}.
+We design our work for developers who only use it for one specific blockchain or implement multiple of them. We also acknowledge that every blockchain has different features (especially in transactions). For example, Bitcoin uses the UTXO model (individual coins) for wallet assets, while Solana uses the Account/Balance model. This led to different implementations in transaction functions. Aiming for upgradeability, readability, and ease of use, we organized as follow:
 
 \begin{figure}[ht!]
     \centering
@@ -34,9 +29,6 @@ Applying our design with Typescripts, we have the library model as \autoref{fig:
     \caption[Typescript library structure]{Typescript library structure}
     \label{fig:type_lib}
 \end{figure}
-
-We design our work for developers who only use it for one specific blockchain or implement multiple of them. We also acknowledge that every blockchain has different features (especially in transactions). For example, Bitcoin uses the UTXO model (individual coins) for wallet assets, while Solana uses the Account/Balance model. This led to different implementations in transaction functions. Aiming for upgradeability, readability, and ease of use, we organized as follow:
-
 
 \begin{itemize}
     \item We create a \textit{COMPONENTS} JSON object (see \autoref{fig:comp}) with constant information of every supported blockchain in \autoref{fig:ubl}. This \textit{COMPONENTS} belongs to file \textit{/src/constant.ts} (.ts is the standard for Typescript file). We made use of the JSON architecture for legibility. Users can see right away what function a blockchain has and how to access them through a few lines of code. Unlike  Tomi Jaga's wallet \cite{tomi}, they use an OOP structure which is very hard to read. Also, it would become more redundant when we created more blockchain dictionaries and added more features for each of every blockchain. Meanwhile, in our JSON object, developers can add more lines with different indexes and add the new function to their blockchain file (solana.ts, etc.).
@@ -183,8 +175,8 @@ Example request:
 \hspace*{13mm}        - - url http://localhost:8080/getaddress \par
 \hspace*{13mm}        - - header 'Content-Type: application/json' \par
 \hspace*{13mm}        - - data '\{ \par
-\hspace*{20mm}                "address": "test", \par
-\hspace*{20mm}                "chain": "501" \par
+\hspace*{20mm}                ``address": ``test", \par
+\hspace*{20mm}                ``chain": ``501" \par
 \hspace*{20mm}            \}' \par
 \end{framed}
 
@@ -193,22 +185,19 @@ Example response:
 
 \begin{framed}
     \hspace*{13mm}        \{\par
-    \hspace*{13mm}          "list\_address": \{ \par
-    \hspace*{18mm}        "default": "childaddress", \par
-    \hspace*{18mm}        "business": "childaddress1"    \par
+    \hspace*{13mm}          ``list\_address": \{ \par
+    \hspace*{18mm}        ``default": ``childaddress", \par
+    \hspace*{18mm}        ``business": ``childaddress1"    \par
     \hspace*{18mm}        \},\par
-    \hspace*{13mm}                "message": "Succeed",   \par
-    \hspace*{13mm}                "status": "Succeed",  \par
-    \hspace*{13mm}             "statusCode": 200   \par
+    \hspace*{13mm}                ``message": ``Succeed",   \par
+    \hspace*{13mm}                ``status": ``Succeed",  \par
+    \hspace*{13mm}             ``statusCode": 200   \par
     \hspace*{13mm}                 \}    \par
 
 \end{framed}
     
 \bigskip
-{\textbf{Create default Wallet}}
-\bigskip
-
-Request to publish the address to the server. The web will automatically call this service when a wallet is created (the one default child’s index is 2021). The response contains confirmation of the request.
+{\textbf{Create default Wallet}}. Request to publish the address to the server. The web will automatically call this service when a wallet is created (the one default child’s index is 2021). The response contains confirmation of the request.
 
 Request:
 
@@ -234,16 +223,16 @@ Example request:
 \hspace*{13mm}        - - url http://localhost:8080/createdefault \par
 \hspace*{13mm}        - - header 'Content-Type: application/json' \par
 \hspace*{13mm}        - - data '\{ \par
-\hspace*{20mm}                "\_id": "tess1231",\par
-\hspace*{27mm}                "address": \{ \par
-\hspace*{35mm}                "1": \{ \par
-\hspace*{40mm}                "default": "wallet1" \{ \par
+\hspace*{20mm}                ``\_id": ``tess1231",\par
+\hspace*{27mm}                ``address": \{ \par
+\hspace*{35mm}                ``1": \{ \par
+\hspace*{40mm}                ``default": ``wallet1" \{ \par
 \hspace*{40mm}                \}, \par
-\hspace*{35mm}                "60": \{ \par
-\hspace*{40mm}                "default": "wallet2" \par
+\hspace*{35mm}                ``60": \{ \par
+\hspace*{40mm}                ``default": ``wallet2" \par
 \hspace*{40mm}                \}, \par
-\hspace*{35mm}                "501": \{ \par
-\hspace*{40mm}                "default": "wallet3" \par
+\hspace*{35mm}                ``501": \{ \par
+\hspace*{40mm}                ``default": ``wallet3" \par
 \hspace*{40mm}                \} \par
 \hspace*{27mm}              \} \par
 \hspace*{20mm}            \}' \par
@@ -253,18 +242,15 @@ Example response:
 
 \begin{framed}
     \hspace*{13mm}        \{ \par
-    \hspace*{13mm}                "message": "Succeed",    \par
-    \hspace*{13mm}                "status": "Succeed",    \par
-    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                ``message": ``Succeed",    \par
+    \hspace*{13mm}                ``status": ``Succeed",    \par
+    \hspace*{13mm}             ``statusCode": 200    \par
     \hspace*{13mm}                 \}    \par
 \end{framed}
 
 
 \bigskip
-{\textbf{Push child address}}
-\bigskip
-
-Request to append a child address to existed address list on the server. The response contains confirmation of the request.
+{\textbf{Push child address}}. Request to append a child address to existed address list on the server. The response contains confirmation of the request.
 
 Request:
 
@@ -292,10 +278,10 @@ Example request:
 \hspace*{13mm}        - - url http://localhost:8080/pushaddress \par
 \hspace*{13mm}        - - header 'Content-Type: application/json' \par
 \hspace*{13mm}        - - data '\{ \par
-\hspace*{27mm}                "address": "test",  \par
-\hspace*{40mm}                "chain": "60", \par
-\hspace*{40mm}                "purpose": "business1", \par
-\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \par
+\hspace*{27mm}                ``address": ``test",  \par
+\hspace*{40mm}                ``chain": ``60", \par
+\hspace*{40mm}                ``purpose": ``business1", \par
+\hspace*{40mm}                ``child\_address": ``0x88d696674a104489f..." \par
 \hspace*{27mm}              \} \par
 \end{framed}
 
@@ -303,18 +289,15 @@ Example response:
 
 \begin{framed}
     \hspace*{13mm}        \{ \par
-    \hspace*{13mm}                "message": "Succeed",    \par
-    \hspace*{13mm}                "status": "Succeed",    \par
-    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                ``message": ``Succeed",    \par
+    \hspace*{13mm}                ``status": ``Succeed",    \par
+    \hspace*{13mm}             ``statusCode": 200    \par
     \hspace*{13mm}                 \}    \par
 \end{framed}
 
 
 \bigskip
-{\textbf{Pull child address }}
-\bigskip
-
-Request to delete a child address that existed on the server. The response contains confirmation of the request.
+{\textbf{Pull child address }}. Request to delete a child address that existed on the server. The response contains confirmation of the request.
 
 Request:
 
@@ -343,10 +326,10 @@ Example request:
 \hspace*{13mm}        - - url http://localhost:8080/deleteaddress \par
 \hspace*{13mm}        - - header 'Content-Type: application/json' \par
 \hspace*{13mm}        - - data '\{ \par
-\hspace*{27mm}                "address": "test",  \par
-\hspace*{40mm}                "chain": "60", \par
-\hspace*{40mm}                "purpose": "business1", \par
-\hspace*{40mm}                "child\_address": " 0x88d696674a104489f..." \par
+\hspace*{27mm}                ``address": ``test",  \par
+\hspace*{40mm}                ``chain": ``60", \par
+\hspace*{40mm}                ``purpose": `business1", \par
+\hspace*{40mm}                ``child\_address": ``0x88d696674a104489f..." \par
 \hspace*{27mm}              \} \par
 \end{framed}
 
@@ -354,9 +337,9 @@ Example response:
 
 \begin{framed}
     \hspace*{13mm}        \{ \par
-    \hspace*{13mm}                "message": "Succeed",    \par
-    \hspace*{13mm}                "status": "Succeed",    \par
-    \hspace*{13mm}             "statusCode": 200    \par
+    \hspace*{13mm}                ``message": ``Succeed",    \par
+    \hspace*{13mm}                ``status": ``Succeed",    \par
+    \hspace*{13mm}             ``statusCode": 200    \par
     \hspace*{13mm}                 \}    \par
 \end{framed}
 

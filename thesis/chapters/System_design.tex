@@ -4,14 +4,12 @@
 \minitoc
 
 \section{The Library}
-Our work does not only share an identical problem with the problem statement. We realize that we could do better. With the support of SatoshiLabs proposal number 44 (BIP44), we can create wallets that hold multiple native tokens of different blockchains. We decided our HD wallet will support the blockchain using ed25519 as well as secp259k1 (two famous curves of the blockchain community). They are Bitcoin, Ethereum, and Solana. As we researched, there are almost no non-custodial hot wallets that support different kinds of coin holders. Even the existing libraries limit their support to a specific blockchain.
+Our work does not only share an identical problem with the problem statement. We realize that we could do better. With the support of SatoshiLabs proposal number 44 (BIP44), we can create wallets that hold multiple native tokens of different blockchains. We decided our HD wallet will support the blockchain using Ed25519 as well as secp259k1 (two famous curves of the blockchain community). They are Bitcoin, Ethereum, and Solana. As we researched, there are almost no non-custodial hot wallets that support different kinds of coin holders. Even the existing libraries limit their support to a specific blockchain.
 
 Also, we believe anyone should have access to any of the non-custodial wallets so they can be bug-free. Hence, we came up with an open-source library for the other developers. They can use it, contribute to it (merge more blockchains, etc.) and audit our works. Furthermore, we will use this library as a core functionality that supports the cryptography mechanism in our web wallet.
 
 \bigskip
-{\textbf{Library structure}}
-
-The library is supposed to be easy to maintain, read and contribute to. We organize as \autoref{fig:lib1}:
+{\textbf{Library structure}}. The library is supposed to be easy to maintain, read and contribute to. We organize as \autoref{fig:lib1}:
 
 \begin{figure}[!ht]
     \centering
@@ -28,9 +26,7 @@ We name our library “hdcore” meaning the cores of HD wallets. The library is
 \end{itemize}
 
 \bigskip
-{\textbf{API}}
-
-The library will supports following features of a hd wallet:
+{\textbf{API}}. The library will supports following features of a hd wallet:
 
 \begin{itemize}
     \item Mnemonic code generation
@@ -44,9 +40,7 @@ The library will supports following features of a hd wallet:
 
 
 \bigskip
-{\textbf{Unit testing}}
-
-For testing our library, we use test vectors. A test vector offers a compact way of defining test input/output. It is a set of test cases where each test case is defined as a set of actions and expectations to verify our library's particular feature or functionality.
+{\textbf{Unit testing}}. For testing our library, we use test vectors. A test vector offers a compact way of defining test input/output. It is a set of test cases where each test case is defined as a set of actions and expectations to verify our library's particular feature or functionality.
 
 A test case contains steps as in \autoref{fig:testcase}. The test case includes specific variables or conditions, using which a user can compare expected and actual results to determine whether the library behaves appropriately as per their requirements.
 
@@ -60,9 +54,7 @@ A test case contains steps as in \autoref{fig:testcase}. The test case includes 
 The test vector should show the functionalities of our library (declared in API).
 
 \bigskip
-{\textbf{Security}}
-
-The library will acknowledge the security flaws, and we will look into this seriously. We focus on the coding concern, discussing how we can replace poisoned libraries, and prevent the addition of new vulnerable libraries to our code.
+{\textbf{Security}}. The library will acknowledge the security flaws, and we will look into this seriously. We focus on the coding concern, discussing how we can replace poisoned libraries, and prevent the addition of new vulnerable libraries to our code.
 
 We discuss our properties from different perspectives:
 
@@ -75,9 +67,7 @@ We discuss our properties from different perspectives:
 Our library will be published to the related package manager, so open-source users and developers can audit and give us their thoughts.
 
 \bigskip
-{\textbf{Documentation}}
-
-The goal of our documentation is an overview and usage exploration of our library. Thus, the documentation comprises all the expected results of the main functions, overlook of test vectors, and how to apply to some specific blockchains.
+{\textbf{Documentation}}. The goal of our documentation is an overview and usage exploration of our library. Thus, the documentation comprises all the expected results of the main functions, overlook of test vectors, and how to apply to some specific blockchains.
 
 
 
@@ -97,27 +87,19 @@ Our web wallet is a non-custodial hot wallet where users can sign in, generate a
 The security of cryptography defines the strength of the blockchain wallet. Everything is protected by the laws of mathematics. We discuss which technology from Section [Ref technology] will be implemented for our wallet protocols.
 
 \bigskip
-{\textbf{Key pair and Address}}
+{\textbf{Key pair and Address}}. In a blockchain system, the private key determines the ownership of the address property generated by the corresponding public key. Our generated key pair must be corresponding to each other. The private key is required to be functioned appropriately when the owner accesses and sends cryptocurrency. The address is an encoded or produced by cryptographic algorithm from the public key depending on the Blockchain cryptographic system. Our wallet addresses can be looked up on network explorers.
 
-In a blockchain system, the private key determines the ownership of the address property generated by the corresponding public key. Our generated key pair must be corresponding to each other. The private key is required to be functioned appropriately when the owner accesses and sends cryptocurrency. The address is an encoded or produced by cryptographic algorithm from the public key depending on the Blockchain cryptographic system. Our wallet addresses can be looked up on network explorers.
-
-We will support Solana and Ethereum blockchain which utilises secp256k1 and ed25519.
+We will support Solana and Ethereum blockchain which utilises secp256k1 and Ed25519.
 
 \bigskip
-{\textbf{Password generation}}
-
-A password or a mnemonic code is the secret that users have to back up and keep away from the internet. From the code, users can recover the whole wallet tree from a single seed due to all the keys of a wallet being derivable from a single plaintext string. With this property, even key transfer and management are very convenient. We will implement BIP39's mnemonic sentence process for our wallet since it is the industrial standard for seed wallets.
+{\textbf{Password generation}}. A password or a mnemonic code is the secret that users have to back up and keep away from the internet. From the code, users can recover the whole wallet tree from a single seed due to all the keys of a wallet being derivable from a single plaintext string. With this property, even key transfer and management are very convenient. We will implement BIP39's mnemonic sentence process for our wallet since it is the industrial standard for seed wallets.
 The architecture of the password generation is described in \autoref{bip39}.
 
 \bigskip
-{\textbf{Digital signature generation}}
-
-We use both secp256k1 and ed25519 digital signature algorithms to sign our wallet’s transactions.
+{\textbf{Digital signature generation}}. We use both secp256k1 and Ed25519 digital signature algorithms to sign our wallet’s transactions.
 
 \bigskip
-{\textbf{Key derivation}}
-
-Derivation function is the most important part of our wallets. We presented three of the most famous schemas in Chapter \ref{chap: Related works}. In order to match the standard of cryptography technology to achieve a securely appropriate application, we will adapt hardened key derivation of both BIP32 (for secp256k1) and SLIP10 (for ed25519) for our wallet.
+{\textbf{Key derivation}}. Derivation function is the most important part of our wallets. We presented three of the most famous schemas in Chapter \ref{chap: Related works}. In order to match the standard of cryptography technology to achieve a securely appropriate application, we will adapt hardened key derivation of both BIP32 (for secp256k1) and SLIP10 (for Ed25519) for our wallet.
 Our key derivation tree will look like \autoref{fig:webwallettree}
 
 \begin{figure}[!ht]
@@ -127,44 +109,39 @@ Our key derivation tree will look like \autoref{fig:webwallettree}
     \label{fig:webwallettree}
 \end{figure}
 
-The BIP32-ED25519 and normal key derivation of BIP32 have serious security flaws, as we explained in Section \ref{bip32vul}. Furthermore, the schema of public key derivation is only applicable to cold wallets where your private keys can be kept in a disjoint hardware while the master public keys can be broadcast to the internet.
+The BIP32-Ed25519 and normal key derivation of BIP32 have serious security flaws, as we explained in Section \ref{bip32vul}. Furthermore, the schema of public key derivation is only applicable to cold wallets where your private keys can be kept in a disjoint hardware while the master public keys can be broadcast to the internet.
 
-\begin{adjustwidth}{1cm}{}
 
-    \bigskip
-    {\textbf{Solving the normal key derivation problem}}
+\bigskip
+{\textbf{Solving the normal key derivation problem}}. By applying the hardened key version, we will lose the magical ability of public key derivation. With the effort of optimizing the wallet, we came up with an idea that can replace this advantage. First, we discuss the disadvantages of BIP32 normal key derivation in our multicoin wallet:
 
-    By applying the hardened key version, we will lose the magical ability of public key derivation. With the effort of optimizing the wallet, we came up with an idea that can replace this advantage. First, we discuss the disadvantages of BIP32 normal key derivation in our multicoin wallet:
+\begin{itemize}
+    \item It still has serious flaws, as we mentioned (Section \ref{bip32vul}). All of the public key derivation systems will suffer this problem. Users cannot afford to give or lose any child keys since the attackers can recover the entire purse. Therefore cannot use this schema for any business operations.
 
-    \begin{itemize}
-        \item It still has serious flaws, as we mentioned (Section \ref{bip32vul}). All of the public key derivation systems will suffer this problem. Users cannot afford to give or lose any child keys since the attackers can recover the entire purse. Therefore cannot use this schema for any business operations.
+    \item Users have to generate every master public key for every supported curve. For example, we support Ed25519 and secp256k1, and our wallets will produce two different master public keys (\textit{mpub}) for two curves. Somebody who wants to send coins to us will have to save our two \textit{mpub}, look for the \textit{mpub} of a specific currency, generate the child address, and then ship the coins plus the index to that child. This restricts the scalability of our wallets if we're going to support more blockchain. It also affects users' experience if they have more connections (more \textit{mpub} to save).Our idea is explained as follow:
+            We create a server to retrieve all the allowed addresses from our user wallets and store it as a tree structure. We call it “Address service” (details in Chapter \ref{chap:System_implementation}). The purpose of this is to recreate the process of public key generation but in a more convincing way. Senders can perform an address look-up on the server to get the receiver’s currency address.
 
-        \item Users have to generate every master public key for every supported curve. For example, we support ed25519 and secp256k1, and our wallets will produce two different master public keys (\textit{mpub}) for two curves. Somebody who wants to send coins to us will have to save our two \textit{mpub}, look for the \textit{mpub} of a specific currency, generate the child address, and then ship the coins plus the index to that child. This restricts the scalability of our wallets if we're going to support more blockchain. It also affects users' experience if they have more connections (more \textit{mpub} to save).Our idea is explained as follow:
-              We create a server to retrieve all the allowed addresses from our user wallets and store it as a tree structure. We call it “Address service” (details in Section [Ref ]). The purpose of this is to recreate the process of public key generation but in a more convincing way. Senders can perform an address look-up on the server to get the receiver’s currency address.
+\end{itemize}
 
-    \end{itemize}
+Our idea is explained as follow:
+We create a server to retrieve all the allowed addresses from our user wallets and store it as a tree structure. We call it “Address service” (details in Section \ref{system_architect}). The purpose of this is to recreate the process of public key generation but in a more convincing way. Senders can perform an address look-up on the server to get the receiver’s currency address.
 
-    Our idea is explained as follow:
-    We create a server to retrieve all the allowed addresses from our user wallets and store it as a tree structure. We call it “Address service” (details in Section \ref{system_architect}). The purpose of this is to recreate the process of public key generation but in a more convincing way. Senders can perform an address look-up on the server to get the receiver’s currency address.
+\begin{itemize}
+    \item The server only holds customer addresses. The tree structure helps to optimize address searching.
+    \item The server has no access to user transactions and assets. Users broadcast transactions straight to the blockchain network. The decentralized nature remains for our wallet.
+    \item Private keys are still in control of user browsers.
+\end{itemize}
 
-    \begin{itemize}
-        \item The server only holds customer addresses. The tree structure helps to optimize address searching.
-        \item The server has no access to user transactions and assets. Users broadcast transactions straight to the blockchain network. The decentralized nature remains for our wallet.
-        \item Private keys are still in control of user browsers.
-    \end{itemize}
+The advantages of the server are listed as follow:
 
-    The advantages of the server are listed as follow:
+\begin{itemize}
+    \item Avoid the flaws of the BIP32 public key derivation completely.
+    \item Senders only need to know one master public key of the receiver for the first time.
+    \item Users have complete control of what wallet they want to show the internet. In BIP32 normal key derivation, if others have your master public key, they can generate the whole wallet public keys.
+    \item Other users can't figure out the index of other wallets since there are only addresses in the server's database.
+\end{itemize}
 
-    \begin{itemize}
-        \item Avoid the flaws of the BIP32 public key derivation completely.
-        \item Senders only need to know one master public key of the receiver for the first time.
-        \item Users have complete control of what wallet they want to show the internet. In BIP32 normal key derivation, if others have your master public key, they can generate the whole wallet public keys.
-        \item Other users can't figure out the index of other wallets since there are only addresses in the server's database.
-    \end{itemize}
-
-    Also, since the server holds no sensitive information, the attacks aimed to spoof the user’s network (MITM attack \cite{mitm}) are useless.
-
-\end{adjustwidth}
+Also, since the server holds no sensitive information, the attacks aimed to spoof the user’s network (MITM attack \cite{mitm}) are useless.
 
 
 
@@ -214,7 +191,7 @@ We created another server to handle “Address service”. Note that we can comb
 
 The users after creating their wallet will create a POST request to the server with their automatically created public keys in JSON.
 The JSON data contains the address of master wallet and default child wallets.
-We created the term "default child" just for init the hierarchical tree.
+We created the term ``default child" just for init the hierarchical tree.
 The structure of the JSON request present as Figure~\ref{fig:json}.
 
 \begin{figure}[!ht]
@@ -364,7 +341,7 @@ The security tests will be examined with specific aims and different tools. We w
             \item Web shows that blockchain wallet page.
             \item The user chooses “Derive wallet” button.
             \item Web shows index input form.
-            \item The user enters the index for the child wallet and click "Create".
+            \item The user enters the index for the child wallet and click ``Create".
             \item Web shows the child wallet.
         \end{enumerate}                                                \\ 
         \midrule 
@@ -465,7 +442,7 @@ The security tests will be examined with specific aims and different tools. We w
         \toprule
         Use Case Name:     & Modify addresses in the database (push or pull).               \\ 
         \midrule 
-        Event:             & The user clicks on “Pull" or “Push” from the wallet component. \\ 
+        Event:             & The user clicks on ``Pull" or ``Push” from the wallet component. \\ 
         \midrule 
         Description:       & The user chooses which wallet to public to others.             \\ 
         \midrule 

@@ -8,18 +8,18 @@
 \label{testlib}
 \subsection{Testcases}
 
-We run a total of 10 test cases to make sure every API functions normally according to its definition (presenting tests with Solana and ed25519 keys). 
+We run a total of 10 test cases to make sure every API functions normally according to its definition (presenting tests with Solana and Ed25519 keys). 
 
 \bigskip
 {\textbf{Test data}}
 
 \begin{framed}
     \hspace*{13mm}        \{ \par
-    \hspace*{13mm}        "mnemonic" : 'honey opera much plate gloom accuse honey pudding chase beach flight pencil velvet apart series pepper antenna hill amazing season foot goddess harsh theory',    \par
-    \hspace*{13mm}        "master\_seed" : 'd51741549ced8fdce60e30ff8c0b885d6f156dfc44 \par
+    \hspace*{13mm}        ``mnemonic" : 'honey opera much plate gloom accuse honey pudding chase beach flight pencil velvet apart series pepper antenna hill amazing season foot goddess harsh theory',    \par
+    \hspace*{13mm}        ``master\_seed" : 'd51741549ced8fdce60e30ff8c0b885d6f156dfc44 \par
     \hspace*{27mm}         b7de53dc66b5f8c3a3d48e06b1fd7c8c8c73748e2e78db3f84a4ba \par
     \hspace*{27mm}         e855c9304e14f593674870a1db5cdb6d',    \par
-    \hspace*{13mm}        "m\/44'\/501'\/0'\/0'\/10'" : 'HSPjBD1z \par
+    \hspace*{13mm}        ``m/44'/501'/0'/0'/10'" : 'HSPjBD1z \par
     \hspace*{37mm}        JLgj29hy8i7DD4HmaDPDh3bc1N2J4Dx9qsRn' \par
     \hspace*{13mm}              \} \par
     \end{framed}
@@ -112,7 +112,7 @@ We acknowledge that cryptography is a tool to achieve security. Still, if we get
 
 Digital signature generation libraries like tweetnacl and secp256k1 (for Solana and Ethereum keys) are completely free of timing side-channels since they provide constant time and constant memory access. We look into their publication and implementation to observe their approach compared to the original paper.
 
-We use the hardened key derivation schema of the BIP32 and SLIP10 to avoid the key recovery attack on public key derivation because our wallet is a hot wallet type. We examine the potential vulnerabilities of the BIP32-ED25519 paper for ed25519 curves and take the researcher's recommendation seriously. To compensate for the inconvenience of hardened key schema, we created a system alongside our library to provide a comfortable assets exchange.
+We use the hardened key derivation schema of the BIP32 and SLIP10 to avoid the key recovery attack on public key derivation because our wallet is a hot wallet type. We examine the potential vulnerabilities of the BIP32-Ed25519 paper for Ed25519 curves and take the researcher's recommendation seriously. To compensate for the inconvenience of hardened key schema, we created a system alongside our library to provide a comfortable assets exchange.
 
 We also make sure the requests and connection of the wallet to the blockchain will not leak any important information about the created wallet. Overall, our library applied a provable cryptography library and followed the safest schema in the industrial community, and improvised the efficiency by current technology.
 
@@ -123,7 +123,7 @@ We test our Web Wallet behaviors by following testcases.
 
 {\textbf{Test table}}
 
-\begin{tabular}{ m{1.5cm} m{4.5cm} m{5.5cm} m{3cm} m{1.5cm}}
+\begin{tabular}{ m{1.5cm} m{4.5cm} m{5cm} m{3cm} m{1.5cm}}
     \toprule
     ID & Description & Expected Result & Actual Result & Pass/Fail                                            \\ 
     \midrule
