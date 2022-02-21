@@ -57,34 +57,41 @@ Why an HD wallet? Essentially, the HD wallet helps the user to manage multiple k
 \section{Cryptography}
 \label{cryptography}
 
-\subsection{Elliptic curve cryptography - ECC}
+\subsection{Elliptic curve cryptography}
 
-Elliptic curve cryptography is a branch of public key cryptography, a.k.a asymmetric-key cryptography. An elliptic curve is defined by a curve equation built on a finite field F for coordinates. In order to understand elliptic curves, knowledge about group theory and number theory are required. In the next section, we will introduce the finite field and an interesting characteristic of the group that the elliptic curve used. Then, we explain the elliptic curve cryptography, the ECDLP and some case studies that are necessary for our thesis.
+Elliptic curve cryptography (ECC) is a branch of public key cryptography, a.k.a asymmetric-key cryptography. An elliptic curve is defined by a curve equation built on a finite field $F$ for coordinates. In order to understand elliptic curves, knowledge about group theory and number theory are required. In the next section, we present the finite field and an interesting characteristic of the group that the elliptic curve used. Then, we explain the elliptic curve cryptography, the Elliptic Curve Discrete Logarithm Problem (ECDLP) and some case studies that are necessary for our thesis.
 
 \subsubsection{Finite field and cyclic group}
 
 A finite field, sometimes called Galois field, is a set with a finite number of elements. Roughly speaking, a Galois field is a finite set of elements in which we can add, subtract, multiply and invert. Before we introduce the definition of a field, we first need the concept of a simpler algebraic structure, a group
 
-\vspace{0.25cm}\textbf{Definition:} A group is a set of elements $G$ together with an operation ``$\circ$" which combines two elements of $G$. A group has the following properties
+\begin{mdframed}[align=center, userdefinedwidth=32em]
+    \begin{definition} Group\\
+    A group is a set of elements $G$ together with an operation ``$\circ$" which combines two elements of $G$. A group has the following properties.
+    \begin{enumerate}
+      \item The group operation ``$\circ$" is closed. That is, for all $a,b \in G$, it holds that $a \circ b = c \in G$.
+      \item The group operation is associative. That is, $a \circ (b \circ c) = (a \circ b) \circ c$ for all $a, b, c \in G$.
+      \item There is an element $1 \in G$, called the neutral element (or the identity element), such that $a \circ 1 = 1 \circ a = a$ for all $a \in G$.
+      \item For each $a \in G$ there exists an element $a^{-1} \in G$, called the inverse of $a$, such that $a \circ a^{-1} = a^{-1} \circ a = 1$ for all $a \in G$.
+      \item A group $G$ is an Abelian group if, furthermore, $a \circ b = b \circ a$ for all $a, b \in G$.
+    \end{enumerate}
+    \end{definition}
+\end{mdframed}
 
-\begin{itemize}
-  \item The group operation ``$\circ$" is closed. That is, for all $a,b \in G$, it holds that $a \circ b = c \in G$.
-  \item The group operation is associative. That is, $a \circ (b \circ c) = (a \circ b) \circ c$ for all $a, b, c \in G$.
-  \item There is an element $1 \in G$, called the neutral element (or the identity element), such that $a \circ 1 = 1 \circ a = a$ for all $a \in G$.
-  \item For each $a \in G$ there exists an element $a^{-1} \in G$, called the inverse of $a$, such that $a \circ a^{-1} = a^{-1} \circ a = 1$ for all $a \in G$.
-  \item A group $G$ is an Abelian group if, furthermore, $a \circ b = b \circ a$ for all $a, b \in G$.
-\end{itemize}
+So, a group is set with one operation and the corresponding inverse operation. If the operation is addition, the inverse operation is subtraction; and if the operation is multiplication, the inverse operation is division or multiplication with the inverse element. For example, let take the set $Z_{n}$ with $n = 9$, which consists of the elements ${0, 1, 2, 3, 4, 5, 6, 7, 8}$. To form a group from the set $Z_{9}$, we have to determine the group operation, the identity element, and eliminate the element that's not belongs to the group. Here, we care about the operation multiplication modulo, which means an element $i$ in the set must satisfy the condition gcd($i$, $9$) $= 1$. With that, we can see the set will become a group if it contains only these elements ${1, 2, 4, 5, 7, 8}$ where its identity element is $1$. This new set can be denoted as $Z^{*}_{9}$. We can also call $Z^{*}_{9}$ a field because it has all four basic arithmetic operations. For the definition, a field is defined as
 
-So, a group is set with one operation and the corresponding inverse operation. If the operation is addition, the inverse operation is subtraction; and if the operation is multiplication, the inverse operation is division or multiplication with the inverse element. What we call a field is a group with all four basic arithmetic operations. A field is defined as:
+\begin{mdframed}[align=center, userdefinedwidth=32em]
+    \begin{definition} Field\\
+    A field $F$ is a set of elements with the following properties.
+    \begin{enumerate}
+      \item All elements of $F$ form an additive group with the group operation ``$+$" and the neutral element $0$.
+      \item All elements of $F$ except $0$ form a multiplicative group with the group operation ``$\times$" and the neutral element $1$.
+      \item When the two group operations are mixed, the distributivity law holds, i.e., for all $a, b, c \in F: a \times (b+c) = (a \times b) + (a \times c)$.
+    \end{enumerate}
+    \end{definition}
+\end{mdframed}
 
-\vspace{0.25cm}\textbf{Definition:} A field F is a set of elements with the following properties.
-\begin{itemize}
-  \item All elements of F form an additive group with the group operation ``$+$" and the neutral element $0$.
-  \item All elements of F except $0$ form a multiplicative group with the group operation ``$\times$" and the neutral element $1$.
-  \item When the two group operations are mixed, the distributivity law holds, i.e., for all $a, b, c \in F: a \times (b+c) = (a \times b) + (a \times c)$.
-\end{itemize}
-
-In the elliptic curve, we are interested in fields with a finite number of elements, the finite field. The number of elements in the field $F_p$ is called the order (cardinality) of the field, denoted by $|F_p|$. A field with order $m$ only exists if $m$ is a prime power, i.e., $m = p^n$, for some positive integer $n$ and a prime integer $p$. $p$ is called the characteristic of the finite field, denoted as $char(p)$. A finite field is denoted as $GF(p^n)$ or $F_{p^n}$. The most intuitive examples of finite fields are fields of prime order with $n = 1$. Elements of the prime field $F_p$ can be represented by integers $0, 1, \dotso , p-1$. The two operations of the field are modular integer addition and integer multiplication modulo $p$. With $n > 1$, the field is called extension field, the elements are polynomials $a_{n-1}X^{n-1} + a_{n-2}X^{n-2} + \dotso + a_1X + a_0$, where the coefficient $a$ is in $F_p$. The arithmetic operations in an extension field are polynomial addition modulo $p$ with the coefficients and polynomial multiplication modulo $P(x)$. $P(x)$ is called the irreducible polynomials, which acts like ``a prime" of the polynomials.
+In the elliptic curve, we are interested in fields with a finite number of elements, the finite field. A finite field is denoted as $GF(p^n)$ or $F_{p^n}$. The number of elements in the field $F_p$ is called the order (cardinality) of the field, denoted by $|F_p|$. A field with order $m$ only exists if $m$ is a prime power, i.e., $m = p^n$, for some positive integer $n$ and a prime integer $p$. $p$ is called the characteristic of the finite field, denoted as $char(p)$. The most intuitive examples of finite fields are fields of prime order with $n = 1$. Elements of the prime field $F_p$ can be represented by integers $0, 1, \dotso , p-1$. The two operations of the field are modular integer addition and integer multiplication modulo $p$. With $n > 1$, the field is called extension field, the elements are polynomials $a_{n-1}X^{n-1} + a_{n-2}X^{n-2} + \dotso + a_1X + a_0$, where the coefficient $a$ is in $F_p$. The arithmetic operations in an extension field are polynomial addition modulo $p$ with the coefficients and polynomial multiplication modulo $P(x)$. $P(x)$ is called the irreducible polynomials, which acts like ``a prime" of the polynomials.
 
 Elliptic curve usually works in the prime field, to gain a finite number of curve points. The points on an elliptic curve over $F_p$ also belong to a group, called cyclic group. A cyclic group is a multiplicative group $F_p^* = \{ gcd(x,p) = 1 \ | \ x \in [ 1, 2, \dotso , p-1 ] \}$, where $p$ is a prime and contains at least one special element $\alpha$. The element $\alpha$ is called primitive element or generator, such that $ord(\alpha) = |(F_p)^*|$, where the order of $\alpha$ (denoted $ord(\alpha)$) is the smallest positive integer $k$ satisfies $a^k = a \circ a \circ \dotso \circ a$ ($k$ times) $= 1$. The multiplies of $\alpha$ generates all the elements in the $F_p^*$ , and they repeat cyclically similar to a modulo congruence. E.g.: For a $F_{11}^* = \{ 1, \ 2, \ 3, \ 4, \ 5, \ 6, \ 7, \ 8, \ 9, \ 10 \}$ with order of 10, the generator $\alpha$ can be 2 since:\\
 
