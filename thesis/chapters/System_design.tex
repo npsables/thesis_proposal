@@ -21,7 +21,7 @@ Also, we believe anyone should have access to any of the non-custodial wallets s
 We name our library “hdcore” meaning the cores of HD wallets. The library is divided into two parts.
 
 \begin{itemize}
-    \item The /src folder comprises the /wallet folder which is the implementation of API for each chosen blockchain. There is also a constant file including all general information about the blockchain (index, url, etc. ). And an account file where we generalize the wallet folder, users can choose their blockchain wallet through this file.
+    \item The /src folder comprises the /wallet folder which is the implementation of API for each chosen blockchain. There is also a constant file including all general information about the blockchain (index, url, etc). And an account file where we generalize the wallet folder, users can choose their blockchain wallet through this file.
     \item The /test folder contains test cases for every function.
 \end{itemize}
 
@@ -152,7 +152,7 @@ Also, since the server holds no sensitive information, the attacks aimed to spoo
 
 In practice, our system requires a server to host the RESTful web service to handle the requests from users. Users can access our wallet interface through their browser by entering the domain of our hosting service.
 
-The protocols between users and our server describes as \autoref{fig:uws}:
+The protocols between users and our server describes as \autoref{fig:uws}.
 
 \begin{figure}[!ht]
     \centering
@@ -161,7 +161,7 @@ The protocols between users and our server describes as \autoref{fig:uws}:
     \label{fig:uws}
 \end{figure}
 
-The server-side contains the request handler and service handler. The request handler acts like an endpoint where users send in their requests. Then parse the parameter and transfer it to the service handler. The service handler will read the information and return the content of the webpage (HTML, scripts, etc. ) to the users.
+The server-side contains the request handler and service handler. The request handler acts like an endpoint where users send in their requests. Then parse the parameter and transfer it to the service handler. The service handler will read the information and return the content of the webpage (HTML, scripts, etc) to the users.
 
 The client-side (user browser) accesses the wallet through a GET request to the server. All users' critical information will be saved at their local storage, like master private keys or passwords and they should be encrypted.
 
@@ -169,7 +169,7 @@ The client-side (user browser) accesses the wallet through a GET request to the 
 
 If the users want to make a transaction they will connect directly to the blockchain networks. Before building a transaction, users will decrypt the private key from their local storage. The private key will be used to sign the transaction. The transaction will be broadcast directly to decentralized networks without going through the server.
 
-The protocols described as \autoref{fig:ubl}:
+The protocols described as \autoref{fig:ubl}.
 
 \begin{figure}[!ht]
     \centering
@@ -203,11 +203,11 @@ The structure of the JSON request present as Figure~\ref{fig:json}.
 
 The database handler will save the JSON object from the request handler. The reason we choose the JSON object is that it is easier to be updated by the users. Furthermore, they are optimized by the search engine. We recommended using a NoSQL database program for this architecture, especially the one that utilized collections and documentations.
 
-The database is designed just like the JSON object, but holds more values (see \autoref{fig:json1})
+The database is designed just like the JSON object, but holds more values (see \autoref{fig:json1}).
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{images/json1.png}
+    \includegraphics[width=0.8\textwidth]{images/json1.png}
     \caption[General JSON object of a Wallet]{JSON object of a Wallet}
     \label{fig:json1}
 \end{figure}

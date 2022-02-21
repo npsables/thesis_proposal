@@ -176,7 +176,7 @@ Here, the addition law is incomplete, since we can’t add the same point twice,
         \item$h$: The cofactor of the subgroup such that with $n(hP)=0$, $G = hP$. In other words, $h=N/n$
 \end{itemize}
 
-Also, in practice, a point $P(x,y)$ can be compressed to an integer ($y$’s LSB in the first byte $\|$  $x$). The first byte of $y$ can be $0x02$ for even $y$, or $0x03$ for odd $y$ (negative $y$) with the given $x$. For instance, a point $P(6, 8)$ can be compressed to the integer $0x026$ in hexadecimal format. The actual number is almost 256-bit long, this is just a plain example.
+Also, in practice, a point $P(x,y)$ can be compressed to an integer ($y$’s LSB in the first byte $\|$  $x$). The first byte of $y$ can be 0x02 for even $y$, or 0x03 for odd $y$ (negative $y$) with the given $x$. For instance, a point $P(6, 8)$ can be compressed to the integer 0x026 in hexadecimal format. The actual number is almost 256-bit long, this is just a plain example.
 
 \subsubsection{Elliptic curve discrete logarithm problem - ECDLP}
 
