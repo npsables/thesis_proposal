@@ -31,7 +31,7 @@ BIP32 also makes wallets more recoverable since users only have to maintain the 
 \bigskip
 {\textbf{Extended keys}}. An extended key is defined as follow:
 
-\begin{adjustwidth}{2cm}{}
+\begin{adjustwidth}{1.5cm}{}
     An extended key consists of a private or public key and chain code. An extended key can create children, generating its own branch in the tree structure. Sharing an extended key gives access to the entire branch.
 \end{adjustwidth}
 
@@ -59,7 +59,7 @@ We couldn’t find any reason behind why the author of BIP32 designed the parent
 In the next part, we will represent an extended private key as $(k, c)$, with $k$ the normal private key, and $c$ the chain code. An extended public key is represented as $(K, c)$, with $K = point(k)$ and $c$ the chain code. The index is denoted to \textit{i}; to ease, $i_H$ is the index of a hardened key representing a number of $i+2^{31}$.
 
 \bigskip
-{\textbf{Convention}}. In the rest of this thesis, we will assume the public key cryptography used in Blockchain, namely elliptic curve cryptography using the field and curve parameters. Variables below are either:
+{\textbf{Convention}}. In the rest of this thesis, we will assume the public key cryptography used in blockchain, namely elliptic curve cryptography using the field and curve parameters. Variables below are either:
 
 \begin{itemize}
     \item Integers modulo the order of the curve (referred to as $n$).
@@ -362,7 +362,7 @@ On account of the mechanism elliptic curve mathematics works, the derived child 
 \subsubsection{SLIP10}
 \label{SLIP10}
 
-Due to the emergence of Blockchain technology and the more powerful full quantum attack, the industry applies some other more powerful curves and digital signature algorithms. The SatoshiLabs Improvement Proposals number 10 (SLIP10) \cite{github/slip0010} was created for this reason. It defines a new hierarchical key derivation schema which is an extended superset of the BIP32 derivation algorithm to work on other curves. With secp256k1, SLIP10 is basically compatible. For the sake of our thesis, we will only examine their adaptation for the curve Ed25519.
+Due to the emergence of blockchain technology and the more powerful full quantum attack, the industry applies some other more powerful curves and digital signature algorithms. The SatoshiLabs Improvement Proposals number 10 (SLIP10) \cite{github/slip0010} was created for this reason. It defines a new hierarchical key derivation schema which is an extended superset of the BIP32 derivation algorithm to work on other curves. With secp256k1, SLIP10 is basically compatible. For the sake of our thesis, we will only examine their adaptation for the curve Ed25519.
 
 \bigskip
 {\textbf{Master key generation function}}. Adapting the master key generation from BIP32, SLIP10 also has a master key that possesses a size of 512 bits. From the master private key, we can calculate the master public key.
@@ -460,7 +460,7 @@ The HMAC-SHA512 function is specified in the Background.
     \bigskip
     {\textbf{Ed25519's “bit clamping" problem}}. For performance reasons, Ed25519 doesn't provide a prime-order group and provides a group of order $h * l$ instead, where $h$ is a small cofactor of 8 and $l$ is a 252-bit prime (Section \ref{cryptography}). In short, a cofactor is one of the parameters that make up an elliptic curve. The number of points on the elliptic curve can be described as $n = r * h$ where $r$ is the prime order of a subgroup and $h$ is the cofactor.
 
-    The method of using a cofactor to boost a better performance \cite{DBLP:journals/iacr/BernsteinL17} has proven to be a source of issues and vulnerabilities in higher-layer protocol. If the cofactor is 1, like in many of the standardized curves, it’s not something we need to worry about. If it is not one, careful consideration needs to be made for its implications in cryptographic schemes to avoid a few types of attacks, notably small-subgroup attacks \cite{DBLP:journals/rfc/rfc2785} and more announced malleability attacks (For example in Monero Blockchain \cite{Riccardo}).
+    The method of using a cofactor to boost a better performance \cite{DBLP:journals/iacr/BernsteinL17} has proven to be a source of issues and vulnerabilities in higher-layer protocol. If the cofactor is 1, like in many of the standardized curves, it’s not something we need to worry about. If it is not one, careful consideration needs to be made for its implications in cryptographic schemes to avoid a few types of attacks, notably small-subgroup attacks \cite{DBLP:journals/rfc/rfc2785} and more announced malleability attacks (For example in Monero blockchain \cite{Riccardo}).
 
     To prevent this, Ed25519 performs a “bit clamping” on step \textit{set/clear bits} in \autoref{fig:multiply_ed25519} as follow (bytes represented in little-endian form):
 
@@ -662,7 +662,7 @@ Pseudo-code:
 {\textbf{The BIP32-Ed25519 key leakage problem}}. Same as BIP32, the problem is if the attackers have one of the private child keys, can they recover all of the other wallets? The answer is no thanks to the hash function HMAC-SHA512 between the secret parent key and its children. Therefore, the extended key can be guessed by brute-force $2^{256}$ different master secrets. But the number of recovered wallets is only limited in this case. They can retrieve only the parent keys they derived from and then generate all branches of child keys from that node. This may lead to a fundamental leakage problem if the implementers fail to check the depth of child wallets. The implementers also have difficulties reviewing all the cases, even harder to keep track of the depth when more child wallets are produced. This case raises a problem in our thesis where we allow users (who have no ideas of the security issues) to choose their index and depth of the tree. Hardened derivation of BIP32-Ed25519 also is vulnerable to this attack vector. Furthermore, using the public key as a part of the function to derive a child private key won’t serve the standard properties that the SLIP10 hardened key provided.
 
 \bigskip
-{\textbf{The BIP32-Ed25519 bit clamping before signing problem}}. Jeff Burdges (Web3 Foundation, Polkadot Blockchain), who is famous for finding the vulnerabilities in the BIP32-Ed25519 proposal, warned us about a potential attack vector occurring under the many time the derivation function clamping. Ed25519’s bit clamping is only designed for preventing attacks in the signing method and key exchange. According to Burdges, clamping the bits doesn’t make the key more secure; instead, it makes the key weaker. BIP32-Ed25519 also uses only 224-bit scalar derivation (28-byte), so each level of derivation weakens the adequate strength of the computed scalar value.
+{\textbf{The BIP32-Ed25519 bit clamping before signing problem}}. Jeff Burdges (Web3 Foundation, Polkadot blockchain), who is famous for finding the vulnerabilities in the BIP32-Ed25519 proposal, warned us about a potential attack vector occurring under the many time the derivation function clamping. Ed25519’s bit clamping is only designed for preventing attacks in the signing method and key exchange. According to Burdges, clamping the bits doesn’t make the key more secure; instead, it makes the key weaker. BIP32-Ed25519 also uses only 224-bit scalar derivation (28-byte), so each level of derivation weakens the adequate strength of the computed scalar value.
 Burdges also mentioned a straightforward full key recovery attack if one permits long key derivation paths along with either clamping by an Ed25519 library \cite{Jeff}.
 
 In conclusion, there are three most notable key derivation methods that we mentioned. There is some more approach to HD key tree derivation like the Tor’s approach \cite{torspec}. It was released four years before the BIP32-Ed25519. However, they haven’t published any implementations as well as the test vector on the internet, making it very hard for the open-source researcher and the community to validate. We consider any project with this behavior as a fraud proposal and continue with our thesis.

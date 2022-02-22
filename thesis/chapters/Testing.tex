@@ -4,9 +4,9 @@
 
 \minitoc
 
-\section{The Library}
+\section{The library}
 \label{testlib}
-\subsection{Testcases}
+\subsection{Test cases}
 
 We run a total of 10 test cases to make sure every API functions normally according to its definition (presenting tests with Solana and Ed25519 keys). 
 
@@ -106,7 +106,7 @@ We import Nodejs kernel to notebook environment and start a session. The grey pa
 
 \end{itemize}
 
-\subsection{Security Discussion}
+\subsection{Security discussion}
 
 We acknowledge that cryptography is a tool to achieve security. Still, if we get anything wrong in the cryptography implementation, that will not deliver the protection it was meant to offer, and it will become ineffective. We focused on researching the security flaws as the warning in the proposed paper to avoid implementing bad crypto.
 
@@ -116,10 +116,10 @@ We use the hardened key derivation schema of the BIP32 and SLIP10 to avoid the k
 
 We also make sure the requests and connection of the wallet to the blockchain will not leak any important information about the created wallet. Overall, our library applied a provable cryptography library and followed the safest schema in the industrial community, and improvised the efficiency by current technology.
 
-\section{The Hierarchical Deterministic Web Wallet}
+\section{The hierarchical deterministic web wallet}
 \label{testhd}
-\subsection{Testcases}
-We test our Web Wallet behaviors by following testcases.
+\subsection{Test cases}
+We test our Web Wallet behaviors by following test cases.
 
 {\textbf{Test table}}
 
@@ -138,7 +138,7 @@ We test our Web Wallet behaviors by following testcases.
     HDW-09 & Search a child wallet's address using the master wallet address in the main page.& Display all the pushed child wallets's addresses of the master address from the databases. & As expected & Pass   \\ 
     \bottomrule
 \end{tabular}
-\subsection{Security Discussion}
+\subsection{Security discussion}
 
 We think that no system is perfectly safe from security threats. At least, we can prevent common attacks from happening. Observing mentioned OWASP’s securities risk, we present as follows:
 
@@ -147,7 +147,7 @@ We think that no system is perfectly safe from security threats. At least, we ca
     \begin{quote}
         The Address service is highly vulnerable to this attack since we design it with no authentication at all. Access control enforces policy such that users cannot act outside of their intended permissions. No authentication lead to an attacker can poison other address databases. For example, they can push their addresses into each other documents in MongoDB and impersonate their child addresses. However, we consider this vulnerability is deemed to be easy to solve. In this thesis, we created a demo product. In practice, we could avoid this attack for our service with any server we deployed on with a regular authentication token for each user.
     \end{quote}
-    \item \textbf{Cryptographic Failures}.
+    \item \textbf{Cryptographic failures}.
     \begin{quote}
         Our web wallet security depends on heavy cryptography. We created a library that takes parts as a core of our fundamental cryptography to prevent this vulnerability. The provable security of our library is discussed in Section \ref{testlib}.
     \end{quote}
@@ -155,10 +155,10 @@ We think that no system is perfectly safe from security threats. At least, we ca
     \begin{quote}
         We prevent injection attacks by carefully checking the user’s input and rejecting them if they belong to scripts group.
     \end{quote}
-    \item \textbf{Insecure Design}.
+    \item \textbf{Insecure design}.
     \begin{quote}
         Secure design is a culture and methodology that constantly evaluates threats and ensures that code is robustly designed and tested to prevent known attack methods. We designed a system that leaks no sensitive information of the user. We also researched well-concerned attack vectors on our system and the library and prevented it in our implementation.    \end{quote}
-    \item \textbf{Vulnerable and Outdated Components}.
+    \item \textbf{Vulnerable and Outdated components}.
     \begin{quote}
         Library and frameworks we used are up-to-date and well researched. We removed all unnecessary features, components, and samples. There are no redundant or risks contained in the library that we applied.
     \end{quote}

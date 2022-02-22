@@ -3,9 +3,9 @@
 
 \minitoc
 
-\section{The Library}
+\section{The library}
 \bigskip
-{\textbf{Typescript}}. TypeScript is a strict superset of javascript, designed as a strongly typed programming language by Microsoft. A strongly typed language is more secure because it requires explicit declarations to convert or compare between types in order to convert between languages. This allows for the avoidance of errors and memory exploitations such as the CWE-704 Incorrect Type Conversion or Cast \cite{cwe}. At the same time, it checks types at compile time to find any potential type errors before they are propagated into the program.
+{\textbf{Typescript}}. TypeScript is a strict superset of JavaScript, designed as a strongly typed programming language by Microsoft. A strongly typed language is more secure because it requires explicit declarations to convert or compare between types in order to convert between languages. This allows for the avoidance of errors and memory exploitations such as the CWE-704 Incorrect Type Conversion or Cast \cite{cwe}. At the same time, it checks types at compile time to find any potential type errors before they are propagated into the program.
 
 TypeScript uses a transpiler, a source-to-source compiler that takes TypeScript source and converts it into JavaScript. The TypeScript code ends up running as JavaScript. In conclusion, TypeScript does provide a set of constraints regarding typing, which enforces a higher level of security.
 
@@ -54,7 +54,7 @@ To handle curve ed25519 arithmetic, we use the tweetnacl-js library as mentioned
 \subsection{Library API}
 \label{typeapi}
 The main API are listed as:
-\begin{itemize}
+\begin{enumerate}
     \item \textbf{hdcore.account.createMnemonic()}
           \begin{quote}
               Return a mnemonic code with 12 or 24 words.
@@ -99,7 +99,7 @@ The main API are listed as:
           \begin{quote}
               Broadcast transaction to the networks.
           \end{quote}
-\end{itemize}
+\end{enumerate}
 
 A few more function supports every detail to make the wallet work appropriately (for example, address validation, public key validation, transaction building, etc...).
 
@@ -108,9 +108,9 @@ A few more function supports every detail to make the wallet work appropriately 
 Our documentation can be found at \textit{npm} ({\href{https://www.npmjs.com/package/hdcore-ts}{here}}).
 
 
-\section{The Hierarchical Deterministic Web Wallet}
+\section{The hierarchical deterministic web wallet}
 
-We give an overview of our system technology and flow in Section \ref{echo}, presenting the details of Address service and the web wallet in sections \ref{address} and \ref{webui} as Address service and the Web Wallet, respectively.
+We give an overview of our system technology and flow in Section \ref{echo}, presenting the details of Address service and the web wallet in sections \ref{address} and \ref{webui} as Address service and the web wallet, respectively.
 
 \subsection{Ecosystem}
 \label{echo}
@@ -145,7 +145,7 @@ The address service provides API for public wallet management and searching (in 
 {\textbf{MongoDB}}. MongoDB \cite{mongo} is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas, so it is suitable for our database design.
 
 \bigskip
-\subsubsection{API Provider}
+\subsubsection{API provider}
 
 For reference only, the base URL of the system is http://localhost:8080.
 
@@ -345,22 +345,19 @@ Example response:
 
 There are potential attacks on this kind of server since we haven’t provided any authentication at all. We discuss these attacks in the evaluation Section (see Chapter \ref{fig:testcase}).
 
-\subsection{Web Wallet Service}
+\subsection{Web wallet service}
 \label{webui}
 
 \bigskip
-{\textbf{React JS}}. React was invented by a software engineer at Facebook named Jordan Walke, was first introduced in 2011. Walke finalized the prototype and created React in 2012, soon combined it into Facebook in the same year. In 2013 React became open-source and later became available in Ruby on Rails and Python Applications. This is followed by the release of React Native, an extension of React for mobile development on Android and iOS, in 2015. Since then, React consistently pushed out many releases throughout the years, enhancing and submitting new features for users. React is a versatile tool that can be operated on both desktop and mobile platforms with many different features. One of them is the ability to produce interactively rather than simple static pages that can update and rerender data after each input from the user, thus permitting for a seamless UI without refreshing the whole page every time a component is changed. The reason for this is that React’s structure is based on components that allow for the design of complex UIs due to the component logic being written in JavaScript.
+{\textbf{React JS}}. React was invented by a software engineer at Facebook named Jordan Walke, was first introduced in 2011. Walke finalized the prototype and created React in 2012, soon combined it into Facebook in the same year. In 2013, React became open-source and later became available in Ruby on Rails and Python Applications. This is followed by the release of React Native, an extension of React for mobile development on Android and iOS, in 2015. Since then, React consistently pushed out many releases throughout the years, enhancing and submitting new features for users. React is a versatile tool that can be operated on both desktop and mobile platforms with many different features. One of them is the ability to produce interactively rather than simple static pages that can update and rerender data after each input from the user, thus permitting for a seamless UI without refreshing the whole page every time a component is changed. The reason for this is that React’s structure is based on components that allow for the design of complex UIs due to the component logic being written in JavaScript.
 
-There are another framework for JavaScript such as Vue.js, Angular, etc, but we choose React as it the most popular one. Compared to other framework, React is just a library, not a pre-built framework, which is easier to configure and develop. Another difference is that, React uses multiple components together to build up a website rather than a website template and update its inner elements. Each component is an HTML element which has its own properties and state. For this reason, React allows re-rendering specific components of the webpage in comparison to Vue.js or Angular, which re-renders a whole page. The reason why it can work like that is because React does not update the DOM directly, but through a virtual DOM. The virtual DOM is a JavaScript object which stores all the information to create a DOM. Every time a component updates its state, the virtual DOM compares the change and only render the changes onto the DOM. Overall, React helps us to maintain and update code easier through the component structure (similar to Object-oriented programming style), interactive website, and efficient DOM manipulation with virtual DOM.
+There are another framework for JavaScript such as Vue.js, Angular, etc, but we choose React as it the most popular one. Compared to other framework, React is just a library, not a pre-built framework, which is easier to configure and develop. Another difference is that, React uses multiple components together to build up a website rather than a website template and update its inner elements. Each component is an HTML element which has its own properties and state. For this reason, React allows re-rendering specific components of the webpage in comparison to Vue.js or Angular, which re-renders a whole page. The reason why it can work like that is because React does not update the Document Object Model (DOM) directly, but through a virtual DOM. The virtual DOM is a JavaScript object which stores all the information to create a DOM. Every time a component updates its state, the virtual DOM compares the change and only render the changes onto the DOM. Overall, React helps us to maintain and update code easier through the component structure (similar to Object-oriented programming style), interactive website, and efficient DOM manipulation with virtual DOM.
 
 \bigskip
 {\textbf{Node.js}}. Node.js is required as it provides a JavaScript environment and libraries for developing React. Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a "JavaScript everywhere" paradigm, unifying web-application development around a single programming language, rather than different languages for server-side and client-side scripts.
 
 \bigskip
-{\textbf{User Interface}}
-\bigskip
-
-We implement our design and create our web pages as follow:
+{\textbf{User interface}}. We implement our design and create our web pages as follow:
 
 \begin{figure}[h!]
     \centering
