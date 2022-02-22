@@ -235,7 +235,7 @@ The security tests will be examined with specific aims and different tools. We w
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=1\textwidth]{images/usecases.png}
+    \includegraphics[width=1\textwidth]{images/usecasediagram.png}
     \caption[Usecase diagram]{Usecase diagram}
     \label{fig:usecases}
 \end{figure}
@@ -257,6 +257,8 @@ The security tests will be examined with specific aims and different tools. We w
         Search address.          & Table \ref{Tab:UC-4} \\ 
         Modify address.          & Table \ref{Tab:UC-5} \\ 
         Make transaction.        & Table \ref{Tab:UC-6} \\ 
+        Import wallet.        & Table \ref{Tab:UC-7} \\ 
+
         % Share. & Table \ref{Tab:UC-8}\\ \hline
         % Set permission. & Table \ref{Tab:UC-9}\\ \hline
         % View change history. & Table \ref{Tab:UC-10}\\ \hline
@@ -507,6 +509,41 @@ The security tests will be examined with specific aims and different tools. We w
     \end{tabular}
     \captionof{table}{\label{Tab:UC-6} Make transaction.}
 \end{table}
+
+
+\begin{table}[]
+    \begin{tabular}{m{4cm} m{11cm} }
+        \toprule
+        Use Case Name:     & Import wallet.                                    \\ 
+        \midrule 
+        Event:             & The user clicks on Import Wallet button from homepage. \\ 
+        \midrule 
+        Description:       & The user wants to access their existed wallet.  \\ 
+        \midrule 
+        Preconditions:     & \begin{itemize}
+            \item Application has an internet connection.
+            \item The user already accesses the homepage.
+        \end{itemize}                           \\ 
+        \midrule 
+        Post-conditions:   & \begin{itemize}
+            \item Default wallets are created, their balances are corrected.
+        \end{itemize}                           \\ 
+        \midrule 
+        Normal flows:      & \begin{enumerate}
+            \item The user clicks on Import Wallet button.
+            \item Web show Import Wallet page.
+            \item The user enters the mnemonic code and clicks Import.
+            \item Web shows their default wallets and balances.
+        \end{enumerate}                           \\ 
+        \midrule 
+        Alternative flows: & N $\backslash$ A                                     \\
+        \midrule 
+        Exception:         &              N $\backslash$ A          \\ 
+        \bottomrule
+    \end{tabular}
+    \captionof{table}{\label{Tab:UC-7} Import wallet.}
+\end{table}
+
 \clearpage
 
 \subsubsection{User interface Design}
