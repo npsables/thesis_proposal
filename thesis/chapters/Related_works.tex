@@ -6,7 +6,7 @@
 
 \minitoc
 
-\section{Related Protocol}
+\section{Related protocols}
 \subsection{Key Derivation}
 
 The word “Hierarchical Deterministic” in crypto wallet were first introduced by Pieter Wuille in Bitcoin Improvement Proposal number 32 (BIP32) \cite{github/bip0032}. The initial idea was to build a wallet architect like a tree. From the root seed, we can derive child private keys and child public keys that construct many child wallets for different purposes. However, BIP32 only supports the elliptic curve used in Bitcoin, defined by the name ``secp256k1" \cite{secp256k1}. SatoshiLabs Improvement Proposal number 10 (SLIP10) is an attempt to generalize the BIP32's key derivation schema for different curves, e.g., NIST P-256 and Ed25519. For some security reasons, SLIP10 forbade normal child key derivation on curve Ed25519. But SLIP23 adopted them both and proposed a new schema on curve Ed25519 called ``BIP32-Ed25519" \cite{Khovratovich2017}. In this section, we will explain how these schemes work and analyze the difficulties in adapting BIP32 to the Ed25519 Curve.
@@ -451,7 +451,7 @@ The HMAC-SHA512 function is specified in the Background.
     \bigskip
     \begin{figure}[ht!]
         \centering
-        \includegraphics[width=0.9\textwidth]{images/ed25519_generator_multiplier.png}
+        \includegraphics[width=0.75\textwidth]{images/ed25519_generator_multiplier.png}
         \caption[Multiply process of Ed25519]{Multiply process of Ed25519 \cite{learnme}}
         \label{fig:multiply_ed25519}
     \end{figure}
@@ -722,7 +722,7 @@ BIP44 defines a logical hierarchy for deterministic wallets. Each level of the h
 \end{itemize}
 
 
-\section{Related Works}
+\section{Related works}
 \label{related}
 
 The HD wallets on curve Ed25519 were quite a challenge for the community. There has been quite an effortless number of implemented open-source libraries and evaluated by experts in cryptography. We do not try to find and analyze all applicable works. Instead, we focus on the notable library and the application that is generally used. We divide into two categories as the core library and real-world implementation.

@@ -3,7 +3,7 @@
 
 \minitoc
 
-\section{The Library}
+\section{The library}
 Our work does not only share an identical problem with the problem statement. We realize that we could do better. With the support of SatoshiLabs proposal number 44 (BIP44), we can create wallets that hold multiple native tokens of different blockchains. We decided our HD wallet will support the blockchain using Ed25519 as well as secp259k1 (two famous curves of the blockchain community). They are Bitcoin, Ethereum, and Solana. As we researched, there are almost no non-custodial hot wallets that support different kinds of coin holders. Even the existing libraries limit their support to a specific blockchain.
 
 Also, we believe anyone should have access to any of the non-custodial wallets so they can be bug-free. Hence, we came up with an open-source library for the other developers. They can use it, contribute to it (merge more blockchains, etc.) and audit our works. Furthermore, we will use this library as a core functionality that supports the cryptography mechanism in our web wallet.
@@ -71,7 +71,7 @@ Our library will be published to the related package manager, so open-source use
 
 
 
-\section{The Hierarchical Deterministic Web Wallet}
+\section{The hierarchical deterministic web wallet}
 We decided to create a web wallet for our thesis so we don’t have to deal with version control and different kinds of operating systems (Android, iOS, etc.). Everybody can access our website with their browsers.
 
 Our web wallet is a non-custodial hot wallet where users can sign in, generate accounts in different blockchains, and send and receive native tokens (see \autoref{fig:webwallet}). They have absolute controls over private keys for every blockchain address, and the wallet provider has no access to them. We will use the localhost environment as a server for the wallet provider.
@@ -79,7 +79,7 @@ Our web wallet is a non-custodial hot wallet where users can sign in, generate a
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/webwallet.png}
-    \caption[Example of Web Wallet flow]{Example of Web Wallet flow}
+    \caption[Example of web wallet flow]{Example of web wallet flow}
     \label{fig:webwallet}
 \end{figure}
 
@@ -105,7 +105,7 @@ Our key derivation tree will look like \autoref{fig:webwallettree}
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{images/tree_web_wallet.png}
-    \caption[HD Web Wallet tree]{HD Web Wallet tree}
+    \caption[HD web wallet tree]{HD web wallet tree}
     \label{fig:webwallettree}
 \end{figure}
 
@@ -144,10 +144,10 @@ Also, since the server holds no sensitive information, the attacks aimed to spoo
 
 
 
-\subsection{System Architecture}
+\subsection{System architecture}
 \label{system_architect}
 
-\subsubsection{User and Web Service}
+\subsubsection{User and Web service}
 
 In practice, our system requires a server to host the RESTful web service to handle the requests from users. Users can access our wallet interface through their browser by entering the domain of our hosting service.
 
@@ -156,7 +156,7 @@ The protocols between users and our server describes as \autoref{fig:uws}.
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{images/design_uws.png}
-    \caption[Between users and Wallet Provider]{Between users and Wallet Provider}
+    \caption[Between users and Wallet provider]{Between users and Wallet provider}
     \label{fig:uws}
 \end{figure}
 
@@ -263,7 +263,7 @@ The security tests will be examined with specific aims and different tools. We w
         % Revert. & Table \ref{Tab:UC-11}\\ \hline
         \bottomrule
     \end{tabular}
-    \captionof{table}{\label{Tab:UCList}Use case List}
+    \captionof{table}{\label{Tab:UCList}Use case list}
 \end{table}
 \clearpage
 
@@ -395,7 +395,7 @@ The security tests will be examined with specific aims and different tools. We w
         Exception:         &   N $\backslash$ A                                                  \\ 
         \bottomrule
     \end{tabular}
-    \captionof{table}{\label{Tab:UC-3} Delete Wallet from the browser.}
+    \captionof{table}{\label{Tab:UC-3} Delete wallet from the browser.}
 \end{table}
 \clearpage
 
